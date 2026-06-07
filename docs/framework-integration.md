@@ -1,6 +1,6 @@
-# MDevHub UI — Framework Integration Guide
+# Mayvio UI — Framework Integration Guide
 
-MDevHub UI is built using clean vanilla HTML, CSS, and modular ES6 JavaScript. This zero-dependency architecture makes it simple to integrate into modern frontend frameworks such as **React** or **Angular**.
+Mayvio UI is built using clean vanilla HTML, CSS, and modular ES6 JavaScript. This zero-dependency architecture makes it simple to integrate into modern frontend frameworks such as **React** or **Angular**.
 
 This document outlines the core patterns for wrapping vanilla scripts and styles in these framework environments.
 
@@ -8,25 +8,25 @@ This document outlines the core patterns for wrapping vanilla scripts and styles
 
 ## 🎨 Integrating Styling (CSS Variables)
 
-Regardless of your framework, you must load the MDevHub UI theme variable declarations and stylesheets.
+Regardless of your framework, you must load the Mayvio UI theme variable declarations and stylesheets.
 
 ### Option A: Consolidated Import (Global)
 Add the CSS import to your main application entrypoint (e.g., `index.js`, `main.ts`, `App.css`):
 ```css
 /* In React App.css or Angular styles.css */
-@import "mdevhub-ui/styles/main.css";
+@import "mayvio-ui/styles/main.css";
 ```
 
 ### Option B: Modular Imports (Component-level)
 If you are lazy-loading styles or only using select components, import the core theme stylesheet followed by individual component files:
 ```css
 /* Core tokens and colors (Required) */
-@import "mdevhub-ui/styles/theme.css";
-@import "mdevhub-ui/styles/base.css";
+@import "mayvio-ui/styles/theme.css";
+@import "mayvio-ui/styles/base.css";
 
 /* Individual component styling */
-@import "mdevhub-ui/styles/components/modal.css";
-@import "mdevhub-ui/styles/components/dropdown.css";
+@import "mayvio-ui/styles/components/modal.css";
+@import "mayvio-ui/styles/components/dropdown.css";
 ```
 
 ---
@@ -40,7 +40,7 @@ Because React manages its own virtual DOM, wrapping vanilla DOM manipulation req
 ### Core Wrapping Pattern
 ```jsx
 import React, { useEffect, useRef } from 'react';
-import { initAccordion } from 'mdevhub-ui/scripts/components/accordion.js';
+import { initAccordion } from 'mayvio-ui/scripts/components/accordion.js';
 
 export function Accordion() {
   const containerRef = useRef(null);
@@ -77,13 +77,13 @@ In Angular, you integrate vanilla components using **Components** or **Attribute
 Attribute directives are ideal for trigger buttons (e.g. launching a Modal on click, or attaching a Tooltip):
 ```typescript
 import { Directive, ElementRef, OnInit, OnDestroy, Input } from '@angular/core';
-import { initTooltip } from 'mdevhub-ui/scripts/components/tooltip.js';
+import { initTooltip } from 'mayvio-ui/scripts/components/tooltip.js';
 
 @Directive({
-  selector: '[mdevTooltip]'
+  selector: '[mayvioTooltip]'
 })
 export class TooltipDirective implements OnInit, OnDestroy {
-  @Input() mdevTooltip: string;
+  @Input() mayvioTooltip: string;
   private destroyFn: () => void;
 
   constructor(private el: ElementRef) {}
@@ -91,7 +91,7 @@ export class TooltipDirective implements OnInit, OnDestroy {
   ngOnInit() {
     // Initialize tooltip script passing the button element ref
     this.destroyFn = initTooltip(this.el.nativeElement, {
-      text: this.mdevTooltip
+      text: this.mayvioTooltip
     });
   }
 
@@ -108,7 +108,7 @@ export class TooltipDirective implements OnInit, OnDestroy {
 Wrap the entire HTML template inside an Angular component and control logic in `AfterViewInit`:
 ```typescript
 import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { initTabs } from 'mdevhub-ui/scripts/components/tabs.js';
+import { initTabs } from 'mayvio-ui/scripts/components/tabs.js';
 
 @Component({
   selector: 'app-tabs',

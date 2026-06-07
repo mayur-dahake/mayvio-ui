@@ -128,3 +128,95 @@
   max-height: 480px;
   margin: 0;
 }
+
+/* Document Viewer Markdown styling */
+.docs-viewer-content {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  padding-right: 8px;
+  color: var(--text) !important;
+}
+
+.docs-viewer-content h1 {
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.docs-viewer-content h2 {
+  font-size: 1.3rem;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+.docs-viewer-content h3 {
+  font-size: 1.1rem;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.docs-viewer-content p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.docs-viewer-content ul {
+  margin-bottom: 16px;
+  padding-left: 20px;
+}
+
+.docs-viewer-content li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.docs-viewer-content code {
+  background: var(--bg-secondary);
+  color: var(--primary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-family: monospace;
+}
+
+.docs-viewer-content .docs-code-block {
+  margin: 16px 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.docs-viewer-content .docs-code-block pre {
+  margin: 0;
+}
+
+.docs-viewer-content .docs-code-block code {
+  background: none;
+  color: var(--text);
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.88rem;
+}
+
+.docs-hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+.docs-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.docs-link:hover {
+  text-decoration: underline;
+}
+

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 /**
- * React Wrapper for MDevHub UI Dropdown component.
+ * React Wrapper for Mayvio UI Dropdown component.
  * Supports searchable single and multi-select modes with full keyboard accessibility.
  * 
  * Props:

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 /**
- * React Wrapper for MDevHub UI Modal component.
+ * React Wrapper for Mayvio UI Modal component.
  * Customizes confirmation or information overlays with accessible behaviors.
  * 
  * Props:
@@ -57,12 +57,12 @@ export function ModalWrapper({ isOpen, onClose, title, children }) {
       aria-hidden={!isOpen}
       role="dialog"
       aria-modal="true"
-      aria-labelledby="mdev-modal-title"
+      aria-labelledby="mayvio-modal-title"
       onClick={handleBackdropClick}
     >
       <div className="modal">
         <div className="modal-header">
-          <h3 id="mdev-modal-title">{title}</h3>
+          <h3 id="mayvio-modal-title">{title}</h3>
           <button className="modal-close" aria-label="Close modal" onClick={onClose}>
             ✕
           </button>

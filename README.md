@@ -1,8 +1,8 @@
-# MDevHub UI
+# Mayvio UI
 
 > **Build Faster. Design Better.**
 
-MDevHub UI is a growing collection of modern, responsive, and accessible UI components designed to help developers build beautiful web applications faster. The project focuses on clean design, smooth user experiences, reusable architecture, theme support, and zero-dependency implementation.
+Mayvio UI is a growing collection of modern, responsive, and accessible UI components designed to help developers build beautiful web applications faster. The project focuses on clean design, smooth user experiences, reusable architecture, theme support, and zero-dependency implementation.
 
 Components are built with performance, maintainability, and accessibility in mind, making them suitable for learning, experimentation, and real-world applications.
 
@@ -11,10 +11,18 @@ Components are built with performance, maintainability, and accessibility in min
 ## 🎯 Mission & Vision
 
 ### Mission
-Create a developer-friendly UI component ecosystem that showcases modern frontend engineering practices, reusable design patterns, and production-ready user interface components.
+To create a modern UI ecosystem that helps developers build beautiful, accessible, and scalable applications faster.
 
 ### Vision
-To evolve MDevHub UI into a complete frontend design system featuring components, layouts, dashboard templates, utilities, documentation, and interactive playgrounds.
+To evolve Mayvio UI into a complete design system featuring:
+* UI Components
+* Dashboard Templates
+* Form Components
+* Data Components
+* Design Tokens
+* Documentation Portal
+* Interactive Playground
+* Developer Tools
 
 ---
 
@@ -75,7 +83,7 @@ To evolve MDevHub UI into a complete frontend design system featuring components
 * **File Upload:** Drag-and-drop targets with upload progress.
 
 ### Phase 5 — Dashboard (Planned)
-* KPI Cards (Animated counters), Analytics Charts (Bar, Line, Pie), widgets, activity timeline.
+* KPI Cards (Animated counters), Analytics Widgets, charts, timeline, activity feed.
 
 ### Phase 6 — Productivity Apps (Planned)
 * Kanban Board, Notes Application, Task Manager.
@@ -88,7 +96,7 @@ To evolve MDevHub UI into a complete frontend design system featuring components
 ## 📂 Project Structure
 
 ```
-mdevhub-ui/
+mayvio-ui/
 ├── index.html
 ├── styles/
 │   ├── base.css
@@ -119,7 +127,7 @@ npx serve .
 
 ## 🔌 How to Integrate
 
-You can integrate MDevHub UI components into your project in three different ways:
+You can integrate Mayvio UI components into your project in three different ways:
 
 ### Option A: Complete Bundle (Easiest)
 Link the consolidated stylesheet in your HTML `<head>` and import the initialization scripts:
@@ -150,11 +158,11 @@ You can directly link stylesheets and import modular JS from a CDN (such as unpk
 
 ```html
 <!-- Link consolidated styles -->
-<link rel="stylesheet" href="https://unpkg.com/mdevhub-ui/styles/main.css">
+<link rel="stylesheet" href="https://unpkg.com/mayvio-ui/styles/main.css">
 
 <!-- Import and initialize components dynamically inside a module script -->
 <script type="module">
-  import { initAccordion, createToast } from "https://unpkg.com/mdevhub-ui/scripts/index.js";
+  import { initAccordion, createToast } from "https://unpkg.com/mayvio-ui/scripts/index.js";
   
   // Initialize accordion triggers
   initAccordion();
@@ -181,13 +189,13 @@ Ensure that your overlay element has class `.modal-overlay` and the modal conten
 
 ## 🔮 Future Ecosystem
 
-MDevHub UI is designed to scale with future companion products:
-* `mdevhub-ui` (This project - core component library)
-* `mdevhub-dashboard` (Admin and analytical dash layouts)
-* `mdevhub-report-builder` (Custom document and query builders)
-* `mdevhub-ai-assistant` (Interactive layout generator)
-* `mdevhub-workflow` (Automation visualizers)
-* `mdevhub-labs` (Experimental UI components)
+Mayvio UI is designed to scale with future companion products:
+* `mayvio-ui` (This project - core component library)
+* `mayvio-dashboard` (Admin and analytical dash layouts)
+* `mayvio-report-builder` (Custom document and query builders)
+* `mayvio-ai-assistant` (Interactive layout generator)
+* `mayvio-workflow` (Automation visualizers)
+* `mayvio-labs` (Experimental UI components)
 
 ---
 

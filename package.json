@@ -1,7 +1,7 @@
 {
-  "name": "mdevhub-ui",
+  "name": "mayvio-ui",
   "version": "1.0.0",
-  "description": "A collection of modern, accessible, and reusable UI components built with HTML, CSS, and JavaScript.",
+  "description": "Modern, accessible and reusable UI components built with HTML, CSS and JavaScript.",
   "type": "module",
   "main": "./scripts/index.js",
   "exports": {
@@ -10,17 +10,19 @@
     "./styles/*": "./styles/*",
     "./scripts/*": "./scripts/*"
   },
+  "homepage": "https://github.com/mayur-dahake/mayvio-ui",
   "keywords": [
     "ui",
-    "components",
+    "ui-components",
+    "component-library",
     "design-system",
     "frontend",
     "html",
     "css",
     "javascript",
-    "dark-mode",
     "responsive",
-    "accessibility"
+    "accessibility",
+    "dark-mode"
   ],
   "author": "Mayur Dahake",
   "license": "MIT"

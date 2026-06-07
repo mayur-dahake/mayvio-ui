@@ -1,12 +1,12 @@
-# MDevHub UI — Accessibility & WAI-ARIA Specifications
+# Mayvio UI — Accessibility & WAI-ARIA Specifications
 
-This document outlines the accessibility design patterns, HTML structures, ARIA roles, and keyboard navigation requirements implemented across MDevHub UI components.
+This document outlines the accessibility design patterns, HTML structures, ARIA roles, and keyboard navigation requirements implemented across Mayvio UI components.
 
 ---
 
 ## 🏛️ Core Guidelines
 
-MDevHub UI aims for full compliance with WCAG 2.1 AA guidelines. Every interactive component is designed to be accessible to keyboard-only users and screen readers by adhering to the following rules:
+Mayvio UI aims for full compliance with WCAG 2.1 AA guidelines. Every interactive component is designed to be accessible to keyboard-only users and screen readers by adhering to the following rules:
 
 1. **Logical Tab Order:** All interactive elements are reachable via `Tab` key navigation in order of presentation.
 2. **Visible Focus Indicators:** Never hide focus rings (`outline: none` is prohibited without a custom `:focus-visible` outline).
@@ -20,7 +20,7 @@ MDevHub UI aims for full compliance with WCAG 2.1 AA guidelines. Every interacti
 ### 1. Theme Switcher
 * **Semantic HTML:** `<button>` with `type="button"`.
 * **ARIA Attributes:**
-  * `role="switch"`: Identifies the button as a toggle switch.
+  * `role="switch"`: Identifies the toggle switch.
   * `aria-checked="true|false"`: Communicates the current state (checked for dark mode, unchecked for light mode).
   * `aria-label="Switch to dark theme"`: Self-explanatory label.
 * **Keyboard Interaction:**
@@ -142,3 +142,17 @@ MDevHub UI aims for full compliance with WCAG 2.1 AA guidelines. Every interacti
 * **Semantic HTML:** `<nav aria-label="Breadcrumb">` wrapper containing an ordered list (`<ol>`).
 * **ARIA Attributes:**
   * `aria-current="page"`: Applied to the last item in the list, signifying it represents the current webpage.
+
+### 15. Data Grid
+* **ARIA Structure:**
+  * Grid wrapper container with `role="region"`, `aria-label="Data Grid"`, and `tabindex="0"`.
+  * Table element with `role="grid"`.
+  * Header row with `role="row"` and header cells with `role="columnheader"`.
+  * Body rows with `role="row"` and body cells with `role="gridcell"`.
+* **ARIA Attributes:**
+  * `aria-sort="ascending|descending|none"`: Applied to sortable headers to communicate the active sort direction.
+  * `aria-expanded="true|false"`: Placed on the column visibility dropdown button.
+  * `aria-live="polite"`: Placed on the pagination status region.
+* **Keyboard Navigation:**
+  * `Tab` / `Shift + Tab`: Focuses the table container, search input, column toggle trigger, select size element, and pagination controls in a logical sequence.
+  * `Enter` / `Space` (on sortable header cells): Sorts the grid by that column.

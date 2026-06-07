@@ -2,14 +2,14 @@
 import { Directive, ElementRef, HostListener, Input, OnDestroy, OnInit } from "@angular/core";
 
 /**
- * Angular Attribute Directive to trigger MDevHub UI modals.
- * Usage: `<button [mdevModalTarget]="'#modalOverlay'">Open Modal</button>`
+ * Angular Attribute Directive to trigger Mayvio UI modals.
+ * Usage: `<button [mayvioModalTarget]="'#modalOverlay'">Open Modal</button>`
  */
 @Directive({
-  selector: "[mdevModalTarget]"
+  selector: "[mayvioModalTarget]"
 })
 export class ModalTargetDirective implements OnInit, OnDestroy {
-  @Input("mdevModalTarget") targetSelector!: string;
+  @Input("mayvioModalTarget") targetSelector!: string;
   private overlayElement: HTMLElement | null = null;
   private clickListeners: Array<() => void> = [];
 

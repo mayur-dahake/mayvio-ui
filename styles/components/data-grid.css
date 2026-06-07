@@ -1,0 +1,337 @@
+/* Data Grid Component CSS Variables */
+:root {
+  --dg-row-hover: color-mix(in srgb, var(--primary) 4%, transparent);
+  --dg-header-hover: color-mix(in srgb, var(--primary) 8%, var(--bg-secondary));
+  --dg-selected-bg: color-mix(in srgb, var(--primary) 12%, transparent);
+}
+
+.data-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.data-grid-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.data-grid-search {
+  position: relative;
+  flex: 1;
+  max-width: 320px;
+}
+
+.data-grid-search input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.data-grid-search input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.data-grid-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Custom isolated dropdown for Data Grid Column Toggles to avoid global collision */
+.dg-dropdown {
+  position: relative;
+}
+
+.dg-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.dg-dropdown-trigger:hover {
+  border-color: var(--primary);
+}
+
+.dg-dropdown-trigger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.dg-dropdown-arrow {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+}
+
+.dg-dropdown.open .dg-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dg-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 180px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 50;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+.dg-dropdown.open .dg-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dg-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text);
+  transition: background 0.15s;
+  user-select: none;
+}
+
+.dg-dropdown-item:hover {
+  background: var(--bg-secondary);
+}
+
+.dg-dropdown-item input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+
+/* Wrapper to support horizontal scroll on mobile */
+.data-grid-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+}
+
+.data-grid-wrapper:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Table styles */
+.data-grid {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+  font-family: inherit;
+}
+
+.data-grid th,
+.data-grid td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-grid th {
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-weight: 600;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.data-grid th.sortable {
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.data-grid th.sortable:hover {
+  background-color: var(--dg-header-hover);
+  color: var(--text);
+}
+
+.data-grid-sort-icon {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.data-grid th[aria-sort="ascending"] .data-grid-sort-icon {
+  color: var(--primary);
+}
+
+.data-grid th[aria-sort="descending"] .data-grid-sort-icon {
+  color: var(--primary);
+}
+
+.data-grid tbody tr {
+  transition: background-color 0.15s;
+}
+
+.data-grid tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-grid tbody tr:hover {
+  background-color: var(--dg-row-hover);
+}
+
+/* Pagination styles */
+.data-grid-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.dg-page-size {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.dg-page-size select {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.dg-page-size select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.dg-pagination-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.dg-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dg-pag-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.dg-pag-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--dg-header-hover);
+}
+
+.dg-pag-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dg-page-numbers {
+  display: flex;
+  gap: 4px;
+}
+
+.dg-page-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.dg-page-num:hover:not(.active) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.dg-page-num.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+/* Badges for grid status */
+.dg-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.dg-badge.active {
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+  color: var(--success);
+}
+
+.dg-badge.inactive {
+  background: color-mix(in srgb, var(--text-muted) 12%, transparent);
+  color: var(--text-muted);
+}

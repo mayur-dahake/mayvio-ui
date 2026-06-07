@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="A collection of modern, accessible, and reusable UI components built with HTML, CSS, and JavaScript.">
-  <title>MDevHub UI</title>
+  <title>Mayvio UI</title>
 
   <link rel="stylesheet" href="styles/main.css">
 </head>
@@ -16,8 +16,8 @@
   <!-- Navbar -->
   <nav class="navbar" aria-label="Main navigation">
     <a href="#" class="navbar-brand">
-      <span class="navbar-logo" aria-hidden="true">MD</span>
-      MDevHub UI
+      <span class="navbar-logo" aria-hidden="true">MV</span>
+      Mayvio UI
     </a>
 
     <ul class="navbar-links">
@@ -35,14 +35,14 @@
   <!-- Hero -->
   <header class="hero">
     <span class="badge-pill">Frontend Playground</span>
-    <h1>MDevHub UI</h1>
+    <h1>Mayvio UI</h1>
     <p class="tagline" style="font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 12px; margin-top: -8px;">Build Faster. Design Better.</p>
     <p class="subtitle">
-      A collection of modern, accessible, and reusable UI components built with HTML, CSS, and JavaScript.
+      A modern collection of accessible, responsive, and reusable UI components built for modern web applications.
     </p>
     <div class="hero-actions">
       <a href="#components" class="btn btn-primary">Explore Components</a>
-      <a href="https://github.com/mayur-dahake/mdevhub-ui" class="btn btn-ghost" target="_blank"
+      <a href="https://github.com/mayur-dahake/mayvio-ui" class="btn btn-ghost" target="_blank"
         rel="noopener noreferrer">View on GitHub</a>
     </div>
   </header>
@@ -57,7 +57,7 @@
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-value" data-count="16">0</div>
+          <div class="stat-value" data-count="17">0</div>
           <div class="stat-label">Components</div>
         </div>
         <div class="stat-card">
@@ -97,6 +97,7 @@
               <button class="control-btn active" data-animation="shimmer">Shimmer</button>
               <button class="control-btn" data-animation="wave">Wave</button>
               <button class="control-btn" data-animation="pulse">Pulse</button>
+              <button class="control-btn" data-view-docs="skeleton">View Docs</button>
               <button class="control-btn" data-view-code="skeleton">View Code</button>
             </div>
           </div>
@@ -124,6 +125,7 @@
                 <button class="control-btn toast-btn error">Error</button>
                 <button class="control-btn toast-btn warning">Warning</button>
                 <button class="control-btn toast-btn info">Info</button>
+                <button class="control-btn" data-view-docs="toast">View Docs</button>
                 <button class="control-btn" data-view-code="toast">View Code</button>
               </div>
             </div>
@@ -139,6 +141,7 @@
               <div class="controls">
                 <button class="control-btn" id="openModalBtn" data-modal-target="#modalOverlay">Confirmation</button>
                 <button class="control-btn" id="openInfoModalBtn" data-modal-target="#infoModalOverlay">Information</button>
+                <button class="control-btn" data-view-docs="modal">View Docs</button>
                 <button class="control-btn" data-view-code="modal">View Code</button>
               </div>
             </div>
@@ -153,6 +156,7 @@
               <p class="component-description">Keyboard-navigable content switching with ARIA support.</p>
             </div>
             <div class="controls">
+              <button class="control-btn" data-view-docs="tabs">View Docs</button>
               <button class="control-btn" data-view-code="tabs">View Code</button>
             </div>
           </div>
@@ -193,6 +197,7 @@
             </div>
             <div class="controls">
               <button class="control-btn" data-open-palette>Open Palette</button>
+              <button class="control-btn" data-view-docs="command-palette">View Docs</button>
               <button class="control-btn" data-view-code="command-palette">View Code</button>
             </div>
           </div>
@@ -211,6 +216,7 @@
               </div>
               <div class="controls">
                 <button class="control-btn" data-toggle-sidebar>Collapse sidebar</button>
+                <button class="control-btn" data-view-docs="sidebar">View Docs</button>
                 <button class="control-btn" data-view-code="sidebar">View Code</button>
               </div>
             </div>
@@ -233,6 +239,7 @@
               </div>
               <div class="controls">
                 <button class="control-btn" data-toggle-notifications aria-expanded="false">Show notifications</button>
+                <button class="control-btn" data-view-docs="notification-center">View Docs</button>
                 <button class="control-btn" data-view-code="notification-center">View Code</button>
               </div>
             </div>
@@ -275,6 +282,7 @@
                 <p class="component-description">A navigation trail to help users understand page hierarchy.</p>
               </div>
               <div class="controls">
+                <button class="control-btn" data-view-docs="breadcrumb">View Docs</button>
                 <button class="control-btn" data-view-code="breadcrumb">View Code</button>
               </div>
             </div>
@@ -296,6 +304,7 @@
               <p class="component-description">Expandable sections with smooth height transitions.</p>
             </div>
             <div class="controls">
+              <button class="control-btn" data-view-docs="accordion">View Docs</button>
               <button class="control-btn" data-view-code="accordion">View Code</button>
             </div>
           </div>
@@ -310,7 +319,7 @@
 
             <div class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-panel-1">
-                What is MDevHub UI?
+                What is Mayvio UI?
                 <span class="accordion-icon" aria-hidden="true">▼</span>
               </button>
               <div class="accordion-content" id="acc-panel-1">
@@ -363,6 +372,7 @@
               <p class="component-description">Searchable select with keyboard support — single and multi select.</p>
             </div>
             <div class="controls">
+              <button class="control-btn" data-view-docs="dropdown">View Docs</button>
               <button class="control-btn" data-view-code="dropdown">View Code</button>
             </div>
           </div>
@@ -431,6 +441,7 @@
               <p class="component-description">Contextual hints on hover and focus — top, bottom, left, right.</p>
             </div>
             <div class="controls">
+              <button class="control-btn" data-view-docs="tooltip">View Docs</button>
               <button class="control-btn" data-view-code="tooltip">View Code</button>
             </div>
           </div>
@@ -464,6 +475,7 @@
                 <p class="component-description">Status labels with filled and outline variants.</p>
               </div>
               <div class="controls">
+                <button class="control-btn" data-view-docs="badge">View Docs</button>
                 <button class="control-btn" data-view-code="badge">View Code</button>
               </div>
             </div>
@@ -485,6 +497,7 @@
                 <p class="component-description">Image, initials, and stacked group avatars.</p>
               </div>
               <div class="controls">
+                <button class="control-btn" data-view-docs="avatar">View Docs</button>
                 <button class="control-btn" data-view-code="avatar">View Code</button>
               </div>
             </div>
@@ -519,6 +532,7 @@
                 <p class="component-description">Determinate and indeterminate loading indicators.</p>
               </div>
               <div class="controls">
+                <button class="control-btn" data-view-docs="progress">View Docs</button>
                 <button class="control-btn" data-view-code="progress">View Code</button>
               </div>
             </div>
@@ -555,6 +569,7 @@
               <p class="component-description">Dismissible notifications with optional action buttons.</p>
             </div>
             <div class="controls">
+              <button class="control-btn" data-view-docs="alert">View Docs</button>
               <button class="control-btn" data-view-code="alert">View Code</button>
             </div>
           </div>
@@ -590,6 +605,75 @@
           </div>
         </section>
 
+        <!-- Data Grid -->
+        <section class="component-card component-card-wide" aria-labelledby="datagrid-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="datagrid-heading">Data Grid</h2>
+              <p class="component-description">Enterprise-ready data table with sorting, search filtering, pagination, and column visibility toggles.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="data-grid">View Docs</button>
+              <button class="control-btn" data-view-code="data-grid">View Code</button>
+            </div>
+          </div>
+
+          <div class="data-grid-container">
+            <div class="data-grid-toolbar">
+              <div class="data-grid-search">
+                <input type="text" id="dgSearch" placeholder="Search rows..." aria-label="Search rows">
+              </div>
+              <div class="data-grid-actions">
+                <div class="dg-dropdown" id="dgColDropdown">
+                  <button class="control-btn dg-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" id="dgColBtn">
+                    <span class="dg-dropdown-label">Columns</span>
+                    <span class="dg-dropdown-arrow">▼</span>
+                  </button>
+                  <div class="dg-dropdown-menu" role="listbox" aria-label="Toggle Columns">
+                    <!-- Dynamic column visibility options will go here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-grid-wrapper" role="region" aria-label="Data Grid" tabindex="0">
+              <table class="data-grid" id="dgTable" role="grid">
+                <thead>
+                  <tr role="row">
+                    <!-- Dynamic column headers will go here -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Dynamic rows will go here -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="data-grid-pagination">
+              <div class="dg-page-size">
+                <label for="dgPageSize">Rows per page:</label>
+                <select id="dgPageSize" aria-label="Rows per page">
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="15">15</option>
+                </select>
+              </div>
+              <div class="dg-pagination-info" id="dgPaginationInfo" aria-live="polite">
+                <!-- Paging description -->
+              </div>
+              <div class="dg-pagination-controls">
+                <button class="control-btn dg-pag-btn" id="dgFirstPage" aria-label="First page">«</button>
+                <button class="control-btn dg-pag-btn" id="dgPrevPage" aria-label="Previous page">‹</button>
+                <div class="dg-page-numbers" id="dgPageNumbers">
+                  <!-- Dynamic page numbers -->
+                </div>
+                <button class="control-btn dg-pag-btn" id="dgNextPage" aria-label="Next page">›</button>
+                <button class="control-btn dg-pag-btn" id="dgLastPage" aria-label="Last page">»</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
     </div>
   </section>
@@ -603,17 +687,17 @@
       </div>
 
       <div class="docs-grid">
-        <div class="doc-card">
+        <div class="doc-card" data-view-docs="global-integration" style="cursor: pointer;">
           <div class="doc-icon" aria-hidden="true">📖</div>
           <h3>Usage Guides</h3>
           <p>Step-by-step instructions for integrating each component into your project.</p>
         </div>
-        <div class="doc-card">
+        <div class="doc-card" data-view-docs="global-accessibility" style="cursor: pointer;">
           <div class="doc-icon" aria-hidden="true">♿</div>
           <h3>Accessibility Notes</h3>
           <p>ARIA roles, keyboard shortcuts, and screen reader behavior for every component.</p>
         </div>
-        <div class="doc-card">
+        <div class="doc-card" style="cursor: pointer;" onclick="document.getElementById('components').scrollIntoView({behavior: 'smooth'})">
           <div class="doc-icon" aria-hidden="true">💻</div>
           <h3>Code Snippets</h3>
           <p>Copy-ready HTML, CSS, and JavaScript for quick integration.</p>
@@ -736,7 +820,7 @@ document.querySelector(".toast-btn.success")
   <section class="github-cta" aria-labelledby="cta-heading">
     <h2 id="cta-heading">Star on GitHub</h2>
     <p>Open source, zero dependencies, and built for learning. Check out the repo and follow the journey.</p>
-    <a href="https://github.com/mayur-dahake/mdevhub-ui" class="btn btn-primary" target="_blank"
+    <a href="https://github.com/mayur-dahake/mayvio-ui" class="btn btn-primary" target="_blank"
       rel="noopener noreferrer">
       View Repository →
     </a>
@@ -744,11 +828,11 @@ document.querySelector(".toast-btn.success")
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-brand">MDevHub UI</div>
+    <div class="footer-brand">Mayvio UI</div>
     <p class="footer-tagline">Designed & Developed by Mayur Dahake</p>
 
     <div class="footer-social" aria-label="Social media links">
-      <a href="https://github.com/mayur-dahake/mdevhub-ui" target="_blank" rel="noopener noreferrer"
+      <a href="https://github.com/mayur-dahake/mayvio-ui" target="_blank" rel="noopener noreferrer"
         aria-label="GitHub">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path
@@ -773,9 +857,9 @@ document.querySelector(".toast-btn.success")
       <a href="#components">Components</a>
       <a href="#documentation">Documentation</a>
       <a href="#roadmap">Roadmap</a>
-      <a href="https://github.com/mayur-dahake/mdevhub-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://github.com/mayur-dahake/mayvio-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
-    <p class="footer-copy">&copy; 2026 MDevHub UI. All Rights Reserved.</p>
+    <p class="footer-copy">&copy; 2026 Mayvio. All Rights Reserved.</p>
   </footer>
 
   <!-- Toast Container -->
@@ -876,6 +960,18 @@ document.querySelector(".toast-btn.success")
           <button class="copy-btn code-copy-btn" data-label="Copy Code"></button>
           <pre><code id="codeViewerDisplay"></code></pre>
         </div>
+      </div>
+    </div>
+  <!-- Documentation Viewer Modal -->
+  <div class="modal-overlay" id="docsViewerModal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="docs-viewer-title">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3 id="docs-viewer-title">Documentation</h3>
+        <button class="modal-close" aria-label="Close docs viewer">✕</button>
+      </div>
+      <div class="modal-body docs-viewer-content" id="docsViewerContent">
+        <!-- Rendered markdown docs go here -->
       </div>
     </div>
   </div>

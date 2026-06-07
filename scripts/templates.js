@@ -197,6 +197,52 @@ export const HTML_TEMPLATES = {
     <div class="alert-message">Action was completed successfully.</div>
   </div>
   <button class="alert-close" aria-label="Dismiss alert">✕</button>
+</div>`,
+
+  "data-grid": `<!-- Data Grid Container -->
+<div class="data-grid-container">
+  <div class="data-grid-toolbar">
+    <div class="data-grid-search">
+      <input type="text" id="dgSearch" placeholder="Search rows..." aria-label="Search rows">
+    </div>
+    <div class="data-grid-actions">
+      <div class="dg-dropdown" id="dgColDropdown">
+        <button class="control-btn dg-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" id="dgColBtn">
+          <span class="dg-dropdown-label">Columns</span>
+          <span class="dg-dropdown-arrow">▼</span>
+        </button>
+        <div class="dg-dropdown-menu" role="listbox" aria-label="Toggle Columns"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="data-grid-wrapper" role="region" aria-label="Data Grid" tabindex="0">
+    <table class="data-grid" id="dgTable" role="grid">
+      <thead>
+        <tr role="row"></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="data-grid-pagination">
+    <div class="dg-page-size">
+      <label for="dgPageSize">Rows per page:</label>
+      <select id="dgPageSize" aria-label="Rows per page">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
+    <div class="dg-pagination-info" id="dgPaginationInfo" aria-live="polite"></div>
+    <div class="dg-pagination-controls">
+      <button class="control-btn dg-pag-btn" id="dgFirstPage" aria-label="First page">«</button>
+      <button class="control-btn dg-pag-btn" id="dgPrevPage" aria-label="Previous page">‹</button>
+      <div class="dg-page-numbers" id="dgPageNumbers"></div>
+      <button class="control-btn dg-pag-btn" id="dgNextPage" aria-label="Next page">›</button>
+      <button class="control-btn dg-pag-btn" id="dgLastPage" aria-label="Last page">»</button>
+    </div>
+  </div>
 </div>`
 };
 
@@ -578,6 +624,108 @@ export function Alert({ title, message, variant = "info", onClose }) {
       {onClose && <button className="alert-close" onClick={onClose}>✕</button>}
     </div>
   );
+}`,
+
+  "data-grid": `import React, { useState, useMemo } from "react";
+
+export function DataGrid({ data = [], columns = [] }) {
+  const [search, setSearch] = useState("");
+  const [pageSize, setPageSize] = useState(10);
+  const [page, setPage] = useState(1);
+  const [sort, setSort] = useState({ col: null, dir: "asc" });
+  const [visibleCols, setVisibleCols] = useState(columns.map(c => c.key));
+  const [showColMenu, setShowColMenu] = useState(false);
+
+  const processedData = useMemo(() => {
+    let result = [...data];
+    if (search) {
+      const q = search.toLowerCase();
+      result = result.filter(row =>
+        Object.values(row).some(val => String(val).toLowerCase().includes(q))
+      );
+    }
+    if (sort.col) {
+      const colDef = columns.find(c => c.key === sort.col);
+      const isAsc = sort.dir === "asc";
+      const factor = isAsc ? 1 : -1;
+      result.sort((a, b) => {
+        let valA = a[sort.col];
+        let valB = b[sort.col];
+        if (colDef?.type === "number") return (valA - valB) * factor;
+        return String(valA).localeCompare(String(valB)) * factor;
+      });
+    }
+    return result;
+  }, [data, search, sort, columns]);
+
+  const totalPages = Math.ceil(processedData.length / pageSize) || 1;
+  const paginatedData = processedData.slice((page - 1) * pageSize, page * pageSize);
+
+  const handleSort = (key) => {
+    setSort(prev => ({
+      col: key,
+      dir: prev.col === key && prev.dir === "asc" ? "desc" : "asc"
+    }));
+    setPage(1);
+  };
+
+  return (
+    <div className="data-grid-container">
+      <div className="data-grid-toolbar">
+        <input
+          type="text"
+          className="data-grid-search"
+          placeholder="Search..."
+          value={search}
+          onChange={e => { setSearch(e.target.value); setPage(1); }}
+        />
+        <div className="dg-dropdown">
+          <button onClick={() => setShowColMenu(!showColMenu)} className="dg-dropdown-trigger">
+            Columns <span>▼</span>
+          </button>
+          {showColMenu && (
+            <div className="dg-dropdown-menu open">
+              {columns.map(c => (
+                <label key={c.key} className="dg-dropdown-item">
+                  <input
+                    type="checkbox"
+                    checked={visibleCols.includes(c.key)}
+                    onChange={() => {
+                      setVisibleCols(prev => prev.includes(c.key) ? prev.filter(k => k !== c.key) : [...prev, c.key]);
+                    }}
+                  />
+                  {c.label}
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="data-grid-wrapper">
+        <table className="data-grid">
+          <thead>
+            <tr>
+              {columns.filter(c => visibleCols.includes(c.key)).map(c => (
+                <th key={c.key} className="sortable" onClick={() => handleSort(c.key)}>
+                  {c.label} {sort.col === c.key ? (sort.dir === "asc" ? "▲" : "▼") : "⇅"}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {paginatedData.map((row, i) => (
+              <tr key={i}>
+                {columns.filter(c => visibleCols.includes(c.key)).map(c => (
+                  <td key={c.key}>{row[c.key]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 }`
 };
 
@@ -928,5 +1076,57 @@ export class AlertComponent {
   @Input() title = "";
   @Input() message = "";
   @Output() close = new EventEmitter<void>();
+}`,
+
+  "data-grid": `// @ts-nocheck
+import { Component, Input, OnInit } from "@angular/core";
+
+@Component({
+  selector: "mayvio-data-grid",
+  template: \`
+    <div class="data-grid-container">
+      <div class="data-grid-toolbar">
+        <input type="text" [(ngModel)]="searchQuery" (input)="filter()" placeholder="Search...">
+      </div>
+      <div class="data-grid-wrapper">
+        <table class="data-grid">
+          <thead>
+            <tr>
+              <th *ngFor="let col of visibleCols" (click)="sort(col.key)">
+                {{col.label}}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of paginatedData">
+              <td *ngFor="let col of visibleCols">
+                {{row[col.key]}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  \`
+})
+export class DataGridComponent implements OnInit {
+  @Input() data: any[] = [];
+  @Input() columns: any[] = [];
+  searchQuery = "";
+  visibleCols: any[] = [];
+  paginatedData: any[] = [];
+
+  ngOnInit() {
+    this.visibleCols = this.columns;
+    this.filter();
+  }
+
+  filter() {
+    this.paginatedData = this.data.filter(row =>
+      Object.values(row).some(val => String(val).toLowerCase().includes(this.searchQuery.toLowerCase()))
+    );
+  }
+
+  sort(key: string) {}
 }`
 };

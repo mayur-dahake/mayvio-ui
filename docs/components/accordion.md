@@ -23,7 +23,7 @@ The **Accordion** component handles vertical panel sections collapse with smooth
 
   <div class="accordion-item">
     <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-panel-1">
-      What is MDevHub UI?
+      What is Mayvio UI?
       <span class="accordion-icon" aria-hidden="true">▼</span>
     </button>
     <div class="accordion-content" id="acc-panel-1">

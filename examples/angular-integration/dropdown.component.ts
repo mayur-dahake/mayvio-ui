@@ -16,11 +16,11 @@ export interface DropdownOption {
 }
 
 /**
- * Angular Component Wrapper for MDevHub UI Dropdown.
+ * Angular Component Wrapper for Mayvio UI Dropdown.
  * Supports single and multi-select modes, search, and full keyboard navigation.
  */
 @Component({
-  selector: "mdev-dropdown",
+  selector: "mayvio-dropdown",
   template: `
     <div class="dropdown" [class.open]="isOpen">
       <button
