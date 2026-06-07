@@ -76,3 +76,83 @@ animationButtons.forEach(btn => {
     }
   );
 });
+
+
+const toastContainer =
+document.getElementById(
+  "toastContainer"
+);
+
+document
+  .querySelectorAll(".toast-btn")
+  .forEach(btn => {
+
+    btn.addEventListener(
+      "click",
+      () => {
+
+        createToast(
+          btn.classList[1]
+        );
+
+      }
+    );
+
+});
+
+function createToast(type){
+
+  const messages = {
+
+    success:
+      "Data saved successfully",
+
+    error:
+      "Something went wrong",
+
+    warning:
+      "Check your input",
+
+    info:
+      "New update available"
+
+  };
+
+  const icons = {
+
+    success:"✓",
+    error:"✕",
+    warning:"⚠",
+    info:"ℹ"
+
+  };
+
+  const toast =
+    document.createElement("div");
+
+  toast.className =
+    `toast ${type}`;
+
+  toast.innerHTML = `
+    <span>${icons[type]}</span>
+    <span>${messages[type]}</span>
+    <div class="toast-progress"></div>
+  `;
+
+  toastContainer.appendChild(
+    toast
+  );
+
+  setTimeout(() => {
+
+    toast.style.animation =
+      "slideOut .3s ease forwards";
+
+    setTimeout(() => {
+
+      toast.remove();
+
+    },300);
+
+  },4000);
+}
