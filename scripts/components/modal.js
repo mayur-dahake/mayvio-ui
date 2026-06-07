@@ -12,43 +12,31 @@ function openModal(overlay) {
 }
 
 export function initModal() {
-  const overlay = document.getElementById("modalOverlay");
-  const openBtn = document.getElementById("openModalBtn");
-
-  if (!overlay || !openBtn) return;
-
-  const closeBtn = overlay.querySelector(".modal-close");
-  const cancelBtn = overlay.querySelector("#cancelModalBtn");
-
-  openBtn.addEventListener("click", () => openModal(overlay));
-  closeBtn?.addEventListener("click", () => closeModal(overlay));
-  cancelBtn?.addEventListener("click", () => closeModal(overlay));
-
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closeModal(overlay);
+  // Set up triggers
+  document.querySelectorAll("[data-modal-target]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const selector = trigger.dataset.modalTarget;
+      const overlay = document.querySelector(selector);
+      if (overlay) openModal(overlay);
+    });
   });
 
+  // Set up dismiss elements inside each modal
+  document.querySelectorAll(".modal-overlay").forEach((overlay) => {
+    overlay.querySelectorAll(".modal-close, [data-modal-dismiss]").forEach((btn) => {
+      btn.addEventListener("click", () => closeModal(overlay));
+    });
+
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closeModal(overlay);
+    });
+  });
+
+  // Global escape key handler
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && overlay.classList.contains("show")) {
-      closeModal(overlay);
+    if (e.key === "Escape") {
+      const openModalOverlay = document.querySelector(".modal-overlay.show");
+      if (openModalOverlay) closeModal(openModalOverlay);
     }
-  });
-}
-
-export function initInfoModal() {
-  const overlay = document.getElementById("infoModalOverlay");
-  const openBtn = document.getElementById("openInfoModalBtn");
-
-  if (!overlay || !openBtn) return;
-
-  const closeBtn = overlay.querySelector(".modal-close");
-  const okBtn = overlay.querySelector("#infoModalOkBtn");
-
-  openBtn.addEventListener("click", () => openModal(overlay));
-  closeBtn?.addEventListener("click", () => closeModal(overlay));
-  okBtn?.addEventListener("click", () => closeModal(overlay));
-
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closeModal(overlay);
   });
 }

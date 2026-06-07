@@ -19,16 +19,23 @@ function dismissToast(toast) {
   setTimeout(() => toast.remove(), 300);
 }
 
-export function createToast(type) {
-  const container = document.getElementById("toastContainer");
-  if (!container) return;
+export function createToast(type, customMessage) {
+  let container = document.getElementById("toastContainer");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "toastContainer";
+    container.setAttribute("aria-live", "polite");
+    container.setAttribute("aria-atomic", "true");
+    document.body.appendChild(container);
+  }
 
+  const message = customMessage || MESSAGES[type] || "";
   const toast = document.createElement("div");
   toast.className = `toast ${type}`;
   toast.setAttribute("role", "alert");
   toast.innerHTML = `
     <span class="toast-icon" aria-hidden="true">${ICONS[type]}</span>
-    <span class="toast-message">${MESSAGES[type]}</span>
+    <span class="toast-message">${message}</span>
     <button class="toast-close" aria-label="Dismiss notification">✕</button>
     <div class="toast-progress"></div>
   `;

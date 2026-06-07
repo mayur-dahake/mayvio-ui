@@ -3,6 +3,12 @@
 ## Vision
 Build a modern frontend component library and playground showcasing reusable, accessible, themeable, and production-ready UI components using HTML, CSS, and JavaScript.
 
+## Current Status
+
+- Current release status: `v2.0`
+- Completed phases: Phase 1, Phase 2, Phase 3
+- Next focus: Phase 4 and stronger integration documentation
+
 ### Goals
 - Portfolio project
 - GitHub showcase
@@ -69,12 +75,19 @@ ui-component-lab/
 │   │   ├── accordion.css
 │   │   ├── tabs.css
 │   │   ├── dropdown.css
+│   │   ├── tooltip.css
+│   │   ├── badge.css
+│   │   ├── avatar.css
+│   │   ├── progress.css
+│   │   ├── alert.css
 │   │   ├── command-palette.css
-│   │   ├── data-grid.css
-│   │   └── kanban.css
+│   │   ├── sidebar.css
+│   │   ├── notification-center.css
+│   │   └── breadcrumb.css
 ├── scripts/
 │   ├── app.js
 │   ├── theme.js
+│   ├── copy.js
 │   ├── components/
 │   │   ├── skeleton.js
 │   │   ├── toast.js
@@ -82,9 +95,13 @@ ui-component-lab/
 │   │   ├── accordion.js
 │   │   ├── tabs.js
 │   │   ├── dropdown.js
+│   │   ├── progress.js
+│   │   ├── alert.js
 │   │   ├── command-palette.js
-│   │   ├── data-grid.js
-│   │   └── kanban.js
+│   │   ├── sidebar.js
+│   │   ├── notification-center.js
+│   │   ├── breadcrumb.js
+│   │   └── theme-toggle.js
 ├── assets/
 │   ├── icons/
 │   ├── screenshots/
@@ -282,6 +299,7 @@ Features:
 - Navigation Trail
 
 Deliverable: Version 2.0
+Status: Completed
 
 ---
 
@@ -309,6 +327,10 @@ Features:
 Features:
 - Search
 - Grouping
+
+Note:
+- The current dropdown already supports multi-select in its present form
+- Phase 4 should focus on an advanced standalone multi-select experience
 
 #### File Upload
 Features:
@@ -387,6 +409,10 @@ Goal: Design System
   - Theme Switching
 
 Deliverable: Version 6.0
+
+### Priority Adjustment
+- Documentation and integration guides should move earlier in execution priority
+- End-user adoption will improve faster if integration docs are strengthened before adding many more components
 
 ---
 

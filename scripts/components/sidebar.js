@@ -1,10 +1,9 @@
 export function initSidebar() {
-  const card = document.querySelector('.sidebar-card');
-  if (!card) return;
+  const sidebar = document.querySelector('.sidebar');
+  const toggle = document.querySelector('[data-toggle-sidebar]');
+  const links = document.querySelectorAll('.sidebar-link');
 
-  const sidebar = card.querySelector('.sidebar');
-  const toggle = card.querySelector('[data-toggle-sidebar]');
-  const links = card.querySelectorAll('.sidebar-link');
+  if (!sidebar || !toggle) return;
 
   const setCollapsed = (collapsed) => {
     sidebar.classList.toggle('is-collapsed', collapsed);

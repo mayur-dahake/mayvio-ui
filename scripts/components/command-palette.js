@@ -5,7 +5,11 @@ export function initCommandPalette() {
   const input = palette?.querySelector('.command-palette-input');
   const items = [...(palette?.querySelectorAll('.command-palette-item') || [])];
 
-  if (!palette || !openButton || !closeButton || !input || !items.length) return;
+  if (!palette || !closeButton || !input || !items.length) return;
+
+  let focusedIndex = -1;
+
+  const getVisibleItems = () => items.filter((item) => !item.classList.contains('hidden'));
 
   const setOpen = (open) => {
     palette.classList.toggle('is-open', open);
@@ -14,7 +18,33 @@ export function initCommandPalette() {
       input.value = '';
       filterItems('');
       input.focus();
+    } else {
+      resetFocus();
     }
+  };
+
+  const resetFocus = () => {
+    focusedIndex = -1;
+    items.forEach((item) => item.classList.remove('focused'));
+  };
+
+  const updateFocus = (visibleItems) => {
+    items.forEach((item) => item.classList.remove('focused'));
+    if (focusedIndex >= 0 && focusedIndex < visibleItems.length) {
+      const activeItem = visibleItems[focusedIndex];
+      activeItem.classList.add('focused');
+      activeItem.scrollIntoView({ block: 'nearest' });
+    }
+  };
+
+  const executeCommand = (item) => {
+    if (!item) return;
+    const commandName = item.dataset.command;
+    const event = new CustomEvent('command-select', { detail: { command: commandName } });
+    palette.dispatchEvent(event);
+    
+    console.log('Executed command:', commandName);
+    setOpen(false);
   };
 
   const filterItems = (query) => {
@@ -23,9 +53,12 @@ export function initCommandPalette() {
       const label = item.dataset.command?.toLowerCase() || item.textContent.toLowerCase();
       item.classList.toggle('hidden', normalized && !label.includes(normalized));
     });
+    resetFocus();
   };
 
-  openButton.addEventListener('click', () => setOpen(true));
+  if (openButton) {
+    openButton.addEventListener('click', () => setOpen(true));
+  }
   closeButton.addEventListener('click', () => setOpen(false));
 
   palette.addEventListener('click', (event) => {
@@ -34,8 +67,30 @@ export function initCommandPalette() {
 
   input.addEventListener('input', (event) => filterItems(event.target.value));
 
+  input.addEventListener('keydown', (event) => {
+    const visible = getVisibleItems();
+    if (!visible.length) return;
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      focusedIndex = (focusedIndex + 1) % visible.length;
+      updateFocus(visible);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      focusedIndex = (focusedIndex - 1 + visible.length) % visible.length;
+      updateFocus(visible);
+    } else if (event.key === 'Enter') {
+      event.preventDefault();
+      if (focusedIndex >= 0 && focusedIndex < visible.length) {
+        executeCommand(visible[focusedIndex]);
+      } else if (visible.length > 0) {
+        executeCommand(visible[0]);
+      }
+    }
+  });
+
   items.forEach((item) => {
-    item.addEventListener('click', () => setOpen(false));
+    item.addEventListener('click', () => executeCommand(item));
   });
 
   window.addEventListener('keydown', (event) => {

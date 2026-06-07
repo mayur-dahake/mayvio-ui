@@ -1,8 +1,8 @@
 :root {
-  --palette-bg: rgba(12, 18, 34, 0.85);
-  --palette-panel: rgba(255, 255, 255, 0.96);
-  --palette-border: rgba(14, 60, 120, 0.15);
-  --palette-shadow: 0 40px 120px rgba(17, 24, 39, 0.35);
+  --palette-bg: rgba(12, 18, 34, 0.65);
+  --palette-panel: var(--card);
+  --palette-border: var(--border);
+  --palette-shadow: var(--shadow-lg);
 }
 
 .command-palette {
@@ -35,7 +35,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid #e8edf4;
+  border-bottom: 1px solid var(--border);
 }
 
 .command-palette-header h3 {
@@ -79,8 +79,9 @@
 }
 
 .command-palette-item:hover,
+.command-palette-item.focused,
 .command-palette-item.active {
-  background: #eff4ff;
+  background: var(--bg-secondary);
 }
 
 .command-palette-item h4 {

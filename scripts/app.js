@@ -1,7 +1,7 @@
 import { initThemeToggle } from "./components/theme-toggle.js";
 import { initSkeleton } from "./components/skeleton.js";
 import { initToast } from "./components/toast.js";
-import { initModal, initInfoModal } from "./components/modal.js";
+import { initModal } from "./components/modal.js";
 import { initTabs } from "./components/tabs.js";
 import { initAccordion } from "./components/accordion.js";
 import { initDropdowns } from "./components/dropdown.js";
@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initSkeleton();
   initToast();
   initModal();
-  initInfoModal();
   initTabs();
   initAccordion();
   initDropdowns();

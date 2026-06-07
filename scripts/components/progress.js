@@ -1,12 +1,11 @@
 export function initProgress() {
-  document.querySelectorAll(".progress-demo").forEach((demo) => {
-    const fill = demo.querySelector(".progress-fill");
-    const valueEl = demo.querySelector(".progress-value");
-    const slider = demo.querySelector(".progress-slider");
-    const track = demo.querySelector(".progress-track");
-    const toggleBtn = demo.querySelector("[data-toggle-indeterminate]");
+  // Handle determinate slider progress tracks
+  document.querySelectorAll(".progress-slider").forEach((slider) => {
+    const container = slider.closest(".progress-demo") || slider.parentElement;
+    const fill = container?.querySelector(".progress-fill");
+    const valueEl = container?.querySelector(".progress-value");
 
-    if (slider && fill) {
+    if (fill) {
       function setValue(val) {
         fill.style.width = `${val}%`;
         if (valueEl) valueEl.textContent = `${val}%`;
@@ -17,8 +16,16 @@ export function initProgress() {
       slider.addEventListener("input", () => setValue(slider.value));
       setValue(slider.value || 60);
     }
+  });
 
-    if (toggleBtn && track) {
+  // Handle indeterminate toggle button controls
+  document.querySelectorAll("[data-toggle-indeterminate]").forEach((toggleBtn) => {
+    const container = toggleBtn.closest(".progress-demo") || toggleBtn.parentElement;
+    const track = container?.querySelector(".progress-track");
+    const valueEl = container?.querySelector(".progress-value");
+    const slider = container?.querySelector(".progress-slider");
+
+    if (track) {
       toggleBtn.addEventListener("click", () => {
         const isIndeterminate = track.classList.toggle("indeterminate");
         toggleBtn.textContent = isIndeterminate ? "Determinate" : "Indeterminate";

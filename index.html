@@ -8,27 +8,7 @@
     content="Modern, accessible and reusable UI components built with HTML, CSS and JavaScript. Zero dependencies.">
   <title>UI Component Lab</title>
 
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/theme.css">
-  <link rel="stylesheet" href="styles/components/theme-toggle.css">
-  <link rel="stylesheet" href="styles/utilities.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/components/skeleton.css">
-  <link rel="stylesheet" href="styles/components/toast.css">
-  <link rel="stylesheet" href="styles/components/modal.css">
-  <link rel="stylesheet" href="styles/components/tabs.css">
-  <link rel="stylesheet" href="styles/components/command-palette.css">
-  <link rel="stylesheet" href="styles/components/sidebar.css">
-  <link rel="stylesheet" href="styles/components/notification-center.css">
-  <link rel="stylesheet" href="styles/components/breadcrumb.css">
-  <link rel="stylesheet" href="styles/components/accordion.css">
-  <link rel="stylesheet" href="styles/components/dropdown.css">
-  <link rel="stylesheet" href="styles/components/tooltip.css">
-  <link rel="stylesheet" href="styles/components/badge.css">
-  <link rel="stylesheet" href="styles/components/avatar.css">
-  <link rel="stylesheet" href="styles/components/progress.css">
-  <link rel="stylesheet" href="styles/components/alert.css">
-  <link rel="stylesheet" href="styles/components/code-snippet.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
@@ -76,7 +56,7 @@
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-value" data-count="12">0</div>
+          <div class="stat-value" data-count="16">0</div>
           <div class="stat-label">Components</div>
         </div>
         <div class="stat-card">
@@ -100,7 +80,7 @@
     <div class="section-inner">
       <div class="section-header">
         <h2 id="components-heading">Component Showcase</h2>
-        <p>Interactive demos of all Phase 1 &amp; Phase 2 components. Click, toggle, and explore.</p>
+        <p>Interactive demos of all Phase 1 through Phase 3 components. Click, toggle, and explore.</p>
       </div>
 
       <div class="components">
@@ -157,8 +137,8 @@
               <p class="component-description">Accessible overlays with escape and backdrop close.</p>
             </div>
             <div class="controls">
-              <button class="control-btn" id="openModalBtn">Confirmation</button>
-              <button class="control-btn" id="openInfoModalBtn">Information</button>
+              <button class="control-btn" id="openModalBtn" data-modal-target="#modalOverlay">Confirmation</button>
+              <button class="control-btn" id="openInfoModalBtn" data-modal-target="#infoModalOverlay">Information</button>
               <button class="copy-btn" data-label="Copy component" data-target="closest"
                 aria-label="Copy component code"></button>
             </div>
@@ -323,7 +303,7 @@
           <div class="accordion">
             <div class="accordion-mode-toggle">
               <label>
-                <input type="checkbox" id="multiExpandToggle">
+                <input type="checkbox" id="multiExpandToggle" data-multi-expand-toggle>
                 Allow multiple panels open
               </label>
             </div>
@@ -607,7 +587,7 @@
               <span class="alert-icon" aria-hidden="true">ℹ</span>
               <div class="alert-content">
                 <div class="alert-title">New version available</div>
-                <div class="alert-message">Version 1.5 includes 6 new productivity components.</div>
+                <div class="alert-message">Version 2.0 adds application-level components for real product layouts.</div>
               </div>
               <button class="alert-close" aria-label="Dismiss alert">✕</button>
             </div>
@@ -722,25 +702,25 @@ document.querySelector(".toast-btn.success")
           <div class="roadmap-content">
             <h3>Phase 2 — Productivity</h3>
             <p>Dropdown, tooltip, badge, avatar, progress bar, alert.</p>
-            <span class="roadmap-tag done">v1.5 — Current</span>
+            <span class="roadmap-tag done">v1.5</span>
+          </div>
+        </div>
+
+        <div class="roadmap-item done">
+          <div class="roadmap-marker">✓</div>
+          <div class="roadmap-content">
+            <h3>Phase 3 — Application</h3>
+            <p>Command palette, sidebar navigation, notification center, breadcrumb.</p>
+            <span class="roadmap-tag done">v2.0 — Current</span>
           </div>
         </div>
 
         <div class="roadmap-item active">
-          <div class="roadmap-marker">3</div>
-          <div class="roadmap-content">
-            <h3>Phase 3 — Application</h3>
-            <p>Command palette, sidebar navigation, notification center, breadcrumb.</p>
-            <span class="roadmap-tag active">v2.0 — Next</span>
-          </div>
-        </div>
-
-        <div class="roadmap-item">
           <div class="roadmap-marker">4</div>
           <div class="roadmap-content">
             <h3>Phase 4 — Enterprise</h3>
             <p>Data grid, date picker, multi select, file upload.</p>
-            <span class="roadmap-tag upcoming">v3.0</span>
+            <span class="roadmap-tag active">v3.0 — Next</span>
           </div>
         </div>
 
@@ -823,7 +803,7 @@ document.querySelector(".toast-btn.success")
         Are you sure you want to delete this project? This action cannot be undone.
       </p>
       <div class="modal-actions">
-        <button class="btn btn-secondary" id="cancelModalBtn">Cancel</button>
+        <button class="btn btn-secondary" id="cancelModalBtn" data-modal-dismiss>Cancel</button>
         <button class="btn btn-danger">Delete</button>
       </div>
     </div>
@@ -838,10 +818,10 @@ document.querySelector(".toast-btn.success")
         <button class="modal-close" aria-label="Close modal">✕</button>
       </div>
       <p class="modal-body">
-        Version 1.5 is now live with twelve components. Check the roadmap for what's coming next in Phase 3.
+        Version 2.0 is now live with sixteen components. Check the roadmap for what's coming next in Phase 4.
       </p>
       <div class="modal-actions">
-        <button class="btn btn-primary" id="infoModalOkBtn">Got it</button>
+        <button class="btn btn-primary" id="infoModalOkBtn" data-modal-dismiss>Got it</button>
       </div>
     </div>
   </div>

@@ -35,6 +35,15 @@ A modern frontend component library and playground showcasing reusable, accessib
 | Progress Bar | Determinate slider, indeterminate animation |
 | Alert | Dismissible, action buttons, 4 variants |
 
+### v2.0 — Application
+
+| Component | Features |
+|-----------|----------|
+| Command Palette | Keyboard shortcut, search, quick actions |
+| Sidebar Navigation | Collapsible layout navigation |
+| Notification Center | Dismissible updates, clear all actions |
+| Breadcrumb | Hierarchy trail with current page state |
+
 ## Project Structure
 
 ```
@@ -45,10 +54,10 @@ ui-component-lab/
 │   ├── layout.css
 │   ├── theme.css
 │   ├── utilities.css
+│   ├── main.css
 │   └── components/
 ├── scripts/
 │   ├── app.js
-│   ├── theme.js
 │   ├── copy.js
 │   └── components/
 ├── assets/
@@ -63,15 +72,45 @@ Open `index.html` in a browser, or serve locally:
 npx serve .
 ```
 
+## How to Integrate
+
+You can integrate these components into your project using one of two methods:
+
+### Option A: Complete Bundle (Easiest)
+Link the consolidated stylesheet in your HTML `<head>` and import the initialization scripts:
+
+1. Copy the `styles/` folder into your project.
+2. Link the stylesheet in your HTML:
+   ```html
+   <link rel="stylesheet" href="styles/main.css">
+   ```
+3. Copy the `scripts/` folder and include `scripts/app.js` as an ES Module:
+   ```html
+   <script type="module" src="scripts/app.js"></script>
+   ```
+
+### Option B: Individual Components (Modular)
+If you only need a specific component (e.g., Toast):
+
+1. Copy its specific stylesheet: `styles/components/toast.css` and make sure you have the theme variable definitions from `styles/theme.css` active.
+2. Copy its script file: `scripts/components/toast.js`.
+3. In your main script, import and initialize the helper:
+   ```javascript
+   import { initToast, createToast } from "./components/toast.js";
+   initToast();
+   ```
+
 ## Roadmap
 
 - **v1.0** — Foundation components
-- **v1.5** — Productivity components (current)
-- **v2.0** — Command palette, sidebar, notification center, breadcrumb
-- **v3.0** — Data grid, date picker, multi select, file upload
+- **v1.5** — Productivity components
+- **v2.0** — Application components (current)
+- **v3.0** — Data grid, date picker, advanced multi select, file upload
 - **v4.0+** — Dashboard widgets, kanban, documentation site, GitHub Pages
 
 For the full product roadmap and architecture plan, see `ROADMAP.md`.
+
+For the active improvement and adoption tracking list, see `IMPROVEMENTS.md`.
 
 ## License
 

@@ -2,15 +2,21 @@ export function initAccordion() {
   const accordions = document.querySelectorAll(".accordion");
 
   accordions.forEach((accordion) => {
-    const multiExpand = accordion.querySelector("#multiExpandToggle");
     const items = [...accordion.querySelectorAll(".accordion-item")];
+
+    // Check multi-expand from dataset or toggle checkbox
+    const isMultiExpand = () => {
+      const toggle = accordion.querySelector("[data-multi-expand-toggle]") || document.getElementById("multiExpandToggle");
+      if (toggle) return toggle.checked;
+      return accordion.dataset.multiExpand === "true";
+    };
 
     function toggleItem(item, forceOpen) {
       const trigger = item.querySelector(".accordion-trigger");
       const isOpen = item.classList.contains("open");
       const shouldOpen = forceOpen !== undefined ? forceOpen : !isOpen;
 
-      if (!multiExpand?.checked && shouldOpen) {
+      if (!isMultiExpand() && shouldOpen) {
         items.forEach((other) => {
           if (other !== item) {
             other.classList.remove("open");
@@ -36,8 +42,9 @@ export function initAccordion() {
       });
     });
 
-    multiExpand?.addEventListener("change", () => {
-      if (!multiExpand.checked) {
+    const toggleCheckbox = accordion.querySelector("[data-multi-expand-toggle]") || document.getElementById("multiExpandToggle");
+    toggleCheckbox?.addEventListener("change", () => {
+      if (!toggleCheckbox.checked) {
         const openItems = items.filter((i) => i.classList.contains("open"));
         openItems.slice(1).forEach((item) => toggleItem(item, false));
       }
