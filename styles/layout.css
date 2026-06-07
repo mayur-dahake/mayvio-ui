@@ -62,33 +62,35 @@
   gap: 10px;
 }
 
-#themeToggle {
-  padding: 8px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background: var(--card);
-  color: var(--text);
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: background 0.2s;
-}
-
-#themeToggle:hover {
-  background: var(--bg-secondary);
-}
 
 .nav-github {
-  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
   border-radius: var(--radius-md);
   background: var(--text);
   color: var(--bg);
   font-size: 0.85rem;
   font-weight: 600;
-  transition: opacity 0.2s;
+  transition: opacity 0.18s, transform 0.12s;
 }
 
 .nav-github:hover {
-  opacity: 0.85;
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.nav-github-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.nav-github-text {
+  line-height: 1;
 }
 
 /* Hero */

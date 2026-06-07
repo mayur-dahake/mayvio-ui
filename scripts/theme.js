@@ -5,17 +5,24 @@ export function initTheme() {
 
   function applyTheme(isDark) {
     document.body.classList.toggle("dark", isDark);
-    toggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+    toggle.classList.toggle("is-dark", isDark);
     toggle.setAttribute("aria-pressed", String(isDark));
+    toggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
   }
 
   toggle.addEventListener("click", () => {
     const isDark = !document.body.classList.contains("dark");
     applyTheme(isDark);
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    try {
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    } catch (e) {
+      // ignore
+    }
   });
 
-  if (localStorage.getItem("theme") === "dark") {
-    applyTheme(true);
-  }
+  // initialize from localStorage or system preference
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark") applyTheme(true);
+  else if (saved === "light") applyTheme(false);
+  else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) applyTheme(true);
 }

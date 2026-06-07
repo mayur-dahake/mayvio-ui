@@ -71,6 +71,8 @@ npx serve .
 - **v3.0** — Data grid, date picker, multi select, file upload
 - **v4.0+** — Dashboard widgets, kanban, documentation site, GitHub Pages
 
+For the full product roadmap and architecture plan, see `ROADMAP.md`.
+
 ## License
 
 MIT

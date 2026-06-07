@@ -1,0 +1,94 @@
+:root {
+  /* no variables here; uses project theme variables */
+}
+
+
+/* Tutorial links and theme toggle styles */
+
+:root {
+  --bg-color: #f0f0f0;
+  --transition-standard: 0.3s ease;
+  --tutorial-link-color: rgba(29, 31, 44, 0.48);
+  --tutorial-link-hover-color: rgba(29, 31, 44, 0.88);
+  --tutorial-link-focus-color: rgba(61, 126, 174, 0.42);
+}
+
+html.dark {
+  --bg-color: #000;
+  --tutorial-link-color: rgba(255, 255, 255, 0.52);
+  --tutorial-link-hover-color: rgba(255, 255, 255, 0.9);
+  --tutorial-link-focus-color: rgba(196, 201, 209, 0.38);
+}
+
+.tutorial-links {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.tutorial-link {
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--tutorial-link-color);
+  border-radius: 0.5rem;
+  opacity: 0.78;
+  transition: color var(--transition-standard),
+    opacity var(--transition-standard), transform var(--transition-standard);
+}
+
+.tutorial-link:hover {
+  color: var(--tutorial-link-hover-color);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.tutorial-link:focus-visible {
+  outline: 2px solid var(--tutorial-link-focus-color);
+  outline-offset: 0.25rem;
+}
+
+.tutorial-link svg { width: 1.35rem; height: 1.35rem; display: block; }
+
+.theme-toggle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+}
+
+.theme-toggle::before {
+  content: '☀️';
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+body.dark .theme-toggle {
+  background-color: var(--card);
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+body.dark .theme-toggle::before {
+  content: '🌙';
+}

@@ -1,4 +1,4 @@
-import { initTheme } from "./theme.js";
+import { initThemeToggle } from "./components/theme-toggle.js";
 import { initSkeleton } from "./components/skeleton.js";
 import { initToast } from "./components/toast.js";
 import { initModal, initInfoModal } from "./components/modal.js";
@@ -57,7 +57,7 @@ function initSmoothNav() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
+  initThemeToggle();
   initSkeleton();
   initToast();
   initModal();

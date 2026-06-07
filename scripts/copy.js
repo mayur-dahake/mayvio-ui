@@ -28,17 +28,34 @@ function resetButton(btn, originalLabel) {
 
 export function initCopyButtons() {
   document.querySelectorAll(".copy-btn").forEach((btn) => {
-    const block = btn.closest(".code-block");
-    const code = block?.querySelector("code");
-    if (!code) return;
-
     const label = btn.dataset.label || "Copy";
     btn.innerHTML = `${COPY_ICON}<span>${label}</span>`;
     btn.setAttribute("aria-label", `Copy ${label.toLowerCase()} code`);
 
     btn.addEventListener("click", async () => {
       try {
-        await copyText(code.textContent);
+        let textToCopy = null;
+
+        // Priority: explicit data-code, then data-target, then nearest code block
+        if (btn.dataset.code) {
+          textToCopy = btn.dataset.code;
+        } else if (btn.dataset.target) {
+          if (btn.dataset.target === "closest") {
+            const section = btn.closest("section");
+            if (section) textToCopy = section.outerHTML;
+          } else {
+            const el = document.querySelector(btn.dataset.target);
+            if (el) textToCopy = el.outerHTML || el.textContent;
+          }
+        } else {
+          const block = btn.closest(".code-block");
+          const code = block?.querySelector("code");
+          if (code) textToCopy = code.textContent;
+        }
+
+        if (!textToCopy) throw new Error("No content to copy");
+
+        await copyText(textToCopy.trim());
         btn.classList.add("copied");
         btn.innerHTML = `${CHECK_ICON}<span>Copied!</span>`;
         btn.setAttribute("aria-label", "Copied to clipboard");
