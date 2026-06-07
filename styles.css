@@ -1,0 +1,84 @@
+:root{
+    --bg:#ffffff;
+    --card:#ffffff;
+    --text:#111827;
+    --border:#e5e7eb;
+  }
+  
+  body.dark{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f8fafc;
+    --border:#334155;
+  }
+  
+  *{
+    box-sizing:border-box;
+  }
+  
+  body{
+    margin:0;
+    font-family:Inter,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:.3s;
+  }
+  
+  .hero{
+    text-align:center;
+    padding:80px 20px;
+  }
+  
+  .badge{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:999px;
+    background:#3b82f6;
+    color:white;
+    font-size:.85rem;
+  }
+  
+  .hero h1{
+    font-size:4rem;
+    margin:20px 0 10px;
+  }
+  
+  .subtitle{
+    font-size:1.2rem;
+    opacity:.8;
+  }
+  
+  #themeToggle{
+    margin-top:20px;
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+  }
+  
+  .components{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+  
+    display:grid;
+    grid-template-columns:
+      repeat(auto-fit,minmax(280px,1fr));
+  
+    gap:20px;
+  }
+  
+  .component-card{
+    border:1px solid var(--border);
+    background:var(--card);
+  
+    border-radius:16px;
+  
+    padding:24px;
+  
+    transition:.3s;
+  }
+  
+  .component-card:hover{
+    transform:translateY(-4px);
+  }
