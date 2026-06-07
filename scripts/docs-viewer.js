@@ -33,7 +33,9 @@ function parseMarkdown(md) {
   html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
   
   // 6. Inline code
-  html = html.replace(/`([^`\n]+)`/g, "<code>$1</code>");
+  html = html.replace(/`([^`\n]+)`/g, (match, code) => {
+    return `<code>${escapeHtml(code)}</code>`;
+  });
 
   // 7. Links ([text](url))
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="docs-link">$1</a>');
