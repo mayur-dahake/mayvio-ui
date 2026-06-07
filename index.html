@@ -110,37 +110,39 @@
           <div id="skeletonDemo"></div>
         </section>
 
-        <!-- Toast Notification -->
-        <section class="component-card" aria-labelledby="toast-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="toast-heading">Toast Notification</h2>
-              <p class="component-description">Feedback messages with auto-dismiss and progress bar.</p>
+        <div class="component-row">
+          <!-- Toast Notification -->
+          <section class="component-card" aria-labelledby="toast-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="toast-heading">Toast Notification</h2>
+                <p class="component-description">Feedback messages with auto-dismiss and progress bar.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn toast-btn success">Success</button>
+                <button class="control-btn toast-btn error">Error</button>
+                <button class="control-btn toast-btn warning">Warning</button>
+                <button class="control-btn toast-btn info">Info</button>
+                <button class="control-btn" data-view-code="toast">View Code</button>
+              </div>
             </div>
-            <div class="controls">
-              <button class="control-btn toast-btn success">Success</button>
-              <button class="control-btn toast-btn error">Error</button>
-              <button class="control-btn toast-btn warning">Warning</button>
-              <button class="control-btn toast-btn info">Info</button>
-              <button class="control-btn" data-view-code="toast">View Code</button>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Modal Dialog -->
-        <section class="component-card" aria-labelledby="modal-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="modal-heading">Modal Dialog</h2>
-              <p class="component-description">Accessible overlays with escape and backdrop close.</p>
+          <!-- Modal Dialog -->
+          <section class="component-card" aria-labelledby="modal-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="modal-heading">Modal Dialog</h2>
+                <p class="component-description">Accessible overlays with escape and backdrop close.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" id="openModalBtn" data-modal-target="#modalOverlay">Confirmation</button>
+                <button class="control-btn" id="openInfoModalBtn" data-modal-target="#infoModalOverlay">Information</button>
+                <button class="control-btn" data-view-code="modal">View Code</button>
+              </div>
             </div>
-            <div class="controls">
-              <button class="control-btn" id="openModalBtn" data-modal-target="#modalOverlay">Confirmation</button>
-              <button class="control-btn" id="openInfoModalBtn" data-modal-target="#infoModalOverlay">Information</button>
-              <button class="control-btn" data-view-code="modal">View Code</button>
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
         <!-- Tabs -->
         <section class="component-card component-card-wide" aria-labelledby="tabs-heading">
@@ -198,90 +200,92 @@
           </div>
         </section>
 
-        <!-- Sidebar Navigation -->
-        <section class="component-card sidebar-card" aria-labelledby="sidebar-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="sidebar-heading">Sidebar Navigation</h2>
-              <p class="component-description">A collapsible sidebar with nested navigation links for app layouts.</p>
+        <div class="component-row">
+          <!-- Sidebar Navigation -->
+          <section class="component-card sidebar-card" aria-labelledby="sidebar-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="sidebar-heading">Sidebar Navigation</h2>
+                <p class="component-description">A collapsible sidebar with nested navigation links for app layouts.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-toggle-sidebar>Collapse sidebar</button>
+                <button class="control-btn" data-view-code="sidebar">View Code</button>
+              </div>
             </div>
-            <div class="controls">
-              <button class="control-btn" data-toggle-sidebar>Collapse sidebar</button>
-              <button class="control-btn" data-view-code="sidebar">View Code</button>
+            <div class="sidebar">
+              <nav class="sidebar-nav" aria-label="Sidebar menu">
+                <a href="#" class="sidebar-link active" title="Dashboard"><span class="sidebar-icon">📊</span><span class="sidebar-label">Dashboard</span></a>
+                <a href="#" class="sidebar-link" title="Projects"><span class="sidebar-icon">📁</span><span class="sidebar-label">Projects</span></a>
+                <a href="#" class="sidebar-link" title="Tasks"><span class="sidebar-icon">✓</span><span class="sidebar-label">Tasks</span></a>
+                <a href="#" class="sidebar-link" title="Reports"><span class="sidebar-icon">📈</span><span class="sidebar-label">Reports</span></a>
+              </nav>
             </div>
-          </div>
-          <div class="sidebar">
-            <nav class="sidebar-nav" aria-label="Sidebar menu">
-              <a href="#" class="sidebar-link active" title="Dashboard"><span class="sidebar-icon">📊</span><span class="sidebar-label">Dashboard</span></a>
-              <a href="#" class="sidebar-link" title="Projects"><span class="sidebar-icon">📁</span><span class="sidebar-label">Projects</span></a>
-              <a href="#" class="sidebar-link" title="Tasks"><span class="sidebar-icon">✓</span><span class="sidebar-label">Tasks</span></a>
-              <a href="#" class="sidebar-link" title="Reports"><span class="sidebar-icon">📈</span><span class="sidebar-label">Reports</span></a>
+          </section>
+
+          <!-- Notification Center -->
+          <section class="component-card notification-center-card" aria-labelledby="notifications-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="notifications-heading">Notification Center</h2>
+                <p class="component-description">A lightweight panel for recent alerts, messages, and quick actions.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-toggle-notifications aria-expanded="false">Show notifications</button>
+                <button class="control-btn" data-view-code="notification-center">View Code</button>
+              </div>
+            </div>
+            <div class="notification-panel">
+              <div class="notification-item notification-item-success">
+                <div class="notification-badge" aria-hidden="true"></div>
+                <div class="notification-info">
+                  <h4>Server sync complete</h4>
+                  <p>Your workspace is now up to date.</p>
+                </div>
+                <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
+              </div>
+              <div class="notification-item notification-item-info">
+                <div class="notification-badge" aria-hidden="true"></div>
+                <div class="notification-info">
+                  <h4>New comment received</h4>
+                  <p>Alex left feedback on the project card.</p>
+                </div>
+                <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
+              </div>
+              <div class="notification-item notification-item-success">
+                <div class="notification-badge" aria-hidden="true"></div>
+                <div class="notification-info">
+                  <h4>Backup completed</h4>
+                  <p>All files have been safely backed up.</p>
+                </div>
+                <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
+              </div>
+              <div class="notification-footer">
+                <button data-clear-notifications>Clear all</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Breadcrumb -->
+          <section class="component-card" aria-labelledby="breadcrumb-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="breadcrumb-heading">Breadcrumb</h2>
+                <p class="component-description">A navigation trail to help users understand page hierarchy.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-view-code="breadcrumb">View Code</button>
+              </div>
+            </div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="#">Home</a>
+              <span class="breadcrumb-separator" aria-hidden="true">/</span>
+              <a href="#">Projects</a>
+              <span class="breadcrumb-separator" aria-hidden="true">/</span>
+              <span aria-current="page">Dashboard</span>
             </nav>
-          </div>
-        </section>
-
-        <!-- Notification Center -->
-        <section class="component-card notification-center-card" aria-labelledby="notifications-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="notifications-heading">Notification Center</h2>
-              <p class="component-description">A lightweight panel for recent alerts, messages, and quick actions.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-toggle-notifications aria-expanded="false">Show notifications</button>
-              <button class="control-btn" data-view-code="notification-center">View Code</button>
-            </div>
-          </div>
-          <div class="notification-panel">
-            <div class="notification-item notification-item-success">
-              <div class="notification-badge" aria-hidden="true"></div>
-              <div class="notification-info">
-                <h4>Server sync complete</h4>
-                <p>Your workspace is now up to date.</p>
-              </div>
-              <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
-            </div>
-            <div class="notification-item notification-item-info">
-              <div class="notification-badge" aria-hidden="true"></div>
-              <div class="notification-info">
-                <h4>New comment received</h4>
-                <p>Alex left feedback on the project card.</p>
-              </div>
-              <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
-            </div>
-            <div class="notification-item notification-item-success">
-              <div class="notification-badge" aria-hidden="true"></div>
-              <div class="notification-info">
-                <h4>Backup completed</h4>
-                <p>All files have been safely backed up.</p>
-              </div>
-              <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
-            </div>
-            <div class="notification-footer">
-              <button data-clear-notifications>Clear all</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- Breadcrumb -->
-        <section class="component-card" aria-labelledby="breadcrumb-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="breadcrumb-heading">Breadcrumb</h2>
-              <p class="component-description">A navigation trail to help users understand page hierarchy.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-code="breadcrumb">View Code</button>
-            </div>
-          </div>
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="#">Home</a>
-            <span class="breadcrumb-separator" aria-hidden="true">/</span>
-            <a href="#">Projects</a>
-            <span class="breadcrumb-separator" aria-hidden="true">/</span>
-            <span aria-current="page">Dashboard</span>
-          </nav>
-        </section>
+          </section>
+        </div>
 
         <!-- Accordion -->
         <section class="component-card component-card-wide" aria-labelledby="accordion-heading">
@@ -450,95 +454,97 @@
           </div>
         </section>
 
-        <!-- Badge -->
-        <section class="component-card" aria-labelledby="badge-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="badge-heading">Badge</h2>
-              <p class="component-description">Status labels with filled and outline variants.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-code="badge">View Code</button>
-            </div>
-          </div>
-          <div class="badge-demo">
-            <span class="badge success dot">Success</span>
-            <span class="badge error dot">Error</span>
-            <span class="badge warning dot">Warning</span>
-            <span class="badge info dot">Info</span>
-            <span class="badge success outline">Stable</span>
-            <span class="badge error outline">Beta</span>
-          </div>
-        </section>
-
-        <!-- Avatar -->
-        <section class="component-card" aria-labelledby="avatar-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="avatar-heading">Avatar</h2>
-              <p class="component-description">Image, initials, and stacked group avatars.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-code="avatar">View Code</button>
-            </div>
-          </div>
-          <div class="avatar-demo">
-            <div class="avatar-label">
-              <span class="avatar md">
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User avatar">
-              </span>
-              <span>Image</span>
-            </div>
-            <div class="avatar-label">
-              <span class="avatar md">MD</span>
-              <span>Initials</span>
-            </div>
-            <div class="avatar-label">
-              <div class="avatar-group">
-                <span class="avatar sm"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=A" alt=""></span>
-                <span class="avatar sm"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=B" alt=""></span>
-                <span class="avatar sm"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=C" alt=""></span>
-                <span class="avatar sm more">+4</span>
+        <div class="component-row">
+          <!-- Badge -->
+          <section class="component-card" aria-labelledby="badge-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="badge-heading">Badge</h2>
+                <p class="component-description">Status labels with filled and outline variants.</p>
               </div>
-              <span>Group</span>
+              <div class="controls">
+                <button class="control-btn" data-view-code="badge">View Code</button>
+              </div>
             </div>
-          </div>
-        </section>
+            <div class="badge-demo">
+              <span class="badge success dot">Success</span>
+              <span class="badge error dot">Error</span>
+              <span class="badge warning dot">Warning</span>
+              <span class="badge info dot">Info</span>
+              <span class="badge success outline">Stable</span>
+              <span class="badge error outline">Beta</span>
+            </div>
+          </section>
 
-        <!-- Progress Bar -->
-        <section class="component-card" aria-labelledby="progress-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="progress-heading">Progress Bar</h2>
-              <p class="component-description">Determinate and indeterminate loading indicators.</p>
+          <!-- Avatar -->
+          <section class="component-card" aria-labelledby="avatar-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="avatar-heading">Avatar</h2>
+                <p class="component-description">Image, initials, and stacked group avatars.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-view-code="avatar">View Code</button>
+              </div>
             </div>
-            <div class="controls">
-              <button class="control-btn" data-view-code="progress">View Code</button>
+            <div class="avatar-demo">
+              <div class="avatar-label">
+                <span class="avatar md">
+                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User avatar">
+                </span>
+                <span>Image</span>
+              </div>
+              <div class="avatar-label">
+                <span class="avatar md">MD</span>
+                <span>Initials</span>
+              </div>
+              <div class="avatar-label">
+                <div class="avatar-group">
+                  <span class="avatar sm"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=A" alt=""></span>
+                  <span class="avatar sm"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=B" alt=""></span>
+                  <span class="avatar sm"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=C" alt=""></span>
+                  <span class="avatar sm more">+4</span>
+                </div>
+                <span>Group</span>
+              </div>
             </div>
-          </div>
-          <div class="progress-demo">
-            <div class="progress-header">
-              <span class="progress-label">Upload</span>
-              <span class="progress-value">60%</span>
+          </section>
+
+          <!-- Progress Bar -->
+          <section class="component-card" aria-labelledby="progress-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="progress-heading">Progress Bar</h2>
+                <p class="component-description">Determinate and indeterminate loading indicators.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-view-code="progress">View Code</button>
+              </div>
             </div>
-            <div class="progress-track">
-              <div class="progress-fill"></div>
+            <div class="progress-demo">
+              <div class="progress-header">
+                <span class="progress-label">Upload</span>
+                <span class="progress-value">60%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+              <input type="range" class="progress-slider" min="0" max="100" value="60" aria-label="Progress value">
             </div>
-            <input type="range" class="progress-slider" min="0" max="100" value="60" aria-label="Progress value">
-          </div>
-          <div class="progress-demo" style="margin-top:20px">
-            <div class="progress-header">
-              <span class="progress-label">Processing</span>
-              <span class="progress-value">Loading…</span>
+            <div class="progress-demo" style="margin-top:20px">
+              <div class="progress-header">
+                <span class="progress-label">Processing</span>
+                <span class="progress-value">Loading…</span>
+              </div>
+              <div class="progress-track indeterminate">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="progress-controls">
+                <button class="control-btn" data-toggle-indeterminate aria-pressed="true">Determinate</button>
+              </div>
             </div>
-            <div class="progress-track indeterminate">
-              <div class="progress-fill"></div>
-            </div>
-            <div class="progress-controls">
-              <button class="control-btn" data-toggle-indeterminate aria-pressed="true">Determinate</button>
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
         <!-- Alert -->
         <section class="component-card component-card-wide" aria-labelledby="alert-heading">

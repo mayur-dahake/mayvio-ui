@@ -35,7 +35,7 @@ The biggest blocker is not the number of components. The biggest blocker is that
 - [x] Document required CSS and JS files for each component
 - [x] Document initialization steps for each interactive component
 - [x] Document expected data attributes and class hooks
-- [ ] Add a troubleshooting section for common integration mistakes
+- [x] Add a troubleshooting section for common integration mistakes
 
 ### P2 - Create real component documentation
 - [ ] Add one documentation section or page per component
@@ -54,8 +54,8 @@ The biggest blocker is not the number of components. The biggest blocker is that
 
 ### P4 - Make the library easier to consume
 - [ ] Consider a `dist/` output for copy-paste use
-- [ ] Consider component-level entry files
-- [ ] Consider packaging for npm in a later phase
+- [x] Consider component-level entry files
+- [x] Consider packaging for npm in a later phase
 - [ ] Add framework integration examples for React and Angular
 - [ ] Add Web Components strategy notes if that remains part of the roadmap
 
@@ -80,7 +80,7 @@ The biggest blocker is not the number of components. The biggest blocker is that
 - [x] Clear file copy instructions exist
 - [x] Clear init instructions exist
 - [ ] Example project structure exists
-- [ ] Troubleshooting notes exist
+- [x] Troubleshooting notes exist
 
 ### Product
 - [x] Phase labels match implementation

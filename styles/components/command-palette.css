@@ -1,32 +1,39 @@
-:root {
-  --palette-bg: rgba(12, 18, 34, 0.65);
+.command-palette {
   --palette-panel: var(--card);
   --palette-border: var(--border);
   --palette-shadow: var(--shadow-lg);
-}
 
-.command-palette {
   position: fixed;
   inset: 0;
-  display: none;
+  display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 5vh 1rem 1rem;
-  background: var(--palette-bg);
-  z-index: 50;
+  padding: 10vh 1rem 1rem;
+  background: var(--overlay);
+  z-index: 1000; /* Stacks above navbar and modals */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 .command-palette.is-open {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .command-palette-panel {
-  width: min(680px, 100%);
+  width: min(650px, 100%);
   background: var(--palette-panel);
   border: 1px solid var(--palette-border);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   box-shadow: var(--palette-shadow);
   overflow: hidden;
+  transform: translateY(-16px);
+  transition: transform 0.2s ease;
+}
+
+.command-palette.is-open .command-palette-panel {
+  transform: translateY(0);
 }
 
 .command-palette-header {
@@ -42,6 +49,7 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
+  color: var(--text);
 }
 
 .command-palette-close {
@@ -51,21 +59,28 @@
   font-size: 1.25rem;
   line-height: 1;
   color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.command-palette-close:hover {
+  color: var(--text);
 }
 
 .command-palette-input {
   width: 100%;
   border: none;
-  padding: 1rem 1.25rem;
+  padding: 1.1rem 1.25rem;
   font-size: 1rem;
   outline: none;
   color: var(--text);
   background: transparent;
+  font-family: inherit;
 }
 
 .command-palette-list {
-  max-height: 320px;
+  max-height: 300px;
   overflow-y: auto;
+  border-bottom: 1px solid var(--border);
 }
 
 .command-palette-item {
@@ -75,28 +90,47 @@
   gap: 1rem;
   padding: 0.9rem 1.25rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  transition: background 0.15s ease;
 }
 
 .command-palette-item:hover,
 .command-palette-item.focused,
 .command-palette-item.active {
   background: var(--bg-secondary);
+  outline: none;
 }
 
 .command-palette-item h4 {
   margin: 0;
   font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
 }
 
 .command-palette-item p {
-  margin: 0;
+  margin: 4px 0 0 0;
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+}
+
+.command-palette-item span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: monospace;
 }
 
 .command-palette-note {
-  padding: 0.75rem 1.25rem 1rem;
+  padding: 0.85rem 1.25rem;
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }

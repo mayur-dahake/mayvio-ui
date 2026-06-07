@@ -1,0 +1,22 @@
+{
+  "name": "ui-component-lab",
+  "version": "2.0.0",
+  "description": "Zero-dependency modular UI component library built with HTML, CSS, and Vanilla JS",
+  "type": "module",
+  "main": "./scripts/index.js",
+  "exports": {
+    ".": "./scripts/index.js",
+    "./css": "./styles/main.css",
+    "./styles/*": "./styles/*",
+    "./scripts/*": "./scripts/*"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "vanilla-js",
+    "css-variables",
+    "accessibility"
+  ],
+  "author": "Mayur Dahake",
+  "license": "MIT"
+}

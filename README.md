@@ -100,6 +100,40 @@ If you only need a specific component (e.g., Toast):
    initToast();
    ```
 
+### Option C: CDN Integration (Buildless)
+You can directly link stylesheets and import modular JS from a CDN (such as unpkg) without downloading any files:
+
+```html
+<!-- Link consolidated styles -->
+<link rel="stylesheet" href="https://unpkg.com/ui-component-lab/styles/main.css">
+
+<!-- Import and initialize components dynamically inside a module script -->
+<script type="module">
+  import { initAccordion, createToast } from "https://unpkg.com/ui-component-lab/scripts/index.js";
+  
+  // Initialize accordion triggers
+  initAccordion();
+  
+  // Build a test success toast
+  createToast("success", "Successfully loaded via unpkg CDN!");
+</script>
+```
+
+---
+
+## 🛠️ Troubleshooting & FAQ
+
+#### 1. Why are skeleton loader transitions/shimmers missing?
+Ensure you have copied both `styles/base.css` (or `styles/main.css`) AND the specific component styles. Transitions rely on CSS variable definitions mapping to the global `--skeleton-base` and animation configurations in `base.css`.
+
+#### 2. Toast alerts show up but don't auto-dismiss?
+Make sure that your scripts are loaded as type `module` (`<script type="module">`) and that `initToast()` is successfully called on DOM Content Loaded. The auto-dismiss handler runs on page initialisation callbacks.
+
+#### 3. Modal overlays close immediately on backdrop clicks?
+Ensure that your overlay element has class `.modal-overlay` and the modal content box is wrapped inside `.modal`. The click listener checks if the click target is exactly the overlay background layer.
+
+---
+
 ## Roadmap
 
 - **v1.0** — Foundation components

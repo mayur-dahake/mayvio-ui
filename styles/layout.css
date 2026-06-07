@@ -193,6 +193,17 @@
   gap: 24px;
 }
 
+.component-row {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.component-row .component-card {
+  flex: 1 1 340px;
+}
+
 .component-card {
   border: 1px solid var(--border);
   background: var(--card);
