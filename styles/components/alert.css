@@ -1,0 +1,110 @@
+.alert-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  animation: alertIn 0.3s ease;
+}
+
+@keyframes alertIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.alert-icon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.alert-message {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.alert.success {
+  background: color-mix(in srgb, var(--success) 10%, var(--card));
+  border-color: color-mix(in srgb, var(--success) 30%, transparent);
+}
+
+.alert.success .alert-icon { color: var(--success); }
+
+.alert.error {
+  background: color-mix(in srgb, var(--error) 10%, var(--card));
+  border-color: color-mix(in srgb, var(--error) 30%, transparent);
+}
+
+.alert.error .alert-icon { color: var(--error); }
+
+.alert.warning {
+  background: color-mix(in srgb, var(--warning) 10%, var(--card));
+  border-color: color-mix(in srgb, var(--warning) 30%, transparent);
+}
+
+.alert.warning .alert-icon { color: var(--warning); }
+
+.alert.info {
+  background: color-mix(in srgb, var(--info) 10%, var(--card));
+  border-color: color-mix(in srgb, var(--info) 30%, transparent);
+}
+
+.alert.info .alert-icon { color: var(--info); }
+
+.alert-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.alert-action {
+  padding: 5px 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: var(--primary);
+  transition: background 0.2s;
+}
+
+.alert-action:hover {
+  background: color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+.alert-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px;
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+  transition: color 0.2s;
+}
+
+.alert-close:hover {
+  color: var(--text);
+}
