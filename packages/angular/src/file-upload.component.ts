@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Component, OnInit, Input, ElementRef } from "@angular/core";
-// import { initFileUpload } from "mayvio-ui/scripts/components/file-upload.js";
+import { initFileUpload } from "mayvio-ui/scripts/components/file-upload.js";
 
 /**
  * FileUploadComponent
@@ -33,6 +33,9 @@ export class FileUploadComponent implements OnInit {
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
-    // initFileUpload(this.el.nativeElement.querySelector(".fu-zone"));
+    const zone = this.el.nativeElement.querySelector(".fu-zone");
+    if (zone) {
+      initFileUpload(zone);
+    }
   }
 }

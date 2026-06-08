@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from "@angular/core";
-// import { initDatePicker } from "mayvio-ui/scripts/components/date-picker.js";
+import { initDatePicker } from "mayvio-ui/scripts/components/date-picker.js";
 
 /**
  * DatePickerComponent
@@ -12,7 +12,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from "@ang
     <div class="dp-wrapper" [attr.data-range]="rangeMode ? 'true' : null">
       <div class="dp-input-group">
         <input class="dp-input" type="text"
-          [placeholder]="rangeMode ? 'Start \u2192 End' : 'YYYY-MM-DD'"
+          [placeholder]="rangeMode ? 'Start → End' : 'YYYY-MM-DD'"
           readonly
           aria-haspopup="dialog" />
         <button class="dp-trigger" type="button" aria-label="Open calendar">📅</button>
@@ -28,6 +28,9 @@ export class DatePickerComponent implements OnInit {
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
-    // initDatePicker(this.el.nativeElement.querySelector(".dp-wrapper"));
+    const wrapper = this.el.nativeElement.querySelector(".dp-wrapper");
+    if (wrapper) {
+      initDatePicker(wrapper);
+    }
   }
 }

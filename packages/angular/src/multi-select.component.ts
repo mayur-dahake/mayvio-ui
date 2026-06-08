@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from "@angular/core";
-// import { initMultiSelect } from "mayvio-ui/scripts/components/multi-select.js";
+import { initMultiSelect } from "mayvio-ui/scripts/components/multi-select.js";
 
 /**
  * MultiSelectComponent
@@ -37,6 +37,9 @@ export class MultiSelectComponent implements OnInit {
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
-    // initMultiSelect(this.el.nativeElement.querySelector(".ms-wrapper"));
+    const wrapper = this.el.nativeElement.querySelector(".ms-wrapper");
+    if (wrapper) {
+      initMultiSelect(wrapper);
+    }
   }
 }

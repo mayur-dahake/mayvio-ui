@@ -1,0 +1,25 @@
+{
+  "name": "@mayvio-ui/angular",
+  "version": "1.0.0",
+  "description": "Angular wrappers for Mayvio UI components.",
+
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json"
+  },
+  "dependencies": {
+    "mayvio-ui": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=14.0.0",
+    "@angular/core": ">=14.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^17.0.0",
+    "@angular/compiler": "^17.0.0",
+    "@angular/compiler-cli": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@angular/forms": "^17.0.0",
+    "ng-packagr": "^17.0.0",
+    "typescript": "~5.2.2"
+  }
+}

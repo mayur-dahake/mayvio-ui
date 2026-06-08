@@ -1,20 +1,24 @@
-import { initThemeToggle } from "./components/theme-toggle.js";
-import { initSkeleton } from "./components/skeleton.js";
-import { initToast } from "./components/toast.js";
-import { initModal } from "./components/modal.js";
-import { initTabs } from "./components/tabs.js";
-import { initAccordion } from "./components/accordion.js";
-import { initDropdowns } from "./components/dropdown.js";
-import { initProgress } from "./components/progress.js";
-import { initAlerts } from "./components/alert.js";
-import { initCommandPalette } from "./components/command-palette.js";
-import { initSidebar } from "./components/sidebar.js";
-import { initNotificationCenter } from "./components/notification-center.js";
-import { initBreadcrumb } from "./components/breadcrumb.js";
-import { initDataGrid } from "./components/data-grid.js";
-import { initMultiSelect } from "./components/multi-select.js";
-import { initDatePicker } from "./components/date-picker.js";
-import { initFileUpload } from "./components/file-upload.js";
+import "mayvio-ui/css";
+
+import {
+  initThemeToggle,
+  initSkeleton,
+  initToast,
+  initModal,
+  initTabs,
+  initAccordion,
+  initDropdowns,
+  initProgress,
+  initAlerts,
+  initCommandPalette,
+  initSidebar,
+  initNotificationCenter,
+  initBreadcrumb,
+  initDataGrid,
+  initMultiSelect,
+  initDatePicker,
+  initFileUpload
+} from "mayvio-ui";
 
 import { initCopyButtons, initSnippetTabs } from "./copy.js";
 import { initCodeViewer } from "./code-viewer.js";

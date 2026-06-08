@@ -257,8 +257,8 @@ export class DataGridComponent implements OnInit {
     this.updateGrid();
   }
 
-  onPageSizeChange(size: number) {
-    this.pageSize = size;
+  onPageSizeChange(size: any) {
+    this.pageSize = parseInt(size, 10) || 10;
     this.currentPage = 1;
     this.updateGrid();
   }

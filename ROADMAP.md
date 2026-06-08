@@ -5,8 +5,8 @@ Build a modern frontend component library and playground showcasing reusable, ac
 
 ## Current Status
 
-- Current release status: `v3.0`
-- Completed phases: Phase 1, Phase 2, Phase 3, Phase 4
+- Current release status: `v3.0` (Monorepo transition complete)
+- Completed phases: Phase 1, Phase 2, Phase 3, Phase 4, Phase 4.5 (Monorepo & NPM Packaging)
 - Next focus: Phase 5 — Advanced Dashboard Components
 
 ### Goals
@@ -58,55 +58,34 @@ Build a modern frontend component library and playground showcasing reusable, ac
 
 ---
 
-## Project Structure
+## Project Structure (NPM Workspaces Monorepo)
 
 ```
 mayvio-ui/
-├── index.html
-├── styles/
-│   ├── base.css
-│   ├── layout.css
-│   ├── theme.css
-│   ├── utilities.css
-│   ├── components/
-│   │   ├── skeleton.css
-│   │   ├── toast.css
-│   │   ├── modal.css
-│   │   ├── accordion.css
-│   │   ├── tabs.css
-│   │   ├── dropdown.css
-│   │   ├── tooltip.css
-│   │   ├── badge.css
-│   │   ├── avatar.css
-│   │   ├── progress.css
-│   │   ├── alert.css
-│   │   ├── command-palette.css
-│   │   ├── sidebar.css
-│   │   ├── notification-center.css
-│   │   └── breadcrumb.css
-├── scripts/
-│   ├── app.js
-│   ├── theme.js
-│   ├── copy.js
-│   ├── components/
-│   │   ├── skeleton.js
-│   │   ├── toast.js
-│   │   ├── modal.js
-│   │   ├── accordion.js
-│   │   ├── tabs.js
-│   │   ├── dropdown.js
-│   │   ├── progress.js
-│   │   ├── alert.js
-│   │   ├── command-palette.js
-│   │   ├── sidebar.js
-│   │   ├── notification-center.js
-│   │   ├── breadcrumb.js
-│   │   └── theme-toggle.js
-├── assets/
-│   ├── icons/
-│   ├── screenshots/
-│   └── logos/
-└── README.md
+├── package.json               # Root workspace configuration
+├── packages/
+│   ├── core/                  # Core vanilla CSS & JS (publishes as 'mayvio-ui')
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── src/
+│   │       ├── scripts/       # Component controller scripts
+│   │       └── styles/        # Component CSS stylesheets
+│   ├── react/                 # React wrapper components (publishes as '@mayvio-ui/react')
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   ├── tsup.config.ts
+│   │   └── src/               # React TSX components
+│   └── angular/               # Angular wrapper components (publishes as '@mayvio-ui/angular')
+│       ├── package.json
+│       ├── ng-package.json
+│       ├── tsconfig.lib.json
+│       └── src/               # Angular Components & Directives
+└── apps/
+    └── playground/            # Portfolio showcase playground (imports packages locally)
+        ├── index.html
+        ├── package.json
+        ├── scripts/           # Demo orchestration logic
+        └── styles/            # Playground layout styling
 ```
 
 ---
@@ -338,6 +317,20 @@ Features:
 - Progress
 
 Deliverable: Version 3.0
+Status: Completed ✓
+
+---
+
+## Phase 4.5 — Monorepo & NPM Packaging
+Goal: Restructure the codebase into a workspaces monorepo and set up npm package builds for React and Angular wrappers.
+
+### Deliverables
+- **Root Workspaces:** Establish workspaces configuration in root `package.json`.
+- **`packages/core`:** Publishable core vanilla JS/CSS assets (`mayvio-ui`).
+- **`packages/react`:** Publishable React wrapper package (`@mayvio-ui/react`) bundled with `tsup` (ESM/CJS and typings).
+- **`packages/angular`:** Publishable Angular library package (`@mayvio-ui/angular`) built with `ng-packagr` (APF standard).
+- **`apps/playground`:** The portfolio playground site running against local workspace package symlinks, acting as a live demo of the compiled npm packages.
+
 Status: Completed ✓
 
 ---

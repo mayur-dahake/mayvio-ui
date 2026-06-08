@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, { useRef, useEffect } from "react";
-// Import initMultiSelect from your installed mayvio-ui package
-// import { initMultiSelect } from "mayvio-ui/scripts/components/multi-select.js";
+import { initMultiSelect } from "mayvio-ui/scripts/components/multi-select.js";
 
 /**
  * MultiSelectWrapper
@@ -14,7 +13,10 @@ export function MultiSelectWrapper({ onChange }) {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
-    // initMultiSelect(wrapperRef.current);
+    const cleanup = initMultiSelect(wrapperRef.current);
+    return () => {
+      if (cleanup) cleanup();
+    };
   }, []);
 
   return (

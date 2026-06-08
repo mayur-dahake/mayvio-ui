@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useRef, useEffect } from "react";
-// import { initFileUpload } from "mayvio-ui/scripts/components/file-upload.js";
+import { initFileUpload } from "mayvio-ui/scripts/components/file-upload.js";
 
 /**
  * FileUploadWrapper
@@ -14,7 +14,10 @@ export function FileUploadWrapper({ accept = "image/*,.pdf,.docx", maxSizeMB = 5
   const zoneRef = useRef(null);
 
   useEffect(() => {
-    // initFileUpload(zoneRef.current);
+    const cleanup = initFileUpload(zoneRef.current);
+    return () => {
+      if (cleanup) cleanup();
+    };
   }, []);
 
   return (

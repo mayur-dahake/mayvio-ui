@@ -1,29 +1,12 @@
 {
-  "name": "mayvio-ui",
-  "version": "1.0.0",
-  "description": "Modern, accessible and reusable UI components built with HTML, CSS and JavaScript.",
-  "type": "module",
-  "main": "./scripts/index.js",
-  "exports": {
-    ".": "./scripts/index.js",
-    "./css": "./styles/main.css",
-    "./styles/*": "./styles/*",
-    "./scripts/*": "./scripts/*"
-  },
-  "homepage": "https://github.com/mayur-dahake/mayvio-ui",
-  "keywords": [
-    "ui",
-    "ui-components",
-    "component-library",
-    "design-system",
-    "frontend",
-    "html",
-    "css",
-    "javascript",
-    "responsive",
-    "accessibility",
-    "dark-mode"
+  "name": "mayvio-ui-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
   ],
-  "author": "Mayur Dahake",
-  "license": "MIT"
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev": "npm run dev --workspace=playground-app"
+  }
 }

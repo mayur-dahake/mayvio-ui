@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useRef, useEffect } from "react";
-// import { initDatePicker } from "mayvio-ui/scripts/components/date-picker.js";
+import { initDatePicker } from "mayvio-ui/scripts/components/date-picker.js";
 
 /**
  * DatePickerWrapper
@@ -14,7 +14,10 @@ export function DatePickerWrapper({ rangeMode = false, onChange }) {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
-    // initDatePicker(wrapperRef.current);
+    const cleanup = initDatePicker(wrapperRef.current);
+    return () => {
+      if (cleanup) cleanup();
+    };
   }, []);
 
   return (

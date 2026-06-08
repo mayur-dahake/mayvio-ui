@@ -93,112 +93,115 @@ To evolve Mayvio UI into a complete design system featuring:
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Structure (NPM Workspaces Monorepo)
 
 ```
 mayvio-ui/
-├── index.html
-├── styles/
-│   ├── base.css
-│   ├── layout.css
-│   ├── theme.css
-│   ├── utilities.css
-│   ├── main.css
-│   └── components/
-├── scripts/
-│   ├── app.js
-│   ├── copy.js
-│   └── components/
-├── assets/
-└── README.md
+├── package.json               # Root workspaces configuration
+├── vercel.json                # Vercel routing configuration
+├── packages/
+│   ├── core/                  # Core vanilla JS/CSS assets (publishes as 'mayvio-ui')
+│   │   ├── package.json
+│   │   └── src/               # Core script and stylesheet sources
+│   ├── react/                 # React wrapper components (publishes as '@mayvio-ui/react')
+│   │   ├── package.json
+│   │   └── src/               # React TSX wrappers
+│   └── angular/               # Angular wrapper components (publishes as '@mayvio-ui/angular')
+│       ├── package.json
+│       └── src/               # Angular TS modules & components
+└── apps/
+    └── playground/            # Showcase app (Vite-powered index.html demo)
+        ├── package.json
+        ├── index.html
+        └── scripts/           # Playground orchestrations & docs explorer
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Local Setup & Development
 
-Open `index.html` in your browser, or serve it locally using:
+Ensure you have Node.js (version 18 or 20) installed, and run:
 
-```bash
-npx serve .
-```
+1. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Compile Packages:**
+   ```bash
+   npm run build
+   ```
+3. **Start Playground (Local Live Dev Server):**
+   ```bash
+   npm run dev
+   ```
+   This will spin up a Vite server for `apps/playground` running at `http://localhost:5173`. Any edits to the core CSS/JS will trigger hot-reloading!
 
 ---
 
-## 🔌 How to Integrate
+## 🔌 NPM Consumption Guide
 
-You can integrate Mayvio UI components into your project in three different ways:
+You can integrate Mayvio UI components into your projects directly from NPM.
 
-### Option A: Complete Bundle (Easiest)
-Link the consolidated stylesheet in your HTML `<head>` and import the initialization scripts:
+### 1. Vanilla HTML/JS
 
-1. Copy the `styles/` folder into your project.
-2. Link the stylesheet in your HTML:
-   ```html
-   <link rel="stylesheet" href="styles/main.css">
-   ```
-3. Copy the `scripts/` folder and include `scripts/app.js` as an ES Module:
-   ```html
-   <script type="module" src="scripts/app.js"></script>
-   ```
+* **Install:**
+  ```bash
+  npm install mayvio-ui
+  ```
+* **CSS Import:**
+  ```javascript
+  import "mayvio-ui/css";
+  ```
+* **JS Initialization:**
+  ```javascript
+  import { initDatePicker } from "mayvio-ui";
+  initDatePicker(document.querySelector(".dp-wrapper"));
+  ```
 
-### Option B: Individual Components (Modular)
-If you only need a specific component (e.g., Toast):
+### 2. React Components
 
-1. Copy its specific stylesheet: `styles/components/toast.css`. Ensure the base variables from `styles/theme.css` are active.
-2. Copy its script file: `scripts/components/toast.js`.
-3. In your main script, import and initialize the helper:
-   ```javascript
-   import { initToast, createToast } from "./components/toast.js";
-   initToast();
-   ```
+* **Install:**
+  ```bash
+  npm install mayvio-ui @mayvio-ui/react
+  ```
+* **CSS Import:**
+  ```javascript
+  import "mayvio-ui/css";
+  ```
+* **Usage:**
+  ```jsx
+  import { DataGrid, DatePicker, Modal } from "@mayvio-ui/react";
+  // Use <DatePicker /> or <DataGrid /> directly in your JSX!
+  ```
 
-### Option C: CDN Integration (Buildless)
-You can directly link stylesheets and import modular JS from a CDN (such as unpkg) without downloading any files:
+### 3. Angular Components
 
-```html
-<!-- Link consolidated styles -->
-<link rel="stylesheet" href="https://unpkg.com/mayvio-ui/styles/main.css">
-
-<!-- Import and initialize components dynamically inside a module script -->
-<script type="module">
-  import { initAccordion, createToast } from "https://unpkg.com/mayvio-ui/scripts/index.js";
-  
-  // Initialize accordion triggers
-  initAccordion();
-  
-  // Build a test success toast
-  createToast("success", "Successfully loaded via unpkg CDN!");
-</script>
-```
-
----
-
-## 🛠️ Troubleshooting & FAQ
-
-#### 1. Why are skeleton loader transitions/shimmers missing?
-Ensure you have copied both `styles/base.css` (or `styles/main.css`) AND the specific component styles. Transitions rely on CSS variable definitions mapping to the global `--skeleton-base` and animation configurations in `base.css`.
-
-#### 2. Toast alerts show up but don't auto-dismiss?
-Make sure that your scripts are loaded as type `module` (`<script type="module">`) and that `initToast()` is successfully called on DOM Content Loaded. The auto-dismiss handler runs on page initialization callbacks.
-
-#### 3. Modal overlays close immediately on backdrop clicks?
-Ensure that your overlay element has class `.modal-overlay` and the modal content box is wrapped inside `.modal`. The click listener checks if the click target is exactly the overlay background layer.
+* **Install:**
+  ```bash
+  npm install mayvio-ui @mayvio-ui/angular
+  ```
+* **CSS Import:** Include in global `styles.css`:
+  ```css
+  @import "mayvio-ui/css";
+  ```
+* **Usage:** Import `MayvioUIModule` in your module/component imports:
+  ```typescript
+  import { MayvioUIModule } from "@mayvio-ui/angular";
+  ```
+  And use custom elements in HTML: `<mayvio-data-grid [initialData]="data"></mayvio-data-grid>`
 
 ---
 
-## 🔮 Future Ecosystem
+## 🌐 Deployments & Automation
 
-Mayvio UI is designed to scale with future companion products:
-* `mayvio-ui` (This project - core component library)
-* `mayvio-dashboard` (Admin and analytical dash layouts)
-* `mayvio-report-builder` (Custom document and query builders)
-* `mayvio-ai-assistant` (Interactive layout generator)
-* `mayvio-workflow` (Automation visualizers)
-* `mayvio-labs` (Experimental UI components)
+1. **Vercel:**
+   The playground is configured for automatic Vercel deployments. The root `package.json` compiles core libraries, while the `apps/playground/dist` output is hosted.
+2. **GitHub Actions Publishing:**
+   Whenever you tag a commit with a version tag (e.g. `v3.0.1`) and push it to GitHub, the [NPM Publish Action](file:///.github/workflows/publish.yml) automatically runs checks, builds the libraries, and publishes them to NPM.
 
 ---
 
 ## 📄 License
 
 MIT
+
