@@ -22,7 +22,7 @@
 
     <ul class="navbar-links">
       <li><a href="#components">Components</a></li>
-      <li><a href="#documentation">Docs</a></li>
+      <li><a href="#documentation" data-view-docs="global-integration">Docs</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
     </ul>
 
@@ -57,7 +57,7 @@
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-value" data-count="17">0</div>
+          <div class="stat-value" data-count="20">0</div>
           <div class="stat-label">Components</div>
         </div>
         <div class="stat-card">
@@ -672,6 +672,104 @@
               </div>
             </div>
           </div>
+        <!-- Multi-Select Dropdown -->
+        <section class="component-card component-card-wide" aria-labelledby="multiselect-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="multiselect-heading">Multi-Select Dropdown</h2>
+              <p class="component-description">Advanced tag-based multi-select with search filtering, grouped options, Select All, and chip removal.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="multi-select">View Docs</button>
+              <button class="control-btn" data-view-code="multi-select">View Code</button>
+            </div>
+          </div>
+
+          <div class="ms-demo">
+            <p class="ms-demo-label">Select your tech stack</p>
+            <div class="ms-wrapper" aria-expanded="false" aria-haspopup="listbox" aria-label="Tech stack selector">
+              <div class="ms-trigger" role="combobox" tabindex="0" aria-label="Open tech stack multi-select">
+                <div class="ms-tags">
+                  <span class="ms-placeholder">Choose technologies...</span>
+                  <span class="ms-count" hidden>0</span>
+                </div>
+              </div>
+              <div class="ms-dropdown" role="listbox" aria-multiselectable="true" aria-label="Technology options">
+                <div class="ms-search-bar">
+                  <input class="ms-search" type="search" placeholder="Search technologies..." aria-label="Search options" autocomplete="off" />
+                </div>
+                <div class="ms-toolbar">
+                  <button class="ms-select-all" type="button">Select All</button>
+                  <button class="ms-clear-all" type="button" disabled>Clear All</button>
+                </div>
+                <ul class="ms-list" role="presentation"></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Date Picker -->
+        <section class="component-card component-card-wide" aria-labelledby="datepicker-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="datepicker-heading">Date Picker</h2>
+              <p class="component-description">Calendar popup with month navigation, single date and date range selection, Today shortcut, and keyboard support.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="date-picker">View Docs</button>
+              <button class="control-btn" data-view-code="date-picker">View Code</button>
+            </div>
+          </div>
+
+          <div class="dp-demo">
+            <div class="dp-demo-group">
+              <p class="dp-demo-label">Single Date</p>
+              <div class="dp-wrapper" id="dp-single">
+                <div class="dp-input-group">
+                  <input class="dp-input" type="text" placeholder="YYYY-MM-DD" readonly aria-label="Single date" aria-haspopup="dialog" />
+                  <button class="dp-trigger" type="button" aria-label="Open calendar">📅</button>
+                </div>
+                <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <div class="dp-demo-group">
+              <p class="dp-demo-label">Date Range</p>
+              <div class="dp-wrapper" id="dp-range" data-range="true">
+                <div class="dp-input-group" style="width: 280px;">
+                  <input class="dp-input" type="text" placeholder="Start → End" readonly aria-label="Date range" aria-haspopup="dialog" style="width: 100%;" />
+                  <button class="dp-trigger" type="button" aria-label="Open range calendar">📅</button>
+                </div>
+                <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- File Upload Zone -->
+        <section class="component-card component-card-wide" aria-labelledby="fileupload-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="fileupload-heading">File Upload Zone</h2>
+              <p class="component-description">Drag-and-drop file upload area with type validation, size limits, image thumbnails, and animated upload progress.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="file-upload">View Docs</button>
+              <button class="control-btn" data-view-code="file-upload">View Code</button>
+            </div>
+          </div>
+
+          <div class="fu-wrapper">
+            <div class="fu-zone" role="region" aria-label="File upload drop zone" data-accept="image/*,.pdf,.docx" data-max-size="5">
+              <input class="fu-input" type="file" multiple accept="image/*,.pdf,.docx" aria-label="Upload files" tabindex="-1" />
+              <div class="fu-zone-icon" aria-hidden="true">☁️</div>
+              <p class="fu-zone-title">Drop files here or browse</p>
+              <p class="fu-zone-sub">Accepted: Images, PDF, DOCX</p>
+              <button class="fu-browse-btn" type="button">Browse Files</button>
+              <p class="fu-meta">Max size: 5 MB per file</p>
+            </div>
+            <div class="fu-preview" aria-live="polite" aria-label="Uploaded files"></div>
+          </div>
         </section>
 
       </div>
@@ -791,25 +889,25 @@ document.querySelector(".toast-btn.success")
           <div class="roadmap-content">
             <h3>Phase 3 — Application</h3>
             <p>Command palette, sidebar navigation, notification center, breadcrumb.</p>
-            <span class="roadmap-tag done">v2.0 — Current</span>
+            <span class="roadmap-tag done">v2.0</span>
+          </div>
+        </div>
+
+        <div class="roadmap-item done">
+          <div class="roadmap-marker">✓</div>
+          <div class="roadmap-content">
+            <h3>Phase 4 — Enterprise</h3>
+            <p>Data grid, multi-select dropdown, date picker, file upload zone.</p>
+            <span class="roadmap-tag done">v3.0 — Current</span>
           </div>
         </div>
 
         <div class="roadmap-item active">
-          <div class="roadmap-marker">4</div>
-          <div class="roadmap-content">
-            <h3>Phase 4 — Enterprise</h3>
-            <p>Data grid, date picker, multi select, file upload.</p>
-            <span class="roadmap-tag active">v3.0 — Next</span>
-          </div>
-        </div>
-
-        <div class="roadmap-item">
           <div class="roadmap-marker">5</div>
           <div class="roadmap-content">
             <h3>Phase 5+ — Dashboard &amp; Design System</h3>
             <p>KPI cards, charts, kanban board, documentation site, GitHub Pages release.</p>
-            <span class="roadmap-tag upcoming">v4.0 – v6.0</span>
+            <span class="roadmap-tag active">v4.0 – v6.0 — Next</span>
           </div>
         </div>
       </div>
@@ -855,7 +953,7 @@ document.querySelector(".toast-btn.success")
 
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="#components">Components</a>
-      <a href="#documentation">Documentation</a>
+      <a href="#documentation" data-view-docs="global-integration">Documentation</a>
       <a href="#roadmap">Roadmap</a>
       <a href="https://github.com/mayur-dahake/mayvio-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
@@ -892,7 +990,7 @@ document.querySelector(".toast-btn.success")
         <button class="modal-close" aria-label="Close modal">✕</button>
       </div>
       <p class="modal-body">
-        Version 2.0 is now live with sixteen components. Check the roadmap for what's coming next in Phase 4.
+        Version 3.0 is now live with twenty components. Check the roadmap for what's coming next in Phase 5.
       </p>
       <div class="modal-actions">
         <button class="btn btn-primary" id="infoModalOkBtn" data-modal-dismiss>Got it</button>
@@ -966,13 +1064,52 @@ document.querySelector(".toast-btn.success")
   <!-- Documentation Viewer Modal -->
   <div class="modal-overlay" id="docsViewerModal" aria-hidden="true" role="dialog" aria-modal="true"
     aria-labelledby="docs-viewer-title">
-    <div class="modal modal-lg">
+    <div class="modal docs-modal">
       <div class="modal-header">
-        <h3 id="docs-viewer-title">Documentation</h3>
+        <h3 id="docs-viewer-title">Mayvio UI Documentation</h3>
         <button class="modal-close" aria-label="Close docs viewer">✕</button>
       </div>
-      <div class="modal-body docs-viewer-content" id="docsViewerContent">
-        <!-- Rendered markdown docs go here -->
+      <div class="docs-modal-container">
+        <!-- Sidebar Navigation -->
+        <aside class="docs-modal-sidebar">
+          <div class="docs-sidebar-section">
+            <h4>Getting Started</h4>
+            <ul>
+              <li><button class="docs-nav-item" data-doc-target="global-integration">Integration Guide</button></li>
+              <li><button class="docs-nav-item" data-doc-target="global-accessibility">Accessibility Specs</button></li>
+            </ul>
+          </div>
+          <div class="docs-sidebar-section">
+            <h4>Components</h4>
+            <ul>
+              <li><button class="docs-nav-item" data-doc-target="accordion">Accordion</button></li>
+              <li><button class="docs-nav-item" data-doc-target="alert">Alert</button></li>
+              <li><button class="docs-nav-item" data-doc-target="avatar">Avatar</button></li>
+              <li><button class="docs-nav-item" data-doc-target="badge">Badge</button></li>
+              <li><button class="docs-nav-item" data-doc-target="breadcrumb">Breadcrumb</button></li>
+              <li><button class="docs-nav-item" data-doc-target="command-palette">Command Palette</button></li>
+              <li><button class="docs-nav-item" data-doc-target="data-grid">Data Grid</button></li>
+              <li><button class="docs-nav-item" data-doc-target="date-picker">Date Picker</button></li>
+              <li><button class="docs-nav-item" data-doc-target="dropdown">Dropdown</button></li>
+              <li><button class="docs-nav-item" data-doc-target="file-upload">File Upload</button></li>
+              <li><button class="docs-nav-item" data-doc-target="modal">Modal</button></li>
+              <li><button class="docs-nav-item" data-doc-target="multi-select">Multi-Select</button></li>
+              <li><button class="docs-nav-item" data-doc-target="notification-center">Notification Center</button></li>
+              <li><button class="docs-nav-item" data-doc-target="progress">Progress Bar</button></li>
+              <li><button class="docs-nav-item" data-doc-target="sidebar">Sidebar</button></li>
+              <li><button class="docs-nav-item" data-doc-target="skeleton">Skeleton</button></li>
+              <li><button class="docs-nav-item" data-doc-target="tabs">Tabs</button></li>
+              <li><button class="docs-nav-item" data-doc-target="theme-toggle">Theme Toggle</button></li>
+              <li><button class="docs-nav-item" data-doc-target="toast">Toast</button></li>
+              <li><button class="docs-nav-item" data-doc-target="tooltip">Tooltip</button></li>
+            </ul>
+          </div>
+        </aside>
+        
+        <!-- Content Area -->
+        <div class="modal-body docs-viewer-content" id="docsViewerContent">
+          <!-- Rendered markdown docs go here -->
+        </div>
       </div>
     </div>
   </div>

@@ -12,6 +12,10 @@ import { initSidebar } from "./components/sidebar.js";
 import { initNotificationCenter } from "./components/notification-center.js";
 import { initBreadcrumb } from "./components/breadcrumb.js";
 import { initDataGrid } from "./components/data-grid.js";
+import { initMultiSelect } from "./components/multi-select.js";
+import { initDatePicker } from "./components/date-picker.js";
+import { initFileUpload } from "./components/file-upload.js";
+
 import { initCopyButtons, initSnippetTabs } from "./copy.js";
 import { initCodeViewer } from "./code-viewer.js";
 import { initDocsViewer } from "./docs-viewer.js";
@@ -78,6 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initNotificationCenter();
   initBreadcrumb();
   initDataGrid();
+  initMultiSelect();
+  initDatePicker();
+  initFileUpload();
   initCopyButtons();
   initSnippetTabs();
   initCodeViewer();

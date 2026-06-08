@@ -1,3 +1,5 @@
+import { DOCS_DATA } from "./docs-data.js";
+
 // Helper to escape HTML characters inside code blocks
 function escapeHtml(text) {
   return text
@@ -87,23 +89,18 @@ export function initDocsViewer() {
 
   if (!modal || !closeBtn || !docsContent) return;
 
-  const openDocsViewer = async (target) => {
+  const openDocsViewer = (target) => {
     modal.classList.add("show");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    docsContent.innerHTML = "<p>Loading documentation...</p>";
 
-    let fileUrl = "";
     let cleanTitle = "Documentation";
 
     if (target === "global-integration") {
-      fileUrl = "docs/framework-integration.md";
       cleanTitle = "Framework Integration Guide";
     } else if (target === "global-accessibility") {
-      fileUrl = "docs/accessibility.md";
       cleanTitle = "Accessibility Specifications";
     } else {
-      fileUrl = `docs/components/${target}.md`;
       // Capitalize component name
       cleanTitle = target
         .split("-")
@@ -115,17 +112,26 @@ export function initDocsViewer() {
       titleHeader.textContent = cleanTitle;
     }
 
-    try {
-      const res = await fetch(fileUrl);
-      if (!res.ok) throw new Error("Documentation file not found");
-      const mdContent = await res.text();
+    const mdContent = DOCS_DATA[target];
+    if (mdContent) {
       docsContent.innerHTML = parseMarkdown(mdContent);
-    } catch (err) {
+      docsContent.scrollTop = 0;
+    } else {
       docsContent.innerHTML = `
-        <p style="color: var(--error);">Failed to load documentation file: <code>${fileUrl}</code></p>
-        <p>Ensure the file exists in the repository directories.</p>
+        <p style="color: var(--error);">Documentation for <code>${target}</code> not found.</p>
       `;
     }
+
+    // Update active state in sidebar
+    const navItems = modal.querySelectorAll(".docs-nav-item");
+    navItems.forEach((item) => {
+      if (item.dataset.docTarget === target) {
+        item.classList.add("active");
+        item.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      } else {
+        item.classList.remove("active");
+      }
+    });
   };
 
   const closeDocsViewer = () => {
@@ -134,6 +140,18 @@ export function initDocsViewer() {
     document.body.style.overflow = "";
     docsContent.innerHTML = "";
   };
+
+  // Bind sidebar triggers if sidebar exists
+  const sidebar = modal.querySelector(".docs-modal-sidebar");
+  if (sidebar) {
+    sidebar.addEventListener("click", (e) => {
+      const navItem = e.target.closest(".docs-nav-item");
+      if (navItem) {
+        e.preventDefault();
+        openDocsViewer(navItem.dataset.docTarget);
+      }
+    });
+  }
 
   // Bind all triggers dynamically
   document.addEventListener("click", (e) => {

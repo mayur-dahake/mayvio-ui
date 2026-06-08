@@ -1,0 +1,275 @@
+/* =============================================
+   Multi-Select Dropdown Component
+   ============================================= */
+
+.ms-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Trigger / Input Box */
+.ms-trigger {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 44px;
+  padding: 6px 40px 6px 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ms-trigger:hover,
+.ms-trigger.active {
+  border-color: var(--primary);
+}
+
+.ms-trigger.active {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+/* Chevron arrow */
+.ms-trigger::after {
+  content: "▾";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  pointer-events: none;
+  transition: transform 0.2s;
+}
+
+.ms-wrapper[aria-expanded="true"] .ms-trigger::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Tags */
+.ms-tags {
+  display: contents;
+}
+
+.ms-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: ms-tag-in 0.15s ease;
+}
+
+@keyframes ms-tag-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.ms-tag-remove {
+  background: none;
+  border: none;
+  padding: 0 2px;
+  cursor: pointer;
+  color: var(--primary);
+  font-size: 0.95rem;
+  line-height: 1;
+  border-radius: 50%;
+  transition: background 0.15s, color 0.15s;
+}
+
+.ms-tag-remove:hover {
+  background: color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+/* Placeholder */
+.ms-placeholder {
+  color: var(--text-muted);
+  pointer-events: none;
+  font-size: 0.88rem;
+}
+
+/* Count Badge */
+.ms-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  background: var(--primary);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+/* Search input inside dropdown */
+.ms-search-bar {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ms-search {
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  color: var(--text);
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ms-search:focus {
+  border-color: var(--primary);
+}
+
+/* Toolbar (select all / clear all) */
+.ms-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+}
+
+.ms-toolbar button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+
+.ms-toolbar button:hover {
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.ms-toolbar button:disabled {
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Dropdown panel */
+.ms-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  overflow: hidden;
+  animation: ms-dropdown-in 0.15s ease;
+}
+
+.ms-dropdown.open {
+  display: block;
+}
+
+@keyframes ms-dropdown-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Options list */
+.ms-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  max-height: 240px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.ms-group-header {
+  padding: 8px 12px 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.ms-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+  color: var(--text);
+  font-size: 0.88rem;
+}
+
+.ms-option:hover,
+.ms-option.highlighted {
+  background: var(--bg-secondary);
+}
+
+.ms-option.selected {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.ms-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.65rem;
+  color: white;
+  background: transparent;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ms-option.selected .ms-check {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.ms-empty {
+  padding: 16px 12px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Demo layout */
+.ms-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ms-demo-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}

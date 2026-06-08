@@ -20,3 +20,6 @@
 @import "components/alert.css";
 @import "components/code-snippet.css";
 @import "components/data-grid.css";
+@import "components/multi-select.css";
+@import "components/date-picker.css";
+@import "components/file-upload.css";

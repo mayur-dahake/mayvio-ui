@@ -1,0 +1,236 @@
+/* =============================================
+   File Upload Zone Component
+   ============================================= */
+
+.fu-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Drop Zone */
+.fu-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 36px 24px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.fu-zone:hover,
+.fu-zone:focus-within {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 4%, var(--bg-secondary));
+}
+
+.fu-zone.drag-over {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 8%, var(--bg-secondary));
+  transform: scale(1.01);
+}
+
+.fu-zone-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.fu-zone:hover .fu-zone-icon,
+.fu-zone.drag-over .fu-zone-icon {
+  transform: scale(1.1) translateY(-2px);
+}
+
+.fu-zone-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.fu-zone-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.fu-browse-btn {
+  padding: 7px 18px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.fu-browse-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Hidden native file input */
+.fu-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.fu-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Preview Area */
+.fu-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+
+/* Preview Card */
+.fu-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  animation: fu-card-in 0.2s ease;
+  transition: border-color 0.2s;
+}
+
+@keyframes fu-card-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fu-card-out {
+  from { opacity: 1; transform: scale(1); max-height: 100px; }
+  to   { opacity: 0; transform: scale(0.95); max-height: 0; margin: 0; padding: 0; }
+}
+
+.fu-card.fu-error {
+  border-color: var(--error, #ef4444);
+  background: color-mix(in srgb, var(--error, #ef4444) 6%, var(--card));
+}
+
+.fu-card.fu-done {
+  border-color: var(--success, #10b981);
+}
+
+/* Thumbnail */
+.fu-card-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fu-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fu-file-icon {
+  font-size: 1.4rem;
+}
+
+/* Info */
+.fu-card-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fu-card-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fu-card-size {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.fu-card-error {
+  font-size: 0.76rem;
+  color: var(--error, #ef4444);
+  font-weight: 600;
+}
+
+.fu-card-status {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.fu-card-status.fu-complete {
+  color: var(--success, #10b981);
+  font-weight: 600;
+}
+
+/* Progress Bar */
+.fu-progress-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fu-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  border-radius: 999px;
+  transition: width 0.1s linear;
+}
+
+.fu-card.fu-done .fu-progress-fill {
+  background: var(--success, #10b981);
+}
+
+/* Remove button */
+.fu-card-remove {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.fu-card-remove:hover {
+  color: var(--error, #ef4444);
+  background: color-mix(in srgb, var(--error, #ef4444) 10%, transparent);
+}

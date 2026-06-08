@@ -244,6 +244,46 @@ export const HTML_TEMPLATES = {
     </div>
   </div>
 </div>`
+,
+
+  "multi-select": `<div class="ms-wrapper" aria-expanded="false" aria-haspopup="listbox" aria-label="Tech stack selector">
+  <div class="ms-trigger" role="combobox" tabindex="0">
+    <div class="ms-tags">
+      <span class="ms-placeholder">Choose technologies...</span>
+      <span class="ms-count" hidden>0</span>
+    </div>
+  </div>
+  <div class="ms-dropdown" role="listbox" aria-multiselectable="true">
+    <div class="ms-search-bar">
+      <input class="ms-search" type="search" placeholder="Search..." />
+    </div>
+    <div class="ms-toolbar">
+      <button class="ms-select-all" type="button">Select All</button>
+      <button class="ms-clear-all" type="button" disabled>Clear All</button>
+    </div>
+    <ul class="ms-list" role="presentation"></ul>
+  </div>
+</div>`,
+
+  "date-picker": `<div class="dp-wrapper" id="dp-single">
+  <div class="dp-input-group">
+    <input class="dp-input" type="text" placeholder="YYYY-MM-DD" readonly aria-label="Select date" />
+    <button class="dp-trigger" type="button" aria-label="Open calendar">📅</button>
+  </div>
+  <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
+</div>`,
+
+  "file-upload": `<div class="fu-wrapper">
+  <div class="fu-zone" role="region" aria-label="File upload drop zone"
+    data-accept="image/*,.pdf" data-max-size="5">
+    <input class="fu-input" type="file" multiple accept="image/*,.pdf" tabindex="-1" />
+    <div class="fu-zone-icon" aria-hidden="true">☁️</div>
+    <p class="fu-zone-title">Drop files here or browse</p>
+    <p class="fu-zone-sub">Accepted: Images, PDF</p>
+    <button class="fu-browse-btn" type="button">Browse Files</button>
+  </div>
+  <div class="fu-preview" aria-live="polite"></div>
+</div>`
 };
 
 export const REACT_TEMPLATES = {
@@ -726,6 +766,85 @@ export function DataGrid({ data = [], columns = [] }) {
       </div>
     </div>
   );
+}`,
+
+  "multi-select": `import React, { useState, useRef, useEffect } from "react";
+import { initMultiSelect } from "mayvio-ui/scripts/components/multi-select.js";
+
+export function MultiSelectWrapper({ options = [], onChange }) {
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    if (wrapperRef.current) initMultiSelect(wrapperRef.current, options, onChange);
+  }, []);
+
+  return (
+    <div className="ms-wrapper" ref={wrapperRef} aria-expanded="false" aria-haspopup="listbox">
+      <div className="ms-trigger" role="combobox" tabIndex={0}>
+        <div className="ms-tags">
+          <span className="ms-placeholder">Choose technologies...</span>
+          <span className="ms-count" hidden>0</span>
+        </div>
+      </div>
+      <div className="ms-dropdown" role="listbox" aria-multiselectable="true">
+        <div className="ms-search-bar">
+          <input className="ms-search" type="search" placeholder="Search..." />
+        </div>
+        <div className="ms-toolbar">
+          <button className="ms-select-all" type="button">Select All</button>
+          <button className="ms-clear-all" type="button" disabled>Clear All</button>
+        </div>
+        <ul className="ms-list" role="presentation"></ul>
+      </div>
+    </div>
+  );
+}`,
+
+  "date-picker": `import React, { useRef, useEffect } from "react";
+import { initDatePicker } from "mayvio-ui/scripts/components/date-picker.js";
+
+export function DatePickerWrapper({ rangeMode = false, onChange }) {
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    if (wrapperRef.current) initDatePicker(wrapperRef.current, { rangeMode, onChange });
+  }, []);
+
+  return (
+    <div className="dp-wrapper" ref={wrapperRef} data-range={rangeMode ? "true" : undefined}>
+      <div className="dp-input-group">
+        <input className="dp-input" type="text"
+          placeholder={rangeMode ? "Start → End" : "YYYY-MM-DD"} readOnly />
+        <button className="dp-trigger" type="button" aria-label="Open calendar">📅</button>
+      </div>
+      <div className="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
+    </div>
+  );
+}`,
+
+  "file-upload": `import React, { useRef, useEffect } from "react";
+import { initFileUpload } from "mayvio-ui/scripts/components/file-upload.js";
+
+export function FileUploadWrapper({ accept = "image/*,.pdf", maxSizeMB = 5 }) {
+  const zoneRef = useRef(null);
+
+  useEffect(() => {
+    if (zoneRef.current) initFileUpload(zoneRef.current);
+  }, []);
+
+  return (
+    <div className="fu-wrapper">
+      <div className="fu-zone" ref={zoneRef} role="region"
+        aria-label="File upload drop zone"
+        data-accept={accept} data-max-size={maxSizeMB}>
+        <input className="fu-input" type="file" multiple accept={accept} tabIndex={-1} />
+        <div className="fu-zone-icon" aria-hidden="true">☁️</div>
+        <p className="fu-zone-title">Drop files here or browse</p>
+        <button className="fu-browse-btn" type="button">Browse Files</button>
+      </div>
+      <div className="fu-preview" aria-live="polite"></div>
+    </div>
+  );
 }`
 };
 
@@ -1128,5 +1247,103 @@ export class DataGridComponent implements OnInit {
   }
 
   sort(key: string) {}
+}`
+,
+
+  "multi-select": `// @ts-nocheck
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from "@angular/core";
+import { initMultiSelect } from "mayvio-ui/scripts/components/multi-select.js";
+
+@Component({
+  selector: "mayvio-multi-select",
+  template: \`
+    <div class="ms-wrapper" [attr.aria-label]="label">
+      <div class="ms-trigger" role="combobox" tabindex="0">
+        <div class="ms-tags">
+          <span class="ms-placeholder">{{ placeholder }}</span>
+          <span class="ms-count" [hidden]="true">0</span>
+        </div>
+      </div>
+      <div class="ms-dropdown" role="listbox" aria-multiselectable="true">
+        <div class="ms-search-bar">
+          <input class="ms-search" type="search" placeholder="Search..." />
+        </div>
+        <div class="ms-toolbar">
+          <button class="ms-select-all" type="button">Select All</button>
+          <button class="ms-clear-all" type="button" [disabled]="true">Clear All</button>
+        </div>
+        <ul class="ms-list" role="presentation"></ul>
+      </div>
+    </div>
+  \`
+})
+export class MultiSelectComponent implements OnInit {
+  @Input() label = "Multi-select";
+  @Input() placeholder = "Choose options...";
+  @Output() selectionChange = new EventEmitter<string[]>();
+
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    initMultiSelect(this.el.nativeElement.querySelector(".ms-wrapper"));
+  }
+}`,
+
+  "date-picker": `// @ts-nocheck
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from "@angular/core";
+import { initDatePicker } from "mayvio-ui/scripts/components/date-picker.js";
+
+@Component({
+  selector: "mayvio-date-picker",
+  template: \`
+    <div class="dp-wrapper" [attr.data-range]="rangeMode ? 'true' : null">
+      <div class="dp-input-group">
+        <input class="dp-input" type="text" [placeholder]="rangeMode ? 'Start → End' : 'YYYY-MM-DD'" readonly />
+        <button class="dp-trigger" type="button" aria-label="Open calendar">📅</button>
+      </div>
+      <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
+    </div>
+  \`
+})
+export class DatePickerComponent implements OnInit {
+  @Input() rangeMode = false;
+  @Output() dateSelected = new EventEmitter<string>();
+
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    initDatePicker(this.el.nativeElement.querySelector(".dp-wrapper"));
+  }
+}`,
+
+  "file-upload": `// @ts-nocheck
+import { Component, OnInit, Input, ElementRef } from "@angular/core";
+import { initFileUpload } from "mayvio-ui/scripts/components/file-upload.js";
+
+@Component({
+  selector: "mayvio-file-upload",
+  template: \`
+    <div class="fu-wrapper">
+      <div class="fu-zone" role="region" aria-label="File upload drop zone"
+        [attr.data-accept]="accept" [attr.data-max-size]="maxSizeMB">
+        <input class="fu-input" type="file" multiple [accept]="accept" tabindex="-1" />
+        <div class="fu-zone-icon" aria-hidden="true">☁️</div>
+        <p class="fu-zone-title">Drop files here or browse</p>
+        <p class="fu-zone-sub">Accepted: {{ accept }}</p>
+        <button class="fu-browse-btn" type="button">Browse Files</button>
+      </div>
+      <div class="fu-preview" aria-live="polite"></div>
+    </div>
+  \`
+})
+export class FileUploadComponent implements OnInit {
+  @Input() accept = "image/*,.pdf";
+  @Input() maxSizeMB = 5;
+
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    initFileUpload(this.el.nativeElement.querySelector(".fu-zone"));
+  }
 }`
 };
