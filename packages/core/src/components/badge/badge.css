@@ -1,0 +1,62 @@
+.mv-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--mv-radius-full);
+  font-family: var(--mv-font-family);
+  font-weight: var(--mv-font-weight-semibold);
+  letter-spacing: 0.02em;
+  line-height: var(--mv-line-height-tight);
+  box-sizing: border-box;
+}
+
+/* Variants */
+.mv-badge--success {
+  background-color: color-mix(in srgb, var(--mv-color-success) 15%, transparent);
+  color: var(--mv-color-success);
+}
+
+.mv-badge--error {
+  background-color: color-mix(in srgb, var(--mv-color-error) 15%, transparent);
+  color: var(--mv-color-error);
+}
+
+.mv-badge--warning {
+  background-color: color-mix(in srgb, var(--mv-color-warning) 15%, transparent);
+  color: var(--mv-color-warning);
+}
+
+.mv-badge--info {
+  background-color: color-mix(in srgb, var(--mv-color-info) 15%, transparent);
+  color: var(--mv-color-info);
+}
+
+/* Modifiers */
+.mv-badge--outline {
+  background-color: transparent;
+  border: 1px solid currentColor;
+}
+
+.mv-badge--dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--mv-radius-full);
+  background-color: currentColor;
+  margin-right: var(--mv-space-1);
+}
+
+/* Sizes */
+.mv-badge--sm {
+  padding: 2px 8px;
+  font-size: 0.7rem;
+}
+
+.mv-badge--md {
+  padding: var(--mv-space-1) var(--mv-space-3);
+  font-size: var(--mv-font-size-xs);
+}
+
+.mv-badge--lg {
+  padding: 6px 16px;
+  font-size: var(--mv-font-size-sm);
+}

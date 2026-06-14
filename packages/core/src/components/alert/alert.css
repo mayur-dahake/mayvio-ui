@@ -1,0 +1,118 @@
+/* Alert component — mv- BEM prefix, --mv-* design tokens */
+
+.mv-alert-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mv-space-3);
+}
+
+.mv-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mv-space-3);
+  padding: 14px var(--mv-space-4);
+  border-radius: var(--mv-radius-md);
+  border: 1px solid transparent;
+  font-size: var(--mv-font-size-sm);
+  font-family: var(--mv-font-family);
+  animation: mv-alert-in var(--mv-transition-normal);
+}
+
+@keyframes mv-alert-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Variant colours */
+.mv-alert--success {
+  background: color-mix(in srgb, var(--mv-color-success) 10%, var(--mv-color-card));
+  border-color: color-mix(in srgb, var(--mv-color-success) 30%, transparent);
+}
+.mv-alert--success .mv-alert__icon {
+  color: var(--mv-color-success);
+}
+
+.mv-alert--error {
+  background: color-mix(in srgb, var(--mv-color-error) 10%, var(--mv-color-card));
+  border-color: color-mix(in srgb, var(--mv-color-error) 30%, transparent);
+}
+.mv-alert--error .mv-alert__icon {
+  color: var(--mv-color-error);
+}
+
+.mv-alert--warning {
+  background: color-mix(in srgb, var(--mv-color-warning) 10%, var(--mv-color-card));
+  border-color: color-mix(in srgb, var(--mv-color-warning) 30%, transparent);
+}
+.mv-alert--warning .mv-alert__icon {
+  color: var(--mv-color-warning);
+}
+
+.mv-alert--info {
+  background: color-mix(in srgb, var(--mv-color-info) 10%, var(--mv-color-card));
+  border-color: color-mix(in srgb, var(--mv-color-info) 30%, transparent);
+}
+.mv-alert--info .mv-alert__icon {
+  color: var(--mv-color-info);
+}
+
+/* Elements */
+.mv-alert__icon {
+  flex-shrink: 0;
+  font-size: var(--mv-font-size-lg);
+  line-height: var(--mv-line-height-tight);
+}
+
+.mv-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.mv-alert__title {
+  font-weight: var(--mv-font-weight-semibold);
+  margin-bottom: 2px;
+}
+
+.mv-alert__message {
+  color: var(--mv-color-text-muted);
+  font-size: var(--mv-font-size-xs);
+  line-height: var(--mv-line-height-normal);
+}
+
+.mv-alert__close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--mv-color-text-muted);
+  cursor: pointer;
+  padding: 2px;
+  font-size: var(--mv-font-size-md);
+  line-height: 1;
+  border-radius: var(--mv-radius-xs);
+  transition: color var(--mv-transition-fast);
+}
+.mv-alert__close:hover {
+  color: var(--mv-color-text);
+}
+
+/* Dismiss-out animation modifier */
+.mv-alert--dismissing {
+  animation: mv-alert-out var(--mv-transition-normal) forwards;
+}
+
+@keyframes mv-alert-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}

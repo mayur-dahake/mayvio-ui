@@ -1,0 +1,22 @@
+:root {
+  --mv-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --mv-font-family-mono: 'Fira Code', monospace;
+
+  --mv-font-size-xs: 0.75rem;
+  --mv-font-size-sm: 0.875rem;
+  --mv-font-size-md: 1rem;
+  --mv-font-size-lg: 1.125rem;
+  --mv-font-size-xl: 1.25rem;
+  --mv-font-size-2xl: 1.5rem;
+  --mv-font-size-3xl: 1.875rem;
+
+  --mv-font-weight-light: 300;
+  --mv-font-weight-normal: 400;
+  --mv-font-weight-medium: 500;
+  --mv-font-weight-semibold: 600;
+  --mv-font-weight-bold: 700;
+
+  --mv-line-height-tight: 1.25;
+  --mv-line-height-normal: 1.5;
+  --mv-line-height-relaxed: 1.75;
+}

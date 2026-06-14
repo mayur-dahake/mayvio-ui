@@ -1,0 +1,14 @@
+import { defineConfig } from 'tsup';
+
+export default defineConfig({
+  entry: {
+    index: 'src/index.ts',
+    'Badge/index': 'src/Badge/index.ts',
+    'Alert/index': 'src/Alert/index.ts',
+  },
+  format: ['cjs', 'esm'],
+  dts: true,
+  clean: true,
+  sourcemap: true,
+  external: ['react', 'react-dom'],
+});

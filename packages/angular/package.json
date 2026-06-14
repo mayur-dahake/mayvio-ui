@@ -4,7 +4,8 @@
   "description": "Angular wrappers for Mayvio UI components.",
 
   "scripts": {
-    "build": "ng-packagr -p ng-package.json"
+    "build": "ng-packagr -p ng-package.json",
+    "test": "vitest run"
   },
   "dependencies": {
     "mayvio-ui": "^3.2.0"

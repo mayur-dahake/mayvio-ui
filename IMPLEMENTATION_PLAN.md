@@ -41,15 +41,15 @@
 
 ### Phase 2.1 — Design Tokens (Core)
 
-- [ ] Create `packages/core/src/tokens/` directory
-- [ ] Create `packages/core/src/tokens/color.css` with `--mv-color-*` tokens
-- [ ] Create `packages/core/src/tokens/spacing.css` with `--mv-space-*` tokens
-- [ ] Create `packages/core/src/tokens/typography.css`
-- [ ] Create `packages/core/src/tokens/radius.css`
-- [ ] Create `packages/core/src/tokens/shadow.css`
-- [ ] Create `packages/core/src/tokens/animation.css`
-- [ ] Create `packages/core/src/tokens/index.css` importing all token files
-- [ ] Update `packages/core/package.json` exports:
+- [x] Create `packages/core/src/tokens/` directory
+- [x] Create `packages/core/src/tokens/color.css` with `--mv-color-*` tokens
+- [x] Create `packages/core/src/tokens/spacing.css` with `--mv-space-*` tokens
+- [x] Create `packages/core/src/tokens/typography.css`
+- [x] Create `packages/core/src/tokens/radius.css`
+- [x] Create `packages/core/src/tokens/shadow.css`
+- [x] Create `packages/core/src/tokens/animation.css`
+- [x] Create `packages/core/src/tokens/index.css` importing all token files
+- [x] Update `packages/core/package.json` exports:
   ```json
   "./css": "./src/tokens/index.css"
   ```
@@ -59,38 +59,38 @@
 ### Phase 2.2 — Badge
 
 #### 2.2.1 Core (Badge)
-- [ ] Create `packages/core/src/components/badge/`
-- [ ] Create `badge.css` using `mv-` BEM classes + `--mv-*` tokens
-- [ ] Create `index.ts` (type-only export for `BadgeConfig`)
-- [ ] Update `packages/core/package.json`:
+- [x] Create `packages/core/src/components/badge/`
+- [x] Create `badge.css` using `mv-` BEM classes + `--mv-*` tokens
+- [x] Create `index.ts` (type-only export for `BadgeConfig`)
+- [x] Update `packages/core/package.json`:
   ```json
   "./badge": "./src/components/badge/index.js",
   "./badge/css": "./src/components/badge/badge.css"
   ```
 
 #### 2.2.2 React (Badge) — TDD
-- [ ] Create `packages/react/src/Badge/Badge.types.ts`
-- [ ] Create `packages/react/src/Badge/Badge.test.tsx` ← **RED phase first**
-- [ ] Create `packages/react/src/Badge/Badge.a11y.test.tsx` ← **RED phase first**
-- [ ] Run `npm test` — confirm tests FAIL (RED) ✓
-- [ ] Create `packages/react/src/Badge/Badge.tsx` ← **GREEN phase**
-- [ ] Run `npm test` — confirm tests PASS (GREEN) ✓
-- [ ] Create `packages/react/src/Badge/index.ts`
-- [ ] Update `packages/react/src/index.ts` barrel
-- [ ] Update `packages/react/package.json` exports map
-- [ ] Update `packages/react/tsup.config.ts` entry points
-- [ ] Run `npm run build` — verify `dist/Badge/index.mjs` exists
+- [x] Create `packages/react/src/Badge/Badge.types.ts`
+- [x] Create `packages/react/src/Badge/Badge.test.tsx` ← **RED phase first**
+- [x] Create `packages/react/src/Badge/Badge.a11y.test.tsx` ← **RED phase first**
+- [x] Run `npm test` — confirm tests FAIL (RED) ✓
+- [x] Create `packages/react/src/Badge/Badge.tsx` ← **GREEN phase**
+- [x] Run `npm test` — confirm tests PASS (GREEN) ✓
+- [x] Create `packages/react/src/Badge/index.ts`
+- [x] Update `packages/react/src/index.ts` barrel
+- [x] Update `packages/react/package.json` exports map
+- [x] Update `packages/react/tsup.config.ts` entry points
+- [x] Run `npm run build` — verify `dist/Badge/index.mjs` exists
 
 #### 2.2.3 Angular (Badge) — TDD
-- [ ] Create `packages/angular/src/badge/badge.component.spec.ts` ← **RED phase first**
-- [ ] Run `npm test` — confirm tests FAIL (RED) ✓
-- [ ] Create `packages/angular/src/badge/badge.component.ts` ← **GREEN phase**
-- [ ] Create `packages/angular/src/badge/index.ts`
-- [ ] Run `npm test` — confirm tests PASS (GREEN) ✓
-- [ ] Create `packages/angular/badge/ng-package.json`
-- [ ] Create `packages/angular/badge/index.ts`
-- [ ] Update `packages/angular/src/public-api.ts`
-- [ ] Run `npm run build` — verify `dist/badge/` exists
+- [x] Create `packages/angular/src/badge/badge.component.spec.ts` ← **RED phase first**
+- [x] Run `npm test` — confirm tests FAIL (RED) ✓
+- [x] Create `packages/angular/src/badge/badge.component.ts` ← **GREEN phase**
+- [x] Create `packages/angular/src/badge/index.ts`
+- [x] Run `npm test` — confirm tests PASS (GREEN) ✓
+- [x] Create `packages/angular/badge/ng-package.json`
+- [-] Create `packages/angular/badge/index.ts` (not needed — ng-package.json points to src directly)
+- [x] Update `packages/angular/src/public-api.ts`
+- [x] Run `npm run build` — verify `dist/badge/` exists
 
 #### 2.2.4 Docs (Badge)
 - [ ] Create `apps/docs/app/components/badge/page.tsx`

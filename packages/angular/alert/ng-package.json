@@ -1,0 +1,5 @@
+{
+  "lib": {
+    "entryFile": "../src/alert/index.ts"
+  }
+}

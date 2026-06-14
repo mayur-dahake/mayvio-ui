@@ -1,0 +1,8 @@
+:root {
+  --mv-radius-xs: 4px;
+  --mv-radius-sm: 8px;
+  --mv-radius-md: 12px;
+  --mv-radius-lg: 16px;
+  --mv-radius-xl: 20px;
+  --mv-radius-full: 999px;
+}

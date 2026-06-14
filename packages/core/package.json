@@ -6,7 +6,9 @@
   "main": "./src/scripts/index.js",
   "exports": {
     ".": "./src/scripts/index.js",
-    "./css": "./src/styles/main.css",
+    "./css": "./src/tokens/index.css",
+    "./badge": "./src/components/badge/index.js",
+    "./badge/css": "./src/components/badge/badge.css",
     "./styles/*": "./src/styles/*",
     "./scripts/*": "./src/scripts/*"
   },

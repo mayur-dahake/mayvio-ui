@@ -2,12 +2,30 @@
   "name": "@mayvio-ui/react",
   "version": "1.2.0",
   "description": "React wrappers for Mayvio UI components.",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./Badge": {
+      "types": "./dist/Badge/index.d.ts",
+      "import": "./dist/Badge/index.mjs",
+      "require": "./dist/Badge/index.js"
+    },
+    "./Alert": {
+      "types": "./dist/Alert/index.d.ts",
+      "import": "./dist/Alert/index.mjs",
+      "require": "./dist/Alert/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean"
+    "build": "tsup",
+    "test": "vitest run"
   },
   "dependencies": {
     "mayvio-ui": "^3.2.0"
