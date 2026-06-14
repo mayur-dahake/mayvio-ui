@@ -22,6 +22,12 @@ export * from "./notification-center.component";
 export * from "./breadcrumb.component";
 export * from "./code-snippet.component";
 
+export * from "./kpi-card.component";
+export * from "./chart.component";
+export * from "./dashboard-widget.component";
+export * from "./activity-timeline.component";
+
+
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -48,6 +54,12 @@ import { SidebarComponent, SidebarLinkComponent } from "./sidebar.component";
 import { NotificationCenterComponent, NotificationItemComponent } from "./notification-center.component";
 import { BreadcrumbComponent } from "./breadcrumb.component";
 import { CodeSnippetComponent } from "./code-snippet.component";
+
+import { KpiCardComponent } from "./kpi-card.component";
+import { ChartComponent } from "./chart.component";
+import { DashboardWidgetComponent, DashboardWidgetGridComponent } from "./dashboard-widget.component";
+import { ActivityTimelineComponent, ActivityTimelineItemComponent } from "./activity-timeline.component";
+
 
 @NgModule({
   declarations: [
@@ -76,7 +88,13 @@ import { CodeSnippetComponent } from "./code-snippet.component";
     NotificationCenterComponent,
     NotificationItemComponent,
     BreadcrumbComponent,
-    CodeSnippetComponent
+    CodeSnippetComponent,
+    KpiCardComponent,
+    ChartComponent,
+    DashboardWidgetComponent,
+    DashboardWidgetGridComponent,
+    ActivityTimelineComponent,
+    ActivityTimelineItemComponent
   ],
   imports: [
     CommonModule,
@@ -109,6 +127,12 @@ import { CodeSnippetComponent } from "./code-snippet.component";
     NotificationItemComponent,
     BreadcrumbComponent,
     CodeSnippetComponent,
+    KpiCardComponent,
+    ChartComponent,
+    DashboardWidgetComponent,
+    DashboardWidgetGridComponent,
+    ActivityTimelineComponent,
+    ActivityTimelineItemComponent,
     FormsModule
   ]
 })

@@ -21,3 +21,9 @@ export { NotificationCenter, NotificationItem } from "./NotificationCenter.js";
 export { Breadcrumb } from "./Breadcrumb.js";
 export { CodeSnippet } from "./CodeSnippet.js";
 
+export { KpiCard } from "./KpiCard.js";
+export { Chart } from "./Chart.js";
+export { DashboardWidgetGrid, DashboardWidget } from "./DashboardWidget.js";
+export { ActivityTimeline, ActivityTimelineItem } from "./ActivityTimeline.js";
+
+

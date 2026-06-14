@@ -57,7 +57,7 @@
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-value" data-count="20">0</div>
+          <div class="stat-value" data-count="25">0</div>
           <div class="stat-label">Components</div>
         </div>
         <div class="stat-card">
@@ -772,6 +772,171 @@
           </div>
         </section>
 
+        <!-- Phase 5: Dashboard Components -->
+        <div class="component-row" style="grid-column: span 2;">
+          <!-- KPI Cards -->
+          <section class="component-card" aria-labelledby="kpi-heading" style="flex: 1;">
+            <div class="component-header">
+              <div>
+                <h2 id="kpi-heading">KPI Cards</h2>
+                <p class="component-description">Dashboard metrics with animated counters and trend indicators.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-view-docs="kpi-card">View Docs</button>
+                <button class="control-btn" data-view-code="kpi-card">View Code</button>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
+              <div class="kpi-card">
+                <div class="kpi-card-header">
+                  <span class="kpi-card-title">Active Users</span>
+                  <span class="kpi-card-icon">👥</span>
+                </div>
+                <div class="kpi-card-body">
+                  <span class="kpi-card-value" data-value="12450" data-duration="2000" data-prefix="" data-suffix="">0</span>
+                  <span class="kpi-card-trend up">↑ 12%</span>
+                </div>
+                <div class="kpi-card-footer">Compared to last month</div>
+              </div>
+              
+              <div class="kpi-card">
+                <div class="kpi-card-header">
+                  <span class="kpi-card-title">Monthly Revenue</span>
+                  <span class="kpi-card-icon">💰</span>
+                </div>
+                <div class="kpi-card-body">
+                  <span class="kpi-card-value" data-value="48250" data-duration="1800" data-prefix="$" data-decimals="2">0</span>
+                  <span class="kpi-card-trend up">↑ 8.4%</span>
+                </div>
+                <div class="kpi-card-footer">Compared to last month</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Activity Timeline -->
+          <section class="component-card" aria-labelledby="timeline-heading" style="flex: 1;">
+            <div class="component-header">
+              <div>
+                <h2 id="timeline-heading">Activity Timeline</h2>
+                <p class="component-description">Vertical chronological feed for events and updates.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-view-docs="activity-timeline">View Docs</button>
+                <button class="control-btn" data-view-code="activity-timeline">View Code</button>
+              </div>
+            </div>
+            <div class="timeline" style="margin-top: 16px;">
+              <div class="timeline-item">
+                <div class="timeline-badge success"></div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <h4 class="timeline-title">v3.1.1 Released</h4>
+                    <span class="timeline-time">2 mins ago</span>
+                  </div>
+                  <p class="timeline-desc">Package readmes successfully updated and pushed to NPM.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-badge info"></div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <h4 class="timeline-title">Task updated</h4>
+                    <span class="timeline-time">1 hour ago</span>
+                  </div>
+                  <p class="timeline-desc">Completed implementation of React and Angular wrappers parity.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Analytics Charts -->
+        <section class="component-card component-card-wide" aria-labelledby="charts-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="charts-heading">Analytics Charts</h2>
+              <p class="component-description">SVG Line, Bar, and Donut charts with responsive grids, dash offsets, and interactive hover tooltips.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn active" data-chart-toggle="line">Line Chart</button>
+              <button class="control-btn" data-chart-toggle="bar">Bar Chart</button>
+              <button class="control-btn" data-chart-toggle="donut">Donut Chart</button>
+              <button class="control-btn" data-view-docs="chart">View Docs</button>
+              <button class="control-btn" data-view-code="chart">View Code</button>
+            </div>
+          </div>
+          <div style="margin-top: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div id="demoChart" style="width: 100%; max-width: 600px;"></div>
+          </div>
+        </section>
+
+        <!-- Dashboard Widgets -->
+        <section class="component-card component-card-wide" aria-labelledby="widgets-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="widgets-heading">Dashboard Widgets</h2>
+              <p class="component-description">Draggable layout cards supporting grid-reordering, folding/collapse, and layout saving.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="dashboard-widget">View Docs</button>
+              <button class="control-btn" data-view-code="dashboard-widget">View Code</button>
+            </div>
+          </div>
+          <div class="widget-grid" id="demoWidgetGrid" style="margin-top: 16px;">
+            <div class="widget" id="w1">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-drag-handle">☰</span>
+                  <h3 class="widget-title">Performance Chart</h3>
+                </div>
+                <div class="widget-actions">
+                  <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
+                  <button class="widget-btn widget-btn-close">✕</button>
+                </div>
+              </div>
+              <div class="widget-content">
+                <div class="widget-content-inner">
+                  <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">CPU Usage: 45% average. Hover on chart points for details.</p>
+                </div>
+              </div>
+            </div>
+            <div class="widget" id="w2">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-drag-handle">☰</span>
+                  <h3 class="widget-title">System Logs</h3>
+                </div>
+                <div class="widget-actions">
+                  <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
+                  <button class="widget-btn widget-btn-close">✕</button>
+                </div>
+              </div>
+              <div class="widget-content">
+                <div class="widget-content-inner">
+                  <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Sync sync with NPM registry: Complete (v3.1.1).</p>
+                </div>
+              </div>
+            </div>
+            <div class="widget" id="w3">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-drag-handle">☰</span>
+                  <h3 class="widget-title">Active Connections</h3>
+                </div>
+                <div class="widget-actions">
+                  <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
+                  <button class="widget-btn widget-btn-close">✕</button>
+                </div>
+              </div>
+              <div class="widget-content">
+                <div class="widget-content-inner">
+                  <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">WebSocket Tunnel: Connected to local developer server.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
     </div>
   </section>
@@ -1102,6 +1267,15 @@ document.querySelector(".toast-btn.success")
               <li><button class="docs-nav-item" data-doc-target="theme-toggle">Theme Toggle</button></li>
               <li><button class="docs-nav-item" data-doc-target="toast">Toast</button></li>
               <li><button class="docs-nav-item" data-doc-target="tooltip">Tooltip</button></li>
+            </ul>
+          </div>
+          <div class="docs-sidebar-section">
+            <h4>Dashboard Components</h4>
+            <ul>
+              <li><button class="docs-nav-item" data-doc-target="kpi-card">KPI Card</button></li>
+              <li><button class="docs-nav-item" data-doc-target="chart">Analytics Chart</button></li>
+              <li><button class="docs-nav-item" data-doc-target="dashboard-widget">Dashboard Widget</button></li>
+              <li><button class="docs-nav-item" data-doc-target="activity-timeline">Activity Timeline</button></li>
             </ul>
           </div>
         </aside>

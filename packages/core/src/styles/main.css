@@ -23,3 +23,7 @@
 @import "components/multi-select.css";
 @import "components/date-picker.css";
 @import "components/file-upload.css";
+@import "components/kpi-card.css";
+@import "components/chart.css";
+@import "components/dashboard-widget.css";
+@import "components/activity-timeline.css";

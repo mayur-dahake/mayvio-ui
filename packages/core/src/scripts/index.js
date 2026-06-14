@@ -15,3 +15,7 @@ export { initDataGrid } from "./components/data-grid.js";
 export { initMultiSelect } from "./components/multi-select.js";
 export { initDatePicker } from "./components/date-picker.js";
 export { initFileUpload } from "./components/file-upload.js";
+export { initKpiCards } from "./components/kpi-card.js";
+export { MayvioChart } from "./components/chart.js";
+export { initDashboardWidgets } from "./components/dashboard-widget.js";
+

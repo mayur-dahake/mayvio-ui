@@ -1,0 +1,165 @@
+/* SVG Chart Styles */
+.chart-container {
+  width: 100%;
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.chart-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+
+.chart-canvas-wrapper svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Tooltip Styles */
+.chart-tooltip {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.95);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -100%) translateY(-10px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+}
+
+body.dark .chart-tooltip {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: var(--border);
+}
+
+.chart-tooltip.visible {
+  opacity: 1;
+  transform: translate(-50%, -100%) translateY(-6px);
+}
+
+/* Line Chart Graphics */
+.chart-line {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+.chart-area {
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.chart-point {
+  fill: var(--card);
+  stroke-width: 2.5;
+  cursor: pointer;
+  transition: r 0.2s ease, stroke-width 0.2s ease;
+}
+
+.chart-point:hover {
+  r: 7;
+  stroke-width: 3.5;
+}
+
+/* Bar Chart Graphics */
+.chart-bar {
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.chart-bar:hover {
+  opacity: 0.85;
+}
+
+/* Pie/Donut Chart Graphics */
+.chart-donut-segment {
+  fill: none;
+  cursor: pointer;
+  transition: stroke-width 0.2s ease, opacity 0.2s ease;
+}
+
+.chart-donut-segment:hover {
+  stroke-width: var(--donut-hover-width, 32);
+  opacity: 0.9;
+}
+
+.chart-center-text {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-family: inherit;
+}
+
+.chart-center-val {
+  font-size: 1.75rem;
+  font-weight: 700;
+  fill: var(--text);
+}
+
+.chart-center-lbl {
+  font-size: 0.75rem;
+  fill: var(--text-muted);
+}
+
+/* Chart Grid & Labels */
+.chart-grid-line {
+  stroke: var(--border);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.chart-label {
+  fill: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-sm);
+}

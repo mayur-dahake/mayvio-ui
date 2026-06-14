@@ -1,13 +1,13 @@
 {
   "name": "@mayvio-ui/angular",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Angular wrappers for Mayvio UI components.",
 
   "scripts": {
     "build": "ng-packagr -p ng-package.json"
   },
   "dependencies": {
-    "mayvio-ui": "^3.1.1"
+    "mayvio-ui": "^3.2.0"
   },
   "peerDependencies": {
     "@angular/common": ">=14.0.0",

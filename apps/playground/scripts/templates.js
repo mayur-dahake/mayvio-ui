@@ -283,6 +283,57 @@ export const HTML_TEMPLATES = {
     <button class="fu-browse-btn" type="button">Browse Files</button>
   </div>
   <div class="fu-preview" aria-live="polite"></div>
+</div>`,
+
+  "kpi-card": `<!-- KPI Card -->
+<div class="kpi-card">
+  <div class="kpi-card-header">
+    <span class="kpi-card-title">Active Users</span>
+    <span class="kpi-card-icon">👥</span>
+  </div>
+  <div class="kpi-card-body">
+    <span class="kpi-card-value" data-value="12450" data-duration="2000" data-prefix="" data-suffix="">0</span>
+    <span class="kpi-card-trend up">↑ 12%</span>
+  </div>
+  <div class="kpi-card-footer">Compared to last month</div>
+</div>`,
+
+  chart: `<!-- Chart Canvas Target -->
+<div id="analyticsChart" class="chart-container" style="width: 100%; max-width: 600px;"></div>`,
+
+  "dashboard-widget": `<!-- Draggable Widgets Grid -->
+<div class="widget-grid" id="myDashboardGrid">
+  <div class="widget" id="widget-perf">
+    <div class="widget-header">
+      <div class="widget-header-left">
+        <span class="widget-drag-handle">☰</span>
+        <h3 class="widget-title">Performance Monitor</h3>
+      </div>
+      <div class="widget-actions">
+        <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
+        <button class="widget-btn widget-btn-close">✕</button>
+      </div>
+    </div>
+    <div class="widget-content">
+      <div class="widget-content-inner">
+        <p>Widget contents go here...</p>
+      </div>
+    </div>
+  </div>
+</div>`,
+
+  "activity-timeline": `<!-- Activity Timeline -->
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-badge success" aria-hidden="true"></div>
+    <div class="timeline-content">
+      <div class="timeline-header">
+        <h4 class="timeline-title">v3.1.1 Released</h4>
+        <span class="timeline-time">2 mins ago</span>
+      </div>
+      <p class="timeline-desc">Package readmes successfully updated.</p>
+    </div>
+  </div>
 </div>`
 };
 
@@ -845,6 +896,120 @@ export function FileUploadWrapper({ accept = "image/*,.pdf", maxSizeMB = 5 }) {
       <div className="fu-preview" aria-live="polite"></div>
     </div>
   );
+}`,
+
+  "kpi-card": `import React, { useEffect, useRef } from "react";
+import { initKpiCards } from "mayvio-ui/scripts/components/kpi-card.js";
+
+export function KpiCard({ title, value, icon, trend, trendDirection, footer, duration = 1500, decimals = 0, prefix = "", suffix = "" }) {
+  const valueRef = useRef(null);
+
+  useEffect(() => {
+    if (valueRef.current) {
+      initKpiCards(valueRef.current);
+    }
+  }, [value]);
+
+  return (
+    <div className="kpi-card">
+      <div className="kpi-card-header">
+        <span className="kpi-card-title">{title}</span>
+        {icon && <span className="kpi-card-icon">{icon}</span>}
+      </div>
+      <div className="kpi-card-body">
+        <span ref={valueRef} className="kpi-card-value" data-value={value} data-duration={duration} data-decimals={decimals} data-prefix={prefix} data-suffix={suffix}>
+          {prefix}0{suffix}
+        </span>
+        {trend && <span className={\`kpi-card-trend \${trendDirection}\`}>{trendDirection === "up" ? "↑" : "↓"} {trend}</span>}
+      </div>
+      {footer && <div className="kpi-card-footer">{footer}</div>}
+    </div>
+  );
+}`,
+
+  chart: `import React, { useEffect, useRef } from "react";
+import { MayvioChart } from "mayvio-ui/scripts/components/chart.js";
+
+export function Chart({ type = "line", data, options = {}, title }) {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    if (canvasRef.current) {
+      new MayvioChart(canvasRef.current, { type, data, options });
+    }
+  }, [type, data, options]);
+
+  return (
+    <div className="chart-container">
+      {title && (
+        <div className="chart-header">
+          <div className="chart-title">{title}</div>
+        </div>
+      )}
+      <div ref={canvasRef} />
+    </div>
+  );
+}`,
+
+  "dashboard-widget": `import React, { useEffect, useRef, useState } from "react";
+import { initDashboardWidgets } from "mayvio-ui/scripts/components/dashboard-widget.js";
+
+export function DashboardWidgetGrid({ children, storageKey }) {
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    if (gridRef.current) {
+      initDashboardWidgets(gridRef.current, { storageKey });
+    }
+  }, []);
+
+  return <div ref={gridRef} className="widget-grid">{children}</div>;
+}
+
+export function DashboardWidget({ id, title, children, defaultCollapsed = false, dismissible = true }) {
+  const [collapsed, setCollapsed] = useState(defaultCollapsed);
+  const [dismissed, setDismissed] = useState(false);
+
+  if (dismissed) return null;
+
+  return (
+    <div id={id} className={\`widget \${collapsed ? "collapsed" : ""}\`}>
+      <div className="widget-header">
+        <div className="widget-header-left">
+          <span className="widget-drag-handle">☰</span>
+          <h3 className="widget-title">{title}</h3>
+        </div>
+        <div className="widget-actions">
+          <button className="widget-btn widget-btn-collapse" onClick={() => setCollapsed(!collapsed)} aria-expanded={!collapsed}>▼</button>
+          {dismissible && <button className="widget-btn widget-btn-close" onClick={() => setDismissed(true)}>✕</button>}
+        </div>
+      </div>
+      <div className="widget-content">
+        <div className="widget-content-inner">{children}</div>
+      </div>
+    </div>
+  );
+}`,
+
+  "activity-timeline": `import React from "react";
+
+export function ActivityTimeline({ children }) {
+  return <div className="timeline">{children}</div>;
+}
+
+export function ActivityTimelineItem({ status = "info", time, title, children }) {
+  return (
+    <div className="timeline-item">
+      <div className={\`timeline-badge \${status}\`} aria-hidden="true" />
+      <div className="timeline-content">
+        <div className="timeline-header">
+          <h4 className="timeline-title">{title}</h4>
+          {time && <span className="timeline-time">{time}</span>}
+        </div>
+        {children && <p className="timeline-desc">{children}</p>}
+      </div>
+    </div>
+  );
 }`
 };
 
@@ -1345,5 +1510,200 @@ export class FileUploadComponent implements OnInit {
   ngOnInit() {
     initFileUpload(this.el.nativeElement.querySelector(".fu-zone"));
   }
+}`,
+
+  "kpi-card": `// @ts-nocheck
+import { Component, Input, OnInit, ElementRef } from "@angular/core";
+import { initKpiCards } from "mayvio-ui/scripts/components/kpi-card.js";
+
+@Component({
+  selector: "mayvio-kpi-card",
+  template: \`
+    <div class="kpi-card {{ className }}">
+      <div class="kpi-card-header">
+        <span class="kpi-card-title">{{ title }}</span>
+        <span *ngIf="icon" class="kpi-card-icon">{{ icon }}</span>
+      </div>
+      <div class="kpi-card-body">
+        <span class="kpi-card-value" [attr.data-value]="value" [attr.data-duration]="duration" [attr.data-decimals]="decimals" [attr.data-prefix]="prefix" [attr.data-suffix]="suffix">
+          {{ prefix }}0{{ suffix }}
+        </span>
+        <span *ngIf="trend" class="kpi-card-trend {{ trendDirection }}">
+          {{ trendDirection === "up" ? "↑" : "↓" }} {{ trend }}
+        </span>
+      </div>
+      <div *ngIf="footer" class="kpi-card-footer">{{ footer }}</div>
+    </div>
+  \`
+})
+export class KpiCardComponent implements OnInit {
+  @Input() title = "";
+  @Input() value = 0;
+  @Input() icon = "";
+  @Input() trend = "";
+  @Input() trendDirection: "up" | "down" = "up";
+  @Input() footer = "";
+  @Input() duration = 1500;
+  @Input() decimals = 0;
+  @Input() prefix = "";
+  @Input() suffix = "";
+  @Input() className = "";
+
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    const valNode = this.el.nativeElement.querySelector(".kpi-card-value");
+    if (valNode) initKpiCards(valNode);
+  }
+}`,
+
+  chart: `// @ts-nocheck
+import { Component, Input, OnInit, ElementRef, OnChanges, SimpleChanges } from "@angular/core";
+import { MayvioChart } from "mayvio-ui/scripts/components/chart.js";
+
+@Component({
+  selector: "mayvio-chart",
+  template: \`
+    <div class="chart-container {{ className }}">
+      <div *ngIf="title" class="chart-header">
+        <div class="chart-title">{{ title }}</div>
+      </div>
+      <div class="canvas-holder"></div>
+    </div>
+  \`
+})
+export class ChartComponent implements OnInit, OnChanges {
+  @Input() type = "line";
+  @Input() data: any = { labels: [], datasets: [] };
+  @Input() options: any = {};
+  @Input() title = "";
+  @Input() className = "";
+
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    this.createChart();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if ((changes["type"] || changes["data"] || changes["options"]) && !changes["data"]?.isFirstChange()) {
+      this.createChart();
+    }
+  }
+
+  private createChart() {
+    const holder = this.el.nativeElement.querySelector(".canvas-holder");
+    if (holder) {
+      new MayvioChart(holder, { type: this.type, data: this.data, options: this.options });
+    }
+  }
+}`,
+
+  "dashboard-widget": `// @ts-nocheck
+import { Component, Input, OnInit, ElementRef } from "@angular/core";
+import { initDashboardWidgets } from "mayvio-ui/scripts/components/dashboard-widget.js";
+
+@Component({
+  selector: "mayvio-dashboard-widget",
+  template: \`
+    <div *ngIf="visible" [id]="id" class="widget" [class.collapsed]="collapsed">
+      <div class="widget-header">
+        <div class="widget-header-left">
+          <span class="widget-drag-handle">☰</span>
+          <h3 class="widget-title">{{ title }}</h3>
+        </div>
+        <div class="widget-actions">
+          <button class="widget-btn widget-btn-collapse" (click)="toggleCollapse($event)" [attr.aria-expanded]="!collapsed">▼</button>
+          <button *ngIf="dismissible" class="widget-btn widget-btn-close" (click)="close($event)">✕</button>
+        </div>
+      </div>
+      <div class="widget-content">
+        <div class="widget-content-inner">
+          <ng-content></ng-content>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class DashboardWidgetComponent {
+  @Input() id = "";
+  @Input() title = "";
+  @Input() collapsed = false;
+  @Input() dismissible = true;
+  visible = true;
+
+  toggleCollapse(e: MouseEvent) {
+    e.stopPropagation();
+    this.collapsed = !this.collapsed;
+  }
+
+  close(e: MouseEvent) {
+    e.stopPropagation();
+    this.visible = false;
+  }
+}
+
+@Component({
+  selector: "mayvio-dashboard-widget-grid",
+  template: \`
+    <div class="widget-grid {{ className }}">
+      <ng-content></ng-content>
+    </div>
+  \`
+})
+export class DashboardWidgetGridComponent implements OnInit {
+  @Input() storageKey = "mayvio-widget-order";
+  @Input() className = "";
+
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    const grid = this.el.nativeElement.querySelector(".widget-grid");
+    if (grid) {
+      setTimeout(() => {
+        initDashboardWidgets(grid, { storageKey: this.storageKey });
+      }, 0);
+    }
+  }
+}`,
+
+  "activity-timeline": `// @ts-nocheck
+import { Component, Input } from "@angular/core";
+
+@Component({
+  selector: "mayvio-activity-timeline-item",
+  template: \`
+    <div class="timeline-item {{ className }}">
+      <div class="timeline-badge {{ status }}" aria-hidden="true"></div>
+      <div class="timeline-content">
+        <div class="timeline-header">
+          <h4 class="timeline-title">{{ title }}</h4>
+          <span *ngIf="time" class="timeline-time">{{ time }}</span>
+        </div>
+        <p *ngIf="hasDesc" class="timeline-desc">
+          <ng-content></ng-content>
+        </p>
+      </div>
+    </div>
+  \`
+})
+export class ActivityTimelineItemComponent {
+  @Input() status: "primary" | "success" | "warning" | "error" | "info" = "info";
+  @Input() time = "";
+  @Input() title = "";
+  @Input() hasDesc = true;
+  @Input() className = "";
+}
+
+@Component({
+  selector: "mayvio-activity-timeline",
+  template: \`
+    <div class="timeline {{ className }}">
+      <ng-content></ng-content>
+    </div>
+  \`
+})
+export class ActivityTimelineComponent {
+  @Input() className = "";
 }`
 };
