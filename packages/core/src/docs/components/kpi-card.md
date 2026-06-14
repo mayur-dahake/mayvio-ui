@@ -5,8 +5,8 @@ The **KPI Card** displays key performance indicators and metrics with scroll-tri
 ---
 
 ## 📂 File Requirements
-* **CSS:** [kpi-card.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/kpi-card.css)
-* **JS:** [kpi-card.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/kpi-card.js)
+* **CSS:** [kpi-card.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/kpi-card.css)
+* **JS:** [kpi-card.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/kpi-card.js)
 
 ---
 

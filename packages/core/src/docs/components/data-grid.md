@@ -5,8 +5,8 @@ The **Data Grid** component provides an enterprise-ready data table supporting c
 ---
 
 ## 📂 File Requirements
-* **CSS:** [data-grid.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/data-grid.css)
-* **JS:** [data-grid.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/data-grid.js)
+* **CSS:** [data-grid.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/data-grid.css)
+* **JS:** [data-grid.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/data-grid.js)
 
 ---
 

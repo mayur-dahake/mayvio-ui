@@ -5,7 +5,7 @@ The **Activity Timeline** is a pure-CSS layout showing vertical chronological fe
 ---
 
 ## 📂 File Requirements
-* **CSS:** [activity-timeline.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/activity-timeline.css)
+* **CSS:** [activity-timeline.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/activity-timeline.css)
 * **JS:** Pure CSS layout. No JavaScript required.
 
 ---

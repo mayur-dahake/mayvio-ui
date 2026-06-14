@@ -5,8 +5,8 @@ The **Chart** component renders interactive, responsive, and lightweight SVG-bas
 ---
 
 ## 📂 File Requirements
-* **CSS:** [chart.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/chart.css)
-* **JS:** [chart.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/chart.js)
+* **CSS:** [chart.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/chart.css)
+* **JS:** [chart.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/chart.js)
 
 ---
 

@@ -5,8 +5,8 @@ The **Skeleton Loader** is used to represent loading status in placeholders befo
 ---
 
 ## 📂 File Requirements
-* **CSS:** [skeleton.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/skeleton.css)
-* **JS:** [skeleton.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/skeleton.js) (For interactive demo configuration switcher)
+* **CSS:** [skeleton.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/skeleton.css)
+* **JS:** [skeleton.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/skeleton.js) (For interactive demo configuration switcher)
 
 ---
 

@@ -5,8 +5,8 @@ The **Date Picker** provides a calendar popup attached to a text input, supporti
 ---
 
 ## 📂 File Requirements
-* **CSS:** [date-picker.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/date-picker.css)
-* **JS:** [date-picker.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/date-picker.js)
+* **CSS:** [date-picker.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/date-picker.css)
+* **JS:** [date-picker.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/date-picker.js)
 
 ---
 

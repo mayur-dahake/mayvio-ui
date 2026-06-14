@@ -5,8 +5,8 @@ The **Theme Toggle** component manages the theme state (Light / Dark mode) with 
 ---
 
 ## 📂 File Requirements
-* **CSS:** [theme.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/theme.css) (color variables), [theme-toggle.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/theme-toggle.css) (layout toggle)
-* **JS:** [theme-toggle.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/theme-toggle.js)
+* **CSS:** [theme.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/theme.css) (color variables), [theme-toggle.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/theme-toggle.css) (layout toggle)
+* **JS:** [theme-toggle.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/theme-toggle.js)
 
 ---
 

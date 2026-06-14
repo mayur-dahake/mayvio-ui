@@ -5,8 +5,8 @@ The **Multi-Select Dropdown** provides an advanced tag-based selection UI with s
 ---
 
 ## 📂 File Requirements
-* **CSS:** [multi-select.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/multi-select.css)
-* **JS:** [multi-select.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/multi-select.js)
+* **CSS:** [multi-select.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/multi-select.css)
+* **JS:** [multi-select.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/multi-select.js)
 
 ---
 

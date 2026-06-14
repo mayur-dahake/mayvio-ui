@@ -5,8 +5,8 @@ The **Notification Center** displays recent alerts and system status messages in
 ---
 
 ## 📂 File Requirements
-* **CSS:** [notification-center.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/notification-center.css)
-* **JS:** [notification-center.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/notification-center.js)
+* **CSS:** [notification-center.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/notification-center.css)
+* **JS:** [notification-center.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/notification-center.js)
 
 ---
 

@@ -5,8 +5,8 @@ The **File Upload Zone** provides a drag-and-drop area for selecting and uploadi
 ---
 
 ## 📂 File Requirements
-* **CSS:** [file-upload.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/file-upload.css)
-* **JS:** [file-upload.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/file-upload.js)
+* **CSS:** [file-upload.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/file-upload.css)
+* **JS:** [file-upload.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/file-upload.js)
 
 ---
 

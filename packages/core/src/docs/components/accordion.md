@@ -5,8 +5,8 @@ The **Accordion** component handles vertical panel sections collapse with smooth
 ---
 
 ## 📂 File Requirements
-* **CSS:** [accordion.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/accordion.css)
-* **JS:** [accordion.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/accordion.js)
+* **CSS:** [accordion.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/accordion.css)
+* **JS:** [accordion.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/accordion.js)
 
 ---
 

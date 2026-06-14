@@ -5,8 +5,8 @@ The **Dashboard Widget** handles collapsible and dismissible grid panel cards or
 ---
 
 ## 📂 File Requirements
-* **CSS:** [dashboard-widget.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/dashboard-widget.css)
-* **JS:** [dashboard-widget.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/dashboard-widget.js)
+* **CSS:** [dashboard-widget.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/dashboard-widget.css)
+* **JS:** [dashboard-widget.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/dashboard-widget.js)
 
 ---
 

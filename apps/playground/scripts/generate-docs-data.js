@@ -37,7 +37,7 @@ function main() {
   if (fs.existsSync(componentsDir)) {
     const files = fs.readdirSync(componentsDir);
     files.forEach(file => {
-      if (file.endsWith(".md")) {
+      if (file.endsWith(".md") && !file.startsWith(".")) {
         const key = path.basename(file, ".md");
         const filePath = path.join(componentsDir, file);
         data[key] = fs.readFileSync(filePath, "utf8");

@@ -5,8 +5,8 @@ The **Modal Dialog** component displays interactive overlays (confirmation detai
 ---
 
 ## 📂 File Requirements
-* **CSS:** [modal.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/modal.css)
-* **JS:** [modal.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/modal.js)
+* **CSS:** [modal.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/modal.css)
+* **JS:** [modal.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/modal.js)
 
 ---
 
@@ -55,5 +55,5 @@ initModal();
 ---
 
 ## 🔌 Framework Quick Start
-* **React:** See complete integration wrapper inside [examples/react-integration/ModalWrapper.jsx](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/examples/react-integration/ModalWrapper.jsx).
-* **Angular:** See directive trigger inside [examples/angular-integration/modal.directive.ts](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/examples/angular-integration/modal.directive.ts).
+* **React:** See complete integration wrapper inside [examples/react-integration/ModalWrapper.jsx](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/examples/react-integration/ModalWrapper.jsx).
+* **Angular:** See directive trigger inside [examples/angular-integration/modal.directive.ts](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/examples/angular-integration/modal.directive.ts).

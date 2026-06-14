@@ -5,8 +5,8 @@ The **Alert** component renders inline contextual alerts (warnings, success stat
 ---
 
 ## 📂 File Requirements
-* **CSS:** [alert.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/alert.css)
-* **JS:** [alert.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/alert.js) (For click handlers cleanup)
+* **CSS:** [alert.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/alert.css)
+* **JS:** [alert.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/alert.js) (For click handlers cleanup)
 
 ---
 

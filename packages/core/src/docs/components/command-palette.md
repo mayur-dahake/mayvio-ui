@@ -5,8 +5,8 @@ The **Command Palette** provides an overlay list box triggered via keyboard shor
 ---
 
 ## 📂 File Requirements
-* **CSS:** [command-palette.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/command-palette.css)
-* **JS:** [command-palette.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/command-palette.js)
+* **CSS:** [command-palette.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/command-palette.css)
+* **JS:** [command-palette.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/command-palette.js)
 
 ---
 

@@ -5,8 +5,8 @@ The **Toast Notification** displays feedback messages on success, error, warn, a
 ---
 
 ## 📂 File Requirements
-* **CSS:** [toast.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/toast.css)
-* **JS:** [toast.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/toast.js)
+* **CSS:** [toast.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/toast.css)
+* **JS:** [toast.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/toast.js)
 
 ---
 

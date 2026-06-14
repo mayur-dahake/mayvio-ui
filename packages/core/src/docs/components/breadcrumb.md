@@ -5,7 +5,7 @@ The **Breadcrumb** component represents visual hierarchy trails to assist users 
 ---
 
 ## 📂 File Requirements
-* **CSS:** [breadcrumb.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/breadcrumb.css)
+* **CSS:** [breadcrumb.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/breadcrumb.css)
 * **JS:** Pure CSS layouts. No JavaScript required.
 
 ---

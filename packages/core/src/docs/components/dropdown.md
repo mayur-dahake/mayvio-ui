@@ -5,8 +5,8 @@ The **Dropdown** component provides a searchable select input with single and mu
 ---
 
 ## 📂 File Requirements
-* **CSS:** [dropdown.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/dropdown.css)
-* **JS:** [dropdown.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/dropdown.js)
+* **CSS:** [dropdown.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/dropdown.css)
+* **JS:** [dropdown.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/dropdown.js)
 
 ---
 
@@ -55,5 +55,5 @@ initDropdowns();
 ---
 
 ## 🔌 Framework Quick Start
-* **React:** See complete integration wrapper inside [examples/react-integration/DropdownWrapper.jsx](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/examples/react-integration/DropdownWrapper.jsx).
-* **Angular:** See custom dropdown component inside [examples/angular-integration/dropdown.component.ts](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/examples/angular-integration/dropdown.component.ts).
+* **React:** See complete integration wrapper inside [examples/react-integration/DropdownWrapper.jsx](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/examples/react-integration/DropdownWrapper.jsx).
+* **Angular:** See custom dropdown component inside [examples/angular-integration/dropdown.component.ts](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/examples/angular-integration/dropdown.component.ts).

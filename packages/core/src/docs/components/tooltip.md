@@ -5,7 +5,7 @@ The **Tooltip** component triggers contextual hints on mouse hover and keyboard 
 ---
 
 ## 📂 File Requirements
-* **CSS:** [tooltip.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/tooltip.css)
+* **CSS:** [tooltip.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/tooltip.css)
 * **JS:** Pure CSS transition. No Javascript initialized listeners required.
 
 ---

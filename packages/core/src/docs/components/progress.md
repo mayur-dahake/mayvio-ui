@@ -5,8 +5,8 @@ The **Progress Bar** component handles animated indicators for both determinate 
 ---
 
 ## 📂 File Requirements
-* **CSS:** [progress.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/progress.css)
-* **JS:** [progress.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/progress.js) (For interactive value changes)
+* **CSS:** [progress.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/progress.css)
+* **JS:** [progress.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/progress.js) (For interactive value changes)
 
 ---
 

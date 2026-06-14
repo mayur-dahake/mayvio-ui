@@ -5,7 +5,7 @@ The **Badge** component represents status indicator badges (Beta tags, Stable re
 ---
 
 ## 📂 File Requirements
-* **CSS:** [badge.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/badge.css)
+* **CSS:** [badge.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/badge.css)
 * **JS:** Pure CSS styling. No JavaScript required.
 
 ---

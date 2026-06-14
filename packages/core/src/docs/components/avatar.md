@@ -5,7 +5,7 @@ The **Avatar** component renders circular profile photos, fallback initial cards
 ---
 
 ## 📂 File Requirements
-* **CSS:** [avatar.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/avatar.css)
+* **CSS:** [avatar.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/avatar.css)
 * **JS:** Pure CSS layouts. No JavaScript required.
 
 ---

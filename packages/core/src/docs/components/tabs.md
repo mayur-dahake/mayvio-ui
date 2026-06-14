@@ -5,8 +5,8 @@ The **Tabs** component handles accessible horizontal panels switching based on A
 ---
 
 ## 📂 File Requirements
-* **CSS:** [tabs.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/tabs.css)
-* **JS:** [tabs.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/tabs.js)
+* **CSS:** [tabs.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/tabs.css)
+* **JS:** [tabs.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/tabs.js)
 
 ---
 

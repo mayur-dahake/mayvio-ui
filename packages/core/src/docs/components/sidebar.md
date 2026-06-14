@@ -5,8 +5,8 @@ The **Sidebar Navigation** is a collapsible left-side layout menu featuring icon
 ---
 
 ## 📂 File Requirements
-* **CSS:** [sidebar.css](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/styles/components/sidebar.css)
-* **JS:** [sidebar.js](file:///Volumes/SSD/Projects/UI%20Projects/ui-component-lab/scripts/components/sidebar.js)
+* **CSS:** [sidebar.css](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/styles/components/sidebar.css)
+* **JS:** [sidebar.js](file:///Volumes/SSD/Projects/UI%20Projects/mayvio-ui/scripts/components/sidebar.js)
 
 ---
 
