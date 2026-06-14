@@ -1,451 +1,229 @@
-# Mayvio UI — Product Roadmap & Architecture
+# Mayvio UI — Roadmap
+
+> Last updated: 2026-06-14
+> This is the single source of truth for project direction.
+> All phases, milestones, and component targets are tracked here.
+
+---
 
 ## Vision
-Build a modern frontend component library and playground showcasing reusable, accessible, themeable, and production-ready UI components using HTML, CSS, and JavaScript.
 
-## Current Status
+Mayvio UI is a multi-framework UI component library that provides a premium set of accessible, beautifully designed components for **React**, **Angular**, and **Vanilla HTML** — with a world-class documentation site featuring live in-browser code editing.
 
-- Current release status: `v3.2.0` (Monorepo and Phase 5 complete)
-- Completed phases: Phase 1, Phase 2, Phase 3, Phase 4, Phase 4.5, and Phase 5
-- Next focus: Phase 6 — Productivity Applications
+**North Star**: Be the go-to UI library for Angular developers (a gap MUI, Chakra, and shadcn don't fill) while remaining a first-class React and Vanilla library.
+
+---
+
+## Release Strategy
+
+| Version | Target | What Ships |
+|---|---|---|
+| `v4.0.0-alpha.1` | Phase 1-2 complete | PoC: Badge, Alert, Avatar with new architecture |
+| `v4.0.0-beta.1`  | Phase 3 complete   | All Tier 2 components, docs site live |
+| `v4.0.0`         | Phase 4 complete   | Full component set, stable API |
+| `v4.1.0`         | Phase 5 complete   | Data components (DataGrid, Chart) |
+| `v5.0.0`         | Phase 6-7 complete | Storybook, full test coverage, Figma kit |
+
+> ⚠️ v4.0.0 is a **BREAKING CHANGE** from v3.x:
+> - CSS classes renamed: `.badge` → `.mv-badge`
+> - CSS tokens renamed: `--bg` → `--mv-color-bg`
+> - Angular selector changed: `mayvio-badge` → `mv-badge`
+> - Full migration guide in `MIGRATION.md`
+
+---
+
+## Phase 1 — Monorepo Foundation
+**Status**: 🔴 Not started | **Target**: Week 1
 
 ### Goals
-- Portfolio project
-- GitHub showcase
-- LinkedIn content source
-- Frontend architecture practice
-- Design system foundation
-
----
-
-## Tech Stack
-
-### Initial Version
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
-
-### Future
-- Angular Version
-- React Version
-- Web Components
-- Storybook Integration
-
----
-
-## Design Principles
-
-### Accessibility
-- Keyboard navigation
-- Focus states
-- ARIA labels
-- Screen reader support
-
-### Performance
-- No dependencies
-- Lazy initialization
-- Hardware accelerated animations
-
-### Design System
-- CSS Variables
-- Reusable utility classes
-- Theme engine
-
-### Responsive
-- Mobile first
-- Tablet support
-- Desktop support
-
----
-
-## Project Structure (NPM Workspaces Monorepo)
-
-```
-mayvio-ui/
-├── package.json               # Root workspace configuration
-├── packages/
-│   ├── core/                  # Core vanilla CSS & JS (publishes as 'mayvio-ui')
-│   │   ├── package.json
-│   │   ├── README.md
-│   │   └── src/
-│   │       ├── scripts/       # Component controller scripts
-│   │       └── styles/        # Component CSS stylesheets
-│   ├── react/                 # React wrapper components (publishes as '@mayvio-ui/react')
-│   │   ├── package.json
-│   │   ├── tsconfig.json
-│   │   ├── tsup.config.ts
-│   │   └── src/               # React TSX components
-│   └── angular/               # Angular wrapper components (publishes as '@mayvio-ui/angular')
-│       ├── package.json
-│       ├── ng-package.json
-│       ├── tsconfig.lib.json
-│       └── src/               # Angular Components & Directives
-└── apps/
-    └── playground/            # Portfolio showcase playground (imports packages locally)
-        ├── index.html
-        ├── package.json
-        ├── scripts/           # Demo orchestration logic
-        └── styles/            # Playground layout styling
-```
-
----
-
-## Application Layout
-- Navbar
-- Hero Section
-- Statistics
-- Component Showcase
-- Documentation
-- Roadmap
-- Footer
-
----
-
-## Theme Engine
-
-### Supported Themes
-- Light
-- Dark
-
-#### Future
-- Dracula
-- Nord
-- Material
-- High Contrast
-
-### Theme Storage
-- `localStorage`
-- `theme = light | dark`
-
-### Theme Flow
-User Click
-
-↓
-
-Theme Toggle
-
-↓
-
-Update CSS Variables
-
-↓
-
-Persist To Local Storage
-
-↓
-
-Apply On Reload
-
----
-
-## Phase 1
-Goal: Build foundation and core UI interactions.
-
-### Components
-
-#### Theme Switcher
-Features:
-- Light Mode
-- Dark Mode
-- Persistent Theme
-
-#### Skeleton Loader
-Layouts:
-- Social Feed
-- Dashboard
-- Profile
-- Table
-
-Animations:
-- Shimmer
-- Wave
-- Pulse
-
-#### Toast Notification
-Variants:
-- Success
-- Error
-- Warning
-- Info
-
-Features:
-- Auto Close
-- Progress Bar
-- Stack Support
-
-#### Modal Dialog
-Features:
-- Overlay
-- Escape Close
-- Backdrop Click Close
-
-Variants:
-- Confirmation
-- Information
-
-#### Accordion
-Features:
-- Single Expand
-- Multi Expand
-
-Animations:
-- Height Transition
-
-#### Tabs
-Features:
-- Tab Navigation
-- Active State
-
-Deliverable: Version 1.0
-
----
-
-## Phase 2
-Goal: Productivity Components
-
-### Components
-
-#### Dropdown
-Features:
-- Search
-- Keyboard Support
-- Single Select
-- Multi Select
-
-#### Tooltip
-Features:
-- Top
-- Bottom
-- Left
-- Right
-
-#### Badge
-Variants:
-- Success
-- Error
-- Warning
-- Info
-
-#### Avatar
-Variants:
-- Image
-- Initials
-- Group Avatar
-
-#### Progress Bar
-Features:
-- Determinate
-- Indeterminate
-
-#### Alert Component
-Features:
-- Dismissible
-- Action Buttons
-
-Deliverable: Version 1.5
-
----
-
-## Phase 3
-Goal: Application-Level Components
-
-### Components
-
-#### Command Palette
-Shortcut: Ctrl + K
-
-Features:
-- Search
-- Navigation
-- Commands
-
-Inspired By:
-- VS Code
-- Linear
-
-#### Sidebar Navigation
-Features:
-- Expand Collapse
-- Nested Menu
-
-#### Notification Center
-Features:
-- Grouping
-- Read Unread
-
-#### Breadcrumb
-Features:
-- Navigation Trail
-
-Deliverable: Version 2.0
-Status: Completed
-
----
-
-## Phase 4
-Goal: Enterprise Components
-
-### Components
-
-#### Data Grid
-Features:
-- Sorting
-- Filtering
-- Pagination
-- Column Visibility
-
-Future:
-- Virtual Scroll
-
-#### Date Picker
-Features:
-- Single Date
-- Range
-
-#### Multi Select
-Features:
-- Search
-- Grouping
-
-Note:
-- The current dropdown already supports multi-select in its present form
-- Phase 4 should focus on an advanced standalone multi-select experience
-
-#### File Upload
-Features:
-- Drag Drop
-- Progress
-
-Deliverable: Version 3.0
-Status: Completed ✓
-
----
-
-## Phase 4.5 — Monorepo & NPM Packaging
-Goal: Restructure the codebase into a workspaces monorepo and set up npm package builds for React and Angular wrappers.
+- Clean, shared tooling across all packages
+- TypeScript strict mode enforced everywhere
+- Pre-commit hooks prevent bad code from entering the repo
 
 ### Deliverables
-- **Root Workspaces:** Establish workspaces configuration in root `package.json`.
-- **`packages/core`:** Publishable core vanilla JS/CSS assets (`mayvio-ui`).
-- **`packages/react`:** Publishable React wrapper package (`@mayvio-ui/react`) bundled with `tsup` (ESM/CJS and typings).
-- **`packages/angular`:** Publishable Angular library package (`@mayvio-ui/angular`) built with `ng-packagr` (APF standard).
-- **`apps/playground`:** The portfolio playground site running against local workspace package symlinks, acting as a live demo of the compiled npm packages.
-
-Status: Completed ✓
+- [ ] Root `tsconfig.base.json` (strict mode)
+- [ ] Root `.eslintrc.json` (shared rules)
+- [ ] Root `.prettierrc`
+- [ ] `husky` + `lint-staged` pre-commit hooks
+- [ ] `.editorconfig`
+- [ ] Root `package.json` scripts: `build:all`, `test:all`, `lint:all`
+- [ ] Updated `CONTRIBUTING.md`
 
 ---
 
-## Phase 5
-Goal: Advanced Dashboard Components
+## Phase 2 — PoC: Badge, Alert, Avatar
+**Status**: 🔴 Not started | **Target**: Week 1-2
+
+> Complete proof-of-concept for the new architecture using 3 representative components.
+> These 3 components validate every layer before we scale to all 48 components.
+
+### Why these 3?
+| Component | What it validates |
+|---|---|
+| **Badge** | CSS-only component. Validates token rename, folder structure, exports map. |
+| **Alert** | Has vanilla JS. Validates JS init → React lifecycle → Angular lifecycle chain. |
+| **Avatar** | Compound component (Avatar + AvatarGroup). Validates multi-export pattern. |
+
+### Deliverables per component (must all be done before moving on)
+
+**Core (`packages/core`)**
+- [ ] Folder: `src/components/{component}/`
+- [ ] CSS: `{component}.css` with `mv-` prefixed BEM classes
+- [ ] JS (if applicable): `{component}.js` with scoped init function
+- [ ] Types: `index.ts` exporting config interface
+- [ ] `package.json` exports map updated
+
+**React (`packages/react`)**
+- [ ] `{Component}/Badge.types.ts` — strict TypeScript interfaces
+- [ ] `{Component}/Badge.test.tsx` — written FIRST (TDD)
+- [ ] `{Component}/Badge.a11y.test.tsx` — axe accessibility tests
+- [ ] `{Component}/Badge.tsx` — implementation
+- [ ] `{Component}/index.ts` — named exports
+- [ ] All tests green (`npm test`)
+- [ ] `package.json` exports map updated
+- [ ] `tsup.config.ts` entry point added
+
+**Angular (`packages/angular`)**
+- [ ] `src/{component}/{component}.component.spec.ts` — written FIRST (TDD)
+- [ ] `src/{component}/{component}.component.ts` — `standalone: true`, typed `@Input()`
+- [ ] `src/{component}/index.ts` — named export
+- [ ] Secondary entry point: `{component}/ng-package.json` + `index.ts`
+- [ ] All tests green (`npm test`)
+- [ ] `public-api.ts` updated
+
+**Docs (`apps/docs`)**
+- [ ] Component page: `app/components/{component}/page.tsx`
+- [ ] At least 3 `<LiveDemo>` sections
+- [ ] `<PropsTable>` with all props documented
+- [ ] StackBlitz button works
+- [ ] CodeSandbox button works
+
+---
+
+## Phase 3 — Core Components (Tier 2)
+**Status**: 🔴 Not started | **Target**: Week 2-4
+
+> Scale the proven architecture to all foundational components.
 
 ### Components
+| # | Component | Complexity | Status |
+|---|---|---|---|
+| 4 | Button | Low | 🔴 |
+| 5 | Tooltip | Medium | 🔴 |
+| 6 | Toast | Medium | 🔴 |
+| 7 | Skeleton | Low | 🔴 |
+| 8 | ProgressBar | Low | 🔴 |
+| 9 | Breadcrumb | Low | 🔴 |
+| 10 | Tabs | Medium | 🔴 |
+| 11 | Accordion | Medium | 🔴 |
+| 12 | ThemeToggle | Low | 🔴 |
 
-#### KPI Cards
-- Animated Counters
-
-#### Analytics Charts
-Mock Data:
-- Bar
-- Line
-- Pie
-
-#### Dashboard Widgets
-Features:
-- Rearrange
-- Collapse
-
-#### Activity Timeline
-Features:
-- Status Events
-
-Deliverable: Version 4.0
-Status: Completed ✓
-
----
-
-## Phase 6
-Goal: Productivity Applications
-
-### Components
-
-#### Kanban Board
-Features:
-- Drag Drop
-- Swimlanes
-
-#### Notes App
-Features:
-- CRUD
-
-#### Task Manager
-Features:
-- Status
-- Priority
-
-Deliverable: Version 5.0
+### Docs Site MVP
+- [ ] Next.js app scaffolded (`apps/docs`)
+- [ ] `<AppShell>` layout with sidebar navigation
+- [ ] `<LiveDemo>` component with Monaco editor
+- [ ] `<PropsTable>` component
+- [ ] `<ComponentHeader>` with install command
+- [ ] StackBlitz integration (`lib/openStackBlitz.ts`)
+- [ ] CodeSandbox integration (`lib/openCodeSandbox.ts`)
+- [ ] Dark mode support
+- [ ] Deployed to Vercel
 
 ---
 
-## Phase 7
-Goal: Design System
+## Phase 4 — Interaction Components (Tier 3)
+**Status**: 🔴 Not started | **Target**: Week 4-6
 
-### Features
-- Documentation Site
-  - Component Docs
-  - Usage
-  - Accessibility Notes
-  - Examples
-- Code Snippets
-  - Copy HTML
-  - Copy CSS
-  - Copy JS
-- Playground
-  - Live Editing
-  - Theme Switching
-
-Deliverable: Version 6.0
-
-### Priority Adjustment
-- Documentation and integration guides should move earlier in execution priority
-- End-user adoption will improve faster if integration docs are strengthened before adding many more components
+| # | Component | Complexity | Status |
+|---|---|---|---|
+| 13 | Modal | High | 🔴 |
+| 14 | Dropdown | High | 🔴 |
+| 15 | MultiSelect | High | 🔴 |
+| 16 | DatePicker | Very High | 🔴 |
+| 17 | FileUpload | High | 🔴 |
+| 18 | CommandPalette | Very High | 🔴 |
+| 19 | Sidebar | Medium | 🔴 |
+| 20 | NotificationCenter | High | 🔴 |
 
 ---
 
-## Phase 8
-Goal: Professional Portfolio Release
+## Phase 5 — Form Primitives (Tier 5 — New)
+**Status**: 🔴 Not started | **Target**: Week 6-8
 
-### Deliverables
-- GitHub Pages Deployment
-- SEO
-- Screenshots
-- GIF Demos
-- Documentation
-- Changelog
-- Releases
-  - v1.0
-  - v2.0
-  - v3.0
+> These are missing from v3.x entirely. Every serious app needs them.
 
----
-
-## Final Landing Page Structure
-- Navbar
-- Hero
-- Component Statistics
-- Featured Components
-- Component Library
-- Documentation
-- Roadmap
-- GitHub CTA
-- Footer
+| # | Component | Status |
+|---|---|---|
+| 21 | Input / TextField | 🔴 |
+| 22 | Checkbox | 🔴 |
+| 23 | RadioGroup | 🔴 |
+| 24 | Switch / Toggle | 🔴 |
+| 25 | Select | 🔴 |
+| 26 | Textarea | 🔴 |
+| 27 | Slider | 🔴 |
 
 ---
 
-## Success Criteria
-- 20+ Components
-- Dark/Light Theme
-- Responsive
-- Accessible
-- Zero Dependencies
-- Production Ready
-- GitHub Portfolio Quality
+## Phase 6 — Data & Dashboard Components (Tier 4)
+**Status**: 🔴 Not started | **Target**: Week 8-12
+
+| # | Component | Complexity | Status |
+|---|---|---|---|
+| 28 | DataGrid | Very High | 🔴 |
+| 29 | Chart | Very High | 🔴 |
+| 30 | KpiCard | Medium | 🔴 |
+| 31 | DashboardWidget | Medium | 🔴 |
+| 32 | ActivityTimeline | Medium | 🔴 |
+| 33 | CodeSnippet | Medium | 🔴 |
+
+---
+
+## Phase 7 — Quality, Polish & Launch
+**Status**: 🔴 Not started | **Target**: Week 12-16
+
+### Testing
+- [ ] `>80%` test coverage across all packages
+- [ ] Visual regression tests via Chromatic + Storybook
+- [ ] E2E tests for critical flows (Modal, Dropdown, CommandPalette)
+- [ ] Automated a11y checks on all 48 components
+
+### Documentation
+- [ ] All 48 component pages complete
+- [ ] Getting started guides: React, Angular, Vanilla
+- [ ] Migration guide: v3.x → v4.0.0
+- [ ] Design tokens reference page
+- [ ] Figma community file published
+
+### DevEx
+- [ ] Storybook added to `packages/react`
+- [ ] Changesets configured and tested
+- [ ] GitHub Actions CI running on every PR
+- [ ] Automated NPM publish on merge to `main`
+
+### Launch
+- [ ] Public v4.0.0 release on NPM
+- [ ] GitHub Discussions enabled
+- [ ] `CHANGELOG.md` auto-generated
+- [ ] Custom docs domain live
+
+---
+
+## Full Component Registry (48 components)
+
+### Tier 1 — PoC (3 components)
+`Badge` · `Alert` · `Avatar`
+
+### Tier 2 — Core (9 components)
+`Button` · `Tooltip` · `Toast` · `Skeleton` · `ProgressBar` · `Breadcrumb` · `Tabs` · `Accordion` · `ThemeToggle`
+
+### Tier 3 — Interaction (8 components)
+`Modal` · `Dropdown` · `MultiSelect` · `DatePicker` · `FileUpload` · `CommandPalette` · `Sidebar` · `NotificationCenter`
+
+### Tier 4 — Data (6 components)
+`DataGrid` · `Chart` · `KpiCard` · `DashboardWidget` · `ActivityTimeline` · `CodeSnippet`
+
+### Tier 5 — Form Primitives (7 components) — NEW in v4
+`Input` · `Checkbox` · `RadioGroup` · `Switch` · `Select` · `Textarea` · `Slider`
+
+### Tier 6 — Extra (15 components) — Future
+`Chip` · `Spinner` · `Divider` · `Stepper` · `Pagination` · `Table` · `Card` · `List` · `Menu` · `Drawer` · `Snackbar` · `Rating` · `TreeView` · `ColorPicker` · `Tag`
