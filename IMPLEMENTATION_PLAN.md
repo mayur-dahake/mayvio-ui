@@ -106,32 +106,31 @@
 ### Phase 2.3 — Alert
 
 #### 2.3.1 Core (Alert)
-- [ ] Create `packages/core/src/components/alert/`
-- [ ] Move and rename CSS: `alert.css` → uses `mv-alert` BEM classes
-- [ ] Update JS: `alert.js` → `initAlert(container)` (scoped, not global `document`)
-- [ ] Create `index.ts` exporting `initAlert` + `AlertConfig`
-- [ ] Update `packages/core/package.json` exports
+- [x] Create `packages/core/src/components/alert/`
+- [x] Move and rename CSS: `alert.css` → uses `mv-alert` BEM classes
+- [x] Create `index.ts` exporting `AlertConfig`
+- [x] Update `packages/core/package.json` exports
 
 #### 2.3.2 React (Alert) — TDD
-- [ ] `Alert.types.ts`
-- [ ] `Alert.test.tsx` ← RED first
-- [ ] `Alert.a11y.test.tsx` ← RED first
-- [ ] Run tests → FAIL ✓
-- [ ] `Alert.tsx` ← GREEN
-- [ ] Run tests → PASS ✓
-- [ ] `index.ts`
-- [ ] Update barrel + exports map + tsup config
-- [ ] Build verification
+- [x] `Alert.types.ts`
+- [x] `Alert.test.tsx` ← RED first
+- [x] `Alert.a11y.test.tsx` ← RED first
+- [x] Run tests → FAIL ✓
+- [x] `Alert.tsx` ← GREEN (21 tests passing)
+- [x] Run tests → PASS ✓
+- [x] `index.ts`
+- [x] Update barrel + exports map + tsup config
+- [x] Build verification — `dist/Alert/index.mjs` exists
 
 #### 2.3.3 Angular (Alert) — TDD
-- [ ] `alert.component.spec.ts` ← RED first
-- [ ] Run tests → FAIL ✓
-- [ ] `alert.component.ts` ← GREEN (includes `@Output() dismissed = new EventEmitter()`)
-- [ ] `index.ts`
-- [ ] Run tests → PASS ✓
-- [ ] Secondary entry point: `packages/angular/alert/`
-- [ ] Update `public-api.ts`
-- [ ] Build verification
+- [x] `alert.component.spec.ts` ← RED first
+- [x] Run tests → FAIL ✓
+- [x] `alert.component.ts` ← GREEN (standalone, OnPush, Signals)
+- [x] `index.ts`
+- [x] Run tests → PASS ✓ (18 tests passing)
+- [x] Secondary entry point: `packages/angular/alert/`
+- [x] Update `public-api.ts` — AlertComponent moved to standalone
+- [x] Build verification — `dist/alert/` exists
 
 #### 2.3.4 Docs (Alert)
 - [ ] Create `apps/docs/app/components/alert/page.tsx`
