@@ -1,6 +1,6 @@
 {
   "name": "@mayvio-ui/react",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "React wrappers for Mayvio UI components.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -28,7 +28,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "mayvio-ui": "^3.2.0"
+    "mayvio-ui": "^3.2.1"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

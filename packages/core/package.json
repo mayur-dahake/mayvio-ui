@@ -1,6 +1,6 @@
 {
   "name": "mayvio-ui",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Modern, accessible and reusable UI components built with HTML, CSS and JavaScript.",
   "type": "module",
   "main": "./src/scripts/index.js",
