@@ -4,6 +4,7 @@ export default defineConfig({
   entry: {
     index: 'src/index.ts',
     'Button/index': 'src/Button/index.ts',
+    'Tooltip/index': 'src/Tooltip/index.ts',
     'Badge/index': 'src/Badge/index.ts',
     'Alert/index': 'src/Alert/index.ts',
     'Avatar/index': 'src/Avatar/index.ts',

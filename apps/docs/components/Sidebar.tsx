@@ -23,7 +23,7 @@ const nav = [
     section: 'Tier 2 — Core',
     links: [
       { label: 'Button', href: '/components/button' },
-      { label: 'Tooltip', href: '/components/tooltip', wip: true },
+      { label: 'Tooltip', href: '/components/tooltip' },
       { label: 'Toast', href: '/components/toast', wip: true },
       { label: 'Skeleton', href: '/components/skeleton', wip: true },
       { label: 'ProgressBar', href: '/components/progress-bar', wip: true },
