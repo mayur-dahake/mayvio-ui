@@ -22,7 +22,7 @@ const nav = [
   {
     section: 'Tier 2 — Core',
     links: [
-      { label: 'Button', href: '/components/button', wip: true },
+      { label: 'Button', href: '/components/button' },
       { label: 'Tooltip', href: '/components/tooltip', wip: true },
       { label: 'Toast', href: '/components/toast', wip: true },
       { label: 'Skeleton', href: '/components/skeleton', wip: true },
