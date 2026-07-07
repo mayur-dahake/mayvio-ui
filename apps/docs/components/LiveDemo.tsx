@@ -174,7 +174,7 @@ const { useState, useEffect } = React;
 ${code}
 
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(React.Fragment, null, 
-  ${extractJSXForPreview(code)}
+  ${extractJSXForPreview()}
 ));
 </script>
 </body>
