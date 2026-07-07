@@ -6,7 +6,8 @@ export { ModalWrapper as Modal } from './ModalWrapper.js';
 export { MultiSelectWrapper as MultiSelect } from './MultiSelectWrapper.js';
 
 export { ThemeToggle } from './ThemeToggle.js';
-export { Skeleton } from './Skeleton.js';
+export { Skeleton } from './Skeleton/index.js';
+export type { SkeletonProps } from './Skeleton/Skeleton.types.js';
 export { ToastContainer, toast } from './Toast/index.js';
 export type { ToastItem, ToastContainerProps } from './Toast/Toast.types.js';
 export { Accordion, AccordionItem } from './Accordion.js';

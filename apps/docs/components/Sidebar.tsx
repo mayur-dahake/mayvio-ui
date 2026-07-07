@@ -25,7 +25,7 @@ const nav = [
       { label: 'Button', href: '/components/button' },
       { label: 'Tooltip', href: '/components/tooltip' },
       { label: 'Toast', href: '/components/toast' },
-      { label: 'Skeleton', href: '/components/skeleton', wip: true },
+      { label: 'Skeleton', href: '/components/skeleton' },
       { label: 'ProgressBar', href: '/components/progress-bar', wip: true },
       { label: 'Breadcrumb', href: '/components/breadcrumb', wip: true },
       { label: 'Tabs', href: '/components/tabs', wip: true },

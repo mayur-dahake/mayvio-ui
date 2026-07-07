@@ -19,6 +19,8 @@
     "./tooltip/css": "./src/components/tooltip/tooltip.css",
     "./toast": "./src/components/toast/index.js",
     "./toast/css": "./src/components/toast/toast.css",
+    "./skeleton": "./src/components/skeleton/index.js",
+    "./skeleton/css": "./src/components/skeleton/skeleton.css",
     "./styles/*": "./src/styles/*",
     "./scripts/*": "./src/scripts/*"
   },

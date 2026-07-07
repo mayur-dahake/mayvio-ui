@@ -27,6 +27,11 @@
       "import": "./dist/Toast/index.mjs",
       "require": "./dist/Toast/index.js"
     },
+    "./Skeleton": {
+      "types": "./dist/Skeleton/index.d.ts",
+      "import": "./dist/Skeleton/index.mjs",
+      "require": "./dist/Skeleton/index.js"
+    },
     "./Badge": {
       "types": "./dist/Badge/index.d.ts",
       "import": "./dist/Badge/index.mjs",

@@ -6,7 +6,7 @@ export * from './modal.directive';
 export * from './multi-select.component';
 
 export * from './theme-toggle.component';
-export * from './skeleton.component';
+export * from './skeleton/index';
 export * from './toast/index';
 export * from './accordion.component';
 export * from './tabs.component';
@@ -39,7 +39,7 @@ import { ModalTargetDirective } from './modal.directive';
 import { MultiSelectComponent } from './multi-select.component';
 
 import { ThemeToggleComponent } from './theme-toggle.component';
-import { SkeletonComponent } from './skeleton.component';
+import { SkeletonComponent } from './skeleton/index';
 import { ToastComponent } from './toast/index';
 import { AccordionComponent, AccordionItemComponent } from './accordion.component';
 import { TabsComponent, TabPanelComponent } from './tabs.component';
