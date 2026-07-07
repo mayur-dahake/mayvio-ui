@@ -69,7 +69,9 @@ import {
 } from './activity-timeline.component';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    FormsModule,
     DataGridComponent,
     DatePickerComponent,
     DropdownComponent,
@@ -84,6 +86,10 @@ import {
     TabsComponent,
     TabPanelComponent,
     TooltipDirective,
+    BadgeComponent,
+    AlertComponent,
+    AvatarComponent,
+    AvatarGroupComponent,
     ProgressBarComponent,
     CommandPaletteComponent,
     SidebarComponent,
@@ -98,14 +104,6 @@ import {
     DashboardWidgetGridComponent,
     ActivityTimelineComponent,
     ActivityTimelineItemComponent,
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    BadgeComponent,
-    AlertComponent,
-    AvatarComponent,
-    AvatarGroupComponent,
   ],
   exports: [
     DataGridComponent,
