@@ -9,6 +9,12 @@
     "./css": "./src/tokens/index.css",
     "./badge": "./src/components/badge/index.js",
     "./badge/css": "./src/components/badge/badge.css",
+    "./alert": "./src/components/alert/index.js",
+    "./alert/css": "./src/components/alert/alert.css",
+    "./avatar": "./src/components/avatar/index.js",
+    "./avatar/css": "./src/components/avatar/avatar.css",
+    "./button": "./src/components/button/index.js",
+    "./button/css": "./src/components/button/button.css",
     "./styles/*": "./src/styles/*",
     "./scripts/*": "./src/scripts/*"
   },

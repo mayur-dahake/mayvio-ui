@@ -12,6 +12,11 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
+    "./Button": {
+      "types": "./dist/Button/index.d.ts",
+      "import": "./dist/Button/index.mjs",
+      "require": "./dist/Button/index.js"
+    },
     "./Badge": {
       "types": "./dist/Badge/index.d.ts",
       "import": "./dist/Badge/index.mjs",

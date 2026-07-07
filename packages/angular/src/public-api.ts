@@ -21,6 +21,7 @@ export * from './sidebar.component';
 export * from './notification-center.component';
 export * from './breadcrumb.component';
 export * from './code-snippet.component';
+export * from './button/index';
 
 export * from './kpi-card.component';
 export * from './chart.component';
@@ -56,6 +57,7 @@ import {
 } from './notification-center.component';
 import { BreadcrumbComponent } from './breadcrumb.component';
 import { CodeSnippetComponent } from './code-snippet.component';
+import { ButtonComponent } from './button/index';
 
 import { KpiCardComponent } from './kpi-card.component';
 import { ChartComponent } from './chart.component';
@@ -98,6 +100,7 @@ import {
     NotificationItemComponent,
     BreadcrumbComponent,
     CodeSnippetComponent,
+    ButtonComponent,
     KpiCardComponent,
     ChartComponent,
     DashboardWidgetComponent,
@@ -132,6 +135,7 @@ import {
     NotificationItemComponent,
     BreadcrumbComponent,
     CodeSnippetComponent,
+    ButtonComponent,
     KpiCardComponent,
     ChartComponent,
     DashboardWidgetComponent,

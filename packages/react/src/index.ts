@@ -11,6 +11,8 @@ export { Toast, showToast } from './Toast.js';
 export { Accordion, AccordionItem } from './Accordion.js';
 export { Tabs, TabList, Tab, TabPanel } from './Tabs.js';
 export { Tooltip } from './Tooltip.js';
+export { Button } from './Button/index.js';
+export type { ButtonProps } from './Button/Button.types.js';
 export { Badge } from './Badge/index.js';
 export type { BadgeProps } from './Badge/Badge.types.js';
 export { Avatar, AvatarGroup } from './Avatar/index.js';
