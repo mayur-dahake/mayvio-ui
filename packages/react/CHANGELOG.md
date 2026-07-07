@@ -1,5 +1,16 @@
 # @mayvio-ui/react
 
+## 1.3.0
+
+### Minor Changes
+
+- feat: complete Phase 2 including Badge, Alert, Avatar components and Next.js docs site foundation
+
+### Patch Changes
+
+- Updated dependencies
+  - mayvio-ui@3.3.0
+
 ## 1.2.1
 
 ### Patch Changes
