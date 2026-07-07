@@ -5,6 +5,7 @@ export default defineConfig({
     index: 'src/index.ts',
     'Badge/index': 'src/Badge/index.ts',
     'Alert/index': 'src/Alert/index.ts',
+    'Avatar/index': 'src/Avatar/index.ts',
   },
   format: ['cjs', 'esm'],
   dts: true,

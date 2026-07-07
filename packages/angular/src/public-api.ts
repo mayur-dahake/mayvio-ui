@@ -13,7 +13,7 @@ export * from './accordion.component';
 export * from './tabs.component';
 export * from './tooltip.directive';
 export * from './badge/index';
-export * from './avatar.component';
+export * from './avatar/index';
 export * from './progress-bar.component';
 export * from './alert/index';
 export * from './command-palette.component';
@@ -45,7 +45,7 @@ import { AccordionComponent, AccordionItemComponent } from './accordion.componen
 import { TabsComponent, TabPanelComponent } from './tabs.component';
 import { TooltipDirective } from './tooltip.directive';
 import { BadgeComponent } from './badge/index';
-import { AvatarComponent, AvatarGroupComponent } from './avatar.component';
+import { AvatarComponent, AvatarGroupComponent } from './avatar/index';
 import { ProgressBarComponent } from './progress-bar.component';
 import { AlertComponent } from './alert/index';
 import { CommandPaletteComponent } from './command-palette.component';
@@ -84,8 +84,6 @@ import {
     TabsComponent,
     TabPanelComponent,
     TooltipDirective,
-    AvatarComponent,
-    AvatarGroupComponent,
     ProgressBarComponent,
     CommandPaletteComponent,
     SidebarComponent,
@@ -101,7 +99,14 @@ import {
     ActivityTimelineComponent,
     ActivityTimelineItemComponent,
   ],
-  imports: [CommonModule, FormsModule, BadgeComponent, AlertComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    BadgeComponent,
+    AlertComponent,
+    AvatarComponent,
+    AvatarGroupComponent,
+  ],
   exports: [
     DataGridComponent,
     DatePickerComponent,

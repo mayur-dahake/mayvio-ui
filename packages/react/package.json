@@ -21,6 +21,11 @@
       "types": "./dist/Alert/index.d.ts",
       "import": "./dist/Alert/index.mjs",
       "require": "./dist/Alert/index.js"
+    },
+    "./Avatar": {
+      "types": "./dist/Avatar/index.d.ts",
+      "import": "./dist/Avatar/index.mjs",
+      "require": "./dist/Avatar/index.js"
     }
   },
   "scripts": {

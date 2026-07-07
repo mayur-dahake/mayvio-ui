@@ -1,0 +1,149 @@
+/* Avatar component — mv- BEM prefix, --mv-* design tokens */
+
+/* ── Base ────────────────────────────────────── */
+.mv-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--mv-radius-full);
+  overflow: hidden;
+  flex-shrink: 0;
+  font-family: var(--mv-font-family);
+  font-weight: var(--mv-font-weight-semibold);
+  background: color-mix(in srgb, var(--mv-color-primary) 15%, transparent);
+  color: var(--mv-color-primary);
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* ── Shape modifier ──────────────────────────── */
+.mv-avatar--square {
+  border-radius: var(--mv-radius-md);
+}
+
+/* ── Sizes ───────────────────────────────────── */
+.mv-avatar--sm {
+  width: 32px;
+  height: 32px;
+  font-size: 0.7rem;
+}
+
+.mv-avatar--md {
+  width: 44px;
+  height: 44px;
+  font-size: 0.85rem;
+}
+
+.mv-avatar--lg {
+  width: 56px;
+  height: 56px;
+  font-size: 1rem;
+}
+
+.mv-avatar--xl {
+  width: 72px;
+  height: 72px;
+  font-size: 1.25rem;
+}
+
+/* ── Image ───────────────────────────────────── */
+.mv-avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Initials ────────────────────────────────── */
+.mv-avatar__initials {
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+/* ── Status indicator ────────────────────────── */
+.mv-avatar--online::after,
+.mv-avatar--offline::after,
+.mv-avatar--busy::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--mv-radius-full);
+  border: 2px solid var(--mv-color-card, #fff);
+}
+
+.mv-avatar {
+  position: relative;
+}
+
+.mv-avatar--online::after {
+  background: var(--mv-color-success);
+}
+.mv-avatar--offline::after {
+  background: var(--mv-color-text-muted);
+}
+.mv-avatar--busy::after {
+  background: var(--mv-color-error);
+}
+
+/* ── Group ───────────────────────────────────── */
+.mv-avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.mv-avatar-group .mv-avatar {
+  border: 2px solid var(--mv-color-card, #fff);
+  margin-left: -10px;
+}
+
+.mv-avatar-group .mv-avatar:first-child {
+  margin-left: 0;
+}
+
+.mv-avatar-group__overflow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--mv-radius-full);
+  background: var(--mv-color-border);
+  color: var(--mv-color-text-muted);
+  font-family: var(--mv-font-family);
+  font-size: 0.75rem;
+  font-weight: var(--mv-font-weight-semibold);
+  border: 2px solid var(--mv-color-card, #fff);
+  margin-left: -10px;
+  /* inherits size from parent group modifier */
+}
+
+/* Group sizes */
+.mv-avatar-group--sm .mv-avatar,
+.mv-avatar-group--sm .mv-avatar-group__overflow {
+  width: 32px;
+  height: 32px;
+  font-size: 0.7rem;
+  margin-left: -8px;
+}
+.mv-avatar-group--sm .mv-avatar:first-child {
+  margin-left: 0;
+}
+
+.mv-avatar-group--md .mv-avatar,
+.mv-avatar-group--md .mv-avatar-group__overflow {
+  width: 44px;
+  height: 44px;
+  font-size: 0.85rem;
+}
+
+.mv-avatar-group--lg .mv-avatar,
+.mv-avatar-group--lg .mv-avatar-group__overflow {
+  width: 56px;
+  height: 56px;
+  font-size: 1rem;
+  margin-left: -14px;
+}
+.mv-avatar-group--lg .mv-avatar:first-child {
+  margin-left: 0;
+}

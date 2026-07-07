@@ -1,4 +1,4 @@
-import "mayvio-ui/css";
+import "mayvio-ui/styles/main.css";
 
 import {
   initThemeToggle,
