@@ -7,7 +7,8 @@ export { MultiSelectWrapper as MultiSelect } from './MultiSelectWrapper.js';
 
 export { ThemeToggle } from './ThemeToggle.js';
 export { Skeleton } from './Skeleton.js';
-export { Toast, showToast } from './Toast.js';
+export { ToastContainer, toast } from './Toast/index.js';
+export type { ToastItem, ToastContainerProps } from './Toast/Toast.types.js';
 export { Accordion, AccordionItem } from './Accordion.js';
 export { Tabs, TabList, Tab, TabPanel } from './Tabs.js';
 export { Tooltip } from './Tooltip/index.js';

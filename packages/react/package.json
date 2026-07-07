@@ -22,6 +22,11 @@
       "import": "./dist/Tooltip/index.mjs",
       "require": "./dist/Tooltip/index.js"
     },
+    "./Toast": {
+      "types": "./dist/Toast/index.d.ts",
+      "import": "./dist/Toast/index.mjs",
+      "require": "./dist/Toast/index.js"
+    },
     "./Badge": {
       "types": "./dist/Badge/index.d.ts",
       "import": "./dist/Badge/index.mjs",

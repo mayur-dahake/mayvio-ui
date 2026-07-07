@@ -7,8 +7,7 @@ export * from './multi-select.component';
 
 export * from './theme-toggle.component';
 export * from './skeleton.component';
-export * from './toast.service';
-export * from './toast.component';
+export * from './toast/index';
 export * from './accordion.component';
 export * from './tabs.component';
 export * from './tooltip/index';
@@ -41,7 +40,7 @@ import { MultiSelectComponent } from './multi-select.component';
 
 import { ThemeToggleComponent } from './theme-toggle.component';
 import { SkeletonComponent } from './skeleton.component';
-import { ToastComponent } from './toast.component';
+import { ToastComponent } from './toast/index';
 import { AccordionComponent, AccordionItemComponent } from './accordion.component';
 import { TabsComponent, TabPanelComponent } from './tabs.component';
 import { TooltipDirective } from './tooltip/index';
