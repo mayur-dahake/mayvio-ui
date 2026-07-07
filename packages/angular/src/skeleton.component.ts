@@ -1,12 +1,16 @@
 // @ts-nocheck
 import { Component, Input } from "@angular/core";
 
+import { CommonModule } from '@angular/common';
+
 /**
  * SkeletonComponent
  * Angular wrapper component for the Mayvio UI Skeleton Loader.
  */
 @Component({
   selector: "mayvio-skeleton",
+  standalone: true,
+  imports: [CommonModule],
   template: `
     <div [ngClass]="classes" [ngStyle]="styles"></div>
   `

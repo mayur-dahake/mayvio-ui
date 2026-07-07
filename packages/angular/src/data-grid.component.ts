@@ -1,6 +1,9 @@
 // @ts-nocheck
 import { Component, Input, OnInit } from "@angular/core";
 
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 export interface DataGridColumn {
   key: string;
   label: string;
@@ -14,6 +17,8 @@ export interface DataGridColumn {
  */
 @Component({
   selector: "mayvio-data-grid",
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   template: `
     <div class="data-grid-container">
       <!-- Toolbar -->
