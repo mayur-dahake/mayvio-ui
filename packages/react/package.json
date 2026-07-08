@@ -1,6 +1,6 @@
 {
   "name": "@mayvio-ui/react",
-  "version": "1.4.0-beta.0",
+  "version": "1.4.0",
   "description": "React wrappers for Mayvio UI components.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
