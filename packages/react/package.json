@@ -32,6 +32,21 @@
       "import": "./dist/Skeleton/index.mjs",
       "require": "./dist/Skeleton/index.js"
     },
+    "./ProgressBar": {
+      "types": "./dist/ProgressBar/index.d.ts",
+      "import": "./dist/ProgressBar/index.mjs",
+      "require": "./dist/ProgressBar/index.js"
+    },
+    "./Breadcrumb": {
+      "types": "./dist/Breadcrumb/index.d.ts",
+      "import": "./dist/Breadcrumb/index.mjs",
+      "require": "./dist/Breadcrumb/index.js"
+    },
+    "./Tabs": {
+      "types": "./dist/Tabs/index.d.ts",
+      "import": "./dist/Tabs/index.mjs",
+      "require": "./dist/Tabs/index.js"
+    },
     "./Badge": {
       "types": "./dist/Badge/index.d.ts",
       "import": "./dist/Badge/index.mjs",

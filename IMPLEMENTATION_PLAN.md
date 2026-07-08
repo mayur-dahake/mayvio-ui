@@ -229,13 +229,13 @@ Before moving to Phase 3, verify every item:
 
 > Template: repeat Phase 2.x pattern for each component.
 
-- [ ] Button (4)
-- [ ] Tooltip (5)
-- [ ] Toast (6)
-- [ ] Skeleton (7)
-- [ ] ProgressBar (8)
-- [ ] Breadcrumb (9)
-- [ ] Tabs (10)
+- [x] Button (4)
+- [x] Tooltip (5)
+- [x] Toast (6)
+- [x] Skeleton (7)
+- [x] ProgressBar (8)
+- [x] Breadcrumb (9)
+- [x] Tabs (10)
 - [ ] Accordion (11)
 - [ ] ThemeToggle (12)
 - [ ] Changeset for v4.0.0-beta.1

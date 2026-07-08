@@ -1,0 +1,54 @@
+/* Progress Bar component — mv- BEM prefix, --mv-* design tokens */
+
+.mv-progress-bar {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--mv-font-family);
+  font-size: var(--mv-font-size-sm);
+}
+
+.mv-progress-bar__track {
+  height: 8px;
+  background-color: var(--mv-color-border);
+  border-radius: var(--mv-radius-full);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.mv-progress-bar__fill {
+  height: 100%;
+  background-color: var(--mv-color-primary);
+  border-radius: var(--mv-radius-full);
+  transition: width var(--mv-transition-normal) ease;
+}
+
+/* Indeterminate animation */
+.mv-progress-bar__track--indeterminate .mv-progress-bar__fill {
+  width: 50%;
+  position: absolute;
+  left: -50%;
+  animation: mv-progress-indeterminate 1.5s infinite linear;
+}
+
+@keyframes mv-progress-indeterminate {
+  0% {
+    left: -50%;
+  }
+  50% {
+    left: 25%;
+    width: 60%;
+  }
+  100% {
+    left: 100%;
+    width: 30%;
+  }
+}
+
+/* Sizes */
+.mv-progress-bar--sm .mv-progress-bar__track {
+  height: 4px;
+}
+.mv-progress-bar--lg .mv-progress-bar__track {
+  height: 12px;
+}

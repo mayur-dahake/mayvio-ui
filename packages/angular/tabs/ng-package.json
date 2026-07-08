@@ -1,0 +1,5 @@
+{
+  "lib": {
+    "entryFile": "../src/tabs/index.ts"
+  }
+}

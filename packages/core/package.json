@@ -21,6 +21,12 @@
     "./toast/css": "./src/components/toast/toast.css",
     "./skeleton": "./src/components/skeleton/index.js",
     "./skeleton/css": "./src/components/skeleton/skeleton.css",
+    "./progress-bar": "./src/components/progress-bar/index.js",
+    "./progress-bar/css": "./src/components/progress-bar/progress-bar.css",
+    "./breadcrumb": "./src/components/breadcrumb/index.js",
+    "./breadcrumb/css": "./src/components/breadcrumb/breadcrumb.css",
+    "./tabs": "./src/components/tabs/index.js",
+    "./tabs/css": "./src/components/tabs/tabs.css",
     "./styles/*": "./src/styles/*",
     "./scripts/*": "./src/scripts/*"
   },
