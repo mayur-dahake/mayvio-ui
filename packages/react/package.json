@@ -1,6 +1,6 @@
 {
   "name": "@mayvio-ui/react",
-  "version": "1.3.0",
+  "version": "1.4.0-beta.0",
   "description": "React wrappers for Mayvio UI components.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -11,6 +11,51 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
+    },
+    "./Button": {
+      "types": "./dist/Button/index.d.ts",
+      "import": "./dist/Button/index.mjs",
+      "require": "./dist/Button/index.js"
+    },
+    "./Tooltip": {
+      "types": "./dist/Tooltip/index.d.ts",
+      "import": "./dist/Tooltip/index.mjs",
+      "require": "./dist/Tooltip/index.js"
+    },
+    "./Toast": {
+      "types": "./dist/Toast/index.d.ts",
+      "import": "./dist/Toast/index.mjs",
+      "require": "./dist/Toast/index.js"
+    },
+    "./Skeleton": {
+      "types": "./dist/Skeleton/index.d.ts",
+      "import": "./dist/Skeleton/index.mjs",
+      "require": "./dist/Skeleton/index.js"
+    },
+    "./ProgressBar": {
+      "types": "./dist/ProgressBar/index.d.ts",
+      "import": "./dist/ProgressBar/index.mjs",
+      "require": "./dist/ProgressBar/index.js"
+    },
+    "./Breadcrumb": {
+      "types": "./dist/Breadcrumb/index.d.ts",
+      "import": "./dist/Breadcrumb/index.mjs",
+      "require": "./dist/Breadcrumb/index.js"
+    },
+    "./Tabs": {
+      "types": "./dist/Tabs/index.d.ts",
+      "import": "./dist/Tabs/index.mjs",
+      "require": "./dist/Tabs/index.js"
+    },
+    "./Accordion": {
+      "types": "./dist/Accordion/index.d.ts",
+      "import": "./dist/Accordion/index.mjs",
+      "require": "./dist/Accordion/index.js"
+    },
+    "./ThemeToggle": {
+      "types": "./dist/ThemeToggle/index.d.ts",
+      "import": "./dist/ThemeToggle/index.mjs",
+      "require": "./dist/ThemeToggle/index.js"
     },
     "./Badge": {
       "types": "./dist/Badge/index.d.ts",
@@ -33,7 +78,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "mayvio-ui": "^3.3.0"
+    "mayvio-ui": "^3.4.0-beta.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

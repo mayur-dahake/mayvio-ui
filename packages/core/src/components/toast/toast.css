@@ -1,0 +1,89 @@
+/* Toast component — mv- BEM prefix, --mv-* design tokens */
+
+.mv-toast-container {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mv-space-3);
+  pointer-events: none;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Placements */
+.mv-toast-container--top-right {
+  top: var(--mv-space-4);
+  right: var(--mv-space-4);
+}
+.mv-toast-container--top-left {
+  top: var(--mv-space-4);
+  left: var(--mv-space-4);
+}
+.mv-toast-container--bottom-right {
+  bottom: var(--mv-space-4);
+  right: var(--mv-space-4);
+}
+.mv-toast-container--bottom-left {
+  bottom: var(--mv-space-4);
+  left: var(--mv-space-4);
+}
+
+.mv-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--mv-space-3) var(--mv-space-4);
+  border-radius: var(--mv-radius-md);
+  box-shadow: var(--mv-shadow-lg);
+  font-family: var(--mv-font-family);
+  font-size: var(--mv-font-size-sm);
+  background-color: var(--mv-color-bg-secondary);
+  color: var(--mv-color-text);
+  border: 1px solid var(--mv-color-border);
+  position: relative;
+  overflow: hidden;
+  transition:
+    opacity var(--mv-transition-normal) ease,
+    transform var(--mv-transition-normal) ease;
+}
+
+/* Variants */
+.mv-toast--success {
+  border-left: 4px solid var(--mv-color-success);
+}
+.mv-toast--error {
+  border-left: 4px solid var(--mv-color-error);
+}
+.mv-toast--warning {
+  border-left: 4px solid var(--mv-color-warning);
+}
+.mv-toast--info {
+  border-left: 4px solid var(--mv-color-info);
+}
+
+.mv-toast__content {
+  flex: 1;
+  padding-right: var(--mv-space-4);
+}
+
+.mv-toast__title {
+  font-weight: var(--mv-font-weight-semibold);
+  margin-bottom: var(--mv-space-1);
+}
+
+.mv-toast__message {
+  color: var(--mv-color-text-muted);
+}
+
+.mv-toast__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--mv-color-text-muted);
+  font-size: var(--mv-font-size-sm);
+}
+.mv-toast__close:hover {
+  color: var(--mv-color-text);
+}

@@ -1,0 +1,84 @@
+/* Skeleton component — mv- BEM prefix, --mv-* design tokens */
+
+.mv-skeleton {
+  display: block;
+  background-color: var(--mv-color-border);
+  height: 1.2em;
+  width: 100%;
+  border-radius: var(--mv-radius-sm);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Shapes */
+.mv-skeleton--circle {
+  border-radius: var(--mv-radius-full);
+  width: 48px;
+  height: 48px;
+}
+
+.mv-skeleton--rect {
+  height: auto;
+}
+
+/* Animations */
+.mv-skeleton--shimmer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: mv-shimmer 2s infinite;
+  content: '';
+}
+
+.mv-skeleton--pulse {
+  animation: mv-pulse 1.5s ease-in-out infinite;
+}
+
+.mv-skeleton--wave {
+  animation: mv-wave 1.6s linear infinite;
+  background: linear-gradient(
+    90deg,
+    var(--mv-color-border) 25%,
+    color-mix(in srgb, var(--mv-color-border) 80%, #fff) 37%,
+    var(--mv-color-border) 63%
+  );
+  background-size: 400% 100%;
+}
+
+@keyframes mv-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes mv-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mv-wave {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

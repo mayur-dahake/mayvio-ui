@@ -1,14 +1,14 @@
 {
   "name": "playground-app",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1-beta.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
-    "mayvio-ui": "^3.2.0"
+    "mayvio-ui": "^3.4.0-beta.0"
   },
   "devDependencies": {
     "vite": "^5.1.0"

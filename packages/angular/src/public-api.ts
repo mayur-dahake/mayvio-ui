@@ -5,22 +5,22 @@ export * from './file-upload.component';
 export * from './modal.directive';
 export * from './multi-select.component';
 
-export * from './theme-toggle.component';
-export * from './skeleton.component';
-export * from './toast.service';
-export * from './toast.component';
-export * from './accordion.component';
-export * from './tabs.component';
-export * from './tooltip.directive';
+export * from './theme-toggle/index';
+export * from './skeleton/index';
+export * from './toast/index';
+export * from './accordion/index';
+export * from './tabs/index';
+export * from './tooltip/index';
 export * from './badge/index';
 export * from './avatar/index';
-export * from './progress-bar.component';
+export * from './progress-bar/index';
 export * from './alert/index';
 export * from './command-palette.component';
 export * from './sidebar.component';
 export * from './notification-center.component';
-export * from './breadcrumb.component';
+export * from './breadcrumb/index';
 export * from './code-snippet.component';
+export * from './button/index';
 
 export * from './kpi-card.component';
 export * from './chart.component';
@@ -38,15 +38,15 @@ import { FileUploadComponent } from './file-upload.component';
 import { ModalTargetDirective } from './modal.directive';
 import { MultiSelectComponent } from './multi-select.component';
 
-import { ThemeToggleComponent } from './theme-toggle.component';
-import { SkeletonComponent } from './skeleton.component';
-import { ToastComponent } from './toast.component';
-import { AccordionComponent, AccordionItemComponent } from './accordion.component';
-import { TabsComponent, TabPanelComponent } from './tabs.component';
-import { TooltipDirective } from './tooltip.directive';
+import { ThemeToggleComponent } from './theme-toggle/index';
+import { SkeletonComponent } from './skeleton/index';
+import { ToastComponent } from './toast/index';
+import { AccordionComponent } from './accordion/index';
+import { TabsComponent, TabComponent } from './tabs/index';
+import { TooltipDirective } from './tooltip/index';
 import { BadgeComponent } from './badge/index';
 import { AvatarComponent, AvatarGroupComponent } from './avatar/index';
-import { ProgressBarComponent } from './progress-bar.component';
+import { ProgressBarComponent } from './progress-bar/index';
 import { AlertComponent } from './alert/index';
 import { CommandPaletteComponent } from './command-palette.component';
 import { SidebarComponent, SidebarLinkComponent } from './sidebar.component';
@@ -54,8 +54,9 @@ import {
   NotificationCenterComponent,
   NotificationItemComponent,
 } from './notification-center.component';
-import { BreadcrumbComponent } from './breadcrumb.component';
+import { BreadcrumbComponent } from './breadcrumb/index';
 import { CodeSnippetComponent } from './code-snippet.component';
+import { ButtonComponent } from './button/index';
 
 import { KpiCardComponent } from './kpi-card.component';
 import { ChartComponent } from './chart.component';
@@ -82,9 +83,8 @@ import {
     SkeletonComponent,
     ToastComponent,
     AccordionComponent,
-    AccordionItemComponent,
     TabsComponent,
-    TabPanelComponent,
+    TabComponent,
     TooltipDirective,
     BadgeComponent,
     AlertComponent,
@@ -98,6 +98,7 @@ import {
     NotificationItemComponent,
     BreadcrumbComponent,
     CodeSnippetComponent,
+    ButtonComponent,
     KpiCardComponent,
     ChartComponent,
     DashboardWidgetComponent,
@@ -116,9 +117,8 @@ import {
     SkeletonComponent,
     ToastComponent,
     AccordionComponent,
-    AccordionItemComponent,
     TabsComponent,
-    TabPanelComponent,
+    TabComponent,
     TooltipDirective,
     BadgeComponent,
     AlertComponent,
@@ -132,6 +132,7 @@ import {
     NotificationItemComponent,
     BreadcrumbComponent,
     CodeSnippetComponent,
+    ButtonComponent,
     KpiCardComponent,
     ChartComponent,
     DashboardWidgetComponent,

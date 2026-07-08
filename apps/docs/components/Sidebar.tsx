@@ -22,14 +22,15 @@ const nav = [
   {
     section: 'Tier 2 — Core',
     links: [
-      { label: 'Button', href: '/components/button', wip: true },
-      { label: 'Tooltip', href: '/components/tooltip', wip: true },
-      { label: 'Toast', href: '/components/toast', wip: true },
-      { label: 'Skeleton', href: '/components/skeleton', wip: true },
-      { label: 'ProgressBar', href: '/components/progress-bar', wip: true },
-      { label: 'Breadcrumb', href: '/components/breadcrumb', wip: true },
-      { label: 'Tabs', href: '/components/tabs', wip: true },
-      { label: 'Accordion', href: '/components/accordion', wip: true },
+      { label: 'Button', href: '/components/button' },
+      { label: 'Tooltip', href: '/components/tooltip' },
+      { label: 'Toast', href: '/components/toast' },
+      { label: 'Skeleton', href: '/components/skeleton' },
+      { label: 'ProgressBar', href: '/components/progress-bar' },
+      { label: 'Breadcrumb', href: '/components/breadcrumb' },
+      { label: 'Tabs', href: '/components/tabs' },
+      { label: 'Accordion', href: '/components/accordion' },
+      { label: 'ThemeToggle', href: '/components/theme-toggle' },
     ],
   },
 ];
