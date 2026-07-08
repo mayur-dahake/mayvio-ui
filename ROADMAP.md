@@ -115,8 +115,8 @@ Mayvio UI is a multi-framework UI component library that provides a premium set 
 | 8 | ProgressBar | Low | ✅ |
 | 9 | Breadcrumb | Low | ✅ |
 | 10 | Tabs | Medium | ✅ |
-| 11 | Accordion | Medium | 🔴 |
-| 12 | ThemeToggle | Low | 🔴 |
+| 11 | Accordion | Medium | ✅ |
+| 12 | ThemeToggle | Low | ✅ |
 
 ### Docs Site MVP
 - [ ] Next.js app scaffolded (`apps/docs`)

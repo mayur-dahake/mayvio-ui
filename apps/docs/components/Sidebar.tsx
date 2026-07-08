@@ -29,7 +29,8 @@ const nav = [
       { label: 'ProgressBar', href: '/components/progress-bar' },
       { label: 'Breadcrumb', href: '/components/breadcrumb' },
       { label: 'Tabs', href: '/components/tabs' },
-      { label: 'Accordion', href: '/components/accordion', wip: true },
+      { label: 'Accordion', href: '/components/accordion' },
+      { label: 'ThemeToggle', href: '/components/theme-toggle' },
     ],
   },
 ];

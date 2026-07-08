@@ -35,7 +35,7 @@ export interface BreadcrumbItem {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BreadcrumbComponent implements OnChanges {
+export class BreadcrumbComponent {
   @Input() items: BreadcrumbItem[] = [];
   @Input() separator: string = '/';
 

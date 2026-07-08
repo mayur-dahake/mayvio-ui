@@ -5,10 +5,10 @@ export * from './file-upload.component';
 export * from './modal.directive';
 export * from './multi-select.component';
 
-export * from './theme-toggle.component';
+export * from './theme-toggle/index';
 export * from './skeleton/index';
 export * from './toast/index';
-export * from './accordion.component';
+export * from './accordion/index';
 export * from './tabs/index';
 export * from './tooltip/index';
 export * from './badge/index';
@@ -38,10 +38,10 @@ import { FileUploadComponent } from './file-upload.component';
 import { ModalTargetDirective } from './modal.directive';
 import { MultiSelectComponent } from './multi-select.component';
 
-import { ThemeToggleComponent } from './theme-toggle.component';
+import { ThemeToggleComponent } from './theme-toggle/index';
 import { SkeletonComponent } from './skeleton/index';
 import { ToastComponent } from './toast/index';
-import { AccordionComponent, AccordionItemComponent } from './accordion.component';
+import { AccordionComponent } from './accordion/index';
 import { TabsComponent, TabComponent } from './tabs/index';
 import { TooltipDirective } from './tooltip/index';
 import { BadgeComponent } from './badge/index';
@@ -83,7 +83,6 @@ import {
     SkeletonComponent,
     ToastComponent,
     AccordionComponent,
-    AccordionItemComponent,
     TabsComponent,
     TabComponent,
     TooltipDirective,
@@ -118,7 +117,6 @@ import {
     SkeletonComponent,
     ToastComponent,
     AccordionComponent,
-    AccordionItemComponent,
     TabsComponent,
     TabComponent,
     TooltipDirective,

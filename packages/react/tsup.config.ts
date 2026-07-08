@@ -10,6 +10,8 @@ export default defineConfig({
     'ProgressBar/index': 'src/ProgressBar/index.ts',
     'Breadcrumb/index': 'src/Breadcrumb/index.ts',
     'Tabs/index': 'src/Tabs/index.ts',
+    'Accordion/index': 'src/Accordion/index.ts',
+    'ThemeToggle/index': 'src/ThemeToggle/index.ts',
     'Badge/index': 'src/Badge/index.ts',
     'Alert/index': 'src/Alert/index.ts',
     'Avatar/index': 'src/Avatar/index.ts',

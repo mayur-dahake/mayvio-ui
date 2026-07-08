@@ -1,6 +1,6 @@
 {
   "name": "mayvio-ui",
-  "version": "3.3.0",
+  "version": "3.4.0-beta.0",
   "description": "Modern, accessible and reusable UI components built with HTML, CSS and JavaScript.",
   "type": "module",
   "main": "./src/scripts/index.js",
@@ -27,6 +27,10 @@
     "./breadcrumb/css": "./src/components/breadcrumb/breadcrumb.css",
     "./tabs": "./src/components/tabs/index.js",
     "./tabs/css": "./src/components/tabs/tabs.css",
+    "./accordion": "./src/components/accordion/index.js",
+    "./accordion/css": "./src/components/accordion/accordion.css",
+    "./theme-toggle": "./src/components/theme-toggle/index.js",
+    "./theme-toggle/css": "./src/components/theme-toggle/theme-toggle.css",
     "./styles/*": "./src/styles/*",
     "./scripts/*": "./src/scripts/*"
   },

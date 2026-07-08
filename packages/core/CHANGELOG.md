@@ -1,5 +1,21 @@
 # mayvio-ui
 
+## 3.4.0-beta.0
+
+### Minor Changes
+
+- Phase 3 Core Components (Tier 2)
+
+  - Button
+  - Tooltip
+  - Toast
+  - Skeleton
+  - ProgressBar
+  - Breadcrumb
+  - Tabs
+  - Accordion
+  - ThemeToggle
+
 ## 3.3.0
 
 ### Minor Changes

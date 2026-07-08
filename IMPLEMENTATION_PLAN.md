@@ -236,8 +236,8 @@ Before moving to Phase 3, verify every item:
 - [x] ProgressBar (8)
 - [x] Breadcrumb (9)
 - [x] Tabs (10)
-- [ ] Accordion (11)
-- [ ] ThemeToggle (12)
+- [x] Accordion (11)
+- [x] ThemeToggle (12)
 - [ ] Changeset for v4.0.0-beta.1
 
 ---

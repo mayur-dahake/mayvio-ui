@@ -5,12 +5,12 @@ export { FileUploadWrapper as FileUpload } from './FileUploadWrapper.js';
 export { ModalWrapper as Modal } from './ModalWrapper.js';
 export { MultiSelectWrapper as MultiSelect } from './MultiSelectWrapper.js';
 
-export { ThemeToggle } from './ThemeToggle.js';
 export { Skeleton } from './Skeleton/index.js';
 export type { SkeletonProps } from './Skeleton/Skeleton.types.js';
 export { ToastContainer, toast } from './Toast/index.js';
 export type { ToastItem, ToastContainerProps } from './Toast/Toast.types.js';
-export { Accordion, AccordionItem } from './Accordion.js';
+export { Accordion } from './Accordion/index.js';
+export type { AccordionProps, AccordionItem } from './Accordion/Accordion.types.js';
 export { Tabs } from './Tabs/index.js';
 export type { TabsProps, TabItem } from './Tabs/Tabs.types.js';
 export { Tooltip } from './Tooltip/index.js';
@@ -29,7 +29,9 @@ export { CommandPalette } from './CommandPalette.js';
 export { Sidebar, SidebarLink } from './Sidebar.js';
 export { NotificationCenter, NotificationItem } from './NotificationCenter.js';
 export { Breadcrumb } from './Breadcrumb/index.js';
-export type { BreadcrumbProps } from './Breadcrumb/Breadcrumb.types.js';
+export type { BreadcrumbProps, BreadcrumbItem } from './Breadcrumb/Breadcrumb.types.js';
+export { ThemeToggle } from './ThemeToggle/index.js';
+export type { ThemeToggleProps } from './ThemeToggle/ThemeToggle.types.js';
 export { CodeSnippet } from './CodeSnippet.js';
 
 export { KpiCard } from './KpiCard.js';
