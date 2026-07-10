@@ -230,6 +230,174 @@ function initPhase4Components() {
 
   initMvDropdown('demoDropdownLeftTrigger', 'demoDropdownLeftMenu');
   initMvDropdown('demoDropdownRightTrigger', 'demoDropdownRightMenu');
+
+  // ── mv-multiselect ────────────────────────────────────────────────────────
+  function initMvMultiSelect(triggerId, menuId, inputId, tagsId) {
+    const trigger = document.getElementById(triggerId);
+    const menu = document.getElementById(menuId);
+    const input = document.getElementById(inputId);
+    const tags = document.getElementById(tagsId);
+    if (!trigger || !menu) return;
+
+    const options = ['React', 'Angular', 'Vue', 'Svelte'];
+    let selected = ['React', 'Angular'];
+
+    function renderTags() {
+      tags.innerHTML = selected.map(s => 
+        `<span class="mv-multiselect-tag">${s} <span class="mv-multiselect-tag-close" data-val="${s}">×</span></span>`
+      ).join('');
+      tags.querySelectorAll('.mv-multiselect-tag-close').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          selected = selected.filter(v => v !== btn.getAttribute('data-val'));
+          renderTags();
+        });
+      });
+    }
+
+    function renderMenu() {
+      menu.innerHTML = options.map(opt => {
+        const isSelected = selected.includes(opt);
+        return `<div class="mv-multiselect-item ${isSelected ? 'mv-multiselect-item--selected' : ''}" data-val="${opt}">
+          <input type="checkbox" ${isSelected ? 'checked' : ''} style="pointer-events:none;"> ${opt}
+        </div>`;
+      }).join('');
+      menu.querySelectorAll('.mv-multiselect-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const val = item.getAttribute('data-val');
+          if (selected.includes(val)) {
+            selected = selected.filter(v => v !== val);
+          } else {
+            selected.push(val);
+          }
+          renderTags();
+          renderMenu();
+        });
+      });
+    }
+
+    function toggleMenu() {
+      const isOpen = menu.classList.contains('mv-multiselect-menu--open');
+      if (isOpen) {
+        menu.classList.remove('mv-multiselect-menu--open');
+        trigger.classList.remove('mv-multiselect-trigger--active');
+      } else {
+        menu.classList.add('mv-multiselect-menu--open');
+        trigger.classList.add('mv-multiselect-trigger--active');
+      }
+    }
+
+    trigger.addEventListener('click', toggleMenu);
+    document.addEventListener('click', (e) => {
+      if (!trigger.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('mv-multiselect-menu--open');
+        trigger.classList.remove('mv-multiselect-trigger--active');
+      }
+    });
+
+    renderTags();
+    renderMenu();
+  }
+  initMvMultiSelect('demoMultiSelect', 'demoMultiSelectMenu', 'demoMultiSelectInput', 'demoMultiSelectTags');
+
+  // ── mv-datepicker ────────────────────────────────────────────────────────
+  function initMvDatePicker(triggerId, popupId, inputId) {
+    const trigger = document.getElementById(triggerId);
+    const popup = document.getElementById(popupId);
+    const input = document.getElementById(inputId);
+    if (!trigger || !popup || !input) return;
+
+    popup.innerHTML = `<div style="padding: 1rem; text-align: center;">Calendar Demo<br><small style="color:var(--text-muted)">Interactive calendar omitted for simplicity</small></div>`;
+
+    trigger.addEventListener('click', () => {
+      popup.classList.toggle('mv-datepicker-popup--open');
+      trigger.classList.toggle('mv-datepicker-trigger--active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!trigger.contains(e.target) && !popup.contains(e.target)) {
+        popup.classList.remove('mv-datepicker-popup--open');
+        trigger.classList.remove('mv-datepicker-trigger--active');
+      }
+    });
+  }
+  initMvDatePicker('demoDatePicker', 'demoDatePickerPopup', 'demoDatePickerInput');
+
+  // ── mv-commandpalette ────────────────────────────────────────────────────
+  const cpBtn = document.getElementById('demoCommandPaletteBtn');
+  const cpOverlay = document.getElementById('demoCommandPaletteOverlay');
+  const cpBody = document.getElementById('demoCommandPaletteBody');
+  if (cpBtn && cpOverlay && cpBody) {
+    cpBtn.addEventListener('click', () => {
+      cpOverlay.style.display = 'flex';
+      cpBody.innerHTML = `
+        <div class="mv-commandpalette-group">
+          <div class="mv-commandpalette-group-heading">Navigation</div>
+          <div class="mv-commandpalette-item">Dashboard</div>
+          <div class="mv-commandpalette-item">Settings</div>
+        </div>
+      `;
+    });
+    cpOverlay.addEventListener('click', (e) => {
+      if (e.target === cpOverlay) cpOverlay.style.display = 'none';
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') cpOverlay.style.display = 'none';
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        cpBtn.click();
+      }
+    });
+  }
+
+  // ── mv-notificationcenter ────────────────────────────────────────────────
+  const ncTrigger = document.getElementById('demoNCTrigger');
+  const ncPopup = document.getElementById('demoNCPopup');
+  const ncBody = document.getElementById('demoNCBody');
+  const ncClear = document.getElementById('demoNCClear');
+  const ncBadge = document.getElementById('demoNCBadge');
+  if (ncTrigger && ncPopup && ncBody) {
+    let notifs = ['Welcome to Mayvio UI!', 'Version 4.0 is ready.'];
+    const renderNotifs = () => {
+      ncBadge.textContent = notifs.length;
+      ncBadge.style.display = notifs.length ? 'flex' : 'none';
+      if (!notifs.length) {
+        ncBody.innerHTML = `<div style="padding:1rem;text-align:center;color:var(--text-muted);">No new notifications</div>`;
+        return;
+      }
+      ncBody.innerHTML = notifs.map(n => `<div class="mv-notificationcenter-item"><div class="mv-notificationcenter-item-title">${n}</div></div>`).join('');
+    };
+    renderNotifs();
+
+    ncTrigger.addEventListener('click', () => {
+      ncPopup.classList.toggle('mv-notificationcenter-popup--open');
+    });
+    ncClear.addEventListener('click', () => {
+      notifs = [];
+      renderNotifs();
+    });
+    document.addEventListener('click', (e) => {
+      if (!ncTrigger.contains(e.target) && !ncPopup.contains(e.target)) {
+        ncPopup.classList.remove('mv-notificationcenter-popup--open');
+      }
+    });
+  }
+
+  // ── mv-sidebar ───────────────────────────────────────────────────────────
+  const sidebar = document.getElementById('demoSidebar');
+  const sidebarToggle = document.getElementById('demoSidebarToggle');
+  const sidebarNav = document.getElementById('demoSidebarNav');
+  if (sidebar && sidebarToggle && sidebarNav) {
+    sidebarNav.innerHTML = `
+      <a href="#" class="mv-sidebar-link"><span class="mv-sidebar-link-icon">🏠</span><span class="mv-sidebar-link-label">Home</span></a>
+      <a href="#" class="mv-sidebar-link"><span class="mv-sidebar-link-icon">⚙️</span><span class="mv-sidebar-link-label">Settings</span></a>
+    `;
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('mv-sidebar--collapsed');
+    });
+  }
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {

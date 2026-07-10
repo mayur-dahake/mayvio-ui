@@ -38,6 +38,12 @@ const nav = [
     links: [
       { label: 'Modal', href: '/components/modal' },
       { label: 'Dropdown', href: '/components/dropdown' },
+      { label: 'MultiSelect', href: '/components/multiselect' },
+      { label: 'DatePicker', href: '/components/date-picker' },
+      { label: 'FileUpload', href: '/components/file-upload' },
+      { label: 'CommandPalette', href: '/components/command-palette' },
+      { label: 'Sidebar', href: '/components/sidebar' },
+      { label: 'NotificationCenter', href: '/components/notification-center' },
     ],
   },
 ];

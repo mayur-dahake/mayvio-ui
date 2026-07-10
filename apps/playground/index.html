@@ -142,6 +142,98 @@
             </div>
 
           </div>
+          <div style="display:flex; gap:2rem; flex-wrap:wrap; align-items:flex-start; padding-top: 1.5rem;">
+            <!-- NEW mv-multiselect demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">MultiSelect</p>
+              <div class="mv-multiselect" id="demoMultiSelect" style="width:250px;">
+                <div class="mv-multiselect-trigger" tabindex="0">
+                  <div class="mv-multiselect-tags" id="demoMultiSelectTags"></div>
+                  <input type="text" class="mv-multiselect-input" placeholder="Select options..." id="demoMultiSelectInput">
+                  <div class="mv-multiselect-arrow">▼</div>
+                </div>
+                <div class="mv-multiselect-menu" id="demoMultiSelectMenu">
+                  <!-- JS injected options -->
+                </div>
+              </div>
+            </div>
+
+            <!-- NEW mv-datepicker demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">DatePicker</p>
+              <div class="mv-datepicker" id="demoDatePicker" style="width:200px;">
+                <div class="mv-datepicker-trigger" tabindex="0">
+                  <input type="text" class="mv-datepicker-input" placeholder="Select date..." readonly id="demoDatePickerInput">
+                  <div class="mv-datepicker-icon">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1V2.5H10.5V1H12V2.5H12.5C13.3284 2.5 14 3.17157 14 4V12.5C14 13.3284 13.3284 14 12.5 14H2.5C1.67157 14 1 13.3284 1 12.5V4C1 3.17157 1.67157 2.5 2.5 2.5H3V1H4.5ZM2.5 4V5.5H12.5V4H2.5ZM2.5 7V12.5H12.5V7H2.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                  </div>
+                </div>
+                <div class="mv-datepicker-popup" id="demoDatePickerPopup">
+                   <!-- Calendar rendered by JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- NEW mv-fileupload demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">FileUpload</p>
+              <div class="mv-fileupload" id="demoFileUpload" style="width:250px;">
+                <div class="mv-fileupload-dropzone">
+                  <div class="mv-fileupload-icon">
+                    <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5C7.77614 1.5 8 1.72386 8 2V8.5H11.5L7.5 13L3.5 8.5H7V2C7 1.72386 7.22386 1.5 7.5 1.5Z" fill="currentColor"></path></svg>
+                  </div>
+                  <p class="mv-fileupload-text">Drag & drop files or <span class="mv-fileupload-browse">browse</span></p>
+                  <input type="file" class="mv-fileupload-input" multiple>
+                </div>
+                <div class="mv-fileupload-preview"></div>
+              </div>
+            </div>
+            
+            <!-- NEW mv-commandpalette demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">CommandPalette</p>
+              <button class="mv-btn mv-btn--secondary control-btn" id="demoCommandPaletteBtn" style="cursor:pointer;">Cmd + K</button>
+              <div class="mv-commandpalette-overlay" id="demoCommandPaletteOverlay" style="display:none;">
+                <div class="mv-commandpalette">
+                  <div class="mv-commandpalette-header">
+                    <input type="text" class="mv-commandpalette-input" placeholder="Type a command..." id="demoCommandPaletteInput">
+                  </div>
+                  <div class="mv-commandpalette-body" id="demoCommandPaletteBody"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NEW mv-notificationcenter demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">NotificationCenter</p>
+              <div class="mv-notificationcenter" id="demoNotificationCenter">
+                <button class="mv-notificationcenter-trigger control-btn" id="demoNCTrigger" style="cursor:pointer; display:flex; align-items:center; gap: 8px;">
+                  Notifications
+                  <span class="mv-notificationcenter-badge" id="demoNCBadge">2</span>
+                </button>
+                <div class="mv-notificationcenter-popup" id="demoNCPopup">
+                  <div class="mv-notificationcenter-header">
+                    <h3 style="margin:0;font-size:14px;">Notifications</h3>
+                    <button class="mv-notificationcenter-clear" id="demoNCClear" style="background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:12px;">Clear all</button>
+                  </div>
+                  <div class="mv-notificationcenter-body" id="demoNCBody">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NEW mv-sidebar demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Sidebar</p>
+              <div class="mv-sidebar mv-sidebar--collapsed" id="demoSidebar" style="height: 250px; border: 1px solid var(--border); border-radius: 8px; position:relative; overflow:hidden;">
+                <div class="mv-sidebar-header">
+                  <button class="mv-sidebar-toggle control-btn" id="demoSidebarToggle" style="background:none;border:none;cursor:pointer;padding:8px;">≡</button>
+                </div>
+                <div class="mv-sidebar-nav" id="demoSidebarNav"></div>
+              </div>
+            </div>
+
+          </div>
         </section>
 
         <!-- mv-modal overlays (Phase 4) -->
