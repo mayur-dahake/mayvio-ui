@@ -1,0 +1,119 @@
+/* FileUpload Container */
+.mv-fileupload {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mv-space-md);
+  width: 100%;
+}
+
+/* Dropzone */
+.mv-fileupload-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--mv-space-xl) var(--mv-space-md);
+  border: 2px dashed var(--mv-color-border-subtle);
+  border-radius: var(--mv-radius-lg);
+  background-color: var(--mv-color-bg-subtle);
+  cursor: pointer;
+  transition:
+    border-color var(--mv-transition-fast),
+    background-color var(--mv-transition-fast);
+  text-align: center;
+}
+
+.mv-fileupload-dropzone:hover,
+.mv-fileupload-dropzone--drag-active {
+  border-color: var(--mv-color-brand-primary);
+  background-color: var(--mv-color-brand-primary-light);
+}
+
+.mv-fileupload-dropzone--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.mv-fileupload-icon {
+  color: var(--mv-color-text-muted);
+  margin-bottom: var(--mv-space-sm);
+}
+
+.mv-fileupload-dropzone:hover .mv-fileupload-icon,
+.mv-fileupload-dropzone--drag-active .mv-fileupload-icon {
+  color: var(--mv-color-brand-primary);
+}
+
+.mv-fileupload-text {
+  color: var(--mv-color-text-base);
+  font-weight: 500;
+  margin-bottom: var(--mv-space-xs);
+}
+
+.mv-fileupload-hint {
+  color: var(--mv-color-text-muted);
+  font-size: 0.875rem;
+}
+
+/* Hidden Input */
+.mv-fileupload-input {
+  display: none;
+}
+
+/* File List */
+.mv-fileupload-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mv-space-sm);
+}
+
+/* File Item */
+.mv-fileupload-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--mv-space-sm);
+  background-color: var(--mv-color-bg-base);
+  border: 1px solid var(--mv-color-border-subtle);
+  border-radius: var(--mv-radius-md);
+}
+
+.mv-fileupload-item-info {
+  display: flex;
+  align-items: center;
+  gap: var(--mv-space-sm);
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.mv-fileupload-item-name {
+  color: var(--mv-color-text-base);
+  font-weight: 500;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mv-fileupload-item-size {
+  color: var(--mv-color-text-muted);
+  font-size: 0.75rem;
+}
+
+.mv-fileupload-item-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--mv-color-danger);
+  padding: var(--mv-space-xs);
+  border-radius: var(--mv-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--mv-transition-fast);
+}
+
+.mv-fileupload-item-remove:hover {
+  background-color: var(--mv-color-danger-light);
+}
