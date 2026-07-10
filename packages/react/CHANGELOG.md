@@ -1,5 +1,16 @@
 # @mayvio-ui/react
 
+## 1.5.0
+
+### Minor Changes
+
+- 419c4de: Add Modal and Dropdown components (Phase 4 Batch 1)
+
+### Patch Changes
+
+- Updated dependencies [419c4de]
+  - mayvio-ui@3.5.0
+
 ## 1.4.0-beta.0
 
 ### Minor Changes

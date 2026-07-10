@@ -1,5 +1,11 @@
 # mayvio-ui
 
+## 3.5.0
+
+### Minor Changes
+
+- 419c4de: Add Modal and Dropdown components (Phase 4 Batch 1)
+
 ## 3.4.0-beta.0
 
 ### Minor Changes
