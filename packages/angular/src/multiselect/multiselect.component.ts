@@ -182,8 +182,8 @@ export class MultiSelectComponent {
   }
 
   @HostListener('document:mousedown', ['$event.target'])
-  onClickOutside(target: HTMLElement) {
-    if (this.isOpen && !this.el.nativeElement.contains(target)) {
+  onClickOutside(target: EventTarget | null) {
+    if (this.isOpen && !this.el.nativeElement.contains(target as Node)) {
       this.isOpen = false;
       this.searchQuery = '';
       this.cdr.markForCheck();

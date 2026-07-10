@@ -285,8 +285,8 @@ export class DatePickerComponent implements OnInit, OnChanges {
   }
 
   @HostListener('document:mousedown', ['$event.target'])
-  onClickOutside(target: HTMLElement) {
-    if (this.isOpen && !this.el.nativeElement.contains(target)) {
+  onClickOutside(target: EventTarget | null) {
+    if (this.isOpen && !this.el.nativeElement.contains(target as Node)) {
       this.isOpen = false;
       this.cdr.markForCheck();
     }
