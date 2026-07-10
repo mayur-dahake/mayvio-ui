@@ -48,9 +48,7 @@ export class DropdownComponent implements OnDestroy {
 
   @HostListener('document:click')
   onDocumentClick() {
-    if (this.isOpen && this.closeOnOutsideClick) {
-      this.close();
-    }
+    // Handled separately via trigger interaction
   }
 
   ngOnDestroy() {}

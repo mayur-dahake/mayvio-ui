@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
       class="mv-modal-overlay"
       [class.mv-modal-overlay--open]="isOpen"
       [attr.aria-hidden]="!isOpen"
-      (click)="onOverlayClick($event)"
+      (click)="onOverlayClick()"
       #overlay
     >
       <div
