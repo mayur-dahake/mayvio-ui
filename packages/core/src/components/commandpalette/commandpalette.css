@@ -1,0 +1,123 @@
+/* CommandPalette Overlay (similar to Modal but with different alignment) */
+.mv-commandpalette-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--mv-transition-fast);
+}
+
+.mv-commandpalette-overlay--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* CommandPalette Dialog */
+.mv-commandpalette {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--mv-color-bg-base);
+  border-radius: var(--mv-radius-lg);
+  box-shadow: var(--mv-shadow-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform var(--mv-transition-fast);
+}
+
+.mv-commandpalette-overlay--open .mv-commandpalette {
+  transform: scale(1);
+}
+
+/* Search Input Area */
+.mv-commandpalette-search-wrapper {
+  display: flex;
+  align-items: center;
+  padding: var(--mv-space-md);
+  border-bottom: 1px solid var(--mv-color-border-subtle);
+  gap: var(--mv-space-sm);
+}
+
+.mv-commandpalette-icon {
+  color: var(--mv-color-text-muted);
+}
+
+.mv-commandpalette-input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+  color: var(--mv-color-text-base);
+}
+
+.mv-commandpalette-input::placeholder {
+  color: var(--mv-color-text-muted);
+}
+
+/* List Area */
+.mv-commandpalette-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: var(--mv-space-sm);
+}
+
+/* Group Label */
+.mv-commandpalette-group {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--mv-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--mv-space-xs) var(--mv-space-sm);
+  margin-top: var(--mv-space-sm);
+}
+
+.mv-commandpalette-group:first-child {
+  margin-top: 0;
+}
+
+/* Item */
+.mv-commandpalette-item {
+  display: flex;
+  align-items: center;
+  gap: var(--mv-space-sm);
+  padding: var(--mv-space-sm);
+  border-radius: var(--mv-radius-md);
+  cursor: pointer;
+  color: var(--mv-color-text-base);
+  transition: background-color var(--mv-transition-fast);
+}
+
+.mv-commandpalette-item[aria-selected='true'] {
+  background-color: var(--mv-color-bg-subtle);
+  color: var(--mv-color-brand-primary);
+}
+
+.mv-commandpalette-item-icon {
+  color: var(--mv-color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mv-commandpalette-item[aria-selected='true'] .mv-commandpalette-item-icon {
+  color: var(--mv-color-brand-primary);
+}
+
+/* Empty State */
+.mv-commandpalette-empty {
+  padding: var(--mv-space-xl);
+  text-align: center;
+  color: var(--mv-color-text-muted);
+}

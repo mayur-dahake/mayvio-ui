@@ -62,6 +62,36 @@
       "import": "./dist/Dropdown/index.mjs",
       "require": "./dist/Dropdown/index.js"
     },
+    "./MultiSelect": {
+      "types": "./dist/MultiSelect/index.d.ts",
+      "import": "./dist/MultiSelect/index.mjs",
+      "require": "./dist/MultiSelect/index.js"
+    },
+    "./DatePicker": {
+      "types": "./dist/DatePicker/index.d.ts",
+      "import": "./dist/DatePicker/index.mjs",
+      "require": "./dist/DatePicker/index.js"
+    },
+    "./FileUpload": {
+      "types": "./dist/FileUpload/index.d.ts",
+      "import": "./dist/FileUpload/index.mjs",
+      "require": "./dist/FileUpload/index.js"
+    },
+    "./CommandPalette": {
+      "types": "./dist/CommandPalette/index.d.ts",
+      "import": "./dist/CommandPalette/index.mjs",
+      "require": "./dist/CommandPalette/index.js"
+    },
+    "./Sidebar": {
+      "types": "./dist/Sidebar/index.d.ts",
+      "import": "./dist/Sidebar/index.mjs",
+      "require": "./dist/Sidebar/index.js"
+    },
+    "./NotificationCenter": {
+      "types": "./dist/NotificationCenter/index.d.ts",
+      "import": "./dist/NotificationCenter/index.mjs",
+      "require": "./dist/NotificationCenter/index.js"
+    },
     "./ThemeToggle": {
       "types": "./dist/ThemeToggle/index.d.ts",
       "import": "./dist/ThemeToggle/index.mjs",

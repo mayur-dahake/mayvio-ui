@@ -1,9 +1,9 @@
 export * from './data-grid.component';
-export * from './date-picker.component';
+export * from './datepicker/index';
 export * from './dropdown/index';
-export * from './file-upload.component';
+export * from './multiselect/index';
+export * from './fileupload/index';
 export * from './modal/index';
-export * from './multi-select.component';
 
 export * from './theme-toggle/index';
 export * from './skeleton/index';
@@ -15,9 +15,9 @@ export * from './badge/index';
 export * from './avatar/index';
 export * from './progress-bar/index';
 export * from './alert/index';
-export * from './command-palette.component';
-export * from './sidebar.component';
-export * from './notification-center.component';
+export * from './commandpalette/index';
+export * from './sidebar/index';
+export * from './notificationcenter/index';
 export * from './breadcrumb/index';
 export * from './code-snippet.component';
 export * from './button/index';
@@ -32,21 +32,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { DataGridComponent } from './data-grid.component';
-import { DatePickerComponent } from './date-picker.component';
+import { DatePickerComponent } from './datepicker/index';
 import {
   DropdownComponent,
   DropdownTriggerDirective,
   DropdownMenuComponent,
   DropdownItemComponent,
 } from './dropdown/index';
-import { FileUploadComponent } from './file-upload.component';
+import { FileUploadComponent } from './fileupload/index';
 import {
   ModalComponent,
   ModalHeaderComponent,
   ModalBodyComponent,
   ModalFooterComponent,
 } from './modal/index';
-import { MultiSelectComponent } from './multi-select.component';
 
 import { ThemeToggleComponent } from './theme-toggle/index';
 import { SkeletonComponent } from './skeleton/index';
@@ -58,12 +57,9 @@ import { BadgeComponent } from './badge/index';
 import { AvatarComponent, AvatarGroupComponent } from './avatar/index';
 import { ProgressBarComponent } from './progress-bar/index';
 import { AlertComponent } from './alert/index';
-import { CommandPaletteComponent } from './command-palette.component';
-import { SidebarComponent, SidebarLinkComponent } from './sidebar.component';
-import {
-  NotificationCenterComponent,
-  NotificationItemComponent,
-} from './notification-center.component';
+import { CommandPaletteComponent } from './commandpalette/index';
+import { SidebarComponent } from './sidebar/index';
+import { NotificationCenterComponent } from './notificationcenter/index';
 import { BreadcrumbComponent } from './breadcrumb/index';
 import { CodeSnippetComponent } from './code-snippet.component';
 import { ButtonComponent } from './button/index';
@@ -94,7 +90,6 @@ import {
     ModalHeaderComponent,
     ModalBodyComponent,
     ModalFooterComponent,
-    MultiSelectComponent,
     ThemeToggleComponent,
     SkeletonComponent,
     ToastComponent,
@@ -109,9 +104,7 @@ import {
     ProgressBarComponent,
     CommandPaletteComponent,
     SidebarComponent,
-    SidebarLinkComponent,
     NotificationCenterComponent,
-    NotificationItemComponent,
     BreadcrumbComponent,
     CodeSnippetComponent,
     ButtonComponent,
@@ -134,7 +127,6 @@ import {
     ModalHeaderComponent,
     ModalBodyComponent,
     ModalFooterComponent,
-    MultiSelectComponent,
     ThemeToggleComponent,
     SkeletonComponent,
     ToastComponent,
@@ -149,9 +141,7 @@ import {
     ProgressBarComponent,
     CommandPaletteComponent,
     SidebarComponent,
-    SidebarLinkComponent,
     NotificationCenterComponent,
-    NotificationItemComponent,
     BreadcrumbComponent,
     CodeSnippetComponent,
     ButtonComponent,
