@@ -33,6 +33,13 @@ const nav = [
       { label: 'ThemeToggle', href: '/components/theme-toggle' },
     ],
   },
+  {
+    section: 'Tier 3 — Interaction',
+    links: [
+      { label: 'Modal', href: '/components/modal' },
+      { label: 'Dropdown', href: '/components/dropdown' },
+    ],
+  },
 ];
 
 export function Sidebar() {

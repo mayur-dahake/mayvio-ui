@@ -1,4 +1,6 @@
 import "mayvio-ui/styles/main.css";
+import "mayvio-ui/modal/css";
+import "mayvio-ui/dropdown/css";
 
 import {
   initThemeToggle,
@@ -123,6 +125,113 @@ function initDemoCharts() {
   });
 }
 
+
+/**
+ * Phase 4 — BEM-based mv-modal and mv-dropdown demos
+ * These are pure CSS+JS demos using the new `mv-*` CSS classes produced by the core package.
+ */
+function initPhase4Components() {
+  // ── mv-modal ────────────────────────────────────────────────────────────────
+  function openMvModal(overlayId) {
+    const overlay = document.getElementById(overlayId);
+    if (!overlay) return;
+    overlay.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('mv-modal-overlay--open');
+    document.body.style.overflow = 'hidden';
+
+    // Close on backdrop click
+    overlay.addEventListener('mousedown', function handleBackdrop(e) {
+      if (e.target === overlay) {
+        closeMvModal(overlay);
+        overlay.removeEventListener('mousedown', handleBackdrop);
+      }
+    });
+
+    // Close on Escape
+    function handleEsc(e) {
+      if (e.key === 'Escape') {
+        closeMvModal(overlay);
+        document.removeEventListener('keydown', handleEsc);
+      }
+    }
+    document.addEventListener('keydown', handleEsc);
+  }
+
+  function closeMvModal(overlay) {
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.classList.remove('mv-modal-overlay--open');
+    document.body.style.overflow = '';
+  }
+
+  // Wire up open buttons
+  const mvModalMap = {
+    'mvOpenModalSm': 'mvModalSmOverlay',
+    'mvOpenModalMd': 'mvModalMdOverlay',
+    'mvOpenModalLg': 'mvModalLgOverlay',
+  };
+  Object.entries(mvModalMap).forEach(([btnId, overlayId]) => {
+    const btn = document.getElementById(btnId);
+    if (btn) btn.addEventListener('click', () => openMvModal(overlayId));
+  });
+
+  // Wire up close buttons (data-mv-modal-close)
+  document.querySelectorAll('[data-mv-modal-close]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const overlay = btn.closest('.mv-modal-overlay');
+      if (overlay) closeMvModal(overlay);
+    });
+  });
+
+  // ── mv-dropdown ─────────────────────────────────────────────────────────────
+  function initMvDropdown(triggerId, menuId) {
+    const trigger = document.getElementById(triggerId);
+    const menu = document.getElementById(menuId);
+    if (!trigger || !menu) return;
+
+    function openMenu() {
+      menu.classList.add('mv-dropdown-menu--open');
+      menu.setAttribute('aria-hidden', 'false');
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      menu.classList.remove('mv-dropdown-menu--open');
+      menu.setAttribute('aria-hidden', 'true');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    function isOpen() {
+      return menu.classList.contains('mv-dropdown-menu--open');
+    }
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isOpen() ? closeMenu() : openMenu();
+    });
+
+    // Close items on click
+    menu.querySelectorAll('.mv-dropdown-item:not([disabled])').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeMenu();
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!trigger.contains(e.target) && !menu.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) closeMenu();
+    });
+  }
+
+  initMvDropdown('demoDropdownLeftTrigger', 'demoDropdownLeftMenu');
+  initMvDropdown('demoDropdownRightTrigger', 'demoDropdownRightMenu');
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
   initSkeleton();
@@ -150,5 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initDocsViewer();
   initStats();
   initSmoothNav();
+  initPhase4Components(); // Phase 4: mv-modal, mv-dropdown
 });
 

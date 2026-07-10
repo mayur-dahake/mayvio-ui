@@ -52,6 +52,16 @@
       "import": "./dist/Accordion/index.mjs",
       "require": "./dist/Accordion/index.js"
     },
+    "./Modal": {
+      "types": "./dist/Modal/index.d.ts",
+      "import": "./dist/Modal/index.mjs",
+      "require": "./dist/Modal/index.js"
+    },
+    "./Dropdown": {
+      "types": "./dist/Dropdown/index.d.ts",
+      "import": "./dist/Dropdown/index.mjs",
+      "require": "./dist/Dropdown/index.js"
+    },
     "./ThemeToggle": {
       "types": "./dist/ThemeToggle/index.d.ts",
       "import": "./dist/ThemeToggle/index.mjs",

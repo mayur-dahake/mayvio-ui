@@ -1,0 +1,89 @@
+/* 
+ * Mayvio UI — Dropdown 
+ * A menu that offers a list of options or actions, triggered by a button.
+ */
+
+.mv-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.mv-dropdown-trigger {
+  /* Inherits styles from Button or Custom trigger, just a wrapper class if needed */
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.mv-dropdown-menu {
+  position: absolute;
+  top: calc(100% + var(--mv-space-1));
+  left: 0;
+  z-index: 40;
+  min-width: 12rem;
+  background-color: var(--mv-color-bg);
+  border: 1px solid var(--mv-color-border);
+  border-radius: var(--mv-radius-md);
+  box-shadow: var(--mv-shadow-md);
+  padding: var(--mv-space-1);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.25rem);
+  transition:
+    opacity var(--mv-transition-fast),
+    visibility var(--mv-transition-fast),
+    transform var(--mv-transition-fast);
+}
+
+.mv-dropdown-menu--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Alignments */
+.mv-dropdown-menu--right {
+  left: auto;
+  right: 0;
+}
+
+.mv-dropdown-menu--center {
+  left: 50%;
+  transform: translate(-50%, -0.25rem);
+}
+
+.mv-dropdown-menu--center.mv-dropdown-menu--open {
+  transform: translate(-50%, 0);
+}
+
+/* Dropdown items */
+.mv-dropdown-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--mv-space-2) var(--mv-space-3);
+  font-size: var(--mv-font-size-sm);
+  color: var(--mv-color-text);
+  background: transparent;
+  border: none;
+  border-radius: var(--mv-radius-sm);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background-color var(--mv-transition-fast),
+    color var(--mv-transition-fast);
+}
+
+.mv-dropdown-item:hover,
+.mv-dropdown-item:focus {
+  background-color: var(--mv-color-bg-hover);
+  outline: none;
+}
+
+.mv-dropdown-item:disabled,
+.mv-dropdown-item--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: transparent;
+}

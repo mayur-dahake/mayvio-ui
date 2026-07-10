@@ -1,8 +1,6 @@
 export { DataGridWrapper as DataGrid } from './DataGridWrapper.js';
 export { DatePickerWrapper as DatePicker } from './DatePickerWrapper.js';
-export { DropdownWrapper as Dropdown } from './DropdownWrapper.js';
 export { FileUploadWrapper as FileUpload } from './FileUploadWrapper.js';
-export { ModalWrapper as Modal } from './ModalWrapper.js';
 export { MultiSelectWrapper as MultiSelect } from './MultiSelectWrapper.js';
 
 export { Skeleton } from './Skeleton/index.js';
@@ -34,6 +32,20 @@ export { ThemeToggle } from './ThemeToggle/index.js';
 export type { ThemeToggleProps } from './ThemeToggle/ThemeToggle.types.js';
 export { CodeSnippet } from './CodeSnippet.js';
 
+export { Modal, ModalHeader, ModalBody, ModalFooter } from './Modal/Modal.js';
+export type {
+  ModalProps,
+  ModalHeaderProps,
+  ModalBodyProps,
+  ModalFooterProps,
+} from './Modal/Modal.types.js';
+export { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from './Dropdown/Dropdown.js';
+export type {
+  DropdownProps,
+  DropdownTriggerProps,
+  DropdownMenuProps,
+  DropdownItemProps,
+} from './Dropdown/Dropdown.types.js';
 export { KpiCard } from './KpiCard.js';
 export { Chart } from './Chart.js';
 export { DashboardWidgetGrid, DashboardWidget } from './DashboardWidget.js';

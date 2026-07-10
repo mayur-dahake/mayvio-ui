@@ -1,8 +1,8 @@
 export * from './data-grid.component';
 export * from './date-picker.component';
-export * from './dropdown.component';
+export * from './dropdown/index';
 export * from './file-upload.component';
-export * from './modal.directive';
+export * from './modal/index';
 export * from './multi-select.component';
 
 export * from './theme-toggle/index';
@@ -33,9 +33,19 @@ import { FormsModule } from '@angular/forms';
 
 import { DataGridComponent } from './data-grid.component';
 import { DatePickerComponent } from './date-picker.component';
-import { DropdownComponent } from './dropdown.component';
+import {
+  DropdownComponent,
+  DropdownTriggerDirective,
+  DropdownMenuComponent,
+  DropdownItemComponent,
+} from './dropdown/index';
 import { FileUploadComponent } from './file-upload.component';
-import { ModalTargetDirective } from './modal.directive';
+import {
+  ModalComponent,
+  ModalHeaderComponent,
+  ModalBodyComponent,
+  ModalFooterComponent,
+} from './modal/index';
 import { MultiSelectComponent } from './multi-select.component';
 
 import { ThemeToggleComponent } from './theme-toggle/index';
@@ -76,8 +86,14 @@ import {
     DataGridComponent,
     DatePickerComponent,
     DropdownComponent,
+    DropdownTriggerDirective,
+    DropdownMenuComponent,
+    DropdownItemComponent,
     FileUploadComponent,
-    ModalTargetDirective,
+    ModalComponent,
+    ModalHeaderComponent,
+    ModalBodyComponent,
+    ModalFooterComponent,
     MultiSelectComponent,
     ThemeToggleComponent,
     SkeletonComponent,
@@ -110,8 +126,14 @@ import {
     DataGridComponent,
     DatePickerComponent,
     DropdownComponent,
+    DropdownTriggerDirective,
+    DropdownMenuComponent,
+    DropdownItemComponent,
     FileUploadComponent,
-    ModalTargetDirective,
+    ModalComponent,
+    ModalHeaderComponent,
+    ModalBodyComponent,
+    ModalFooterComponent,
     MultiSelectComponent,
     ThemeToggleComponent,
     SkeletonComponent,

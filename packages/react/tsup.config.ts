@@ -12,6 +12,8 @@ export default defineConfig({
     'Tabs/index': 'src/Tabs/index.ts',
     'Accordion/index': 'src/Accordion/index.ts',
     'ThemeToggle/index': 'src/ThemeToggle/index.ts',
+    'Modal/index': 'src/Modal/index.ts',
+    'Dropdown/index': 'src/Dropdown/index.ts',
     'Badge/index': 'src/Badge/index.ts',
     'Alert/index': 'src/Alert/index.ts',
     'Avatar/index': 'src/Avatar/index.ts',

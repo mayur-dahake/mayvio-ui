@@ -1,0 +1,127 @@
+/* 
+ * Mayvio UI — Modal 
+ * A dialog window that sits on top of an application's main view.
+ */
+
+.mv-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--mv-transition-normal),
+    visibility var(--mv-transition-normal);
+}
+
+.mv-modal-overlay.mv-modal-overlay--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mv-modal {
+  background-color: var(--mv-color-bg);
+  border-radius: var(--mv-radius-lg);
+  box-shadow: var(--mv-shadow-xl);
+  width: 100%;
+  max-width: 32rem; /* 512px */
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+  opacity: 0;
+  transition:
+    transform var(--mv-transition-normal),
+    opacity var(--mv-transition-normal);
+  overflow: hidden;
+  position: relative;
+}
+
+.mv-modal-overlay.mv-modal-overlay--open .mv-modal {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Modal Sizes */
+.mv-modal--sm {
+  max-width: 24rem;
+} /* 384px */
+.mv-modal--md {
+  max-width: 32rem;
+} /* 512px */
+.mv-modal--lg {
+  max-width: 48rem;
+} /* 768px */
+.mv-modal--full {
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+}
+
+/* Internal structure */
+.mv-modal-header {
+  padding: var(--mv-space-4) var(--mv-space-5);
+  border-bottom: 1px solid var(--mv-color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mv-modal-title {
+  margin: 0;
+  font-size: var(--mv-font-size-lg);
+  font-weight: var(--mv-font-weight-semibold);
+  color: var(--mv-color-text);
+}
+
+.mv-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--mv-color-text-muted);
+  cursor: pointer;
+  padding: var(--mv-space-1);
+  border-radius: var(--mv-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color var(--mv-transition-fast),
+    color var(--mv-transition-fast);
+}
+
+.mv-modal-close:hover {
+  background-color: var(--mv-color-bg-hover);
+  color: var(--mv-color-text);
+}
+
+.mv-modal-close:focus-visible {
+  outline: 2px solid var(--mv-color-primary);
+  outline-offset: 2px;
+}
+
+.mv-modal-body {
+  padding: var(--mv-space-5);
+  overflow-y: auto;
+  color: var(--mv-color-text-muted);
+  flex-grow: 1;
+}
+
+.mv-modal-footer {
+  padding: var(--mv-space-4) var(--mv-space-5);
+  border-top: 1px solid var(--mv-color-border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--mv-space-3);
+}
+
+/* Dark mode adjustments */
+.dark .mv-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}

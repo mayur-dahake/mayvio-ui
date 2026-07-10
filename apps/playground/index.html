@@ -84,10 +84,137 @@
     <div class="section-inner">
       <div class="section-header">
         <h2 id="components-heading">Component Showcase</h2>
-        <p>Interactive demos of all Phase 1 through Phase 3 components. Click, toggle, and explore.</p>
+        <p>Interactive demos of all Phase 1 through Phase 4 components. Click, toggle, and explore.</p>
       </div>
 
       <div class="components">
+
+        <!-- ═══ PHASE 4 — Interaction Components (new BEM API) ═══ -->
+        <section class="component-card component-card-wide" aria-labelledby="phase4-heading" style="border: 1px solid var(--mv-color-primary, #6366f1); background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(139,92,246,0.05));">
+          <div class="component-header">
+            <div>
+              <h2 id="phase4-heading" style="color: var(--mv-color-primary, #6366f1)">🆕 Phase 4 — Interaction Components</h2>
+              <p class="component-description">New <code>mv-modal</code> and <code>mv-dropdown</code> BEM components — fully accessible, animated, and dark-mode ready.</p>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:2rem; flex-wrap:wrap; align-items:flex-start; padding-top: 0.5rem;">
+
+            <!-- NEW mv-modal demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Modal (mv-modal)</p>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                <button class="mv-btn mv-btn--primary control-btn" id="mvOpenModalSm" style="cursor:pointer;">Small</button>
+                <button class="mv-btn mv-btn--secondary control-btn" id="mvOpenModalMd" style="cursor:pointer;">Medium</button>
+                <button class="mv-btn mv-btn--ghost control-btn" id="mvOpenModalLg" style="cursor:pointer;">Large</button>
+              </div>
+            </div>
+
+            <!-- NEW mv-dropdown demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Dropdown Menu (mv-dropdown)</p>
+              <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-start;">
+                <!-- Left-aligned dropdown -->
+                <div class="mv-dropdown" id="demoDropdownLeft">
+                  <button class="control-btn" style="cursor:pointer;" aria-haspopup="menu" aria-expanded="false" id="demoDropdownLeftTrigger">
+                    Actions ▼
+                  </button>
+                  <div class="mv-dropdown-menu" role="menu" id="demoDropdownLeftMenu" aria-hidden="true">
+                    <button class="mv-dropdown-item" role="menuitem" id="ddItem1">✏️ Edit</button>
+                    <button class="mv-dropdown-item" role="menuitem" id="ddItem2">📋 Duplicate</button>
+                    <button class="mv-dropdown-item" role="menuitem" id="ddItem3">🔗 Share</button>
+                    <button class="mv-dropdown-item mv-dropdown-item--disabled" role="menuitem" disabled>🗑️ Delete (disabled)</button>
+                  </div>
+                </div>
+
+                <!-- Right-aligned dropdown -->
+                <div class="mv-dropdown" id="demoDropdownRight">
+                  <button class="control-btn" style="cursor:pointer;" aria-haspopup="menu" aria-expanded="false" id="demoDropdownRightTrigger">
+                    Settings ▼
+                  </button>
+                  <div class="mv-dropdown-menu mv-dropdown-menu--right" role="menu" id="demoDropdownRightMenu" aria-hidden="true">
+                    <button class="mv-dropdown-item" role="menuitem">⚙️ Preferences</button>
+                    <button class="mv-dropdown-item" role="menuitem">🔔 Notifications</button>
+                    <button class="mv-dropdown-item" role="menuitem">🚪 Sign out</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- mv-modal overlays (Phase 4) -->
+        <div class="mv-modal-overlay" id="mvModalSmOverlay" aria-hidden="true">
+          <div class="mv-modal mv-modal--sm" role="dialog" aria-modal="true" aria-labelledby="mv-modal-sm-title">
+            <div class="mv-modal-header">
+              <h3 class="mv-modal-title" id="mv-modal-sm-title">Small Modal</h3>
+              <button class="mv-modal-close" aria-label="Close modal" data-mv-modal-close>
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+              </button>
+            </div>
+            <div class="mv-modal-body">
+              <p>This is a compact modal for quick confirmations or brief messages.</p>
+            </div>
+            <div class="mv-modal-footer">
+              <button class="btn btn-secondary" data-mv-modal-close>Cancel</button>
+              <button class="btn btn-primary" data-mv-modal-close>Confirm</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mv-modal-overlay" id="mvModalMdOverlay" aria-hidden="true">
+          <div class="mv-modal mv-modal--md" role="dialog" aria-modal="true" aria-labelledby="mv-modal-md-title">
+            <div class="mv-modal-header">
+              <h3 class="mv-modal-title" id="mv-modal-md-title">Create New Project</h3>
+              <button class="mv-modal-close" aria-label="Close modal" data-mv-modal-close>
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+              </button>
+            </div>
+            <div class="mv-modal-body">
+              <p style="margin-bottom:1rem;">Fill in the details below to create your new project. You can change these settings at any time.</p>
+              <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                <div>
+                  <label for="modal-proj-name" style="display:block;font-size:0.875rem;font-weight:500;margin-bottom:4px;">Project Name</label>
+                  <input id="modal-proj-name" type="text" placeholder="e.g. My Awesome App" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:0.875rem;box-sizing:border-box;">
+                </div>
+                <div>
+                  <label for="modal-proj-desc" style="display:block;font-size:0.875rem;font-weight:500;margin-bottom:4px;">Description</label>
+                  <textarea id="modal-proj-desc" rows="3" placeholder="Optional description" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:0.875rem;resize:vertical;box-sizing:border-box;"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="mv-modal-footer">
+              <button class="btn btn-secondary" data-mv-modal-close>Cancel</button>
+              <button class="btn btn-primary">Create Project</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mv-modal-overlay" id="mvModalLgOverlay" aria-hidden="true">
+          <div class="mv-modal mv-modal--lg" role="dialog" aria-modal="true" aria-labelledby="mv-modal-lg-title">
+            <div class="mv-modal-header">
+              <h3 class="mv-modal-title" id="mv-modal-lg-title">Terms of Service</h3>
+              <button class="mv-modal-close" aria-label="Close modal" data-mv-modal-close>
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+              </button>
+            </div>
+            <div class="mv-modal-body">
+              <p>By using Mayvio UI, you agree to the following terms:</p>
+              <ul style="margin-top:0.75rem;padding-left:1.25rem;display:flex;flex-direction:column;gap:0.5rem;line-height:1.6;">
+                <li>All components are open source under the MIT license.</li>
+                <li>You may use them in personal and commercial projects without restriction.</li>
+                <li>Attribution is appreciated but not required.</li>
+                <li>Components are provided "as-is" without warranty of any kind.</li>
+                <li>We strive to maintain backwards compatibility within major versions.</li>
+              </ul>
+            </div>
+            <div class="mv-modal-footer">
+              <button class="btn btn-secondary" data-mv-modal-close>Decline</button>
+              <button class="btn btn-primary" data-mv-modal-close>I Accept</button>
+            </div>
+          </div>
+        </div>
 
         <!-- Skeleton Loader -->
         <section class="component-card component-card-wide skeleton-section" aria-labelledby="skeleton-heading">

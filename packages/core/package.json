@@ -31,6 +31,10 @@
     "./accordion/css": "./src/components/accordion/accordion.css",
     "./theme-toggle": "./src/components/theme-toggle/index.js",
     "./theme-toggle/css": "./src/components/theme-toggle/theme-toggle.css",
+    "./modal": "./src/components/modal/index.js",
+    "./modal/css": "./src/components/modal/modal.css",
+    "./dropdown": "./src/components/dropdown/index.js",
+    "./dropdown/css": "./src/components/dropdown/dropdown.css",
     "./styles/*": "./src/styles/*",
     "./scripts/*": "./src/scripts/*"
   },
