@@ -1,5 +1,6 @@
 import { MouseEvent } from 'react';
 import { SidebarProps } from './Sidebar.types.js';
+import { SidebarLinkConfig } from 'mayvio-ui/sidebar';
 import 'mayvio-ui/sidebar/css';
 
 export function Sidebar({
