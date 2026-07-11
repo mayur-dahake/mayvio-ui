@@ -1,0 +1,58 @@
+<section class="component-card component-card-wide" aria-labelledby="dropdown-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="dropdown-heading">Dropdown</h2>
+              <p class="component-description">Searchable select with keyboard support — single and multi select.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="dropdown">View Docs</button>
+              <button class="control-btn" data-view-code="dropdown">View Code</button>
+            </div>
+          </div>
+
+          <div class="dropdown-demo-row">
+            <div>
+              <p class="component-description" style="margin-bottom:10px">Single Select</p>
+              <div class="dropdown" id="dropdownSingle">
+                <button class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="dropdown-label placeholder">Select an option…</span>
+                  <span class="dropdown-chevron" aria-hidden="true">▼</span>
+                </button>
+                <div class="dropdown-menu" role="listbox">
+                  <div class="dropdown-search">
+                    <input type="text" placeholder="Search…" aria-label="Search options">
+                  </div>
+                  <ul class="dropdown-options">
+                    <li class="dropdown-option" data-value="react" data-label="React" role="option"><span class="check">✓</span> React</li>
+                    <li class="dropdown-option" data-value="vue" data-label="Vue" role="option"><span class="check">✓</span> Vue</li>
+                    <li class="dropdown-option" data-value="angular" data-label="Angular" role="option"><span class="check">✓</span> Angular</li>
+                    <li class="dropdown-option" data-value="svelte" data-label="Svelte" role="option"><span class="check">✓</span> Svelte</li>
+                    <li class="dropdown-option" data-value="solid" data-label="SolidJS" role="option"><span class="check">✓</span> SolidJS</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p class="component-description" style="margin-bottom:10px">Multi Select</p>
+              <div class="dropdown" id="dropdownMulti" data-multi="true">
+                <button class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="dropdown-label placeholder">Select options…</span>
+                  <span class="dropdown-chevron" aria-hidden="true">▼</span>
+                </button>
+                <div class="dropdown-menu" role="listbox" aria-multiselectable="true">
+                  <div class="dropdown-search">
+                    <input type="text" placeholder="Search…" aria-label="Search options">
+                  </div>
+                  <ul class="dropdown-options">
+                    <li class="dropdown-option" data-value="html" data-label="HTML" role="option"><span class="check">✓</span> HTML</li>
+                    <li class="dropdown-option" data-value="css" data-label="CSS" role="option"><span class="check">✓</span> CSS</li>
+                    <li class="dropdown-option" data-value="js" data-label="JavaScript" role="option"><span class="check">✓</span> JavaScript</li>
+                    <li class="dropdown-option" data-value="ts" data-label="TypeScript" role="option"><span class="check">✓</span> TypeScript</li>
+                  </ul>
+                </div>
+                <div class="dropdown-chips"></div>
+              </div>
+            </div>
+          </div>
+        </section>

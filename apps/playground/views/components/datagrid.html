@@ -1,0 +1,334 @@
+<section class="component-card component-card-wide" aria-labelledby="datagrid-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="datagrid-heading">Data Grid</h2>
+              <p class="component-description">Enterprise-ready data table with sorting, search filtering, pagination, and column visibility toggles.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="data-grid">View Docs</button>
+              <button class="control-btn" data-view-code="data-grid">View Code</button>
+            </div>
+          </div>
+
+          <div class="data-grid-container">
+            <div class="data-grid-toolbar">
+              <div class="data-grid-search">
+                <input type="text" id="dgSearch" placeholder="Search rows..." aria-label="Search rows">
+              </div>
+              <div class="data-grid-actions">
+                <div class="dg-dropdown" id="dgColDropdown">
+                  <button class="control-btn dg-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" id="dgColBtn">
+                    <span class="dg-dropdown-label">Columns</span>
+                    <span class="dg-dropdown-arrow">▼</span>
+                  </button>
+                  <div class="dg-dropdown-menu" role="listbox" aria-label="Toggle Columns">
+                    <!-- Dynamic column visibility options will go here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-grid-wrapper" role="region" aria-label="Data Grid" tabindex="0">
+              <table class="data-grid" id="dgTable" role="grid">
+                <thead>
+                  <tr role="row">
+                    <!-- Dynamic column headers will go here -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Dynamic rows will go here -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="data-grid-pagination">
+              <div class="dg-page-size">
+                <label for="dgPageSize">Rows per page:</label>
+                <select id="dgPageSize" aria-label="Rows per page">
+                  <option value="5">5</option>
+                  <option value="10" selected="">10</option>
+                  <option value="15">15</option>
+                </select>
+              </div>
+              <div class="dg-pagination-info" id="dgPaginationInfo" aria-live="polite">
+                <!-- Paging description -->
+              </div>
+              <div class="dg-pagination-controls">
+                <button class="control-btn dg-pag-btn" id="dgFirstPage" aria-label="First page">«</button>
+                <button class="control-btn dg-pag-btn" id="dgPrevPage" aria-label="Previous page">‹</button>
+                <div class="dg-page-numbers" id="dgPageNumbers">
+                  <!-- Dynamic page numbers -->
+                </div>
+                <button class="control-btn dg-pag-btn" id="dgNextPage" aria-label="Next page">›</button>
+                <button class="control-btn dg-pag-btn" id="dgLastPage" aria-label="Last page">»</button>
+              </div>
+            </div>
+          </div>
+        <!-- Multi-Select Dropdown -->
+        <section class="component-card component-card-wide" aria-labelledby="multiselect-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="multiselect-heading">Multi-Select Dropdown</h2>
+              <p class="component-description">Advanced tag-based multi-select with search filtering, grouped options, Select All, and chip removal.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="multi-select">View Docs</button>
+              <button class="control-btn" data-view-code="multi-select">View Code</button>
+            </div>
+          </div>
+
+          <div class="ms-demo">
+            <p class="ms-demo-label">Select your tech stack</p>
+            <div class="ms-wrapper" aria-expanded="false" aria-haspopup="listbox" aria-label="Tech stack selector">
+              <div class="ms-trigger" role="combobox" tabindex="0" aria-label="Open tech stack multi-select">
+                <div class="ms-tags">
+                  <span class="ms-placeholder">Choose technologies...</span>
+                  <span class="ms-count" hidden="">0</span>
+                </div>
+              </div>
+              <div class="ms-dropdown" role="listbox" aria-multiselectable="true" aria-label="Technology options">
+                <div class="ms-search-bar">
+                  <input class="ms-search" type="search" placeholder="Search technologies..." aria-label="Search options" autocomplete="off">
+                </div>
+                <div class="ms-toolbar">
+                  <button class="ms-select-all" type="button">Select All</button>
+                  <button class="ms-clear-all" type="button" disabled="">Clear All</button>
+                </div>
+                <ul class="ms-list" role="presentation"></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Date Picker -->
+        <section class="component-card component-card-wide" aria-labelledby="datepicker-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="datepicker-heading">Date Picker</h2>
+              <p class="component-description">Calendar popup with month navigation, single date and date range selection, Today shortcut, and keyboard support.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="date-picker">View Docs</button>
+              <button class="control-btn" data-view-code="date-picker">View Code</button>
+            </div>
+          </div>
+
+          <div class="dp-demo">
+            <div class="dp-demo-group">
+              <p class="dp-demo-label">Single Date</p>
+              <div class="dp-wrapper" id="dp-single">
+                <div class="dp-input-group">
+                  <input class="dp-input" type="text" placeholder="YYYY-MM-DD" readonly="" aria-label="Single date" aria-haspopup="dialog">
+                  <button class="dp-trigger" type="button" aria-label="Open calendar">📅</button>
+                </div>
+                <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <div class="dp-demo-group">
+              <p class="dp-demo-label">Date Range</p>
+              <div class="dp-wrapper" id="dp-range" data-range="true">
+                <div class="dp-input-group" style="width: 280px;">
+                  <input class="dp-input" type="text" placeholder="Start → End" readonly="" aria-label="Date range" aria-haspopup="dialog" style="width: 100%;">
+                  <button class="dp-trigger" type="button" aria-label="Open range calendar">📅</button>
+                </div>
+                <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- File Upload Zone -->
+        <section class="component-card component-card-wide" aria-labelledby="fileupload-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="fileupload-heading">File Upload Zone</h2>
+              <p class="component-description">Drag-and-drop file upload area with type validation, size limits, image thumbnails, and animated upload progress.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="file-upload">View Docs</button>
+              <button class="control-btn" data-view-code="file-upload">View Code</button>
+            </div>
+          </div>
+
+          <div class="fu-wrapper">
+            <div class="fu-zone" role="region" aria-label="File upload drop zone" data-accept="image/*,.pdf,.docx" data-max-size="5">
+              <input class="fu-input" type="file" multiple="" accept="image/*,.pdf,.docx" aria-label="Upload files" tabindex="-1">
+              <div class="fu-zone-icon" aria-hidden="true">☁️</div>
+              <p class="fu-zone-title">Drop files here or browse</p>
+              <p class="fu-zone-sub">Accepted: Images, PDF, DOCX</p>
+              <button class="fu-browse-btn" type="button">Browse Files</button>
+              <p class="fu-meta">Max size: 5 MB per file</p>
+            </div>
+            <div class="fu-preview" aria-live="polite" aria-label="Uploaded files"></div>
+          </div>
+        </section>
+
+        <!-- Phase 5: Dashboard Components -->
+        <div class="component-row" style="grid-column: span 2;">
+          <!-- KPI Cards -->
+          <section class="component-card" aria-labelledby="kpi-heading" style="flex: 1;">
+            <div class="component-header">
+              <div>
+                <h2 id="kpi-heading">KPI Cards</h2>
+                <p class="component-description">Dashboard metrics with animated counters and trend indicators.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-view-docs="kpi-card">View Docs</button>
+                <button class="control-btn" data-view-code="kpi-card">View Code</button>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
+              <div class="kpi-card">
+                <div class="kpi-card-header">
+                  <span class="kpi-card-title">Active Users</span>
+                  <span class="kpi-card-icon">👥</span>
+                </div>
+                <div class="kpi-card-body">
+                  <span class="kpi-card-value" data-value="12450" data-duration="2000" data-prefix="" data-suffix="">0</span>
+                  <span class="kpi-card-trend up">↑ 12%</span>
+                </div>
+                <div class="kpi-card-footer">Compared to last month</div>
+              </div>
+              
+              <div class="kpi-card">
+                <div class="kpi-card-header">
+                  <span class="kpi-card-title">Monthly Revenue</span>
+                  <span class="kpi-card-icon">💰</span>
+                </div>
+                <div class="kpi-card-body">
+                  <span class="kpi-card-value" data-value="48250" data-duration="1800" data-prefix="$" data-decimals="2">0</span>
+                  <span class="kpi-card-trend up">↑ 8.4%</span>
+                </div>
+                <div class="kpi-card-footer">Compared to last month</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Activity Timeline -->
+          <section class="component-card" aria-labelledby="timeline-heading" style="flex: 1;">
+            <div class="component-header">
+              <div>
+                <h2 id="timeline-heading">Activity Timeline</h2>
+                <p class="component-description">Vertical chronological feed for events and updates.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-view-docs="activity-timeline">View Docs</button>
+                <button class="control-btn" data-view-code="activity-timeline">View Code</button>
+              </div>
+            </div>
+            <div class="timeline" style="margin-top: 16px;">
+              <div class="timeline-item">
+                <div class="timeline-badge success"></div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <h4 class="timeline-title">v3.1.1 Released</h4>
+                    <span class="timeline-time">2 mins ago</span>
+                  </div>
+                  <p class="timeline-desc">Package readmes successfully updated and pushed to NPM.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-badge info"></div>
+                <div class="timeline-content">
+                  <div class="timeline-header">
+                    <h4 class="timeline-title">Task updated</h4>
+                    <span class="timeline-time">1 hour ago</span>
+                  </div>
+                  <p class="timeline-desc">Completed implementation of React and Angular wrappers parity.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Analytics Charts -->
+        <section class="component-card component-card-wide" aria-labelledby="charts-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="charts-heading">Analytics Charts</h2>
+              <p class="component-description">SVG Line, Bar, and Donut charts with responsive grids, dash offsets, and interactive hover tooltips.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn active" data-chart-toggle="line">Line Chart</button>
+              <button class="control-btn" data-chart-toggle="bar">Bar Chart</button>
+              <button class="control-btn" data-chart-toggle="donut">Donut Chart</button>
+              <button class="control-btn" data-view-docs="chart">View Docs</button>
+              <button class="control-btn" data-view-code="chart">View Code</button>
+            </div>
+          </div>
+          <div style="margin-top: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div id="demoChart" style="width: 100%; max-width: 600px;"></div>
+          </div>
+        </section>
+
+        <!-- Dashboard Widgets -->
+        <section class="component-card component-card-wide" aria-labelledby="widgets-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="widgets-heading">Dashboard Widgets</h2>
+              <p class="component-description">Draggable layout cards supporting grid-reordering, folding/collapse, and layout saving.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="dashboard-widget">View Docs</button>
+              <button class="control-btn" data-view-code="dashboard-widget">View Code</button>
+            </div>
+          </div>
+          <div class="widget-grid" id="demoWidgetGrid" style="margin-top: 16px;">
+            <div class="widget" id="w1">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-drag-handle">☰</span>
+                  <h3 class="widget-title">Performance Chart</h3>
+                </div>
+                <div class="widget-actions">
+                  <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
+                  <button class="widget-btn widget-btn-close">✕</button>
+                </div>
+              </div>
+              <div class="widget-content">
+                <div class="widget-content-inner">
+                  <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">CPU Usage: 45% average. Hover on chart points for details.</p>
+                </div>
+              </div>
+            </div>
+            <div class="widget" id="w2">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-drag-handle">☰</span>
+                  <h3 class="widget-title">System Logs</h3>
+                </div>
+                <div class="widget-actions">
+                  <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
+                  <button class="widget-btn widget-btn-close">✕</button>
+                </div>
+              </div>
+              <div class="widget-content">
+                <div class="widget-content-inner">
+                  <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Sync sync with NPM registry: Complete (v3.1.1).</p>
+                </div>
+              </div>
+            </div>
+            <div class="widget" id="w3">
+              <div class="widget-header">
+                <div class="widget-header-left">
+                  <span class="widget-drag-handle">☰</span>
+                  <h3 class="widget-title">Active Connections</h3>
+                </div>
+                <div class="widget-actions">
+                  <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
+                  <button class="widget-btn widget-btn-close">✕</button>
+                </div>
+              </div>
+              <div class="widget-content">
+                <div class="widget-content-inner">
+                  <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">WebSocket Tunnel: Connected to local developer server.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      
+    
+  </section>

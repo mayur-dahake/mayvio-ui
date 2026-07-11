@@ -1,0 +1,141 @@
+<section class="tier-section">
+          <h2 class="tier-title">Phase 5: Form Primitives</h2>
+          <div class="component-grid">
+            
+            <!-- mv-input demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Input</p>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <input class="mv-input mv-input--md" placeholder="Default input">
+                <input class="mv-input mv-input--md mv-input--error" placeholder="Error input" aria-invalid="true">
+                <input class="mv-input mv-input--md" placeholder="Disabled input" disabled="">
+              </div>
+            </div>
+
+            <!-- mv-textarea demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Textarea</p>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <textarea class="mv-textarea" placeholder="Default textarea"></textarea>
+                <textarea class="mv-textarea mv-textarea--error" placeholder="Error textarea" aria-invalid="true"></textarea>
+              </div>
+            </div>
+
+            <!-- mv-checkbox demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Checkbox</p>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <label class="mv-checkbox-wrapper">
+                  <input type="checkbox" class="mv-checkbox-input">
+                  <div class="mv-checkbox-control" aria-hidden="true">
+                    <svg class="mv-checkbox-icon" viewBox="0 0 15 15">
+                      <path d="M3.5 7.5L6 10L11.5 4" stroke-width="2"></path>
+                    </svg>
+                  </div>
+                  <span class="mv-checkbox-label">Default Checkbox</span>
+                </label>
+                <label class="mv-checkbox-wrapper mv-checkbox-wrapper--disabled">
+                  <input type="checkbox" class="mv-checkbox-input" disabled="" checked="">
+                  <div class="mv-checkbox-control" aria-hidden="true">
+                    <svg class="mv-checkbox-icon" viewBox="0 0 15 15">
+                      <path d="M3.5 7.5L6 10L11.5 4" stroke-width="2"></path>
+                    </svg>
+                  </div>
+                  <span class="mv-checkbox-label">Disabled Checked</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- mv-switch demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Switch</p>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <label class="mv-switch-wrapper">
+                  <input type="checkbox" class="mv-switch-input">
+                  <div class="mv-switch-control" aria-hidden="true">
+                    <div class="mv-switch-thumb"></div>
+                  </div>
+                  <span class="mv-switch-label">Default Switch</span>
+                </label>
+                <label class="mv-switch-wrapper mv-switch-wrapper--disabled">
+                  <input type="checkbox" class="mv-switch-input" disabled="" checked="">
+                  <div class="mv-switch-control" aria-hidden="true">
+                    <div class="mv-switch-thumb"></div>
+                  </div>
+                  <span class="mv-switch-label">Disabled Checked</span>
+                </label>
+              </div>
+            </div>
+            </div>
+
+            <!-- mv-radiogroup demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">RadioGroup</p>
+              <div class="mv-radiogroup">
+                <label class="mv-radio-wrapper">
+                  <input type="radio" name="demo_radio" value="1" class="mv-radio-input" checked="">
+                  <div class="mv-radio-control" aria-hidden="true"><div class="mv-radio-icon"></div></div>
+                  <span class="mv-radio-label">Option 1</span>
+                </label>
+                <label class="mv-radio-wrapper">
+                  <input type="radio" name="demo_radio" value="2" class="mv-radio-input">
+                  <div class="mv-radio-control" aria-hidden="true"><div class="mv-radio-icon"></div></div>
+                  <span class="mv-radio-label">Option 2</span>
+                </label>
+                <label class="mv-radio-wrapper mv-radio-wrapper--disabled">
+                  <input type="radio" name="demo_radio" value="3" class="mv-radio-input" disabled="">
+                  <div class="mv-radio-control" aria-hidden="true"><div class="mv-radio-icon"></div></div>
+                  <span class="mv-radio-label">Disabled</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- mv-select demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Select</p>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <div class="mv-select-wrapper">
+                  <select class="mv-select mv-select--md">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                  </select>
+                  <div class="mv-select-icon">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.18179 6.18181C4.35753 6.00608 4.64245 6.00608 4.81819 6.18181L7.49999 8.86362L10.1818 6.18181C10.3575 6.00608 10.6424 6.00608 10.8182 6.18181C10.9939 6.35755 10.9939 6.64247 10.8182 6.81821L7.81819 9.81821C7.73379 9.9026 7.61934 9.95001 7.49999 9.95001C7.38064 9.95001 7.26618 9.9026 7.18179 9.81821L4.18179 6.81821C4.00605 6.64247 4.00605 6.35755 4.18179 6.18181Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="mv-select-wrapper">
+                  <select class="mv-select mv-select--md mv-select--error" aria-invalid="true">
+                    <option value="1">Error Select</option>
+                  </select>
+                  <div class="mv-select-icon">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.18179 6.18181C4.35753 6.00608 4.64245 6.00608 4.81819 6.18181L7.49999 8.86362L10.1818 6.18181C10.3575 6.00608 10.6424 6.00608 10.8182 6.18181C10.9939 6.35755 10.9939 6.64247 10.8182 6.81821L7.81819 9.81821C7.73379 9.9026 7.61934 9.95001 7.49999 9.95001C7.38064 9.95001 7.26618 9.9026 7.18179 9.81821L4.18179 6.81821C4.00605 6.64247 4.00605 6.35755 4.18179 6.18181Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- mv-slider demo -->
+            <div>
+              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Slider</p>
+              <div style="display:flex; flex-direction:column; gap:20px;">
+                <div class="mv-slider-wrapper" id="demoSlider1">
+                  <div class="mv-slider-track">
+                    <div class="mv-slider-range" style="width: 50%"></div>
+                  </div>
+                  <div class="mv-slider-thumb" style="left: 50%" tabindex="0" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                
+                <div class="mv-slider-wrapper mv-slider-wrapper--disabled">
+                  <div class="mv-slider-track">
+                    <div class="mv-slider-range" style="width: 25%"></div>
+                  </div>
+                  <div class="mv-slider-thumb" style="left: 25%" tabindex="-1" aria-disabled="true"></div>
+                </div>
+              </div>
+            </div>
+
+          </section>

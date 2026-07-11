@@ -1,0 +1,37 @@
+<section class="component-card" aria-labelledby="kpi-heading" style="flex: 1;">
+            <div class="component-header">
+              <div>
+                <h2 id="kpi-heading">KPI Cards</h2>
+                <p class="component-description">Dashboard metrics with animated counters and trend indicators.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-view-docs="kpi-card">View Docs</button>
+                <button class="control-btn" data-view-code="kpi-card">View Code</button>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
+              <div class="kpi-card">
+                <div class="kpi-card-header">
+                  <span class="kpi-card-title">Active Users</span>
+                  <span class="kpi-card-icon">👥</span>
+                </div>
+                <div class="kpi-card-body">
+                  <span class="kpi-card-value" data-value="12450" data-duration="2000" data-prefix="" data-suffix="">0</span>
+                  <span class="kpi-card-trend up">↑ 12%</span>
+                </div>
+                <div class="kpi-card-footer">Compared to last month</div>
+              </div>
+              
+              <div class="kpi-card">
+                <div class="kpi-card-header">
+                  <span class="kpi-card-title">Monthly Revenue</span>
+                  <span class="kpi-card-icon">💰</span>
+                </div>
+                <div class="kpi-card-body">
+                  <span class="kpi-card-value" data-value="48250" data-duration="1800" data-prefix="$" data-decimals="2">0</span>
+                  <span class="kpi-card-trend up">↑ 8.4%</span>
+                </div>
+                <div class="kpi-card-footer">Compared to last month</div>
+              </div>
+            </div>
+          </section>

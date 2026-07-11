@@ -99,6 +99,10 @@
   transition: background 0.15s ease;
 }
 
+.command-palette-item.hidden {
+  display: none;
+}
+
 .command-palette-item:hover,
 .command-palette-item.focused,
 .command-palette-item.active {

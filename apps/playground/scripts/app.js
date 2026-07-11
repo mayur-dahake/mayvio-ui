@@ -400,33 +400,108 @@ function initPhase4Components() {
 
 }
 
+import { Router, routes } from './router.js';
+
 document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
-  initSkeleton();
-  initToast();
-  initModal();
-  initTabs();
-  initAccordion();
-  initDropdowns();
-  initProgress();
-  initAlerts();
-  initCommandPalette();
-  initSidebar();
-  initNotificationCenter();
-  initBreadcrumb();
-  initDataGrid();
-  initMultiSelect();
-  initDatePicker();
-  initFileUpload();
-  initKpiCards();
-  initDashboardWidgets("#demoWidgetGrid");
-  initDemoCharts();
-  initCopyButtons();
-  initSnippetTabs();
-  initCodeViewer();
-  initDocsViewer();
-  initStats();
-  initSmoothNav();
-  initPhase4Components(); // Phase 4: mv-modal, mv-dropdown
-});
+  initCommandPalette(); // Keep command palette global
+  initCodeViewer(); // Global event delegation
+  initDocsViewer(); // Global event delegation
 
+  const router = new Router(routes);
+  router.init();
+
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+  const appSidebar = document.querySelector(".app-sidebar");
+  
+  if (mobileMenuBtn && mobileMenuOverlay && appSidebar) {
+    const toggleMenu = () => appSidebar.classList.toggle("is-open");
+    const closeMenu = () => appSidebar.classList.remove("is-open");
+    mobileMenuBtn.addEventListener("click", toggleMenu);
+    mobileMenuOverlay.addEventListener("click", closeMenu);
+    // Also close menu when a nav link is clicked
+    appSidebar.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+
+  // Wire up Command Palette to Router
+  const palette = document.querySelector('.command-palette');
+  if (palette) {
+    palette.addEventListener('command-select', (e) => {
+      const command = e.detail.command;
+      const commandToRoute = {
+        'Dashboard': '#/home',
+        'Brand Guidelines': '#/brand',
+        'Installation': '#/installation',
+        'Accordion': '#/components/accordion',
+        'Avatar': '#/components/avatar',
+        'Badge': '#/components/badge',
+        'Data Grid': '#/components/datagrid',
+        'Alert': '#/components/alert',
+        'Notification Center': '#/components/notifications',
+        'Progress': '#/components/progress',
+        'Skeleton': '#/components/skeleton',
+        'Toast': '#/components/toast',
+        'Tooltip': '#/components/tooltip',
+        'Form Primitives': '#/components/form-primitives',
+        'DatePicker': '#/components/datepicker',
+        'FileUpload': '#/components/fileupload',
+        'MultiSelect': '#/components/multiselect',
+        'Breadcrumb': '#/components/breadcrumb',
+        'Command Palette': '#/components/palette',
+        'Dropdown': '#/components/dropdown',
+        'Sidebar': '#/components/sidebar',
+        'Tabs': '#/components/tabs',
+        'Modal': '#/components/modal',
+        'Activity Timeline': '#/components/timeline',
+        'Charts': '#/components/charts',
+        'Dashboard Widgets': '#/components/widgets',
+        'KPI Cards': '#/components/kpi'
+      };
+      if (commandToRoute[command]) {
+        window.location.hash = commandToRoute[command];
+      }
+    });
+  }
+
+
+  document.addEventListener('viewLoaded', (e) => {
+    const hash = e.detail?.hash || '';
+
+    // Global inits for snippets inside the canvas
+    initCopyButtons();
+    initSnippetTabs();
+
+    // Component-Scoped Initialization
+    if (hash.includes('skeleton')) initSkeleton();
+    if (hash.includes('toast')) initToast();
+    if (hash.includes('modal')) initModal();
+    if (hash.includes('tabs')) initTabs();
+    if (hash.includes('accordion')) initAccordion();
+    if (hash.includes('dropdown')) initDropdowns();
+    if (hash.includes('progress')) initProgress();
+    if (hash.includes('alert')) initAlerts();
+    if (hash.includes('sidebar')) initSidebar();
+    if (hash.includes('notifications')) initNotificationCenter();
+    if (hash.includes('breadcrumb')) initBreadcrumb();
+    if (hash.includes('datagrid')) initDataGrid();
+    if (hash.includes('multiselect')) initMultiSelect();
+    if (hash.includes('datepicker')) initDatePicker();
+    if (hash.includes('fileupload')) initFileUpload();
+    if (hash.includes('kpi')) initKpiCards();
+    if (hash.includes('widgets')) initDashboardWidgets("#demoWidgetGrid");
+    
+    if (hash.includes('charts') && typeof initDemoCharts === 'function') {
+      initDemoCharts();
+    }
+    if (hash.includes('home') && typeof initStats === 'function') {
+      initStats();
+    }
+    if (hash.includes('interaction-bem') && typeof initPhase4Components === 'function') {
+      initPhase4Components();
+    }
+  });
+});

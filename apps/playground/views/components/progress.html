@@ -1,0 +1,34 @@
+<section class="component-card" aria-labelledby="progress-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="progress-heading">Progress Bar</h2>
+                <p class="component-description">Determinate and indeterminate loading indicators.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-view-docs="progress">View Docs</button>
+                <button class="control-btn" data-view-code="progress">View Code</button>
+              </div>
+            </div>
+            <div class="progress-demo">
+              <div class="progress-header">
+                <span class="progress-label">Upload</span>
+                <span class="progress-value">60%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+              <input type="range" class="progress-slider" min="0" max="100" value="60" aria-label="Progress value">
+            </div>
+            <div class="progress-demo" style="margin-top:20px">
+              <div class="progress-header">
+                <span class="progress-label">Processing</span>
+                <span class="progress-value">Loading…</span>
+              </div>
+              <div class="progress-track indeterminate">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="progress-controls">
+                <button class="control-btn" data-toggle-indeterminate="" aria-pressed="true">Determinate</button>
+              </div>
+            </div>
+          </section>

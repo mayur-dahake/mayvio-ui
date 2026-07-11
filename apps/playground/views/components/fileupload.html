@@ -1,0 +1,24 @@
+<section class="component-card component-card-wide" aria-labelledby="fileupload-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="fileupload-heading">File Upload Zone</h2>
+              <p class="component-description">Drag-and-drop file upload area with type validation, size limits, image thumbnails, and animated upload progress.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="file-upload">View Docs</button>
+              <button class="control-btn" data-view-code="file-upload">View Code</button>
+            </div>
+          </div>
+
+          <div class="fu-wrapper">
+            <div class="fu-zone" role="region" aria-label="File upload drop zone" data-accept="image/*,.pdf,.docx" data-max-size="5">
+              <input class="fu-input" type="file" multiple="" accept="image/*,.pdf,.docx" aria-label="Upload files" tabindex="-1">
+              <div class="fu-zone-icon" aria-hidden="true">☁️</div>
+              <p class="fu-zone-title">Drop files here or browse</p>
+              <p class="fu-zone-sub">Accepted: Images, PDF, DOCX</p>
+              <button class="fu-browse-btn" type="button">Browse Files</button>
+              <p class="fu-meta">Max size: 5 MB per file</p>
+            </div>
+            <div class="fu-preview" aria-live="polite" aria-label="Uploaded files"></div>
+          </div>
+        </section>

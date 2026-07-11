@@ -1,46 +1,36 @@
 export function initNotificationCenter() {
-  const card = document.querySelector(".notification-center-card");
-  if (!card) return;
+  const container = document.getElementById("demoNotificationCenter");
+  if (!container) return;
 
-  const toggle = card.querySelector("[data-toggle-notifications]");
-  const panel = card.querySelector(".notification-panel");
-  const clearAll = card.querySelector("[data-clear-notifications]");
-  const footer = card.querySelector(".notification-footer");
+  const trigger = container.querySelector(".mv-notificationcenter-trigger");
+  const popup = container.querySelector(".mv-notificationcenter-popup");
+  const clearAll = container.querySelector(".mv-notificationcenter-clear");
+  const body = container.querySelector(".mv-notificationcenter-body");
 
-  const getItems = () => card.querySelectorAll(".notification-item");
+  if (!trigger || !popup || !body) return;
 
   const updateState = () => {
-    const isOpen = panel.classList.contains("is-open");
-    const hasItems = getItems().length > 0;
+    const isOpen = container.classList.contains("mv-notificationcenter--open");
+    trigger.setAttribute('aria-expanded', String(isOpen));
+  };
 
-    toggle.setAttribute('aria-expanded', String(isOpen));
-    if (footer) {
-      footer.hidden = !hasItems;
+  trigger.addEventListener("click", () => {
+    container.classList.toggle("mv-notificationcenter--open");
+    // Simple mock logic for popping up
+    if (container.classList.contains("mv-notificationcenter--open")) {
+      popup.style.display = "flex";
+      popup.style.bottom = "100%";
+      popup.style.right = "0";
+      popup.style.position = "absolute";
+    } else {
+      popup.style.display = "none";
     }
-  };
-
-  const removeItem = (button) => {
-    const item = button.closest(".notification-item");
-    item?.remove();
     updateState();
-  };
-
-  toggle.addEventListener("click", () => {
-    panel.classList.toggle("is-open");
-    updateState();
-  });
-
-  panel.addEventListener("click", (event) => {
-    const dismissButton = event.target.closest(".notification-dismiss");
-    if (!dismissButton) return;
-
-    removeItem(dismissButton);
   });
 
   clearAll?.addEventListener("click", () => {
-    getItems().forEach((item) => item.remove());
-    updateState();
+    body.innerHTML = ''; // mock clearing
+    const badge = container.querySelector(".mv-notificationcenter-badge");
+    if(badge) badge.style.display = 'none';
   });
-
-  updateState();
 }

@@ -24,6 +24,7 @@ export function createToast(type, customMessage) {
   if (!container) {
     container = document.createElement("div");
     container.id = "toastContainer";
+    container.className = "mv-toast-container mv-toast-container--bottom-right";
     container.setAttribute("aria-live", "polite");
     container.setAttribute("aria-atomic", "true");
     document.body.appendChild(container);
@@ -31,20 +32,19 @@ export function createToast(type, customMessage) {
 
   const message = customMessage || MESSAGES[type] || "";
   const toast = document.createElement("div");
-  toast.className = `toast ${type}`;
+  toast.className = `mv-toast mv-toast--${type}`;
   toast.setAttribute("role", "alert");
   toast.innerHTML = `
-    <span class="toast-icon" aria-hidden="true">${ICONS[type]}</span>
-    <span class="toast-message">${message}</span>
-    <button class="toast-close" aria-label="Dismiss notification">✕</button>
-    <div class="toast-progress"></div>
+    <span class="mv-toast-icon" aria-hidden="true">${ICONS[type]}</span>
+    <span class="mv-toast-message">${message}</span>
+    <button class="mv-toast-close" aria-label="Dismiss notification">✕</button>
   `;
 
   container.appendChild(toast);
 
   const timer = setTimeout(() => dismissToast(toast), AUTO_DISMISS_MS);
 
-  toast.querySelector(".toast-close").addEventListener("click", () => {
+  toast.querySelector(".mv-toast-close").addEventListener("click", () => {
     clearTimeout(timer);
     dismissToast(toast);
   });

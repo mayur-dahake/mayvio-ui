@@ -1,0 +1,225 @@
+/* App Shell Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--mv-color-neutral-50, #f9fafb);
+  color: var(--mv-color-neutral-900, #111827);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body.dark {
+  background-color: var(--mv-color-neutral-900, #111827);
+  color: var(--mv-color-neutral-50, #f9fafb);
+}
+
+/* Header */
+.app-header {
+  height: 60px;
+  border-bottom: 1px solid var(--mv-color-neutral-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+body.dark .app-header {
+  border-bottom-color: var(--mv-color-neutral-800);
+  background: rgba(17, 24, 39, 0.8);
+}
+
+.header-left .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+  color: var(--mv-color-primary, #6366f1);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.app-sidebar {
+  width: 260px;
+  border-right: 1px solid var(--mv-color-neutral-200);
+  background: var(--mv-color-neutral-50);
+  overflow-y: auto;
+  padding: 1.5rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+body.dark .app-sidebar {
+  border-right-color: var(--mv-color-neutral-800);
+  background: var(--mv-color-neutral-900);
+}
+
+/* Mobile Hamburger Menu & Responsiveness */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 90;
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hamburger-btn {
+  display: none;
+  margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: inline-flex;
+  }
+  
+  .app-sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px; /* Below header */
+    bottom: 0;
+    z-index: 100;
+    transform: translateX(-100%);
+  }
+
+  .app-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .app-sidebar.is-open ~ .sidebar-overlay {
+    display: block;
+    opacity: 1;
+  }
+  
+  .app-main {
+    padding: 1.5rem;
+  }
+}
+
+.sidebar-nav .nav-group {
+  margin-bottom: 2rem;
+}
+
+.sidebar-nav h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mv-color-neutral-500);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.25rem;
+  color: var(--mv-color-neutral-700);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+body.dark .sidebar-nav a {
+  color: var(--mv-color-neutral-300);
+}
+
+.sidebar-nav a:hover {
+  background: var(--mv-color-neutral-100);
+  color: var(--mv-color-neutral-900);
+}
+
+body.dark .sidebar-nav a:hover {
+  background: var(--mv-color-neutral-800);
+  color: var(--mv-color-neutral-50);
+}
+
+.sidebar-nav a.active {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--mv-color-primary, #6366f1);
+  font-weight: 500;
+}
+
+body.dark .sidebar-nav a.active {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+}
+
+/* Main Content */
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 3rem;
+  background-color: #fff;
+  position: relative;
+}
+
+body.dark .app-main {
+  background-color: #030712;
+}
+
+/* Playground Canvas (The specific area where the component is rendered) */
+.playground-canvas {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.component-card, .tier-section {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.component-header {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--mv-color-neutral-200);
+}
+
+body.dark .component-header {
+  border-bottom-color: var(--mv-color-neutral-800);
+}
+
+.component-header h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.component-description {
+  color: var(--mv-color-neutral-500);
+  font-size: 1.125rem;
+  max-width: 60ch;
+}

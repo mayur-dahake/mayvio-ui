@@ -1,1381 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="A collection of modern, accessible, and reusable UI components built with HTML, CSS, and JavaScript.">
-  <title>Mayvio UI</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mayvio UI Playground</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./styles/playground.css">
+  
+  <script type="module" src="./scripts/app.js"></script>
 </head>
-
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar" aria-label="Main navigation">
-    <a href="#" class="navbar-brand">
-      <span class="navbar-logo" aria-hidden="true">MV</span>
-      Mayvio UI
-    </a>
-
-    <ul class="navbar-links">
-      <li><a href="#components">Components</a></li>
-      <li><a href="#documentation" data-view-docs="global-integration">Docs</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
-    </ul>
-
-    <div class="navbar-actions">
-      <button class="theme-toggle" id="theme-toggle-btn" type="button" role="switch" aria-checked="false"
-        aria-label="Switch to dark theme"></button>
+  
+  <!-- Top Header -->
+  <header class="app-header">
+    <div class="header-left" style="display: flex; align-items: center;">
+      <button class="mv-btn mv-btn--icon mv-btn--ghost hamburger-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        Mayvio UI
+      </div>
     </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="hero">
-    <span class="badge-pill">Frontend Playground</span>
-    <h1>Mayvio UI</h1>
-    <p class="tagline" style="font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 12px; margin-top: -8px;">Build Faster. Design Better.</p>
-    <p class="subtitle">
-      A modern collection of accessible, responsive, and reusable UI components built for modern web applications.
-    </p>
-    <div class="hero-actions">
-      <a href="#components" class="btn btn-primary">Explore Components</a>
-      <a href="https://github.com/mayur-dahake/mayvio-ui" class="btn btn-ghost" target="_blank"
-        rel="noopener noreferrer">View on GitHub</a>
+    <div class="header-right">
+      <button class="mv-btn mv-btn--ghost" id="globalSearchBtn" aria-label="Search" data-open-palette>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span style="margin-left: 0.5rem; font-size: 0.875rem;">Search...</span>
+        <kbd style="margin-left: 0.5rem; padding: 0.125rem 0.25rem; background: var(--mv-color-neutral-200); border-radius: 4px; font-size: 0.75rem;">⌘K</kbd>
+      </button>
+      <button class="theme-toggle" id="theme-toggle-btn" type="button" role="switch" aria-checked="false" aria-label="Switch to dark theme">
+        <svg
+          viewBox="0 0 32 32"
+          aria-hidden="true"
+          fill="currentColor"
+          class="theme-toggle-svg"
+        >
+          <defs>
+            <clipPath id="theme-toggle-clip">
+              <path d="M0 0h42v30a1 1 0 00-16 13H0Z" />
+            </clipPath>
+          </defs>
+          <g clip-path="url(#theme-toggle-clip)">
+            <circle cx="16" cy="16" r="8.4" class="theme-toggle-center" />
+            <g class="theme-toggle-rays">
+              <circle cx="16" cy="3.3" r="2.3" style="--ray-delay: 0.253" />
+              <circle cx="27" cy="9.7" r="2.3" style="--ray-delay: 0.348" />
+              <circle cx="27" cy="22.3" r="2.3" style="--ray-delay: 0.443" />
+              <circle cx="16" cy="28.7" r="2.3" style="--ray-delay: 0.538" />
+              <circle cx="5" cy="22.3" r="2.3" style="--ray-delay: 0.633" />
+              <circle cx="5" cy="9.7" r="2.3" style="--ray-delay: 0.728" />
+            </g>
+          </g>
+        </svg>
+      </button>
+      <a href="https://github.com/mayvio/ui" target="_blank" class="mv-btn mv-btn--icon mv-btn--ghost" aria-label="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+      </a>
     </div>
   </header>
 
-  <!-- Statistics -->
-  <section class="section section-alt" id="statistics" aria-labelledby="stats-heading">
-    <div class="section-inner">
-      <div class="section-header">
-        <h2 id="stats-heading">By the Numbers</h2>
-        <p>A growing library of production-ready components.</p>
-      </div>
-
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-value" data-count="25">0</div>
-          <div class="stat-label">Components</div>
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+          <h3>Overview</h3>
+          <a href="#/home">Dashboard</a>
+          <a href="#/installation">Installation Guide</a>
+          <a href="#/brand">Brand Guidelines</a>
         </div>
-        <div class="stat-card">
-          <div class="stat-value" data-count="2">0</div>
-          <div class="stat-label">Themes</div>
+        
+        <div class="nav-group">
+          <h3>Data Display</h3>
+          <a href="#/components/accordion">Accordion</a>
+          <a href="#/components/avatar">Avatar</a>
+          <a href="#/components/badge">Badge</a>
+          <a href="#/components/datagrid">Data Grid</a>
         </div>
-        <div class="stat-card">
-          <div class="stat-value" data-count="0" data-suffix="">0</div>
-          <div class="stat-label">Dependencies</div>
+        
+        <div class="nav-group">
+          <h3>Feedback</h3>
+          <a href="#/components/alert">Alert</a>
+          <a href="#/components/notifications">Notification Center</a>
+          <a href="#/components/progress">Progress</a>
+          <a href="#/components/skeleton">Skeleton</a>
+          <a href="#/components/toast">Toast</a>
+          <a href="#/components/tooltip">Tooltip</a>
         </div>
-        <div class="stat-card">
-          <div class="stat-value" data-count="100" data-suffix="%">0</div>
-          <div class="stat-label">Vanilla JS</div>
+        
+        <div class="nav-group">
+          <h3>Forms & Inputs</h3>
+          <a href="#/components/form-primitives">All Form Controls</a>
+          <a href="#/components/datepicker">DatePicker</a>
+          <a href="#/components/fileupload">FileUpload</a>
+          <a href="#/components/multiselect">MultiSelect</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Component Showcase -->
-  <section class="section" id="components" aria-labelledby="components-heading">
-    <div class="section-inner">
-      <div class="section-header">
-        <h2 id="components-heading">Component Showcase</h2>
-        <p>Interactive demos of all Phase 1 through Phase 4 components. Click, toggle, and explore.</p>
-      </div>
-
-      <div class="components">
-
-        <!-- ═══ PHASE 4 — Interaction Components (new BEM API) ═══ -->
-        <section class="component-card component-card-wide" aria-labelledby="phase4-heading" style="border: 1px solid var(--mv-color-primary, #6366f1); background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(139,92,246,0.05));">
-          <div class="component-header">
-            <div>
-              <h2 id="phase4-heading" style="color: var(--mv-color-primary, #6366f1)">🆕 Phase 4 — Interaction Components</h2>
-              <p class="component-description">New <code>mv-modal</code> and <code>mv-dropdown</code> BEM components — fully accessible, animated, and dark-mode ready.</p>
-            </div>
-          </div>
-
-          <div style="display:flex; gap:2rem; flex-wrap:wrap; align-items:flex-start; padding-top: 0.5rem;">
-
-            <!-- NEW mv-modal demo -->
-            <div>
-              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Modal (mv-modal)</p>
-              <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-                <button class="mv-btn mv-btn--primary control-btn" id="mvOpenModalSm" style="cursor:pointer;">Small</button>
-                <button class="mv-btn mv-btn--secondary control-btn" id="mvOpenModalMd" style="cursor:pointer;">Medium</button>
-                <button class="mv-btn mv-btn--ghost control-btn" id="mvOpenModalLg" style="cursor:pointer;">Large</button>
-              </div>
-            </div>
-
-            <!-- NEW mv-dropdown demo -->
-            <div>
-              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Dropdown Menu (mv-dropdown)</p>
-              <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-start;">
-                <!-- Left-aligned dropdown -->
-                <div class="mv-dropdown" id="demoDropdownLeft">
-                  <button class="control-btn" style="cursor:pointer;" aria-haspopup="menu" aria-expanded="false" id="demoDropdownLeftTrigger">
-                    Actions ▼
-                  </button>
-                  <div class="mv-dropdown-menu" role="menu" id="demoDropdownLeftMenu" aria-hidden="true">
-                    <button class="mv-dropdown-item" role="menuitem" id="ddItem1">✏️ Edit</button>
-                    <button class="mv-dropdown-item" role="menuitem" id="ddItem2">📋 Duplicate</button>
-                    <button class="mv-dropdown-item" role="menuitem" id="ddItem3">🔗 Share</button>
-                    <button class="mv-dropdown-item mv-dropdown-item--disabled" role="menuitem" disabled>🗑️ Delete (disabled)</button>
-                  </div>
-                </div>
-
-                <!-- Right-aligned dropdown -->
-                <div class="mv-dropdown" id="demoDropdownRight">
-                  <button class="control-btn" style="cursor:pointer;" aria-haspopup="menu" aria-expanded="false" id="demoDropdownRightTrigger">
-                    Settings ▼
-                  </button>
-                  <div class="mv-dropdown-menu mv-dropdown-menu--right" role="menu" id="demoDropdownRightMenu" aria-hidden="true">
-                    <button class="mv-dropdown-item" role="menuitem">⚙️ Preferences</button>
-                    <button class="mv-dropdown-item" role="menuitem">🔔 Notifications</button>
-                    <button class="mv-dropdown-item" role="menuitem">🚪 Sign out</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div style="display:flex; gap:2rem; flex-wrap:wrap; align-items:flex-start; padding-top: 1.5rem;">
-            <!-- NEW mv-multiselect demo -->
-            <div>
-              <p class="component-description" style="margin-bottom:10px; font-weight:600;">MultiSelect</p>
-              <div class="mv-multiselect" id="demoMultiSelect" style="width:250px;">
-                <div class="mv-multiselect-trigger" tabindex="0">
-                  <div class="mv-multiselect-tags" id="demoMultiSelectTags"></div>
-                  <input type="text" class="mv-multiselect-input" placeholder="Select options..." id="demoMultiSelectInput">
-                  <div class="mv-multiselect-arrow">▼</div>
-                </div>
-                <div class="mv-multiselect-menu" id="demoMultiSelectMenu">
-                  <!-- JS injected options -->
-                </div>
-              </div>
-            </div>
-
-            <!-- NEW mv-datepicker demo -->
-            <div>
-              <p class="component-description" style="margin-bottom:10px; font-weight:600;">DatePicker</p>
-              <div class="mv-datepicker" id="demoDatePicker" style="width:200px;">
-                <div class="mv-datepicker-trigger" tabindex="0">
-                  <input type="text" class="mv-datepicker-input" placeholder="Select date..." readonly id="demoDatePickerInput">
-                  <div class="mv-datepicker-icon">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 1V2.5H10.5V1H12V2.5H12.5C13.3284 2.5 14 3.17157 14 4V12.5C14 13.3284 13.3284 14 12.5 14H2.5C1.67157 14 1 13.3284 1 12.5V4C1 3.17157 1.67157 2.5 2.5 2.5H3V1H4.5ZM2.5 4V5.5H12.5V4H2.5ZM2.5 7V12.5H12.5V7H2.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                  </div>
-                </div>
-                <div class="mv-datepicker-popup" id="demoDatePickerPopup">
-                   <!-- Calendar rendered by JS -->
-                </div>
-              </div>
-            </div>
-
-            <!-- NEW mv-fileupload demo -->
-            <div>
-              <p class="component-description" style="margin-bottom:10px; font-weight:600;">FileUpload</p>
-              <div class="mv-fileupload" id="demoFileUpload" style="width:250px;">
-                <div class="mv-fileupload-dropzone">
-                  <div class="mv-fileupload-icon">
-                    <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5C7.77614 1.5 8 1.72386 8 2V8.5H11.5L7.5 13L3.5 8.5H7V2C7 1.72386 7.22386 1.5 7.5 1.5Z" fill="currentColor"></path></svg>
-                  </div>
-                  <p class="mv-fileupload-text">Drag & drop files or <span class="mv-fileupload-browse">browse</span></p>
-                  <input type="file" class="mv-fileupload-input" multiple>
-                </div>
-                <div class="mv-fileupload-preview"></div>
-              </div>
-            </div>
-            
-            <!-- NEW mv-commandpalette demo -->
-            <div>
-              <p class="component-description" style="margin-bottom:10px; font-weight:600;">CommandPalette</p>
-              <button class="mv-btn mv-btn--secondary control-btn" id="demoCommandPaletteBtn" style="cursor:pointer;">Cmd + K</button>
-              <div class="mv-commandpalette-overlay" id="demoCommandPaletteOverlay" style="display:none;">
-                <div class="mv-commandpalette">
-                  <div class="mv-commandpalette-header">
-                    <input type="text" class="mv-commandpalette-input" placeholder="Type a command..." id="demoCommandPaletteInput">
-                  </div>
-                  <div class="mv-commandpalette-body" id="demoCommandPaletteBody"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- NEW mv-notificationcenter demo -->
-            <div>
-              <p class="component-description" style="margin-bottom:10px; font-weight:600;">NotificationCenter</p>
-              <div class="mv-notificationcenter" id="demoNotificationCenter">
-                <button class="mv-notificationcenter-trigger control-btn" id="demoNCTrigger" style="cursor:pointer; display:flex; align-items:center; gap: 8px;">
-                  Notifications
-                  <span class="mv-notificationcenter-badge" id="demoNCBadge">2</span>
-                </button>
-                <div class="mv-notificationcenter-popup" id="demoNCPopup">
-                  <div class="mv-notificationcenter-header">
-                    <h3 style="margin:0;font-size:14px;">Notifications</h3>
-                    <button class="mv-notificationcenter-clear" id="demoNCClear" style="background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:12px;">Clear all</button>
-                  </div>
-                  <div class="mv-notificationcenter-body" id="demoNCBody">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- NEW mv-sidebar demo -->
-            <div>
-              <p class="component-description" style="margin-bottom:10px; font-weight:600;">Sidebar</p>
-              <div class="mv-sidebar mv-sidebar--collapsed" id="demoSidebar" style="height: 250px; border: 1px solid var(--border); border-radius: 8px; position:relative; overflow:hidden;">
-                <div class="mv-sidebar-header">
-                  <button class="mv-sidebar-toggle control-btn" id="demoSidebarToggle" style="background:none;border:none;cursor:pointer;padding:8px;">≡</button>
-                </div>
-                <div class="mv-sidebar-nav" id="demoSidebarNav"></div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- mv-modal overlays (Phase 4) -->
-        <div class="mv-modal-overlay" id="mvModalSmOverlay" aria-hidden="true">
-          <div class="mv-modal mv-modal--sm" role="dialog" aria-modal="true" aria-labelledby="mv-modal-sm-title">
-            <div class="mv-modal-header">
-              <h3 class="mv-modal-title" id="mv-modal-sm-title">Small Modal</h3>
-              <button class="mv-modal-close" aria-label="Close modal" data-mv-modal-close>
-                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-              </button>
-            </div>
-            <div class="mv-modal-body">
-              <p>This is a compact modal for quick confirmations or brief messages.</p>
-            </div>
-            <div class="mv-modal-footer">
-              <button class="btn btn-secondary" data-mv-modal-close>Cancel</button>
-              <button class="btn btn-primary" data-mv-modal-close>Confirm</button>
-            </div>
-          </div>
+        
+        <div class="nav-group">
+          <h3>Navigation</h3>
+          <a href="#/components/breadcrumb">Breadcrumb</a>
+          <a href="#/components/palette">Command Palette</a>
+          <a href="#/components/dropdown">Dropdown</a>
+          <a href="#/components/sidebar">Sidebar</a>
+          <a href="#/components/tabs">Tabs</a>
         </div>
-
-        <div class="mv-modal-overlay" id="mvModalMdOverlay" aria-hidden="true">
-          <div class="mv-modal mv-modal--md" role="dialog" aria-modal="true" aria-labelledby="mv-modal-md-title">
-            <div class="mv-modal-header">
-              <h3 class="mv-modal-title" id="mv-modal-md-title">Create New Project</h3>
-              <button class="mv-modal-close" aria-label="Close modal" data-mv-modal-close>
-                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-              </button>
-            </div>
-            <div class="mv-modal-body">
-              <p style="margin-bottom:1rem;">Fill in the details below to create your new project. You can change these settings at any time.</p>
-              <div style="display:flex;flex-direction:column;gap:0.75rem;">
-                <div>
-                  <label for="modal-proj-name" style="display:block;font-size:0.875rem;font-weight:500;margin-bottom:4px;">Project Name</label>
-                  <input id="modal-proj-name" type="text" placeholder="e.g. My Awesome App" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:0.875rem;box-sizing:border-box;">
-                </div>
-                <div>
-                  <label for="modal-proj-desc" style="display:block;font-size:0.875rem;font-weight:500;margin-bottom:4px;">Description</label>
-                  <textarea id="modal-proj-desc" rows="3" placeholder="Optional description" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:0.875rem;resize:vertical;box-sizing:border-box;"></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="mv-modal-footer">
-              <button class="btn btn-secondary" data-mv-modal-close>Cancel</button>
-              <button class="btn btn-primary">Create Project</button>
-            </div>
-          </div>
+        
+        <div class="nav-group">
+          <h3>Overlays</h3>
+          <a href="#/components/modal">Modal</a>
+          <a href="#/components/interaction-bem">New BEM Demos</a>
         </div>
-
-        <div class="mv-modal-overlay" id="mvModalLgOverlay" aria-hidden="true">
-          <div class="mv-modal mv-modal--lg" role="dialog" aria-modal="true" aria-labelledby="mv-modal-lg-title">
-            <div class="mv-modal-header">
-              <h3 class="mv-modal-title" id="mv-modal-lg-title">Terms of Service</h3>
-              <button class="mv-modal-close" aria-label="Close modal" data-mv-modal-close>
-                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-              </button>
-            </div>
-            <div class="mv-modal-body">
-              <p>By using Mayvio UI, you agree to the following terms:</p>
-              <ul style="margin-top:0.75rem;padding-left:1.25rem;display:flex;flex-direction:column;gap:0.5rem;line-height:1.6;">
-                <li>All components are open source under the MIT license.</li>
-                <li>You may use them in personal and commercial projects without restriction.</li>
-                <li>Attribution is appreciated but not required.</li>
-                <li>Components are provided "as-is" without warranty of any kind.</li>
-                <li>We strive to maintain backwards compatibility within major versions.</li>
-              </ul>
-            </div>
-            <div class="mv-modal-footer">
-              <button class="btn btn-secondary" data-mv-modal-close>Decline</button>
-              <button class="btn btn-primary" data-mv-modal-close>I Accept</button>
-            </div>
-          </div>
+        
+        <div class="nav-group">
+          <h3>Dashboard & Analytics</h3>
+          <a href="#/components/timeline">Activity Timeline</a>
+          <a href="#/components/charts">Charts</a>
+          <a href="#/components/widgets">Dashboard Widgets</a>
+          <a href="#/components/kpi">KPI Cards</a>
         </div>
+      </nav>
+    </aside>
+    <div class="sidebar-overlay" id="mobileMenuOverlay"></div>
 
-        <!-- Skeleton Loader -->
-        <section class="component-card component-card-wide skeleton-section" aria-labelledby="skeleton-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="skeleton-heading">Skeleton Loader</h2>
-              <p class="component-description">Placeholder layouts with shimmer, wave, and pulse animations.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn active" data-animation="shimmer">Shimmer</button>
-              <button class="control-btn" data-animation="wave">Wave</button>
-              <button class="control-btn" data-animation="pulse">Pulse</button>
-              <button class="control-btn" data-view-docs="skeleton">View Docs</button>
-              <button class="control-btn" data-view-code="skeleton">View Code</button>
-            </div>
-          </div>
-
-          <div class="controls" style="margin-bottom:16px">
-            <button class="control-btn active" data-layout="social">Social Feed</button>
-            <button class="control-btn" data-layout="dashboard">Dashboard</button>
-            <button class="control-btn" data-layout="profile">Profile</button>
-            <button class="control-btn" data-layout="table">Table</button>
-          </div>
-
-          <div id="skeletonDemo"></div>
-        </section>
-
-        <div class="component-row">
-          <!-- Toast Notification -->
-          <section class="component-card" aria-labelledby="toast-heading">
-            <div class="component-header">
-              <div>
-                <h2 id="toast-heading">Toast Notification</h2>
-                <p class="component-description">Feedback messages with auto-dismiss and progress bar.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn toast-btn success">Success</button>
-                <button class="control-btn toast-btn error">Error</button>
-                <button class="control-btn toast-btn warning">Warning</button>
-                <button class="control-btn toast-btn info">Info</button>
-                <button class="control-btn" data-view-docs="toast">View Docs</button>
-                <button class="control-btn" data-view-code="toast">View Code</button>
-              </div>
-            </div>
-          </section>
-
-          <!-- Modal Dialog -->
-          <section class="component-card" aria-labelledby="modal-heading">
-            <div class="component-header">
-              <div>
-                <h2 id="modal-heading">Modal Dialog</h2>
-                <p class="component-description">Accessible overlays with escape and backdrop close.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn" id="openModalBtn" data-modal-target="#modalOverlay">Confirmation</button>
-                <button class="control-btn" id="openInfoModalBtn" data-modal-target="#infoModalOverlay">Information</button>
-                <button class="control-btn" data-view-docs="modal">View Docs</button>
-                <button class="control-btn" data-view-code="modal">View Code</button>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <!-- Tabs -->
-        <section class="component-card component-card-wide" aria-labelledby="tabs-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="tabs-heading">Tabs</h2>
-              <p class="component-description">Keyboard-navigable content switching with ARIA support.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="tabs">View Docs</button>
-              <button class="control-btn" data-view-code="tabs">View Code</button>
-            </div>
-          </div>
-
-          <div class="tabs">
-            <div role="tablist" aria-label="Component features">
-              <button role="tab" id="tab-accessibility" aria-controls="panel-accessibility">Accessibility</button>
-              <button role="tab" id="tab-performance" aria-controls="panel-performance">Performance</button>
-              <button role="tab" id="tab-theming" aria-controls="panel-theming">Theming</button>
-            </div>
-
-            <div role="tabpanel" id="panel-accessibility" aria-labelledby="tab-accessibility">
-              <h3>Built for Everyone</h3>
-              <p>Every component includes keyboard navigation, focus states, ARIA labels, and screen reader support out
-                of the box.</p>
-            </div>
-
-            <div role="tabpanel" id="panel-performance" aria-labelledby="tab-performance">
-              <h3>Zero Dependencies</h3>
-              <p>No frameworks, no build step. Lazy initialization and hardware-accelerated animations keep things fast
-                and lightweight.</p>
-            </div>
-
-            <div role="tabpanel" id="panel-theming" aria-labelledby="tab-theming">
-              <h3>CSS Variable Theming</h3>
-              <p>Switch between light and dark modes instantly. Theme preference persists via localStorage and applies
-                on reload.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Command Palette -->
-        <section class="component-card component-card-wide" aria-labelledby="palette-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="palette-heading">Command Palette</h2>
-              <p class="component-description">Quickly search app actions from anywhere with keyboard shortcuts.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-open-palette>Open Palette</button>
-              <button class="control-btn" data-view-docs="command-palette">View Docs</button>
-              <button class="control-btn" data-view-code="command-palette">View Code</button>
-            </div>
-          </div>
-          <div class="command-palette-preview">
-            <p>Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to open the palette and execute commands.</p>
-          </div>
-        </section>
-
-        <div class="component-row">
-          <!-- Sidebar Navigation -->
-          <section class="component-card sidebar-card" aria-labelledby="sidebar-heading">
-            <div class="component-header">
-              <div>
-                <h2 id="sidebar-heading">Sidebar Navigation</h2>
-                <p class="component-description">A collapsible sidebar with nested navigation links for app layouts.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn" data-toggle-sidebar>Collapse sidebar</button>
-                <button class="control-btn" data-view-docs="sidebar">View Docs</button>
-                <button class="control-btn" data-view-code="sidebar">View Code</button>
-              </div>
-            </div>
-            <div class="sidebar">
-              <nav class="sidebar-nav" aria-label="Sidebar menu">
-                <a href="#" class="sidebar-link active" title="Dashboard"><span class="sidebar-icon">📊</span><span class="sidebar-label">Dashboard</span></a>
-                <a href="#" class="sidebar-link" title="Projects"><span class="sidebar-icon">📁</span><span class="sidebar-label">Projects</span></a>
-                <a href="#" class="sidebar-link" title="Tasks"><span class="sidebar-icon">✓</span><span class="sidebar-label">Tasks</span></a>
-                <a href="#" class="sidebar-link" title="Reports"><span class="sidebar-icon">📈</span><span class="sidebar-label">Reports</span></a>
-              </nav>
-            </div>
-          </section>
-
-          <!-- Notification Center -->
-          <section class="component-card notification-center-card" aria-labelledby="notifications-heading">
-            <div class="component-header">
-              <div>
-                <h2 id="notifications-heading">Notification Center</h2>
-                <p class="component-description">A lightweight panel for recent alerts, messages, and quick actions.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn" data-toggle-notifications aria-expanded="false">Show notifications</button>
-                <button class="control-btn" data-view-docs="notification-center">View Docs</button>
-                <button class="control-btn" data-view-code="notification-center">View Code</button>
-              </div>
-            </div>
-            <div class="notification-panel">
-              <div class="notification-item notification-item-success">
-                <div class="notification-badge" aria-hidden="true"></div>
-                <div class="notification-info">
-                  <h4>Server sync complete</h4>
-                  <p>Your workspace is now up to date.</p>
-                </div>
-                <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
-              </div>
-              <div class="notification-item notification-item-info">
-                <div class="notification-badge" aria-hidden="true"></div>
-                <div class="notification-info">
-                  <h4>New comment received</h4>
-                  <p>Alex left feedback on the project card.</p>
-                </div>
-                <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
-              </div>
-              <div class="notification-item notification-item-success">
-                <div class="notification-badge" aria-hidden="true"></div>
-                <div class="notification-info">
-                  <h4>Backup completed</h4>
-                  <p>All files have been safely backed up.</p>
-                </div>
-                <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
-              </div>
-              <div class="notification-footer">
-                <button data-clear-notifications>Clear all</button>
-              </div>
-            </div>
-          </section>
-
-          <!-- Breadcrumb -->
-          <section class="component-card" aria-labelledby="breadcrumb-heading">
-            <div class="component-header">
-              <div>
-                <h2 id="breadcrumb-heading">Breadcrumb</h2>
-                <p class="component-description">A navigation trail to help users understand page hierarchy.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn" data-view-docs="breadcrumb">View Docs</button>
-                <button class="control-btn" data-view-code="breadcrumb">View Code</button>
-              </div>
-            </div>
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-              <a href="#">Home</a>
-              <span class="breadcrumb-separator" aria-hidden="true">/</span>
-              <a href="#">Projects</a>
-              <span class="breadcrumb-separator" aria-hidden="true">/</span>
-              <span aria-current="page">Dashboard</span>
-            </nav>
-          </section>
-        </div>
-
-        <!-- Accordion -->
-        <section class="component-card component-card-wide" aria-labelledby="accordion-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="accordion-heading">Accordion</h2>
-              <p class="component-description">Expandable sections with smooth height transitions.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="accordion">View Docs</button>
-              <button class="control-btn" data-view-code="accordion">View Code</button>
-            </div>
-          </div>
-
-          <div class="accordion">
-            <div class="accordion-mode-toggle">
-              <label>
-                <input type="checkbox" id="multiExpandToggle" data-multi-expand-toggle>
-                Allow multiple panels open
-              </label>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-panel-1">
-                What is Mayvio UI?
-                <span class="accordion-icon" aria-hidden="true">▼</span>
-              </button>
-              <div class="accordion-content" id="acc-panel-1">
-                <div class="accordion-content-inner">
-                  <div class="accordion-body">
-                    A modern frontend component library and playground showcasing reusable, accessible, themeable, and
-                    production-ready UI components.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-panel-2">
-                What tech stack is used?
-                <span class="accordion-icon" aria-hidden="true">▼</span>
-              </button>
-              <div class="accordion-content" id="acc-panel-2">
-                <div class="accordion-content-inner">
-                  <div class="accordion-body">
-                    Pure HTML5, CSS3, and vanilla JavaScript — no dependencies, no build tools. Future versions will
-                    include Angular, React, and Web Components ports.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-panel-3">
-                Is it accessible?
-                <span class="accordion-icon" aria-hidden="true">▼</span>
-              </button>
-              <div class="accordion-content" id="acc-panel-3">
-                <div class="accordion-content-inner">
-                  <div class="accordion-body">
-                    Yes. All components follow WAI-ARIA patterns with keyboard navigation, focus management, and screen
-                    reader support built in from the start.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Dropdown -->
-        <section class="component-card component-card-wide" aria-labelledby="dropdown-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="dropdown-heading">Dropdown</h2>
-              <p class="component-description">Searchable select with keyboard support — single and multi select.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="dropdown">View Docs</button>
-              <button class="control-btn" data-view-code="dropdown">View Code</button>
-            </div>
-          </div>
-
-          <div class="dropdown-demo-row">
-            <div>
-              <p class="component-description" style="margin-bottom:10px">Single Select</p>
-              <div class="dropdown" id="dropdownSingle">
-                <button class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
-                  <span class="dropdown-label placeholder">Select an option…</span>
-                  <span class="dropdown-chevron" aria-hidden="true">▼</span>
-                </button>
-                <div class="dropdown-menu" role="listbox">
-                  <div class="dropdown-search">
-                    <input type="text" placeholder="Search…" aria-label="Search options">
-                  </div>
-                  <ul class="dropdown-options">
-                    <li class="dropdown-option" data-value="react" data-label="React" role="option"><span
-                        class="check">✓</span> React</li>
-                    <li class="dropdown-option" data-value="vue" data-label="Vue" role="option"><span
-                        class="check">✓</span> Vue</li>
-                    <li class="dropdown-option" data-value="angular" data-label="Angular" role="option"><span
-                        class="check">✓</span> Angular</li>
-                    <li class="dropdown-option" data-value="svelte" data-label="Svelte" role="option"><span
-                        class="check">✓</span> Svelte</li>
-                    <li class="dropdown-option" data-value="solid" data-label="SolidJS" role="option"><span
-                        class="check">✓</span> SolidJS</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <p class="component-description" style="margin-bottom:10px">Multi Select</p>
-              <div class="dropdown" id="dropdownMulti" data-multi="true">
-                <button class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
-                  <span class="dropdown-label placeholder">Select options…</span>
-                  <span class="dropdown-chevron" aria-hidden="true">▼</span>
-                </button>
-                <div class="dropdown-menu" role="listbox" aria-multiselectable="true">
-                  <div class="dropdown-search">
-                    <input type="text" placeholder="Search…" aria-label="Search options">
-                  </div>
-                  <ul class="dropdown-options">
-                    <li class="dropdown-option" data-value="html" data-label="HTML" role="option"><span
-                        class="check">✓</span> HTML</li>
-                    <li class="dropdown-option" data-value="css" data-label="CSS" role="option"><span
-                        class="check">✓</span> CSS</li>
-                    <li class="dropdown-option" data-value="js" data-label="JavaScript" role="option"><span
-                        class="check">✓</span> JavaScript</li>
-                    <li class="dropdown-option" data-value="ts" data-label="TypeScript" role="option"><span
-                        class="check">✓</span> TypeScript</li>
-                  </ul>
-                </div>
-                <div class="dropdown-chips"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Tooltip -->
-        <section class="component-card component-card-wide" aria-labelledby="tooltip-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="tooltip-heading">Tooltip</h2>
-              <p class="component-description">Contextual hints on hover and focus — top, bottom, left, right.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="tooltip">View Docs</button>
-              <button class="control-btn" data-view-code="tooltip">View Code</button>
-            </div>
-          </div>
-
-          <div class="tooltip-demo-grid">
-            <div class="tooltip-wrapper" data-position="top">
-              <button class="tooltip-trigger" aria-describedby="tip-top">Top</button>
-              <span class="tooltip" id="tip-top" role="tooltip">Tooltip on top</span>
-            </div>
-            <div class="tooltip-wrapper" data-position="bottom">
-              <button class="tooltip-trigger" aria-describedby="tip-bottom">Bottom</button>
-              <span class="tooltip" id="tip-bottom" role="tooltip">Tooltip on bottom</span>
-            </div>
-            <div class="tooltip-wrapper" data-position="left">
-              <button class="tooltip-trigger" aria-describedby="tip-left">Left</button>
-              <span class="tooltip" id="tip-left" role="tooltip">Tooltip on left</span>
-            </div>
-            <div class="tooltip-wrapper" data-position="right">
-              <button class="tooltip-trigger" aria-describedby="tip-right">Right</button>
-              <span class="tooltip" id="tip-right" role="tooltip">Tooltip on right</span>
-            </div>
-          </div>
-        </section>
-
-        <div class="component-row">
-          <!-- Badge -->
-          <section class="component-card" aria-labelledby="badge-heading">
-            <div class="component-header">
-              <div>
-                <h2 id="badge-heading">Badge</h2>
-                <p class="component-description">Status labels with filled and outline variants.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn" data-view-docs="badge">View Docs</button>
-                <button class="control-btn" data-view-code="badge">View Code</button>
-              </div>
-            </div>
-            <div class="badge-demo">
-              <span class="badge success dot">Success</span>
-              <span class="badge error dot">Error</span>
-              <span class="badge warning dot">Warning</span>
-              <span class="badge info dot">Info</span>
-              <span class="badge success outline">Stable</span>
-              <span class="badge error outline">Beta</span>
-            </div>
-          </section>
-
-          <!-- Avatar -->
-          <section class="component-card" aria-labelledby="avatar-heading">
-            <div class="component-header">
-              <div>
-                <h2 id="avatar-heading">Avatar</h2>
-                <p class="component-description">Image, initials, and stacked group avatars.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn" data-view-docs="avatar">View Docs</button>
-                <button class="control-btn" data-view-code="avatar">View Code</button>
-              </div>
-            </div>
-            <div class="avatar-demo">
-              <div class="avatar-label">
-                <span class="avatar md">
-                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User avatar">
-                </span>
-                <span>Image</span>
-              </div>
-              <div class="avatar-label">
-                <span class="avatar md">MD</span>
-                <span>Initials</span>
-              </div>
-              <div class="avatar-label">
-                <div class="avatar-group">
-                  <span class="avatar sm"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=A" alt=""></span>
-                  <span class="avatar sm"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=B" alt=""></span>
-                  <span class="avatar sm"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=C" alt=""></span>
-                  <span class="avatar sm more">+4</span>
-                </div>
-                <span>Group</span>
-              </div>
-            </div>
-          </section>
-
-          <!-- Progress Bar -->
-          <section class="component-card" aria-labelledby="progress-heading">
-            <div class="component-header">
-              <div>
-                <h2 id="progress-heading">Progress Bar</h2>
-                <p class="component-description">Determinate and indeterminate loading indicators.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn" data-view-docs="progress">View Docs</button>
-                <button class="control-btn" data-view-code="progress">View Code</button>
-              </div>
-            </div>
-            <div class="progress-demo">
-              <div class="progress-header">
-                <span class="progress-label">Upload</span>
-                <span class="progress-value">60%</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill"></div>
-              </div>
-              <input type="range" class="progress-slider" min="0" max="100" value="60" aria-label="Progress value">
-            </div>
-            <div class="progress-demo" style="margin-top:20px">
-              <div class="progress-header">
-                <span class="progress-label">Processing</span>
-                <span class="progress-value">Loading…</span>
-              </div>
-              <div class="progress-track indeterminate">
-                <div class="progress-fill"></div>
-              </div>
-              <div class="progress-controls">
-                <button class="control-btn" data-toggle-indeterminate aria-pressed="true">Determinate</button>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <!-- Alert -->
-        <section class="component-card component-card-wide" aria-labelledby="alert-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="alert-heading">Alert</h2>
-              <p class="component-description">Dismissible notifications with optional action buttons.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="alert">View Docs</button>
-              <button class="control-btn" data-view-code="alert">View Code</button>
-            </div>
-          </div>
-          <div class="alert-stack">
-            <div class="alert success" role="alert">
-              <span class="alert-icon" aria-hidden="true">✓</span>
-              <div class="alert-content">
-                <div class="alert-title">Changes saved</div>
-                <div class="alert-message">Your profile has been updated successfully.</div>
-              </div>
-              <button class="alert-close" aria-label="Dismiss alert">✕</button>
-            </div>
-            <div class="alert warning" role="alert">
-              <span class="alert-icon" aria-hidden="true">⚠</span>
-              <div class="alert-content">
-                <div class="alert-title">Storage almost full</div>
-                <div class="alert-message">You've used 90% of your available storage.</div>
-                <div class="alert-actions">
-                  <button class="alert-action">Upgrade plan</button>
-                  <button class="alert-action" data-action="dismiss">Dismiss</button>
-                </div>
-              </div>
-              <button class="alert-close" aria-label="Dismiss alert">✕</button>
-            </div>
-            <div class="alert info" role="alert">
-              <span class="alert-icon" aria-hidden="true">ℹ</span>
-              <div class="alert-content">
-                <div class="alert-title">New version available</div>
-                <div class="alert-message">Version 2.0 adds application-level components for real product layouts.</div>
-              </div>
-              <button class="alert-close" aria-label="Dismiss alert">✕</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- Data Grid -->
-        <section class="component-card component-card-wide" aria-labelledby="datagrid-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="datagrid-heading">Data Grid</h2>
-              <p class="component-description">Enterprise-ready data table with sorting, search filtering, pagination, and column visibility toggles.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="data-grid">View Docs</button>
-              <button class="control-btn" data-view-code="data-grid">View Code</button>
-            </div>
-          </div>
-
-          <div class="data-grid-container">
-            <div class="data-grid-toolbar">
-              <div class="data-grid-search">
-                <input type="text" id="dgSearch" placeholder="Search rows..." aria-label="Search rows">
-              </div>
-              <div class="data-grid-actions">
-                <div class="dg-dropdown" id="dgColDropdown">
-                  <button class="control-btn dg-dropdown-trigger" aria-haspopup="listbox" aria-expanded="false" id="dgColBtn">
-                    <span class="dg-dropdown-label">Columns</span>
-                    <span class="dg-dropdown-arrow">▼</span>
-                  </button>
-                  <div class="dg-dropdown-menu" role="listbox" aria-label="Toggle Columns">
-                    <!-- Dynamic column visibility options will go here -->
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="data-grid-wrapper" role="region" aria-label="Data Grid" tabindex="0">
-              <table class="data-grid" id="dgTable" role="grid">
-                <thead>
-                  <tr role="row">
-                    <!-- Dynamic column headers will go here -->
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Dynamic rows will go here -->
-                </tbody>
-              </table>
-            </div>
-
-            <div class="data-grid-pagination">
-              <div class="dg-page-size">
-                <label for="dgPageSize">Rows per page:</label>
-                <select id="dgPageSize" aria-label="Rows per page">
-                  <option value="5">5</option>
-                  <option value="10" selected>10</option>
-                  <option value="15">15</option>
-                </select>
-              </div>
-              <div class="dg-pagination-info" id="dgPaginationInfo" aria-live="polite">
-                <!-- Paging description -->
-              </div>
-              <div class="dg-pagination-controls">
-                <button class="control-btn dg-pag-btn" id="dgFirstPage" aria-label="First page">«</button>
-                <button class="control-btn dg-pag-btn" id="dgPrevPage" aria-label="Previous page">‹</button>
-                <div class="dg-page-numbers" id="dgPageNumbers">
-                  <!-- Dynamic page numbers -->
-                </div>
-                <button class="control-btn dg-pag-btn" id="dgNextPage" aria-label="Next page">›</button>
-                <button class="control-btn dg-pag-btn" id="dgLastPage" aria-label="Last page">»</button>
-              </div>
-            </div>
-          </div>
-        <!-- Multi-Select Dropdown -->
-        <section class="component-card component-card-wide" aria-labelledby="multiselect-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="multiselect-heading">Multi-Select Dropdown</h2>
-              <p class="component-description">Advanced tag-based multi-select with search filtering, grouped options, Select All, and chip removal.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="multi-select">View Docs</button>
-              <button class="control-btn" data-view-code="multi-select">View Code</button>
-            </div>
-          </div>
-
-          <div class="ms-demo">
-            <p class="ms-demo-label">Select your tech stack</p>
-            <div class="ms-wrapper" aria-expanded="false" aria-haspopup="listbox" aria-label="Tech stack selector">
-              <div class="ms-trigger" role="combobox" tabindex="0" aria-label="Open tech stack multi-select">
-                <div class="ms-tags">
-                  <span class="ms-placeholder">Choose technologies...</span>
-                  <span class="ms-count" hidden>0</span>
-                </div>
-              </div>
-              <div class="ms-dropdown" role="listbox" aria-multiselectable="true" aria-label="Technology options">
-                <div class="ms-search-bar">
-                  <input class="ms-search" type="search" placeholder="Search technologies..." aria-label="Search options" autocomplete="off" />
-                </div>
-                <div class="ms-toolbar">
-                  <button class="ms-select-all" type="button">Select All</button>
-                  <button class="ms-clear-all" type="button" disabled>Clear All</button>
-                </div>
-                <ul class="ms-list" role="presentation"></ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Date Picker -->
-        <section class="component-card component-card-wide" aria-labelledby="datepicker-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="datepicker-heading">Date Picker</h2>
-              <p class="component-description">Calendar popup with month navigation, single date and date range selection, Today shortcut, and keyboard support.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="date-picker">View Docs</button>
-              <button class="control-btn" data-view-code="date-picker">View Code</button>
-            </div>
-          </div>
-
-          <div class="dp-demo">
-            <div class="dp-demo-group">
-              <p class="dp-demo-label">Single Date</p>
-              <div class="dp-wrapper" id="dp-single">
-                <div class="dp-input-group">
-                  <input class="dp-input" type="text" placeholder="YYYY-MM-DD" readonly aria-label="Single date" aria-haspopup="dialog" />
-                  <button class="dp-trigger" type="button" aria-label="Open calendar">📅</button>
-                </div>
-                <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
-              </div>
-            </div>
-
-            <div class="dp-demo-group">
-              <p class="dp-demo-label">Date Range</p>
-              <div class="dp-wrapper" id="dp-range" data-range="true">
-                <div class="dp-input-group" style="width: 280px;">
-                  <input class="dp-input" type="text" placeholder="Start → End" readonly aria-label="Date range" aria-haspopup="dialog" style="width: 100%;" />
-                  <button class="dp-trigger" type="button" aria-label="Open range calendar">📅</button>
-                </div>
-                <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- File Upload Zone -->
-        <section class="component-card component-card-wide" aria-labelledby="fileupload-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="fileupload-heading">File Upload Zone</h2>
-              <p class="component-description">Drag-and-drop file upload area with type validation, size limits, image thumbnails, and animated upload progress.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="file-upload">View Docs</button>
-              <button class="control-btn" data-view-code="file-upload">View Code</button>
-            </div>
-          </div>
-
-          <div class="fu-wrapper">
-            <div class="fu-zone" role="region" aria-label="File upload drop zone" data-accept="image/*,.pdf,.docx" data-max-size="5">
-              <input class="fu-input" type="file" multiple accept="image/*,.pdf,.docx" aria-label="Upload files" tabindex="-1" />
-              <div class="fu-zone-icon" aria-hidden="true">☁️</div>
-              <p class="fu-zone-title">Drop files here or browse</p>
-              <p class="fu-zone-sub">Accepted: Images, PDF, DOCX</p>
-              <button class="fu-browse-btn" type="button">Browse Files</button>
-              <p class="fu-meta">Max size: 5 MB per file</p>
-            </div>
-            <div class="fu-preview" aria-live="polite" aria-label="Uploaded files"></div>
-          </div>
-        </section>
-
-        <!-- Phase 5: Dashboard Components -->
-        <div class="component-row" style="grid-column: span 2;">
-          <!-- KPI Cards -->
-          <section class="component-card" aria-labelledby="kpi-heading" style="flex: 1;">
-            <div class="component-header">
-              <div>
-                <h2 id="kpi-heading">KPI Cards</h2>
-                <p class="component-description">Dashboard metrics with animated counters and trend indicators.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn" data-view-docs="kpi-card">View Docs</button>
-                <button class="control-btn" data-view-code="kpi-card">View Code</button>
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
-              <div class="kpi-card">
-                <div class="kpi-card-header">
-                  <span class="kpi-card-title">Active Users</span>
-                  <span class="kpi-card-icon">👥</span>
-                </div>
-                <div class="kpi-card-body">
-                  <span class="kpi-card-value" data-value="12450" data-duration="2000" data-prefix="" data-suffix="">0</span>
-                  <span class="kpi-card-trend up">↑ 12%</span>
-                </div>
-                <div class="kpi-card-footer">Compared to last month</div>
-              </div>
-              
-              <div class="kpi-card">
-                <div class="kpi-card-header">
-                  <span class="kpi-card-title">Monthly Revenue</span>
-                  <span class="kpi-card-icon">💰</span>
-                </div>
-                <div class="kpi-card-body">
-                  <span class="kpi-card-value" data-value="48250" data-duration="1800" data-prefix="$" data-decimals="2">0</span>
-                  <span class="kpi-card-trend up">↑ 8.4%</span>
-                </div>
-                <div class="kpi-card-footer">Compared to last month</div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Activity Timeline -->
-          <section class="component-card" aria-labelledby="timeline-heading" style="flex: 1;">
-            <div class="component-header">
-              <div>
-                <h2 id="timeline-heading">Activity Timeline</h2>
-                <p class="component-description">Vertical chronological feed for events and updates.</p>
-              </div>
-              <div class="controls">
-                <button class="control-btn" data-view-docs="activity-timeline">View Docs</button>
-                <button class="control-btn" data-view-code="activity-timeline">View Code</button>
-              </div>
-            </div>
-            <div class="timeline" style="margin-top: 16px;">
-              <div class="timeline-item">
-                <div class="timeline-badge success"></div>
-                <div class="timeline-content">
-                  <div class="timeline-header">
-                    <h4 class="timeline-title">v3.1.1 Released</h4>
-                    <span class="timeline-time">2 mins ago</span>
-                  </div>
-                  <p class="timeline-desc">Package readmes successfully updated and pushed to NPM.</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-badge info"></div>
-                <div class="timeline-content">
-                  <div class="timeline-header">
-                    <h4 class="timeline-title">Task updated</h4>
-                    <span class="timeline-time">1 hour ago</span>
-                  </div>
-                  <p class="timeline-desc">Completed implementation of React and Angular wrappers parity.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <!-- Analytics Charts -->
-        <section class="component-card component-card-wide" aria-labelledby="charts-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="charts-heading">Analytics Charts</h2>
-              <p class="component-description">SVG Line, Bar, and Donut charts with responsive grids, dash offsets, and interactive hover tooltips.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn active" data-chart-toggle="line">Line Chart</button>
-              <button class="control-btn" data-chart-toggle="bar">Bar Chart</button>
-              <button class="control-btn" data-chart-toggle="donut">Donut Chart</button>
-              <button class="control-btn" data-view-docs="chart">View Docs</button>
-              <button class="control-btn" data-view-code="chart">View Code</button>
-            </div>
-          </div>
-          <div style="margin-top: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <div id="demoChart" style="width: 100%; max-width: 600px;"></div>
-          </div>
-        </section>
-
-        <!-- Dashboard Widgets -->
-        <section class="component-card component-card-wide" aria-labelledby="widgets-heading">
-          <div class="component-header">
-            <div>
-              <h2 id="widgets-heading">Dashboard Widgets</h2>
-              <p class="component-description">Draggable layout cards supporting grid-reordering, folding/collapse, and layout saving.</p>
-            </div>
-            <div class="controls">
-              <button class="control-btn" data-view-docs="dashboard-widget">View Docs</button>
-              <button class="control-btn" data-view-code="dashboard-widget">View Code</button>
-            </div>
-          </div>
-          <div class="widget-grid" id="demoWidgetGrid" style="margin-top: 16px;">
-            <div class="widget" id="w1">
-              <div class="widget-header">
-                <div class="widget-header-left">
-                  <span class="widget-drag-handle">☰</span>
-                  <h3 class="widget-title">Performance Chart</h3>
-                </div>
-                <div class="widget-actions">
-                  <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
-                  <button class="widget-btn widget-btn-close">✕</button>
-                </div>
-              </div>
-              <div class="widget-content">
-                <div class="widget-content-inner">
-                  <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">CPU Usage: 45% average. Hover on chart points for details.</p>
-                </div>
-              </div>
-            </div>
-            <div class="widget" id="w2">
-              <div class="widget-header">
-                <div class="widget-header-left">
-                  <span class="widget-drag-handle">☰</span>
-                  <h3 class="widget-title">System Logs</h3>
-                </div>
-                <div class="widget-actions">
-                  <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
-                  <button class="widget-btn widget-btn-close">✕</button>
-                </div>
-              </div>
-              <div class="widget-content">
-                <div class="widget-content-inner">
-                  <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Sync sync with NPM registry: Complete (v3.1.1).</p>
-                </div>
-              </div>
-            </div>
-            <div class="widget" id="w3">
-              <div class="widget-header">
-                <div class="widget-header-left">
-                  <span class="widget-drag-handle">☰</span>
-                  <h3 class="widget-title">Active Connections</h3>
-                </div>
-                <div class="widget-actions">
-                  <button class="widget-btn widget-btn-collapse" aria-expanded="true">▼</button>
-                  <button class="widget-btn widget-btn-close">✕</button>
-                </div>
-              </div>
-              <div class="widget-content">
-                <div class="widget-content-inner">
-                  <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">WebSocket Tunnel: Connected to local developer server.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Documentation -->
-  <section class="section section-alt" id="documentation" aria-labelledby="docs-heading">
-    <div class="section-inner">
-      <div class="section-header">
-        <h2 id="docs-heading">Documentation</h2>
-        <p>Everything you need to understand and use each component.</p>
-      </div>
-
-      <div class="docs-grid">
-        <div class="doc-card" data-view-docs="global-integration" style="cursor: pointer;">
-          <div class="doc-icon" aria-hidden="true">📖</div>
-          <h3>Usage Guides</h3>
-          <p>Step-by-step instructions for integrating each component into your project.</p>
-        </div>
-        <div class="doc-card" data-view-docs="global-accessibility" style="cursor: pointer;">
-          <div class="doc-icon" aria-hidden="true">♿</div>
-          <h3>Accessibility Notes</h3>
-          <p>ARIA roles, keyboard shortcuts, and screen reader behavior for every component.</p>
-        </div>
-        <div class="doc-card" style="cursor: pointer;" onclick="document.getElementById('components').scrollIntoView({behavior: 'smooth'})">
-          <div class="doc-icon" aria-hidden="true">💻</div>
-          <h3>Code Snippets</h3>
-          <p>Copy-ready HTML, CSS, and JavaScript for quick integration.</p>
-        </div>
-      </div>
-
-      <!-- Code Snippets -->
-      <div class="snippet-section" aria-labelledby="snippets-heading">
-        <h3 id="snippets-heading" class="sr-only">Code Snippets</h3>
-
-        <div class="snippet-tabs" role="tablist" aria-label="Code snippet language">
-          <button class="snippet-tab active" role="tab" aria-selected="true">HTML</button>
-          <button class="snippet-tab" role="tab" aria-selected="false">CSS</button>
-          <button class="snippet-tab" role="tab" aria-selected="false">JavaScript</button>
-        </div>
-
-        <div class="snippet-panel active">
-          <div class="code-block">
-            <button class="copy-btn" data-label="HTML"></button>
-            <pre><code>&lt;div class="alert success" role="alert"&gt;
-  &lt;span class="alert-icon" aria-hidden="true"&gt;✓&lt;/span&gt;
-  &lt;div class="alert-content"&gt;
-    &lt;div class="alert-title"&gt;Changes saved&lt;/div&gt;
-    &lt;div class="alert-message"&gt;Your profile has been updated.&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;button class="alert-close" aria-label="Dismiss alert"&gt;✕&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-          </div>
-        </div>
-
-        <div class="snippet-panel">
-          <div class="code-block">
-            <button class="copy-btn" data-label="CSS"></button>
-            <pre><code>.badge {
-  display: inline-flex;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.badge.success {
-  background: color-mix(in srgb, var(--success) 15%, transparent);
-  color: var(--success);
-}</code></pre>
-          </div>
-        </div>
-
-        <div class="snippet-panel">
-          <div class="code-block">
-            <button class="copy-btn" data-label="JavaScript"></button>
-            <pre><code>import { createToast } from "./components/toast.js";
-
-document.querySelector(".toast-btn.success")
-  .addEventListener("click", () =&gt; createToast("success"));</code></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Roadmap -->
-  <section class="section" id="roadmap" aria-labelledby="roadmap-heading">
-    <div class="section-inner">
-      <div class="section-header">
-        <h2 id="roadmap-heading">Roadmap</h2>
-        <p>From foundation components to a full design system.</p>
-      </div>
-
-      <div class="roadmap">
-        <div class="roadmap-item done">
-          <div class="roadmap-marker">✓</div>
-          <div class="roadmap-content">
-            <h3>Phase 1 & 2 — Architecture & PoC</h3>
-            <p>Monorepo setup, strictly typed packages, and core proof-of-concept (Badge, Alert, Avatar).</p>
-            <span class="roadmap-tag done">v4.0-alpha</span>
-          </div>
-        </div>
-
-        <div class="roadmap-item done">
-          <div class="roadmap-marker">✓</div>
-          <div class="roadmap-content">
-            <h3>Phase 3 — Core Application Components</h3>
-            <p>Button, Tooltip, Toast, Skeleton, ProgressBar, Breadcrumb, Tabs, Accordion, ThemeToggle.</p>
-            <span class="roadmap-tag done">v4.0-beta</span>
-          </div>
-        </div>
-
-        <div class="roadmap-item done">
-          <div class="roadmap-marker">✓</div>
-          <div class="roadmap-content">
-            <h3>Phase 4 — Interaction Components</h3>
-            <p>Modal, Dropdown, MultiSelect, DatePicker, FileUpload, CommandPalette, Sidebar, NotificationCenter.</p>
-            <span class="roadmap-tag done">v4.0-rc — Done</span>
-          </div>
-        </div>
-
-        <div class="roadmap-item active">
-          <div class="roadmap-marker">5</div>
-          <div class="roadmap-content">
-            <h3>Phase 5+ — Forms & Data</h3>
-            <p>Form primitives, DataGrid, Charts, and advanced Widgets.</p>
-            <span class="roadmap-tag active">v4.0+ — Current</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GitHub CTA -->
-  <section class="github-cta" aria-labelledby="cta-heading">
-    <h2 id="cta-heading">Star on GitHub</h2>
-    <p>Open source, zero dependencies, and built for learning. Check out the repo and follow the journey.</p>
-    <a href="https://github.com/mayur-dahake/mayvio-ui" class="btn btn-primary" target="_blank"
-      rel="noopener noreferrer">
-      View Repository →
-    </a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-brand">Mayvio UI</div>
-    <p class="footer-tagline">Designed & Developed by Mayur Dahake</p>
-
-    <div class="footer-social" aria-label="Social media links">
-      <a href="https://github.com/mayur-dahake/mayvio-ui" target="_blank" rel="noopener noreferrer"
-        aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path
-            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-        </svg>
-      </a>
-      <a href="https://linkedin.com/in/mayur-dahake" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path
-            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.062 2.062 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-        </svg>
-      </a>
-      <a href="https://x.com/mayur_dahake" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path
-            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-        </svg>
-      </a>
-    </div>
-
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="#components">Components</a>
-      <a href="#documentation" data-view-docs="global-integration">Documentation</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="https://github.com/mayur-dahake/mayvio-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </nav>
-    <p class="footer-copy">&copy; 2026 Mayvio. All Rights Reserved.</p>
-  </footer>
-
-  <!-- Toast Container -->
-  <div id="toastContainer" aria-live="polite" aria-atomic="true"></div>
-
-  <!-- Confirmation Modal -->
-  <div class="modal-overlay" id="modalOverlay" aria-hidden="true" role="dialog" aria-modal="true"
-    aria-labelledby="modal-title">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modal-title">Delete Project</h3>
-        <button class="modal-close" aria-label="Close modal">✕</button>
-      </div>
-      <p class="modal-body">
-        Are you sure you want to delete this project? This action cannot be undone.
-      </p>
-      <div class="modal-actions">
-        <button class="btn btn-secondary" id="cancelModalBtn" data-modal-dismiss>Cancel</button>
-        <button class="btn btn-danger">Delete</button>
-      </div>
-    </div>
+    <!-- Main Content -->
+    <main class="app-main" id="root-content">
+      <!-- Router injects views here -->
+    </main>
   </div>
 
-  <!-- Information Modal -->
-  <div class="modal-overlay" id="infoModalOverlay" aria-hidden="true" role="dialog" aria-modal="true"
-    aria-labelledby="info-modal-title">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="info-modal-title">Component Updated</h3>
-        <button class="modal-close" aria-label="Close modal">✕</button>
-      </div>
-      <p class="modal-body">
-        Version 3.0 is now live with twenty components. Check the roadmap for what's coming next in Phase 5.
-      </p>
-      <div class="modal-actions">
-        <button class="btn btn-primary" id="infoModalOkBtn" data-modal-dismiss>Got it</button>
-      </div>
-    </div>
-  </div>
-
+  <!-- Command Palette -->
   <div class="command-palette" role="dialog" aria-modal="true" aria-label="Command palette">
     <div class="command-palette-panel">
       <div class="command-palette-header">
@@ -1384,33 +153,201 @@ document.querySelector(".toast-btn.success")
       </div>
       <input class="command-palette-input" type="search" placeholder="Search commands…" aria-label="Search commands" />
       <div class="command-palette-list">
-        <button class="command-palette-item" data-command="Open Dashboard">
+        <!-- Overview -->
+        <button class="command-palette-item" data-command="Dashboard">
           <div>
-            <h4>Open Dashboard</h4>
-            <p>Jump to the main workspace.</p>
+            <h4>Dashboard</h4>
+            <p>Overview of all components</p>
           </div>
-          <span>⌘+1</span>
+          <span>Overview</span>
         </button>
-        <button class="command-palette-item" data-command="Create new task">
+        <button class="command-palette-item" data-command="Brand Guidelines">
           <div>
-            <h4>Create new task</h4>
-            <p>Start a new task in the current project.</p>
+            <h4>Brand Guidelines</h4>
+            <p>Colors and typography</p>
           </div>
-          <span>⌘+T</span>
+          <span>Overview</span>
         </button>
-        <button class="command-palette-item" data-command="Open notifications">
+        <button class="command-palette-item" data-command="Installation">
           <div>
-            <h4>Open notifications</h4>
-            <p>Review recent alerts and messages.</p>
+            <h4>Installation Guide</h4>
+            <p>Setup for React, Angular & Vanilla</p>
           </div>
-          <span>⌘+N</span>
+          <span>Overview</span>
         </button>
-        <button class="command-palette-item" data-command="View reports">
+        <!-- Data Display -->
+        <button class="command-palette-item" data-command="Accordion">
           <div>
-            <h4>View reports</h4>
-            <p>Open the reports view for your team.</p>
+            <h4>Accordion</h4>
+            <p>Vertically collapsing content panels</p>
           </div>
-          <span>⌘+R</span>
+          <span>Data Display</span>
+        </button>
+        <button class="command-palette-item" data-command="Avatar">
+          <div>
+            <h4>Avatar</h4>
+            <p>User profile image representation</p>
+          </div>
+          <span>Data Display</span>
+        </button>
+        <button class="command-palette-item" data-command="Badge">
+          <div>
+            <h4>Badge</h4>
+            <p>Small status or status indicator</p>
+          </div>
+          <span>Data Display</span>
+        </button>
+        <button class="command-palette-item" data-command="Data Grid">
+          <div>
+            <h4>Data Grid</h4>
+            <p>Complex table with sorting and filtering</p>
+          </div>
+          <span>Data Display</span>
+        </button>
+        <!-- Feedback -->
+        <button class="command-palette-item" data-command="Alert">
+          <div>
+            <h4>Alert</h4>
+            <p>Important context-sensitive messaging</p>
+          </div>
+          <span>Feedback</span>
+        </button>
+        <button class="command-palette-item" data-command="Notification Center">
+          <div>
+            <h4>Notification Center</h4>
+            <p>Global notification panel</p>
+          </div>
+          <span>Feedback</span>
+        </button>
+        <button class="command-palette-item" data-command="Progress">
+          <div>
+            <h4>Progress</h4>
+            <p>Loading or task progress indicators</p>
+          </div>
+          <span>Feedback</span>
+        </button>
+        <button class="command-palette-item" data-command="Skeleton">
+          <div>
+            <h4>Skeleton</h4>
+            <p>Loading state placeholder</p>
+          </div>
+          <span>Feedback</span>
+        </button>
+        <button class="command-palette-item" data-command="Toast">
+          <div>
+            <h4>Toast</h4>
+            <p>Temporary notification popup</p>
+          </div>
+          <span>Feedback</span>
+        </button>
+        <button class="command-palette-item" data-command="Tooltip">
+          <div>
+            <h4>Tooltip</h4>
+            <p>Contextual hover information</p>
+          </div>
+          <span>Feedback</span>
+        </button>
+        <!-- Forms & Inputs -->
+        <button class="command-palette-item" data-command="Form Primitives">
+          <div>
+            <h4>Form Primitives</h4>
+            <p>All core form inputs</p>
+          </div>
+          <span>Forms</span>
+        </button>
+        <button class="command-palette-item" data-command="DatePicker">
+          <div>
+            <h4>DatePicker</h4>
+            <p>Calendar selection input</p>
+          </div>
+          <span>Forms</span>
+        </button>
+        <button class="command-palette-item" data-command="FileUpload">
+          <div>
+            <h4>FileUpload</h4>
+            <p>Drag and drop file upload</p>
+          </div>
+          <span>Forms</span>
+        </button>
+        <button class="command-palette-item" data-command="MultiSelect">
+          <div>
+            <h4>MultiSelect</h4>
+            <p>Multiple option dropdown</p>
+          </div>
+          <span>Forms</span>
+        </button>
+        <!-- Navigation -->
+        <button class="command-palette-item" data-command="Breadcrumb">
+          <div>
+            <h4>Breadcrumb</h4>
+            <p>Hierarchical navigation</p>
+          </div>
+          <span>Navigation</span>
+        </button>
+        <button class="command-palette-item" data-command="Command Palette">
+          <div>
+            <h4>Command Palette</h4>
+            <p>Global search modal</p>
+          </div>
+          <span>Navigation</span>
+        </button>
+        <button class="command-palette-item" data-command="Dropdown">
+          <div>
+            <h4>Dropdown</h4>
+            <p>Contextual overlay menu</p>
+          </div>
+          <span>Navigation</span>
+        </button>
+        <button class="command-palette-item" data-command="Sidebar">
+          <div>
+            <h4>Sidebar</h4>
+            <p>Vertical application navigation</p>
+          </div>
+          <span>Navigation</span>
+        </button>
+        <button class="command-palette-item" data-command="Tabs">
+          <div>
+            <h4>Tabs</h4>
+            <p>View switching navigation</p>
+          </div>
+          <span>Navigation</span>
+        </button>
+        <!-- Overlays -->
+        <button class="command-palette-item" data-command="Modal">
+          <div>
+            <h4>Modal</h4>
+            <p>Focused popup overlay</p>
+          </div>
+          <span>Overlays</span>
+        </button>
+        <!-- Dashboard & Analytics -->
+        <button class="command-palette-item" data-command="Activity Timeline">
+          <div>
+            <h4>Activity Timeline</h4>
+            <p>Sequential event history</p>
+          </div>
+          <span>Dashboard</span>
+        </button>
+        <button class="command-palette-item" data-command="Charts">
+          <div>
+            <h4>Charts</h4>
+            <p>Data visualization graphics</p>
+          </div>
+          <span>Dashboard</span>
+        </button>
+        <button class="command-palette-item" data-command="Dashboard Widgets">
+          <div>
+            <h4>Dashboard Widgets</h4>
+            <p>Draggable analytics panels</p>
+          </div>
+          <span>Dashboard</span>
+        </button>
+        <button class="command-palette-item" data-command="KPI Cards">
+          <div>
+            <h4>KPI Cards</h4>
+            <p>Key performance metric cards</p>
+          </div>
+          <span>Dashboard</span>
         </button>
       </div>
       <p class="command-palette-note">Tip: press Ctrl + K or Cmd + K to open quickly.</p>
@@ -1439,6 +376,7 @@ document.querySelector(".toast-btn.success")
       </div>
     </div>
   </div>
+  
   <!-- Documentation Viewer Modal -->
   <div class="modal-overlay" id="docsViewerModal" aria-hidden="true" role="dialog" aria-modal="true"
     aria-labelledby="docs-viewer-title">
@@ -1501,8 +439,5 @@ document.querySelector(".toast-btn.success")
     </div>
   </div>
 
-  <script type="module" src="scripts/app.js"></script>
-
 </body>
-
 </html>
