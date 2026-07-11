@@ -1,6 +1,6 @@
 {
   "name": "mayvio-ui",
-  "version": "3.5.0",
+  "version": "3.6.0",
   "description": "Modern, accessible and reusable UI components built with HTML, CSS and JavaScript.",
   "type": "module",
   "main": "./src/scripts/index.js",
@@ -43,10 +43,36 @@
     "./fileupload/css": "./src/components/fileupload/fileupload.css",
     "./commandpalette": "./src/components/commandpalette/index.js",
     "./commandpalette/css": "./src/components/commandpalette/commandpalette.css",
+    "./radiogroup": {
+      "types": "./src/components/radiogroup/index.ts",
+      "import": "./src/components/radiogroup/index.ts",
+      "require": "./src/components/radiogroup/index.ts"
+    },
+    "./radiogroup/css": "./src/components/radiogroup/radiogroup.css",
+    "./select": {
+      "types": "./src/components/select/index.ts",
+      "import": "./src/components/select/index.ts",
+      "require": "./src/components/select/index.ts"
+    },
+    "./select/css": "./src/components/select/select.css",
+    "./slider": {
+      "types": "./src/components/slider/index.ts",
+      "import": "./src/components/slider/index.ts",
+      "require": "./src/components/slider/index.ts"
+    },
+    "./slider/css": "./src/components/slider/slider.css",
     "./sidebar": "./src/components/sidebar/index.js",
     "./sidebar/css": "./src/components/sidebar/sidebar.css",
     "./notificationcenter": "./src/components/notificationcenter/index.js",
     "./notificationcenter/css": "./src/components/notificationcenter/notificationcenter.css",
+    "./input": "./src/components/input/index.js",
+    "./input/css": "./src/components/input/input.css",
+    "./textarea": "./src/components/textarea/index.js",
+    "./textarea/css": "./src/components/textarea/textarea.css",
+    "./checkbox": "./src/components/checkbox/index.js",
+    "./checkbox/css": "./src/components/checkbox/checkbox.css",
+    "./switch": "./src/components/switch/index.js",
+    "./switch/css": "./src/components/switch/switch.css",
     "./styles/*": "./src/styles/*",
     "./scripts/*": "./src/scripts/*"
   },

@@ -1,0 +1,75 @@
+<div class="component-header">
+  <h2>Installation Guide</h2>
+  <p>Learn how to install and configure Mayvio UI for React, Angular, and Vanilla web projects.</p>
+</div>
+
+<div class="component-card">
+  <h3>React Installation</h3>
+  <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Install the React package and its peer dependencies via npm.</p>
+  
+  <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.875rem; color: var(--text); border: 1px solid var(--border); margin-bottom: 2rem;">
+    npm install @mayvio-ui/react @mayvio-ui/core
+  </div>
+  
+  <h4>Setup</h4>
+  <p style="color: var(--text-muted); margin-bottom: 1rem;">Import the global CSS in your root file (e.g. <code>main.tsx</code> or <code>App.tsx</code>):</p>
+  <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.875rem; color: var(--text); border: 1px solid var(--border); margin-bottom: 2rem;">
+    import '@mayvio-ui/core/styles.css';
+  </div>
+  
+  <h4>Usage</h4>
+  <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.875rem; color: var(--text); border: 1px solid var(--border); margin-bottom: 3rem;">
+<pre style="margin: 0; white-space: pre-wrap;"><code>import { Button } from '@mayvio-ui/react';
+
+function App() {
+  return &lt;Button variant="primary"&gt;Click Me&lt;/Button&gt;;
+}</code></pre>
+  </div>
+
+  <hr style="border: 0; border-top: 1px solid var(--border); margin: 3rem 0;">
+
+  <h3>Angular Installation</h3>
+  <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Install the Angular package via npm.</p>
+  
+  <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.875rem; color: var(--text); border: 1px solid var(--border); margin-bottom: 2rem;">
+    npm install @mayvio-ui/angular @mayvio-ui/core
+  </div>
+  
+  <h4>Setup</h4>
+  <p style="color: var(--text-muted); margin-bottom: 1rem;">Add the global CSS to your <code>angular.json</code> styles array:</p>
+  <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.875rem; color: var(--text); border: 1px solid var(--border); margin-bottom: 2rem;">
+<pre style="margin: 0; white-space: pre-wrap;"><code>"styles": [
+  "node_modules/@mayvio-ui/core/styles.css",
+  "src/styles.css"
+]</code></pre>
+  </div>
+  
+  <h4>Usage</h4>
+  <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.875rem; color: var(--text); border: 1px solid var(--border); margin-bottom: 3rem;">
+<pre style="margin: 0; white-space: pre-wrap;"><code>import { Component } from '@angular/core';
+import { MvButton } from '@mayvio-ui/angular';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [MvButton],
+  template: `&lt;button mv-button variant="primary"&gt;Click Me&lt;/button&gt;`
+})
+export class AppComponent {}</code></pre>
+  </div>
+
+  <hr style="border: 0; border-top: 1px solid var(--border); margin: 3rem 0;">
+
+  <h3>Vanilla Integration</h3>
+  <p style="color: var(--text-muted); margin-bottom: 1.5rem;">For vanilla HTML/JS projects, install the core package.</p>
+  
+  <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.875rem; color: var(--text); border: 1px solid var(--border); margin-bottom: 2rem;">
+    npm install @mayvio-ui/core
+  </div>
+
+  <p style="color: var(--text-muted); margin-bottom: 1rem;">Alternatively, you can link it directly via unpkg/cdn in your HTML:</p>
+  <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.875rem; color: var(--text); border: 1px solid var(--border); margin-bottom: 2rem;">
+<pre style="margin: 0; white-space: pre-wrap;"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@mayvio-ui/core/styles.css"&gt;
+&lt;script src="https://unpkg.com/@mayvio-ui/core/scripts.js" defer&gt;&lt;/script&gt;</code></pre>
+  </div>
+</div>

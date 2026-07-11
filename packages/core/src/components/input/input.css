@@ -1,0 +1,68 @@
+.mv-input {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  color: var(--mv-color-text, #1e293b);
+  background-color: var(--mv-color-bg, #ffffff);
+  border: 1px solid var(--mv-color-border, #e2e8f0);
+  border-radius: var(--mv-radius-md, 0.375rem);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  outline: none;
+}
+
+.mv-input::placeholder {
+  color: var(--mv-color-text-muted, #94a3b8);
+}
+
+/* Sizes */
+.mv-input--sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.mv-input--md {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.mv-input--lg {
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+/* Focus */
+.mv-input:focus {
+  border-color: var(--mv-color-primary, #6366f1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Error */
+.mv-input--error,
+.mv-input[aria-invalid="true"] {
+  border-color: var(--mv-color-danger, #ef4444);
+}
+.mv-input--error:focus,
+.mv-input[aria-invalid="true"]:focus {
+  border-color: var(--mv-color-danger, #ef4444);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* Disabled */
+.mv-input:disabled {
+  background-color: var(--mv-color-bg-muted, #f1f5f9);
+  color: var(--mv-color-text-muted, #94a3b8);
+  cursor: not-allowed;
+}
+
+/* Dark mode overrides (assuming data-theme="dark" on root) */
+[data-theme="dark"] .mv-input {
+  color: var(--mv-color-text, #f8fafc);
+  background-color: var(--mv-color-bg-elevated, #1e293b);
+  border-color: var(--mv-color-border, #334155);
+}
+[data-theme="dark"] .mv-input:disabled {
+  background-color: var(--mv-color-bg-muted, #0f172a);
+}

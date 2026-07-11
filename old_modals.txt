@@ -1,0 +1,89 @@
+  <!-- Code Viewer Modal -->
+  <div class="modal-overlay" id="codeViewerModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="code-viewer-title">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3 id="code-viewer-title">Component Source Code</h3>
+        <button class="modal-close" aria-label="Close code viewer">✕</button>
+      </div>
+      <div class="code-viewer-tabs" role="tablist" aria-label="Code language">
+        <button role="tab" class="code-tab active" data-lang="html" aria-selected="true">HTML</button>
+        <button role="tab" class="code-tab" data-lang="css" aria-selected="false">CSS</button>
+        <button role="tab" class="code-tab" data-lang="js" aria-selected="false">JavaScript</button>
+        <button role="tab" class="code-tab" data-lang="react" aria-selected="false">React</button>
+        <button role="tab" class="code-tab" data-lang="angular" aria-selected="false">Angular</button>
+      </div>
+      <div class="modal-body code-viewer-body">
+        <div class="code-block">
+          <button class="copy-btn code-copy-btn" data-label="Copy Code"></button>
+          <pre><code id="codeViewerDisplay"></code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Documentation Viewer Modal -->
+  <div class="modal-overlay" id="docsViewerModal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="docs-viewer-title">
+    <div class="modal docs-modal">
+      <div class="modal-header">
+        <h3 id="docs-viewer-title">Mayvio UI Documentation</h3>
+        <button class="modal-close" aria-label="Close docs viewer">✕</button>
+      </div>
+      <div class="docs-modal-container">
+        <!-- Sidebar Navigation -->
+        <aside class="docs-modal-sidebar">
+          <div class="docs-sidebar-section">
+            <h4>Getting Started</h4>
+            <ul>
+              <li><button class="docs-nav-item" data-doc-target="global-integration">Integration Guide</button></li>
+              <li><button class="docs-nav-item" data-doc-target="global-accessibility">Accessibility Specs</button></li>
+            </ul>
+          </div>
+          <div class="docs-sidebar-section">
+            <h4>Components</h4>
+            <ul>
+              <li><button class="docs-nav-item" data-doc-target="accordion">Accordion</button></li>
+              <li><button class="docs-nav-item" data-doc-target="alert">Alert</button></li>
+              <li><button class="docs-nav-item" data-doc-target="avatar">Avatar</button></li>
+              <li><button class="docs-nav-item" data-doc-target="badge">Badge</button></li>
+              <li><button class="docs-nav-item" data-doc-target="breadcrumb">Breadcrumb</button></li>
+              <li><button class="docs-nav-item" data-doc-target="command-palette">Command Palette</button></li>
+              <li><button class="docs-nav-item" data-doc-target="data-grid">Data Grid</button></li>
+              <li><button class="docs-nav-item" data-doc-target="date-picker">Date Picker</button></li>
+              <li><button class="docs-nav-item" data-doc-target="dropdown">Dropdown</button></li>
+              <li><button class="docs-nav-item" data-doc-target="file-upload">File Upload</button></li>
+              <li><button class="docs-nav-item" data-doc-target="modal">Modal</button></li>
+              <li><button class="docs-nav-item" data-doc-target="multi-select">Multi-Select</button></li>
+              <li><button class="docs-nav-item" data-doc-target="notification-center">Notification Center</button></li>
+              <li><button class="docs-nav-item" data-doc-target="progress">Progress Bar</button></li>
+              <li><button class="docs-nav-item" data-doc-target="sidebar">Sidebar</button></li>
+              <li><button class="docs-nav-item" data-doc-target="skeleton">Skeleton</button></li>
+              <li><button class="docs-nav-item" data-doc-target="tabs">Tabs</button></li>
+              <li><button class="docs-nav-item" data-doc-target="theme-toggle">Theme Toggle</button></li>
+              <li><button class="docs-nav-item" data-doc-target="toast">Toast</button></li>
+              <li><button class="docs-nav-item" data-doc-target="tooltip">Tooltip</button></li>
+            </ul>
+          </div>
+          <div class="docs-sidebar-section">
+            <h4>Dashboard Components</h4>
+            <ul>
+              <li><button class="docs-nav-item" data-doc-target="kpi-card">KPI Card</button></li>
+              <li><button class="docs-nav-item" data-doc-target="chart">Analytics Chart</button></li>
+              <li><button class="docs-nav-item" data-doc-target="dashboard-widget">Dashboard Widget</button></li>
+              <li><button class="docs-nav-item" data-doc-target="activity-timeline">Activity Timeline</button></li>
+            </ul>
+          </div>
+        </aside>
+        
+        <!-- Content Area -->
+        <div class="modal-body docs-viewer-content" id="docsViewerContent">
+          <!-- Rendered markdown docs go here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="scripts/app.js"></script>
+
+</body>
+
+</html>

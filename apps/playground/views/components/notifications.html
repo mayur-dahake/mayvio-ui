@@ -1,0 +1,42 @@
+<section class="component-card notification-center-card" aria-labelledby="notifications-heading">
+            <div class="component-header">
+              <div>
+                <h2 id="notifications-heading">Notification Center</h2>
+                <p class="component-description">A lightweight panel for recent alerts, messages, and quick actions.</p>
+              </div>
+              <div class="controls">
+                <button class="control-btn" data-toggle-notifications="" aria-expanded="false">Show notifications</button>
+                <button class="control-btn" data-view-docs="notification-center">View Docs</button>
+                <button class="control-btn" data-view-code="notification-center">View Code</button>
+              </div>
+            </div>
+            <div class="notification-panel">
+              <div class="notification-item notification-item-success">
+                <div class="notification-badge" aria-hidden="true"></div>
+                <div class="notification-info">
+                  <h4>Server sync complete</h4>
+                  <p>Your workspace is now up to date.</p>
+                </div>
+                <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
+              </div>
+              <div class="notification-item notification-item-info">
+                <div class="notification-badge" aria-hidden="true"></div>
+                <div class="notification-info">
+                  <h4>New comment received</h4>
+                  <p>Alex left feedback on the project card.</p>
+                </div>
+                <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
+              </div>
+              <div class="notification-item notification-item-success">
+                <div class="notification-badge" aria-hidden="true"></div>
+                <div class="notification-info">
+                  <h4>Backup completed</h4>
+                  <p>All files have been safely backed up.</p>
+                </div>
+                <button class="notification-dismiss" aria-label="Dismiss notification">✕</button>
+              </div>
+              <div class="notification-footer">
+                <button data-clear-notifications="">Clear all</button>
+              </div>
+            </div>
+          </section>

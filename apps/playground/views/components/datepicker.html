@@ -1,0 +1,36 @@
+<section class="component-card component-card-wide" aria-labelledby="datepicker-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="datepicker-heading">Date Picker</h2>
+              <p class="component-description">Calendar popup with month navigation, single date and date range selection, Today shortcut, and keyboard support.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="date-picker">View Docs</button>
+              <button class="control-btn" data-view-code="date-picker">View Code</button>
+            </div>
+          </div>
+
+          <div class="dp-demo">
+            <div class="dp-demo-group">
+              <p class="dp-demo-label">Single Date</p>
+              <div class="dp-wrapper" id="dp-single">
+                <div class="dp-input-group">
+                  <input class="dp-input" type="text" placeholder="YYYY-MM-DD" readonly="" aria-label="Single date" aria-haspopup="dialog">
+                  <button class="dp-trigger" type="button" aria-label="Open calendar">📅</button>
+                </div>
+                <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <div class="dp-demo-group">
+              <p class="dp-demo-label">Date Range</p>
+              <div class="dp-wrapper" id="dp-range" data-range="true">
+                <div class="dp-input-group" style="width: 280px;">
+                  <input class="dp-input" type="text" placeholder="Start → End" readonly="" aria-label="Date range" aria-haspopup="dialog" style="width: 100%;">
+                  <button class="dp-trigger" type="button" aria-label="Open range calendar">📅</button>
+                </div>
+                <div class="dp-popup" role="dialog" aria-label="Calendar" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </section>

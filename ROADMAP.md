@@ -146,22 +146,20 @@ Mayvio UI is a multi-framework UI component library that provides a premium set 
 | 20 | NotificationCenter | High | ✅ |
 
 ---
-
 ## Phase 5 — Form Primitives (Tier 5 — New)
-**Status**: 🔴 Not started | **Target**: Week 6-8
+**Status**: ✅ Complete | **Target**: Week 6-8
 
 > These are missing from v3.x entirely. Every serious app needs them.
 
 | # | Component | Status |
 |---|---|---|
-| 21 | Input / TextField | 🔴 |
-| 22 | Checkbox | 🔴 |
-| 23 | RadioGroup | 🔴 |
-| 24 | Switch / Toggle | 🔴 |
-| 25 | Select | 🔴 |
-| 26 | Textarea | 🔴 |
-| 27 | Slider | 🔴 |
-
+| 21 | Input / TextField | ✅ |
+| 22 | Checkbox | ✅ |
+| 23 | RadioGroup | ✅ |
+| 24 | Switch / Toggle | ✅ |
+| 25 | Select | ✅ |
+| 26 | Textarea | ✅ |
+| 27 | Slider | ✅ |
 ---
 
 ## Phase 6 — Data & Dashboard Components (Tier 4)

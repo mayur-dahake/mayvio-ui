@@ -1,0 +1,34 @@
+<section class="component-card component-card-wide" aria-labelledby="multiselect-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="multiselect-heading">Multi-Select Dropdown</h2>
+              <p class="component-description">Advanced tag-based multi-select with search filtering, grouped options, Select All, and chip removal.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="multi-select">View Docs</button>
+              <button class="control-btn" data-view-code="multi-select">View Code</button>
+            </div>
+          </div>
+
+          <div class="ms-demo">
+            <p class="ms-demo-label">Select your tech stack</p>
+            <div class="ms-wrapper" aria-expanded="false" aria-haspopup="listbox" aria-label="Tech stack selector">
+              <div class="ms-trigger" role="combobox" tabindex="0" aria-label="Open tech stack multi-select">
+                <div class="ms-tags">
+                  <span class="ms-placeholder">Choose technologies...</span>
+                  <span class="ms-count" hidden="">0</span>
+                </div>
+              </div>
+              <div class="ms-dropdown" role="listbox" aria-multiselectable="true" aria-label="Technology options">
+                <div class="ms-search-bar">
+                  <input class="ms-search" type="search" placeholder="Search technologies..." aria-label="Search options" autocomplete="off">
+                </div>
+                <div class="ms-toolbar">
+                  <button class="ms-select-all" type="button">Select All</button>
+                  <button class="ms-clear-all" type="button" disabled="">Clear All</button>
+                </div>
+                <ul class="ms-list" role="presentation"></ul>
+              </div>
+            </div>
+          </div>
+        </section>

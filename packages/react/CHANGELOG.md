@@ -1,5 +1,16 @@
 # @mayvio-ui/react
 
+## 1.6.0
+
+### Minor Changes
+
+- Refactored Playground SPA, added Command Palette, Theme Animations, and Mobile UX.
+
+### Patch Changes
+
+- Updated dependencies
+  - mayvio-ui@3.6.0
+
 ## 1.5.0
 
 ### Minor Changes

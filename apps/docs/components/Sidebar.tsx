@@ -46,6 +46,18 @@ const nav = [
       { label: 'NotificationCenter', href: '/components/notification-center' },
     ],
   },
+  {
+    section: 'Tier 5 — Form Primitives',
+    links: [
+      { label: 'Input', href: '/components/input' },
+      { label: 'Textarea', href: '/components/textarea' },
+      { label: 'Checkbox', href: '/components/checkbox' },
+      { label: 'Switch', href: '/components/switch' },
+      { label: 'RadioGroup', href: '/components/radiogroup' },
+      { label: 'Select', href: '/components/select' },
+      { label: 'Slider', href: '/components/slider' },
+    ],
+  },
 ];
 
 export function Sidebar() {

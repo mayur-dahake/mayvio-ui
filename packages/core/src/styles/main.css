@@ -27,3 +27,10 @@
 @import "components/chart.css";
 @import "components/dashboard-widget.css";
 @import "components/activity-timeline.css";
+@import "../components/input/input.css";
+@import "../components/textarea/textarea.css";
+@import "../components/checkbox/checkbox.css";
+@import "../components/switch/switch.css";
+@import "../components/radiogroup/radiogroup.css";
+@import "../components/select/select.css";
+@import "../components/slider/slider.css";

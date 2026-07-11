@@ -1,0 +1,57 @@
+/* Slider CSS */
+.mv-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+  touch-action: none;
+  user-select: none;
+}
+
+.mv-slider-wrapper--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mv-slider-track {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background-color: var(--surface-hover);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.mv-slider-range {
+  position: absolute;
+  height: 100%;
+  background-color: var(--primary);
+}
+
+.mv-slider-thumb {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  cursor: grab;
+  transition: box-shadow 0.2s, transform 0.1s;
+  z-index: 1;
+}
+
+.mv-slider-thumb:active {
+  cursor: grabbing;
+  transform: translateX(-50%) scale(1.1);
+}
+
+.mv-slider-thumb:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.mv-slider-wrapper--disabled .mv-slider-thumb {
+  cursor: not-allowed;
+}

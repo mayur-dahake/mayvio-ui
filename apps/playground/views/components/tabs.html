@@ -1,0 +1,38 @@
+<section class="component-card component-card-wide" aria-labelledby="tabs-heading">
+          <div class="component-header">
+            <div>
+              <h2 id="tabs-heading">Tabs</h2>
+              <p class="component-description">Keyboard-navigable content switching with ARIA support.</p>
+            </div>
+            <div class="controls">
+              <button class="control-btn" data-view-docs="tabs">View Docs</button>
+              <button class="control-btn" data-view-code="tabs">View Code</button>
+            </div>
+          </div>
+
+          <div class="tabs">
+            <div role="tablist" aria-label="Component features">
+              <button role="tab" id="tab-accessibility" aria-controls="panel-accessibility">Accessibility</button>
+              <button role="tab" id="tab-performance" aria-controls="panel-performance">Performance</button>
+              <button role="tab" id="tab-theming" aria-controls="panel-theming">Theming</button>
+            </div>
+
+            <div role="tabpanel" id="panel-accessibility" aria-labelledby="tab-accessibility">
+              <h3>Built for Everyone</h3>
+              <p>Every component includes keyboard navigation, focus states, ARIA labels, and screen reader support out
+                of the box.</p>
+            </div>
+
+            <div role="tabpanel" id="panel-performance" aria-labelledby="tab-performance">
+              <h3>Zero Dependencies</h3>
+              <p>No frameworks, no build step. Lazy initialization and hardware-accelerated animations keep things fast
+                and lightweight.</p>
+            </div>
+
+            <div role="tabpanel" id="panel-theming" aria-labelledby="tab-theming">
+              <h3>CSS Variable Theming</h3>
+              <p>Switch between light and dark modes instantly. Theme preference persists via localStorage and applies
+                on reload.</p>
+            </div>
+          </div>
+        </section>

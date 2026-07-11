@@ -100,11 +100,13 @@ export function initCodeViewer() {
     }
   };
 
-  // Bind trigger clicks
-  document.querySelectorAll("[data-view-code]").forEach((btn) => {
-    btn.addEventListener("click", () => {
+  // Bind trigger clicks via event delegation
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-view-code]");
+    if (btn) {
+      e.preventDefault();
       openCodeViewer(btn.dataset.viewCode);
-    });
+    }
   });
 
   // Modal dismiss buttons

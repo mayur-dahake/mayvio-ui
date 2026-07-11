@@ -1,5 +1,11 @@
 # mayvio-ui
 
+## 3.6.0
+
+### Minor Changes
+
+- Refactored Playground SPA, added Command Palette, Theme Animations, and Mobile UX.
+
 ## 3.5.0
 
 ### Minor Changes
