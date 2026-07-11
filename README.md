@@ -76,11 +76,12 @@ To evolve Mayvio UI into a complete design system featuring:
 * **Notification Center:** Dismissible updates, clear all actions.
 * **Breadcrumb:** Hierarchy trail with current page state.
 
-### Phase 4 — Enterprise (Completed)
+### Phase 4 — Enterprise & Form Primitives (Completed)
 * **Data Grid:** Sorting, filtering, pagination, column visibility.
 * **Multi Select:** Advanced standalone multi-select with search.
 * **Date Picker:** Single date & date range picker.
 * **File Upload:** Drag-and-drop targets with upload progress.
+* **Form Primitives:** React and Angular wrappers for Checkbox, Input, RadioGroup, Select, Slider, Switch, and Textarea.
 
 ### Phase 5 — Dashboard (Planned)
 * KPI Cards (Animated counters), Analytics Widgets, charts, timeline, activity feed.
@@ -88,8 +89,8 @@ To evolve Mayvio UI into a complete design system featuring:
 ### Phase 6 — Productivity Apps (Planned)
 * Kanban Board, Notes Application, Task Manager.
 
-### Phase 7 — Developer Ecosystem (Planned)
-* Interactive documentation site, playground playground, theme builder.
+### Phase 7 — Developer Ecosystem (In Progress)
+* Interactive documentation site (Next.js), playground sandbox, theme builder.
 
 ---
 
@@ -110,10 +111,13 @@ mayvio-ui/
 │       ├── package.json
 │       └── src/               # Angular TS modules & components
 └── apps/
-    └── playground/            # Showcase app (Vite-powered index.html demo)
+    ├── playground/            # Showcase app (Vite-powered index.html demo)
+    │   ├── package.json
+    │   ├── index.html
+    │   └── scripts/           # Playground orchestrations & docs explorer
+    └── docs/                  # Interactive documentation portal (Next.js)
         ├── package.json
-        ├── index.html
-        └── scripts/           # Playground orchestrations & docs explorer
+        └── app/               # Next.js App router for component docs
 ```
 
 ---
